@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R for Paleolimnology</title>
   <meta name="description" content="A set of R tutorials for paleolimnology.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="R for Paleolimnology" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="preparing-and-loading-your-data-into-r.html">
-<link rel="next" href="computing-statistics-in-r.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -105,7 +105,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>0.1</b> Prerequisites</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#other-places-to-learn-rrstudiotidyverse"><i class="fa fa-check"></i><b>0.2</b> Other places to learn R/RStudio/Tidyverse</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#other-places-to-learn-rrstudiotidyverse"><i class="fa fa-check"></i><b>0.2</b> Other places to learn R/RStudio/tidyverse</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i><b>0.3</b> Colophon</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>1</b> Basic R</a><ul>
@@ -173,37 +173,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.5" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html#why-use-a-project"><i class="fa fa-check"></i><b>5.5</b> Why use a project?</a></li>
 <li class="chapter" data-level="5.6" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html#summary-4"><i class="fa fa-check"></i><b>5.6</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html"><i class="fa fa-check"></i><b>6</b> Computing statistics in R</a><ul>
-<li class="chapter" data-level="6.1" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#prerequisites-6"><i class="fa fa-check"></i><b>6.1</b> Prerequisites</a></li>
-<li class="chapter" data-level="6.2" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#terminology"><i class="fa fa-check"></i><b>6.2</b> Terminology</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#grouping-variables"><i class="fa fa-check"></i><b>6.2.1</b> Grouping Variables</a></li>
-<li class="chapter" data-level="6.2.2" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#paired-values"><i class="fa fa-check"></i><b>6.2.2</b> Paired Values</a></li>
-<li class="chapter" data-level="6.2.3" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#independent-observations"><i class="fa fa-check"></i><b>6.2.3</b> Independent Observations</a></li>
-<li class="chapter" data-level="6.2.4" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#graphical-test"><i class="fa fa-check"></i><b>6.2.4</b> Graphical Test</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#testing-for-normality"><i class="fa fa-check"></i><b>6.3</b> Testing for Normality</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#test-data"><i class="fa fa-check"></i><b>6.3.1</b> Test Data</a></li>
-<li class="chapter" data-level="6.3.2" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#graphical-test-1"><i class="fa fa-check"></i><b>6.3.2</b> Graphical Test</a></li>
-<li class="chapter" data-level="6.3.3" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#statistical-test"><i class="fa fa-check"></i><b>6.3.3</b> Statistical Test</a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#correlation-and-linear-regression"><i class="fa fa-check"></i><b>6.4</b> Correlation and Linear Regression</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#test-data-1"><i class="fa fa-check"></i><b>6.4.1</b> Test Data</a></li>
-<li class="chapter" data-level="6.4.2" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#graphical-test-2"><i class="fa fa-check"></i><b>6.4.2</b> Graphical Test</a></li>
-<li class="chapter" data-level="6.4.3" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#the-pearson-product-moment-correlation-coefficient-r"><i class="fa fa-check"></i><b>6.4.3</b> The Pearson product-moment correlation coefficient (<em>r</em>)</a></li>
-<li class="chapter" data-level="6.4.4" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#spearman-rho-or-rs"><i class="fa fa-check"></i><b>6.4.4</b> Spearman <span class="math inline">\(\rho\)</span> or <em>r<sub>s</sub></em></a></li>
-<li class="chapter" data-level="6.4.5" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#linear-regression"><i class="fa fa-check"></i><b>6.4.5</b> Linear Regression</a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#significant-differences"><i class="fa fa-check"></i><b>6.5</b> Significant differences</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#test-data-2"><i class="fa fa-check"></i><b>6.5.1</b> Test Data</a></li>
-<li class="chapter" data-level="6.5.2" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#graphical-test-3"><i class="fa fa-check"></i><b>6.5.2</b> Graphical Test</a></li>
-<li class="chapter" data-level="6.5.3" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#the-t-test"><i class="fa fa-check"></i><b>6.5.3</b> The t-test</a></li>
-<li class="chapter" data-level="6.5.4" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#paired-t-test"><i class="fa fa-check"></i><b>6.5.4</b> Paired t-test</a></li>
-<li class="chapter" data-level="6.5.5" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#wilcox-rank-summann-whitney-test"><i class="fa fa-check"></i><b>6.5.5</b> Wilcox Rank Sum/Mann-Whitney Test</a></li>
-<li class="chapter" data-level="6.5.6" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#the-anova-test"><i class="fa fa-check"></i><b>6.5.6</b> The ANOVA test</a></li>
-<li class="chapter" data-level="6.5.7" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#krustal-wallis-rank-sum-test"><i class="fa fa-check"></i><b>6.5.7</b> Krustal-Wallis Rank Sum Test</a></li>
-</ul></li>
-<li class="chapter" data-level="6.6" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#summary-5"><i class="fa fa-check"></i><b>6.6</b> Summary</a></li>
-</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -239,12 +208,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">5.3</span> Creating a new project</h2>
 <p>To create a new project, chose <em>New project…</em> from the <em>File</em> menu, or click on the little RStudio icon in the upper right side of your screen to open the <em>New project</em> dialog.</p>
 <div class="figure">
-<img src="03-Project-Management-Figs/new-project-1.png" alt="The project menu in RStudio is located in the upper right corner of the screen. When you have created more projects, you can easily switch between them here." />
+<img src="05-Project-Management-Figs/new-project-1.png" alt="The project menu in RStudio is located in the upper right corner of the screen. When you have created more projects, you can easily switch between them here." />
 <p class="caption">The project menu in RStudio is located in the upper right corner of the screen. When you have created more projects, you can easily switch between them here.</p>
 </div>
 <p>This will direct you to a dialog that gives you some options about how to create your RStudio project. If you already have a folder that contains your scripts and/or data, you can use the <em>Existing Directory</em> option to turn that directory into a project. To create a brand new directory that is an RStudio project, choose the <em>New Directory</em> option. This will give you another menu, from which you’ll want to choose <strong>Empty Project</strong>. This will give you a window with a few options about where to create your project.</p>
 <div class="figure">
-<img src="03-Project-Management-Figs/new-project-2.png" alt="Creating an RStudio project requires a directory name and a place where that directory lives. Name the project something descriptive and put it somwhere you can find it! The Desktop is not a bad place to start (you can move projects around after you’ve created them)." />
+<img src="05-Project-Management-Figs/new-project-2.png" alt="Creating an RStudio project requires a directory name and a place where that directory lives. Name the project something descriptive and put it somwhere you can find it! The Desktop is not a bad place to start (you can move projects around after you’ve created them)." />
 <p class="caption">Creating an RStudio project requires a directory name and a place where that directory lives. Name the project something descriptive and put it somwhere you can find it! The Desktop is not a bad place to start (you can move projects around after you’ve created them).</p>
 </div>
 </div>
@@ -252,7 +221,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">5.4</span> Organizing a project</h2>
 <p>Most projects have at least three components: <strong>data</strong>, <strong>scripts</strong>, and <strong>output</strong> (once you get to using R Markdown you might have a fourth, <strong>documents</strong>). A well-organized project has defined places where these things live. I tend to put raw data (data that I have never touched, which usually means it is from an instrument or the internet or from somebody else’s spreadsheet) in a folder called <code>raw_data/</code>, and cleaned data in a folder called <code>data/</code>. Scripts (<code>.R</code> files) can live in a folder called <code>scripts/</code>, and output can live in a folder called <code>output/</code> or <code>figures/</code>. R Markdown files (documents) need to live in the main project directory for a very good reason that you will learn when we get to using R Markdown. The point is not that you need to or should have specific folders, but that it is clear to you and others where to look for the various components of your project.</p>
 <div class="figure">
-<img src="03-Project-Management-Figs/organized-project.png" alt="A directory structure for a recent project collecting Halifax Water DOC measurements. The raw data folder contains an excel sheet from Halifax Water, and the clean_data.R script reads the excel sheet and generates halifax_wq.csv, which is read by all the scripts that do analysis and generate figures within the project." />
+<img src="05-Project-Management-Figs/organized-project.png" alt="A directory structure for a recent project collecting Halifax Water DOC measurements. The raw data folder contains an excel sheet from Halifax Water, and the clean_data.R script reads the excel sheet and generates halifax_wq.csv, which is read by all the scripts that do analysis and generate figures within the project." />
 <p class="caption">A directory structure for a recent project collecting Halifax Water DOC measurements. The raw data folder contains an excel sheet from Halifax Water, and the clean_data.R script reads the excel sheet and generates halifax_wq.csv, which is read by all the scripts that do analysis and generate figures within the project.</p>
 </div>
 </div>
@@ -264,6 +233,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">5.6</span> Summary</h2>
 <p>This tutorial suggested one method of organizing R scripts and data to leverage the full potential of R and RStudio. Projects are an easy way to collect data, scripts, and output together in the same folder so that output can be replicated and analysis in scripts can be easily regenerated by yourself and others.</p>
 
+<div id="refs" class="references">
+<div>
+<p>Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. New York: O’Reily. <a href="http://r4ds.had.co.nz/" class="uri">http://r4ds.had.co.nz/</a>.</p>
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -271,8 +245,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="preparing-and-loading-your-data-into-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="computing-statistics-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="preparing-and-loading-your-data-into-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -290,10 +264,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -312,17 +287,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
