@@ -1,0 +1,5 @@
+book_filename: "r4paleolim"
+rmd_subdir: yes
+language:
+  ui:
+    chapter_name: "Tutorial "

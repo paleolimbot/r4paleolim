@@ -1,0 +1,36 @@
+
+# Preparing and Loading your data into R
+
+Intro
+
+Draws from [data transformation](http://r4ds.had.co.nz/transform.html) and [data import](http://r4ds.had.co.nz/data-import.html) from [R for Data Science](http://r4ds.had.co.nz/).
+
+## Prerequisites
+
+The prerequisites for this tutorial are `tidyverse`. If this package isn't installed, you'll have to install it using `install.packages()`.
+
+```{r, eval = FALSE}
+install.packages("tidyverse")
+```
+
+Load the package when you're done! If there are errors, you may have not installed the above packages correctly!
+
+```{r}
+library(tidyverse)
+```
+
+Finally, you will need to obtain the sample data. We will be using the same sample data as before (`valley_climate`), but instead you will be using data files that contain this data in various forms. You can download this data in [comma-separated format (CSV)](data/valley_climate.csv), [tab-separated format (TSV)](data/valley_climate.tsv), and [Microsoft Excel format](data/valley_climate.xlsx), as well as the raw files (like you would download from [Environment Canada](http://climate.weather.gc.ca/)) for [Kentville](data/valley_climate_kentville.csv) and [Greenwood](data/valley_climate_greenwood.csv). You'll need all six files to do the excercises in this tutorial.
+
+## Preparing data
+
+Data comes in a nearly infinite variety of formats and configurations. Occasionally, you are in charge of entering data yourself, in which case you can plan ahead on how your data looks.
+
+## Loading data
+
+## Cleaning data
+
+## Summary
+
+Tutorial summary
+
+Draws from [data transformation](http://r4ds.had.co.nz/transform.html) and [data import](http://r4ds.had.co.nz/data-import.html) from [R for Data Science](http://r4ds.had.co.nz/).

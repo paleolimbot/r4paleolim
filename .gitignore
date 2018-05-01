@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+_book
+ec.cache
+.DS_Store
+_bookdown_files
