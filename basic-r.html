@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Paleolimnology</title>
+  <meta name="description" content="A set of R tutorials for paleolimnology.">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Paleolimnology" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A set of R tutorials for paleolimnology." />
+  <meta name="github-repo" content="paleolimbot/r4paleolim" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Paleolimnology" />
+  
+  <meta name="twitter:description" content="A set of R tutorials for paleolimnology." />
+  
+
+<meta name="author" content="Brent Thorne and Dewey Dunnington">
+
+
+<meta name="date" content="2018-05-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="working-with-tables-using-the-tidyverse.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Paleolimnology</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>0.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#other-places-to-learn-rrstudiotidyverse"><i class="fa fa-check"></i><b>0.2</b> Other places to learn R/RStudio/Tidyverse</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i><b>0.3</b> Colophon</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>1</b> Basic R</a><ul>
+<li class="chapter" data-level="1.1" data-path="basic-r.html"><a href="basic-r.html#prerequisites-1"><i class="fa fa-check"></i><b>1.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.2" data-path="basic-r.html"><a href="basic-r.html#expressions-and-variables"><i class="fa fa-check"></i><b>1.2</b> Expressions and Variables</a></li>
+<li class="chapter" data-level="1.3" data-path="basic-r.html"><a href="basic-r.html#functions"><i class="fa fa-check"></i><b>1.3</b> Functions</a></li>
+<li class="chapter" data-level="1.4" data-path="basic-r.html"><a href="basic-r.html#vectors"><i class="fa fa-check"></i><b>1.4</b> Vectors</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-r.html"><a href="basic-r.html#indexing"><i class="fa fa-check"></i><b>1.5</b> Indexing</a></li>
+<li class="chapter" data-level="1.6" data-path="basic-r.html"><a href="basic-r.html#missing-values"><i class="fa fa-check"></i><b>1.6</b> Missing Values</a></li>
+<li class="chapter" data-level="1.7" data-path="basic-r.html"><a href="basic-r.html#data-frames"><i class="fa fa-check"></i><b>1.7</b> Data Frames</a></li>
+<li class="chapter" data-level="1.8" data-path="basic-r.html"><a href="basic-r.html#loading-packages"><i class="fa fa-check"></i><b>1.8</b> Loading Packages</a></li>
+<li class="chapter" data-level="1.9" data-path="basic-r.html"><a href="basic-r.html#using-the-script-editor"><i class="fa fa-check"></i><b>1.9</b> Using the Script Editor</a></li>
+<li class="chapter" data-level="1.10" data-path="basic-r.html"><a href="basic-r.html#the-environment"><i class="fa fa-check"></i><b>1.10</b> The Environment</a></li>
+<li class="chapter" data-level="1.11" data-path="basic-r.html"><a href="basic-r.html#excercises"><i class="fa fa-check"></i><b>1.11</b> Excercises</a></li>
+<li class="chapter" data-level="1.12" data-path="basic-r.html"><a href="basic-r.html#summary"><i class="fa fa-check"></i><b>1.12</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html"><i class="fa fa-check"></i><b>2</b> Working with Tables using the Tidyverse</a><ul>
+<li class="chapter" data-level="2.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#prerequisites-2"><i class="fa fa-check"></i><b>2.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2.2" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>2.2</b> Viewing a Data Frame</a></li>
+<li class="chapter" data-level="2.3" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#selecting-columns"><i class="fa fa-check"></i><b>2.3</b> Selecting Columns</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#excercises-1"><i class="fa fa-check"></i><b>2.3.1</b> Excercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#filtering-rows"><i class="fa fa-check"></i><b>2.4</b> Filtering Rows</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#exercises"><i class="fa fa-check"></i><b>2.4.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#selecting-and-filtering"><i class="fa fa-check"></i><b>2.5</b> Selecting and Filtering</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#exercises-1"><i class="fa fa-check"></i><b>2.5.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#the-pipe"><i class="fa fa-check"></i><b>2.6</b> The Pipe (%&gt;%)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#exercises-2"><i class="fa fa-check"></i><b>2.6.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#sorting-a-data-frame"><i class="fa fa-check"></i><b>2.7</b> Sorting A Data Frame</a></li>
+<li class="chapter" data-level="2.8" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#distinct-values"><i class="fa fa-check"></i><b>2.8</b> Distinct Values</a></li>
+<li class="chapter" data-level="2.9" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#summarising-a-data-frame"><i class="fa fa-check"></i><b>2.9</b> Summarising A Data Frame</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#excercises-2"><i class="fa fa-check"></i><b>2.9.1</b> Excercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#extracting-columns"><i class="fa fa-check"></i><b>2.10</b> Extracting Columns</a></li>
+<li class="chapter" data-level="2.11" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#base-r-subsetting-vs.select-and-filter"><i class="fa fa-check"></i><b>2.11</b> Base R Subsetting vs. select() and filter()</a></li>
+<li class="chapter" data-level="2.12" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#summary-1"><i class="fa fa-check"></i><b>2.12</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html"><i class="fa fa-check"></i><b>3</b> Creating Visualizations using ggplot</a><ul>
+<li class="chapter" data-level="3.1" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#prerequisites-3"><i class="fa fa-check"></i><b>3.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="3.2" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#using-ggplot"><i class="fa fa-check"></i><b>3.2</b> Using ggplot</a></li>
+<li class="chapter" data-level="3.3" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#aesthetics"><i class="fa fa-check"></i><b>3.3</b> Aesthetics</a></li>
+<li class="chapter" data-level="3.4" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#geometries"><i class="fa fa-check"></i><b>3.4</b> Geometries</a></li>
+<li class="chapter" data-level="3.5" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#facets"><i class="fa fa-check"></i><b>3.5</b> Facets</a></li>
+<li class="chapter" data-level="3.6" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#make-it-look-pretty"><i class="fa fa-check"></i><b>3.6</b> Make it look pretty</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#labels"><i class="fa fa-check"></i><b>3.6.1</b> Labels</a></li>
+<li class="chapter" data-level="3.6.2" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#scales"><i class="fa fa-check"></i><b>3.6.2</b> Scales</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#summary-2"><i class="fa fa-check"></i><b>3.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html"><i class="fa fa-check"></i><b>4</b> Preparing and Loading your data into R</a><ul>
+<li class="chapter" data-level="4.1" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html#prerequisites-4"><i class="fa fa-check"></i><b>4.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="4.2" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html#preparing-data"><i class="fa fa-check"></i><b>4.2</b> Preparing data</a></li>
+<li class="chapter" data-level="4.3" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html#loading-data"><i class="fa fa-check"></i><b>4.3</b> Loading data</a></li>
+<li class="chapter" data-level="4.4" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html#cleaning-data"><i class="fa fa-check"></i><b>4.4</b> Cleaning data</a></li>
+<li class="chapter" data-level="4.5" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html#summary-3"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html"><i class="fa fa-check"></i><b>5</b> Using RStudio Projects</a><ul>
+<li class="chapter" data-level="5.1" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html#prerequisites-5"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="5.2" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html#projects"><i class="fa fa-check"></i><b>5.2</b> Projects</a></li>
+<li class="chapter" data-level="5.3" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html#creating-a-new-project"><i class="fa fa-check"></i><b>5.3</b> Creating a new project</a></li>
+<li class="chapter" data-level="5.4" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html#organizing-a-project"><i class="fa fa-check"></i><b>5.4</b> Organizing a project</a></li>
+<li class="chapter" data-level="5.5" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html#why-use-a-project"><i class="fa fa-check"></i><b>5.5</b> Why use a project?</a></li>
+<li class="chapter" data-level="5.6" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html#summary-4"><i class="fa fa-check"></i><b>5.6</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html"><i class="fa fa-check"></i><b>6</b> Computing statistics in R</a><ul>
+<li class="chapter" data-level="6.1" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#prerequisites-6"><i class="fa fa-check"></i><b>6.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="6.2" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#terminology"><i class="fa fa-check"></i><b>6.2</b> Terminology</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#grouping-variables"><i class="fa fa-check"></i><b>6.2.1</b> Grouping Variables</a></li>
+<li class="chapter" data-level="6.2.2" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#paired-values"><i class="fa fa-check"></i><b>6.2.2</b> Paired Values</a></li>
+<li class="chapter" data-level="6.2.3" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#independent-observations"><i class="fa fa-check"></i><b>6.2.3</b> Independent Observations</a></li>
+<li class="chapter" data-level="6.2.4" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#graphical-test"><i class="fa fa-check"></i><b>6.2.4</b> Graphical Test</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#testing-for-normality"><i class="fa fa-check"></i><b>6.3</b> Testing for Normality</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#test-data"><i class="fa fa-check"></i><b>6.3.1</b> Test Data</a></li>
+<li class="chapter" data-level="6.3.2" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#graphical-test-1"><i class="fa fa-check"></i><b>6.3.2</b> Graphical Test</a></li>
+<li class="chapter" data-level="6.3.3" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#statistical-test"><i class="fa fa-check"></i><b>6.3.3</b> Statistical Test</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#correlation-and-linear-regression"><i class="fa fa-check"></i><b>6.4</b> Correlation and Linear Regression</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#test-data-1"><i class="fa fa-check"></i><b>6.4.1</b> Test Data</a></li>
+<li class="chapter" data-level="6.4.2" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#graphical-test-2"><i class="fa fa-check"></i><b>6.4.2</b> Graphical Test</a></li>
+<li class="chapter" data-level="6.4.3" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#the-pearson-product-moment-correlation-coefficient-r"><i class="fa fa-check"></i><b>6.4.3</b> The Pearson product-moment correlation coefficient (<em>r</em>)</a></li>
+<li class="chapter" data-level="6.4.4" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#spearman-rho-or-rs"><i class="fa fa-check"></i><b>6.4.4</b> Spearman <span class="math inline">\(\rho\)</span> or <em>r<sub>s</sub></em></a></li>
+<li class="chapter" data-level="6.4.5" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#linear-regression"><i class="fa fa-check"></i><b>6.4.5</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#significant-differences"><i class="fa fa-check"></i><b>6.5</b> Significant differences</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#test-data-2"><i class="fa fa-check"></i><b>6.5.1</b> Test Data</a></li>
+<li class="chapter" data-level="6.5.2" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#graphical-test-3"><i class="fa fa-check"></i><b>6.5.2</b> Graphical Test</a></li>
+<li class="chapter" data-level="6.5.3" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#the-t-test"><i class="fa fa-check"></i><b>6.5.3</b> The t-test</a></li>
+<li class="chapter" data-level="6.5.4" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#paired-t-test"><i class="fa fa-check"></i><b>6.5.4</b> Paired t-test</a></li>
+<li class="chapter" data-level="6.5.5" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#wilcox-rank-summann-whitney-test"><i class="fa fa-check"></i><b>6.5.5</b> Wilcox Rank Sum/Mann-Whitney Test</a></li>
+<li class="chapter" data-level="6.5.6" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#the-anova-test"><i class="fa fa-check"></i><b>6.5.6</b> The ANOVA test</a></li>
+<li class="chapter" data-level="6.5.7" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#krustal-wallis-rank-sum-test"><i class="fa fa-check"></i><b>6.5.7</b> Krustal-Wallis Rank Sum Test</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="computing-statistics-in-r.html"><a href="computing-statistics-in-r.html#summary-5"><i class="fa fa-check"></i><b>6.6</b> Summary</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Paleolimnology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basic-r" class="section level1">
+<h1><span class="header-section-number">Tutorial 1</span> Basic R</h1>
+<p>When you open RStudio, you are presented with the ominous <code>&gt;</code> of the R console. By the end of this tutorial, hopefully that <code>&gt;</code> should fill you with a feeling of hope and opportunity, for magical things can happen when you type the right thing after the <code>&gt;</code>. This short introduction will get you started with the R console so that when we introduce more powerful functions, you can understand what R is doing at the base level! The tutorial is loosely based on the <a href="http://r4ds.had.co.nz/workflow-basics.html">Workflow: basics</a> tutorial in the free online book, <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
+<div id="prerequisites-1" class="section level2">
+<h2><span class="header-section-number">1.1</span> Prerequisites</h2>
+<p>To complete this tutorial, you will need R and RStudio installed, and RStudio open. If you can see the <code>&gt;</code> of the R console in the lower left part of your screen, you are good to go!</p>
+<div class="figure">
+<img src="01-Basic-R-Figs/r_console.png" alt="The basic R console." />
+<p class="caption">The basic R console.</p>
+</div>
+</div>
+<div id="expressions-and-variables" class="section level2">
+<h2><span class="header-section-number">1.2</span> Expressions and Variables</h2>
+<p>Let’s start with the basics. Try typing in something like this at the prompt:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">5</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>As you can see, R works just like a calculator and evaluates all of these <strong>expressions</strong> just like you would expect. If we would like to save the result of one of these expressions we can assign that value to a <strong>variable</strong> like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<p>Then, to view the value of <code>x</code> we can just type <code>x</code> at the console, and R will show us the value.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> x</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>The <code>&lt;-</code> means “assign the value on the right to the variable on the left”. We can also use <code>x</code> in any expression and R will substitute its value in like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x <span class="op">+</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>An <strong>expression</strong> is something that R can evaluate to produce a value, like <code>2+2</code> or <code>x + 2</code>. Any time you type this in the console without assigning it to a <strong>variable</strong>, R will print out the value. In fact, any time you type anything into the R console, R is evaluating that expression, which may or may not return a value. If there is no value returned, R won’t print anything when you press enter.</p>
+<p>So far we’ve just used numbers, but often we need to enter text into R. Whenever we do this, we surround the text in quotes, like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mytext &lt;-<span class="st"> &quot;I am text&quot;</span></code></pre></div>
+<p>Text (called <strong>character</strong> vectors) are one of many data types available in R.</p>
+</div>
+<div id="functions" class="section level2">
+<h2><span class="header-section-number">1.3</span> Functions</h2>
+<p>A function is some kind of operation that takes one or more <strong>arguments</strong> (input values) and produces a <strong>return value</strong> (output value). The <code>sqrt()</code> function is a good example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Here, <code>4</code> is an <strong>argument</strong>, and the function <strong>returns</strong> the square root of that, which is <code>2</code>. Functions can take more arguments, like the <code>max</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">10</span>)</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>Here we are giving the <code>max</code> function 5 arguments, of which it returns the maximum. One other way we specify arguments is by <strong>keyword arguments</strong>, like in the <code>paste</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;string1&quot;</span>, <span class="st">&quot;string2&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;string1_string2&quot;</code></pre>
+<p>The <code>paste</code> function takes its arguments and combines them using the <code>sep</code> that we specify, in this case <code>&quot;_&quot;</code>. The function <strong>returns</strong> this string. Many functions in R have many many arguments and usually we only want to modify one or two of interest to us. The format is always <code>key=value</code>, where <code>key</code> is the name of the keyword and <code>value</code> is some <strong>expression</strong> we would like to use as the value for that argument.</p>
+<p>R contains thousands of functions that do most of what you could possibly imagine with regards to data and statistics, but remembering which one you want and how to use it can be difficult. Luckily, RStudio makes it easy using tab autocompletion and easy access to help files. To autocomplete, start typing the name of the function and press the <code>[Tab]</code> key (or <code>Ctrl+Space</code>), and RStudio will helpfully provide you with suggestions.</p>
+<p>To access the documentation for a particular function, you can type <code>?</code> in front of the function name and press return, and RStudio will open the help file for you if it exists.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?paste</code></pre></div>
+<p>Will bring up the following:</p>
+<blockquote>
+<h4 id="description"><span class="header-section-number">1.3</span> Description</h4>
+</blockquote>
+<blockquote>
+<p>Concatenate vectors after converting to character.</p>
+</blockquote>
+<blockquote>
+<h4 id="usage"><span class="header-section-number">1.3</span> Usage</h4>
+<pre><code>paste (..., sep = &quot; &quot;, collapse = NULL)
+paste0(..., collapse = NULL)</code></pre>
+<h4 id="arguments"><span class="header-section-number">1.3</span> Arguments</h4>
+<table>
+<tr valign="top">
+<td>
+<code>…</code>
+</td>
+<td>
+<p>
+one or more <span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> objects, to be converted to character vectors.
+</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<code>sep</code>
+</td>
+<td>
+<p>
+a character string to separate the terms. Not <code><a href="NA.html">NA_character_</a></code>.
+</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<code>collapse</code>
+</td>
+<td>
+<p>
+an optional character string to separate the results. Not <code><a href="NA.html">NA_character_</a></code>.
+</p>
+</td>
+</tr>
+</table>
+</blockquote>
+<p>Note that each of these <strong>arguments</strong> can be specified by <strong>keyword</strong>, and have default values that we can see in the <strong>usage</strong> section. The <code>...</code> means that we can pass any number of arguments to the function. There’s too many functions in R to keep in your head at one time, so getting good at reading these help files is very useful!</p>
+</div>
+<div id="vectors" class="section level2">
+<h2><span class="header-section-number">1.4</span> Vectors</h2>
+<p>So far we’ve just been dealing with single values like <code>2+2</code> or <code>&quot;mystring&quot;</code>, but the real power of R is that it can operate easily on large lists of data, so it makes sense that it provides us with an easy way to work with this data. These lists of data are called <strong>vectors</strong>, and we create them using the <code>c</code> function (<code>c</code> stands for <strong>concatenate</strong>, or join together).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>)
+myvector</code></pre></div>
+<pre><code>## [1] 10  9  8  7  2</code></pre>
+<p>Here the <code>c</code> function took our <strong>arguments</strong> of 10, 9, 8, 7, and 2, and <strong>returned</strong> a <strong>vector</strong>, which we assigned to the variable named <code>myvector</code>. When we evaluated <code>myvector</code>, it printed out the list of values it contained.</p>
+<p>Vectors don’t just have to contain numbers, they can contain strings as well.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mytextvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;word1&quot;</span>, <span class="st">&quot;word2&quot;</span>, <span class="st">&quot;word3&quot;</span>)
+mytextvector</code></pre></div>
+<pre><code>## [1] &quot;word1&quot; &quot;word2&quot; &quot;word3&quot;</code></pre>
+<p>Here the <code>c</code> function took our <strong>arguments</strong> and <strong>returned</strong> a <strong>vector</strong> of strings, which we assigned to the variable <code>mytextvector</code>.</p>
+<p>It is common to have to generate a vector of all the integer values between two numbers, so R provides a short form for this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">20</span><span class="op">:</span><span class="dv">12</span></code></pre></div>
+<pre><code>## [1] 20 19 18 17 16 15 14 13 12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myothervector &lt;-<span class="st"> </span><span class="dv">13</span><span class="op">:</span><span class="dv">16</span>
+myothervector</code></pre></div>
+<pre><code>## [1] 13 14 15 16</code></pre>
+<p>You can also use an <strong>expression</strong> on either side of the <code>:</code>, like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">5</span><span class="op">^</span><span class="dv">2</span>)<span class="op">:</span>(<span class="dv">3</span><span class="op">*</span><span class="dv">10</span>)</code></pre></div>
+<pre><code>## [1] 25 26 27 28 29 30</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">start &lt;-<span class="st"> </span><span class="dv">25</span>
+end &lt;-<span class="st"> </span>start <span class="op">+</span><span class="st"> </span><span class="dv">5</span>
+start<span class="op">:</span>end</code></pre></div>
+<pre><code>## [1] 25 26 27 28 29 30</code></pre>
+</div>
+<div id="indexing" class="section level2">
+<h2><span class="header-section-number">1.5</span> Indexing</h2>
+<p>Now we’ve created vectors, but to get at what’s inside them we need to retrieve values using an <strong>index</strong>. We do this using square brackets like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>)
+myvector[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector[<span class="dv">5</span>]</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector[<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>This code creates a vector, assigns it to the variable <code>myvector</code>, then retrieves the 1st, 5th, and 3rd value stored in that vector. If we would like multiple values from the vector, we can pass multiple values as indices, like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>)]</code></pre></div>
+<pre><code>## [1] 10  2  8</code></pre>
+<p>You’ll notice that the index that we’re using is actually a vector itself! I know, we’re using a vector to index a vector and it’s a little trippy, but it’s incredibly useful. You’ll remember that we can easily create vectors of sequential integers, which we can use to get a sequence of values from a vector by using it as an index.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> myvector[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] 10  9  8</code></pre>
+<p>This would be equivalent to:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> myvector[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)]</code></pre></div>
+<pre><code>## [1] 10  9  8</code></pre>
+<p>There is one other useful way to index a vector using a vector, which is to use a <code>TRUE</code>/<code>FALSE</code> vector. This is probably the most useful of the indexing methods, because it allows you to do things like:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector[myvector <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>]</code></pre></div>
+<pre><code>## [1] 10  9  8</code></pre>
+<p>This works because <code>myvector &gt; 7</code> is, itself, a <code>TRUE</code>/<code>FALSE</code> vector with the same length as <code>myvector</code>, indicating whether or not it is greater than 7 at any given position.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
+</div>
+<div id="missing-values" class="section level2">
+<h2><span class="header-section-number">1.6</span> Missing Values</h2>
+<p>Missing values are represented in R using <code>NA</code>, or “not assigned”. The fact that R handles missing values is one of the best reasons to use R for data analysis, because missing values are common in real data. <code>NA</code> values are propogated by R functions, meaning that if you take the <code>mean()</code> of a vector containing a missing value, it will give you <code>NA</code> as the average!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>This is rarely what you want, but is a good practice to explicitly handle missing values in your code, and R forces you to do this. To avoid getting an NA back, you can use <code>na.rm = TRUE</code>, an argument that is available in many R functions.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</div>
+<div id="data-frames" class="section level2">
+<h2><span class="header-section-number">1.7</span> Data Frames</h2>
+<p>The vast majority of data in R is kept in a <strong>data frame</strong>, which is a collection of <strong>vectors</strong> of the same length. You can think of a <strong>data frame</strong> as a table, with each column in the table being of the same type (numeric, character, TRUE/FALSE, etc.). In the following tutorials we will use a modern version of the data frame called a <strong>tibble</strong>, which behaves more predictably than base R’s version. For now, we will use base R’s function to create a <strong>data frame</strong>, <code>data.frame()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_data_frame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">number =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>),
+                            <span class="dt">is_one =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>))
+my_data_frame</code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   number name  is_one
+##    &lt;dbl&gt; &lt;fct&gt; &lt;lgl&gt; 
+## 1   1.00 one   T     
+## 2   2.00 two   F     
+## 3   3.00 three F</code></pre>
+<p>The syntax for creating a <strong>data frame</strong> is <code>data.frame(column_name = value)</code>. The above data frame has three columns (<code>number</code>, a numeric column, <code>name</code>, a character column, and <code>is_one</code>, a logical TRUE/FALSE column). You can get these values as vectors again using the <code>$</code> operator, which allows you to extract a vector from a data frame.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_data_frame<span class="op">$</span>number</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_data_frame<span class="op">$</span>name</code></pre></div>
+<pre><code>## [1] one   two   three
+## Levels: one three two</code></pre>
+<p>(Whoa! What does “Levels” mean!? Don’t worry about this for now…it is one of the reasons we will be using the <code>tibble()</code> function to create data frames in the following tutorials.)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_data_frame<span class="op">$</span>is_one</code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE</code></pre>
+<p>You can think of data frames a collection of vectors (<strong>variables</strong>) having the same number of elements. The number of elements has to be equal for all columns, meaning the <em>i</em><sup>th</sup> value of each vector forms an <strong>observation</strong>. Data in this form is very useful and is the subject of most of the following tutorials.</p>
+</div>
+<div id="loading-packages" class="section level2">
+<h2><span class="header-section-number">1.8</span> Loading Packages</h2>
+<p>Basic R functionality is designed to provide basic functions to help with data analysis, but may add-ons are available and code you find online (including here, shortly) will often tell you to load a “package” using <code>library()</code>. This will be a call to the <code>library()</code> function in the form <code>library(packagename)</code>, where <code>packagename</code> is the name of the package which contains the functions you are interested in using (all of the subsequent tutorials will use <code>library(tidyverse)</code>, because the <code>tidyverse</code> package contains many useful functions that you will use on a regular basis. When you call <code>library(packagename)</code>, it will make these functions available to you. Occasionally you will see something like <code>packagename::function_name()</code>, which is a method to use a function without making <em>all</em> of the functions in a package. This is equivalent to typing <code>library(packagename)</code> then <code>function_name()</code> on the next line. You can install packages using <code>install.packages(&quot;packagename&quot;)</code> (note the quotes around <code>packagename</code>!).</p>
+<p>For example, let’s install the <code>tidyverse</code> package now, since you’ll be using it in the rest of this series.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.pacakges</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<p>Then, load it using <code>library()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre><code>## ── Attaching packages ──────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
+## ✔ tidyr   0.7.2     ✔ stringr 1.3.0
+## ✔ readr   1.1.1     ✔ forcats 0.2.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<p>Finally, we are ready to call a function from the package. The <code>tidyverse</code> package actually installs and loads a family of useful packages for us, a list of which we can access using <code>tidyverse_packages()</code>. Try it!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tidyverse_packages</span>()</code></pre></div>
+<pre><code>##  [1] &quot;broom&quot;       &quot;cli&quot;         &quot;crayon&quot;      &quot;dplyr&quot;       &quot;dbplyr&quot;     
+##  [6] &quot;forcats&quot;     &quot;ggplot2&quot;     &quot;haven&quot;       &quot;hms&quot;         &quot;httr&quot;       
+## [11] &quot;jsonlite&quot;    &quot;lubridate&quot;   &quot;magrittr&quot;    &quot;modelr&quot;      &quot;purrr&quot;      
+## [16] &quot;readr&quot;       &quot;readxl\n(&gt;=&quot; &quot;reprex&quot;      &quot;rlang&quot;       &quot;rstudioapi&quot; 
+## [21] &quot;rvest&quot;       &quot;stringr&quot;     &quot;tibble&quot;      &quot;tidyr&quot;       &quot;xml2&quot;       
+## [26] &quot;tidyverse&quot;</code></pre>
+</div>
+<div id="using-the-script-editor" class="section level2">
+<h2><span class="header-section-number">1.9</span> Using the Script Editor</h2>
+<p>In reality, very little of the code you type will be directly in the prompt. Instead, you will use RStudio’s script editor to run commands so that you can go back and edit them or run them from the beginning. To create a new R script, choose <em>File</em>, <em>New File</em>, and <em>R script</em> (you can also choose the little green “+” button at the top left of the console window). A blank R script should appear in a new tab.</p>
+<div class="figure">
+<img src="01-Basic-R-Figs/r_editor.png" alt="A new R script in the RStudio script editor." />
+<p class="caption">A new R script in the RStudio script editor.</p>
+</div>
+<p>When you type a command in the editor and press enter, nothing happens! This is because the editor is meant to build script that contain multiple lines, unlike the console, which is meant to execute a single line at a time. To run a command you have typed in the script editor, press Ctrl+Enter (Command+Enter on a Mac). You can even select multiple lines, press Ctrl+Enter, and they will all run at once! You can also save the script and choose <em>Source</em> to run the whole thing. It is good practice to keep all of your code in a script somewhere. Typing it on a console repeatedly is hard work, and leads to errors!</p>
+</div>
+<div id="the-environment" class="section level2">
+<h2><span class="header-section-number">1.10</span> The Environment</h2>
+<p>When you’ve assigned a bunch of variables, it can be tricky to keep track of which ones are where and contain what! Hopefully you have given them short but descriptive names, but if you happen to forget you can check the “Environment” tab in RStudio (in the upper right part of the window). If you’d like to start fresh you can clear the environment (use the little broom icon or go to Session/Clear Workspace), and if you <em>really</em> want to start fresh, you can restart R using Session/Restart R. This will clear your workspace and unload all the packages you loaded using <code>library()</code>. This is a good way to make sure all of your analysis has been encapsulated by the script, since you can Restart R and <em>Source</em> your script to replicate your work.</p>
+<div class="figure">
+<img src="01-Basic-R-Figs/r_environment.png" alt="The RStudio Environment Tab" />
+<p class="caption">The RStudio Environment Tab</p>
+</div>
+<p>By default, R will save your session when you quit and reload the variables you had previously assigned when you reopen it. This is dangerous, because even though you created an object, you may not be able to create it again! I highly reccomend using the script editor to encapsulate all of your code, and disable the automatic loading/saving of your workspace. You can do this in RStuio’s Preferences (or “Global Options” on Windows/Linux) by setting “Save workspace on exit” to “Never”, and unchecking “Restore .RData into workspace at startup”.</p>
+<div class="figure">
+<img src="01-Basic-R-Figs/r_options.png" alt="The RStudio Global Options/Preferences window." />
+<p class="caption">The RStudio Global Options/Preferences window.</p>
+</div>
+</div>
+<div id="excercises" class="section level2">
+<h2><span class="header-section-number">1.11</span> Excercises</h2>
+<p>To practice the basics of R, complete the very first <a href="http://swirlstats.com/">swirl</a> module, R Programming / Basic Building Blocks. To do this, you’ll need to install and load <strong>swirl</strong> by typing this at the R prompt:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)
+<span class="kw">library</span>(swirl)
+<span class="kw">swirl</span>()</code></pre></div>
+<p>You should get a friendly greeting that will prompt you to choose a course (you want number 1, “R Programming: The basics of programming in R”) and a module (you want number 1, “Basic Building Blocks”).</p>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">1.12</span> Summary</h2>
+<p>In this lesson we covered <strong>expressions</strong>, <strong>variables</strong>, <strong>functions</strong>, <strong>vectors</strong>, and <strong>indexing</strong>, all of which will help you get the most out of the tutorials in this series. For more information, check out the <a href="http://r4ds.had.co.nz/workflow-basics.html">Workflow: basics</a> and <a href="http://r4ds.had.co.nz/workflow-scripts.html">Workflow: scripts</a> tutorial in the free online book, <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-with-tables-using-the-tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/paleolimbot/r4paleolim/edit/master/01-Basic-R.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
