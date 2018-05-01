@@ -3,3 +3,5 @@ Title: R for Paleolimnology
 Description: R for Paleolimnology
 Version: 0.0.1
 Imports: bookdown, tidyverse, rclimateca
+URL: https://github.com/paleolimbot/r4paleolim
+BugReports: https://github.com/paleolimbot/r4paleolim/issues
