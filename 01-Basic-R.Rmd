@@ -1,13 +1,23 @@
 
 # Basic R
 
-When you open RStudio, you are presented with the ominous `>` of the R console. By the end of this tutorial, hopefully that `>` should fill you with a feeling of hope and opportunity, for magical things can happen when you type the right thing after the `>`. This short introduction will get you started with the R console so that when we introduce more powerful functions, you can understand what R is doing at the base level! The tutorial is loosely based on the [Workflow: basics](http://r4ds.had.co.nz/workflow-basics.html) tutorial in the free online book, [R for Data Science](http://r4ds.had.co.nz/).
+When you open RStudio, you are presented with the ominous `>` of the R console. By the end of this tutorial, hopefully that `>` should fill you with a feeling of hope and opportunity, for magical things can happen when you type the right thing after the `>`. This short introduction will get you started with the R console so that when we introduce more powerful functions, you can understand what R is doing at the base level! The tutorial is loosely based on the [Workflow: basics](http://r4ds.had.co.nz/workflow-basics.html) tutorial in the free online book, [R for Data Science](http://r4ds.had.co.nz/) [@r4ds].
+
+![The basic R console.](01-Basic-R-Figs/r_console.png)
 
 ## Prerequisites
 
-To complete this tutorial, you will need R and RStudio installed, and RStudio open. If you can see the `>` of the R console in the lower left part of your screen, you are good to go!
+The prerequisite for this tutorial is the `tidyverse` package. If this package isn't installed, you'll have to install it using `install.packages()`, which you can type after the `>`.
 
-![The basic R console.](01-Basic-R-Figs/r_console.png)
+```{r, eval = FALSE}
+install.packages("tidyverse")
+```
+
+Load the packages when you're done! If there are errors, you may have not installed the above packages correctly!
+
+```{r}
+library(tidyverse)
+```
 
 ## Expressions and Variables
 
@@ -222,31 +232,32 @@ mean(c(NA, 1, 2, 3), na.rm = TRUE)
 
 ## Data Frames
 
-The vast majority of data in R is kept in a **data frame**, which is a collection of **vectors** of the same length. You can think of a **data frame** as a table, with each column in the table being of the same type (numeric, character, TRUE/FALSE, etc.). In the following tutorials we will use a modern version of the data frame called a **tibble**, which behaves more predictably than base R's version. For now, we will use base R's function to create a **data frame**, `data.frame()`.
+The vast majority of data in R is kept in a **tibble** (often called a **data frame**), which is a collection of **vectors** of the same length. You can think of a **tibble** as a table, with each column in the table being of the same type (numeric, character, TRUE/FALSE, etc.).
 
 ```{r}
-my_data_frame <- data.frame(number = c(1, 2, 3), name = c("one", "two", "three"),
-                            is_one = c(TRUE, FALSE, FALSE))
-my_data_frame
+my_tibble <- tibble(
+  number = c(1, 2, 3), 
+  name = c("one", "two", "three"),
+  is_one = c(TRUE, FALSE, FALSE)
+)
+my_tibble
 ```
 
-The syntax for creating a **data frame** is `data.frame(column_name = value)`. The above data frame has three columns (`number`, a numeric column, `name`, a character column, and `is_one`, a logical TRUE/FALSE column). You can get these values as vectors again using the `$` operator, which allows you to extract a vector from a data frame.
+The syntax for creating a **tibble** is `tibble(column_name = value)`. The above tibble has three columns (`number`, a numeric column, `name`, a character column, and `is_one`, a logical TRUE/FALSE column). You can get these values as vectors again using the `$` operator, which allows you to extract a vector from a data frame.
 
 ```{r}
-my_data_frame$number
+my_tibble$number
 ```
 
 ```{r}
-my_data_frame$name
+my_tibble$name
 ```
-
-(Whoa! What does "Levels" mean!? Don't worry about this for now...it is one of the reasons we will be using the `tibble()` function to create data frames in the following tutorials.)
 
 ```{r}
-my_data_frame$is_one
+my_tibble$is_one
 ```
 
-You can think of data frames a collection of vectors (**variables**) having the same number of elements. The number of elements has to be equal for all columns, meaning the *i*^th^ value of each vector forms an **observation**. Data in this form is very useful and is the subject of most of the following tutorials.
+You can think of tibbles as a collection of vectors (**variables**) having the same number of elements. The number of elements has to be equal for all columns, meaning the *i*^th^ value of each vector forms an **observation**. Data in this form is very useful and is the subject of most of the following tutorials.
 
 ## Loading Packages
 
@@ -298,7 +309,7 @@ library(swirl)
 swirl()
 ```
 
-You should get a friendly greeting that will prompt you to choose a course (you want number 1, "R Programming: The basics of programming in R") and a module (you want number 1, "Basic Building Blocks").
+You should get a friendly greeting that will prompt you to choose a course (you want number 1, "R Programming: The basics of programming in R") and a module (you want number 1, "Basic Building Blocks"). I suggest stopping after the first module, as [R for Data Science](http://r4ds.had.co.nz/) provides a more effective introduction to the language.
 
 ## Summary
 

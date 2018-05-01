@@ -22,12 +22,13 @@ TODO: write this section
 
 R, RStudio, tidyverse
 
-TODO: installing R and RStudio, turning off autoload/save of workspace.
+TODO: installing R and RStudio
 
 ## Other places to learn R/RStudio/tidyverse
 
 - The book "R for Data Science" [@r4ds] (free online version at http://r4ds.had.co.nz/index.html)
 - The [Introduction to the tidyverse](https://www.datacamp.com/courses/introduction-to-the-tidyverse) Data Camp course by David Robinson.
+- [tidyverse, visualization, and manipulation basics](https://www.rstudio.com/resources/webinars/tidyverse-visualization-and-manipulation-basics/) tutorial from Garrett Grolemund
 
 ## Colophon
 
