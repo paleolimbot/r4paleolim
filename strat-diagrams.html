@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="creating-visualizations-using-ggplot.html">
-<link rel="next" href="strat-diagrams.html">
+<link rel="prev" href="prepare-load.html">
+<link rel="next" href="references.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -194,32 +194,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prepare-load" class="section level1">
-<h1><span class="header-section-number">Tutorial 4</span> Preparing and Loading Data</h1>
+<div id="strat-diagrams" class="section level1">
+<h1><span class="header-section-number">Tutorial 5</span> Creating Strat diagraoms</h1>
 <p>Intro</p>
-<p>Draws from <a href="http://r4ds.had.co.nz/transform.html">data transformation</a> and <a href="http://r4ds.had.co.nz/data-import.html">data import</a> from <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
-<div id="prerequisites-4" class="section level2">
-<h2><span class="header-section-number">4.1</span> Prerequisites</h2>
-<p>The prerequisites for this tutorial are <code>tidyverse</code>. If this package isn’t installed, you’ll have to install it using <code>install.packages()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
-<p>Load the package when you’re done! If there are errors, you may have not installed the above packages correctly!</p>
+<div id="prerequisites-5" class="section level2">
+<h2><span class="header-section-number">5.1</span> Prerequisites</h2>
+<p>The prerequisites for this tutorial are the <strong>tidyverse</strong> package, the <strong>analogue</strong> package, and the <strong>rioja</strong> package. If you haven’t installed the <strong>analogue</strong> and <strong>rioja</strong> packages yet, you’ll have to install them using <code>install.packages()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;rioja&quot;</span>, <span class="st">&quot;analogue&quot;</span>))</code></pre></div>
+<p>Load the tidyverse when you’re done! We will load the other packages when we use functions that require them below.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<p>Finally, you will need to obtain the example data. In this tutorial, we will use <a href="https://www.google.com/maps/place/Lake+Arnold/@44.1305679,-73.9831746,11714m/data=!3m1!1e3!4m5!3m4!1s0x4ccaddaff2a5e819:0x392dc3e7c14fb40f!8m2!3d44.1310666!4d-73.9440977">Lake Arnold</a> diatom counts <span class="citation">(Whitehead et al. <a href="#ref-whitehead89">1989</a>)</span>, obtained from the <a href="https://www.neotomadb.org/">Neotoma database</a>. You will need to download the <a href="data/lake_arnold_valve_counts_tidy.csv">tidy CSV version of the data</a>, and the <a href="data/lake_arnold_valve_counts.xlsx">Excel version of the data</a>.</p>
+<p>Finally, you will need to obtain the example data. In this tutorial, we will use the <a href="https://www.google.com/maps/place/Lake+Arnold/@44.1305679,-73.9831746,11714m/data=!3m1!1e3!4m5!3m4!1s0x4ccaddaff2a5e819:0x392dc3e7c14fb40f!8m2!3d44.1310666!4d-73.9440977">Lake Arnold</a> diatom counts <a href="data/lake_arnold_valve_counts_tidy.csv">tidy CSV version of the data</a> <span class="citation">(Whitehead et al. <a href="#ref-whitehead89">1989</a>)</span>, and the <a href="data/halifax_geochem.csv">Halifax geochemistry data</a>. If you have these files downloaded you can load them yourself (see Tutorial <a href="prepare-load.html#prepare-load">4</a>), or you can copy/paste the following code to load the two datasets.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
+  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv&quot;</span>,
+  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())
+)
+
+arnold_counts &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
+  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/lake_arnold_valve_counts_tidy.csv&quot;</span>,
+  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())
+)</code></pre></div>
 </div>
-<div id="preparing-data" class="section level2">
-<h2><span class="header-section-number">4.2</span> Preparing data</h2>
-<p>Data comes in a nearly infinite variety of formats and configurations. Occasionally, you are in charge of entering data yourself, in which case you can plan ahead on how your data looks.</p>
+<div id="using-ggplot-1" class="section level2">
+<h2><span class="header-section-number">5.2</span> Using ggplot</h2>
 </div>
-<div id="loading-data" class="section level2">
-<h2><span class="header-section-number">4.3</span> Loading data</h2>
+<div id="using-analoguestratiplot" class="section level2">
+<h2><span class="header-section-number">5.3</span> Using analogue::stratiplot</h2>
 </div>
-<div id="cleaning-data" class="section level2">
-<h2><span class="header-section-number">4.4</span> Cleaning data</h2>
+<div id="using-riojastrat.plot" class="section level2">
+<h2><span class="header-section-number">5.4</span> Using rioja::strat.plot</h2>
 </div>
-<div id="summary-3" class="section level2">
-<h2><span class="header-section-number">4.5</span> Summary</h2>
+<div id="summary-4" class="section level2">
+<h2><span class="header-section-number">5.5</span> Summary</h2>
 <p>Tutorial summary</p>
-<p>Draws from <a href="http://r4ds.had.co.nz/transform.html">data transformation</a> and <a href="http://r4ds.had.co.nz/data-import.html">data import</a> from <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
 
 </div>
 </div>
@@ -234,8 +240,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="creating-visualizations-using-ggplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="strat-diagrams.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prepare-load.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -265,7 +271,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/paleolimbot/r4paleolim/edit/master/04-data.Rmd",
+"link": "https://github.com/paleolimbot/r4paleolim/edit/master/05-strat-diagrams.Rmd",
 "text": "Edit"
 },
 "download": null,
