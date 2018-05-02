@@ -43,7 +43,82 @@ arnold_counts <- read_csv(
 )
 ```
 
+## Data preparation
+
+- TODO: How to rename columns so that they look pretty, how to use `gather()` and `spread()` to get data in the right form for the various functions.
+
 ## Using ggplot
+
+### Single core
+
+```{r}
+halifax_geochem %>%
+  filter(core_id == "POC15-2") %>%
+  gather(-core_id, -depth_cm, -age_ad, key = param, value = value) %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x") +
+  scale_y_reverse()
+```
+
+### Multiple cores
+
+- Use colour aesthetic, age on y axis
+
+```{r}
+halifax_geochem %>%
+  filter(core_id %in% c("POC15-2", "MAJ15-1")) %>%
+  gather(-core_id, -depth_cm, -age_ad, key = param, value = value) %>%
+  ggplot(aes(y = age_ad, x = value, colour = core_id)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x")
+```
+
+- Use facet_grid, age or depth on y-axis
+
+```{r}
+halifax_geochem %>%
+  filter(core_id %in% c("POC15-2", "MAJ15-1")) %>%
+  gather(-core_id, -depth_cm, -age_ad, key = param, value = value) %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_grid(core_id~param, scales = "free_x") +
+  scale_y_reverse()
+```
+
+### Species data
+
+```{r}
+arnold_counts_long <- arnold_counts %>%
+  gather(-age_bp, -depth_cm, key = taxon, value = valve_count) %>%
+  group_by(depth_cm) %>%
+  mutate(relative_abundance = valve_count / sum(valve_count) * 100) %>%
+  ungroup() %>%
+  group_by(taxon) %>%
+  filter(max(relative_abundance) > 20) %>%
+  ungroup()
+```
+
+```{r}
+p <- ggplot(arnold_counts_long, aes(y = depth_cm, x = relative_abundance)) +
+  geom_segment(aes(xend = 0, yend = depth_cm)) +
+  geom_path() +
+  facet_grid(~taxon, scales = "free_x", space = "free_x") +
+  scale_y_reverse() +
+  scale_x_continuous(breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  theme_minimal() +
+  theme(
+    strip.text.x = element_text(angle = 45, hjust = 0, vjust = 0)
+  )
+
+# gt <- ggplot_gtable(ggplot_build(p))
+# gt$layout$clip[gt$layout$name=="panel-1-1"] = "off"
+# grid::grid.draw(gt)
+p
+```
 
 ## Using analogue::stratiplot
 
