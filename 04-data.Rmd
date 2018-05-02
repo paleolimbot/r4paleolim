@@ -1,5 +1,5 @@
 
-# Preparing and Loading your data into R
+# Preparing and Loading Data {#prepare-load}
 
 Intro
 
@@ -19,16 +19,7 @@ Load the package when you're done! If there are errors, you may have not install
 library(tidyverse)
 ```
 
-Finally, you will need to obtain the example data. You will need to [download the dataset as an excel sheet](data/halifax_geochem.xlsx) and put it in the "data" folder of your current project.
-
-```{r}
-# read local version to build
-halifax_geochem <- read_excel("data/halifax_geochem.xlsx")
-```
-
-It's worth mentioning a little bit about what this data frame contains, since we'll be working with it for the rest of this tutorial.
-
-TODO: describe the halifax_geochem dataset
+Finally, you will need to obtain the example data. You will need to [download the Halifax geochemistry dataset as an excel sheet](data/halifax_geochem.xlsx), [download the Halifax geochemistry dataset as a CSV file](data/halifax_geochem.csv), and put the files in the "data/" folder of your current project.
 
 ## Preparing data
 

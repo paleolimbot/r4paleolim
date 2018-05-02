@@ -17,19 +17,26 @@ Load the packages when you're done! If there are errors, you may have not instal
 
 ```{r}
 library(tidyverse)
-library(readxl)
 ```
 
-Finally, you will need to obtain the example data. You will need to [download the dataset as an excel sheet](data/halifax_geochem.xlsx) and put it in the "data" folder of your current project.
+Finally, you will need to load the example data. For now, copy and paste the following code to load the [Halifax geochemistry dataset](data/halifax_geochem.csv) (we will learn how to read various types of files into R in the [preparing and loading data](#prepare-load) tutorial).
 
-```{r}
+```{r, include=FALSE}
 # read local version to build
-halifax_geochem <- read_excel("data/halifax_geochem.xlsx")
+halifax_geochem <- read_csv(
+  "data/halifax_geochem.csv",
+  col_types = cols(.default = col_guess())
+)
 ```
 
-It's worth mentioning a little bit about what this data frame contains, since we'll be working with it for the rest of this tutorial.
+```{r, eval = FALSE}
+halifax_geochem <- read_csv(
+  "http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv",
+  col_types = cols(.default = col_guess())
+)
+```
 
-TODO: describe the halifax_geochem dataset
+It's worth mentioning a little bit about what this data frame contains, since we'll be working with it for the rest of this tutorial. The data contains several bulk geochemical parameters from a recent study of Halifax drinking water reservoirs [@dunnington18], including Pockwock Lake, Lake Major, Bennery Lake, Lake Fletcher, Lake Lemont, First Chain Lake, First Lake, and Second Lake. (Later, we will take a look at the [core locations](data/halifax_geochem_cores.xlsx) as well as the geochemical data).
 
 ## Using ggplot
 

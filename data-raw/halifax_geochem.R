@@ -14,12 +14,16 @@ library(writexl)
 
 md_hfx <- read_mudata("data-raw/Dunnington_et_al_2018.mudata.json")
 
-md_hfx %>%
+halifax_geochem_data <- md_hfx %>%
   tbl_data_wide() %>%
   select(core_id = location, depth_cm = depth, age_ad = age, 
          C_percent = C, `C/N`, d13C_permille = d13C, d15N_permille = d15N, 
-         K_percent = K, Ti_percent = Ti) %>%
+         K_percent = K, Ti_percent = Ti) 
+
+halifax_geochem_data %>%
   write_xlsx("data/halifax_geochem.xlsx")
+halifax_geochem_data %>%
+  write_csv("data/halifax_geochem.csv")
 
 md_hfx %>%
   tbl_locations() %>%
