@@ -168,10 +168,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5" data-path="strat-diagrams.html"><a href="strat-diagrams.html"><i class="fa fa-check"></i><b>5</b> Creating Strat diagraoms</a><ul>
 <li class="chapter" data-level="5.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#prerequisites-5"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
-<li class="chapter" data-level="5.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-ggplot-1"><i class="fa fa-check"></i><b>5.2</b> Using ggplot</a></li>
-<li class="chapter" data-level="5.3" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-analoguestratiplot"><i class="fa fa-check"></i><b>5.3</b> Using analogue::stratiplot</a></li>
-<li class="chapter" data-level="5.4" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-riojastrat.plot"><i class="fa fa-check"></i><b>5.4</b> Using rioja::strat.plot</a></li>
-<li class="chapter" data-level="5.5" data-path="strat-diagrams.html"><a href="strat-diagrams.html#summary-4"><i class="fa fa-check"></i><b>5.5</b> Summary</a></li>
+<li class="chapter" data-level="5.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#data-preparation"><i class="fa fa-check"></i><b>5.2</b> Data preparation</a></li>
+<li class="chapter" data-level="5.3" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-ggplot-1"><i class="fa fa-check"></i><b>5.3</b> Using ggplot</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#single-core"><i class="fa fa-check"></i><b>5.3.1</b> Single core</a></li>
+<li class="chapter" data-level="5.3.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#multiple-cores"><i class="fa fa-check"></i><b>5.3.2</b> Multiple cores</a></li>
+<li class="chapter" data-level="5.3.3" data-path="strat-diagrams.html"><a href="strat-diagrams.html#species-data"><i class="fa fa-check"></i><b>5.3.3</b> Species data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-analoguestratiplot"><i class="fa fa-check"></i><b>5.4</b> Using analogue::stratiplot</a></li>
+<li class="chapter" data-level="5.5" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-riojastrat.plot"><i class="fa fa-check"></i><b>5.5</b> Using rioja::strat.plot</a></li>
+<li class="chapter" data-level="5.6" data-path="strat-diagrams.html"><a href="strat-diagrams.html#summary-4"><i class="fa fa-check"></i><b>5.6</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -214,17 +219,94 @@ arnold_counts &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
   <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())
 )</code></pre></div>
 </div>
+<div id="data-preparation" class="section level2">
+<h2><span class="header-section-number">5.2</span> Data preparation</h2>
+<ul>
+<li>TODO: How to rename columns so that they look pretty, how to use <code>gather()</code> and <code>spread()</code> to get data in the right form for the various functions.</li>
+</ul>
+</div>
 <div id="using-ggplot-1" class="section level2">
-<h2><span class="header-section-number">5.2</span> Using ggplot</h2>
+<h2><span class="header-section-number">5.3</span> Using ggplot</h2>
+<div id="single-core" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Single core</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(core_id ==<span class="st"> &quot;POC15-2&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(-core_id, -depth_cm, -age_ad, <span class="dt">key =</span> param, <span class="dt">value =</span> value) %&gt;%
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
+<span class="st">  </span><span class="kw">geom_path</span>() +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
+<span class="st">  </span><span class="kw">scale_y_reverse</span>()</code></pre></div>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
+<pre><code>## Warning: Removed 10 rows containing missing values (geom_point).</code></pre>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+</div>
+<div id="multiple-cores" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Multiple cores</h3>
+<ul>
+<li>Use colour aesthetic, age on y axis</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(-core_id, -depth_cm, -age_ad, <span class="dt">key =</span> param, <span class="dt">value =</span> value) %&gt;%
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> age_ad, <span class="dt">x =</span> value, <span class="dt">colour =</span> core_id)) +
+<span class="st">  </span><span class="kw">geom_path</span>() +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>)</code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing missing values (geom_path).</code></pre>
+<pre><code>## Warning: Removed 14 rows containing missing values (geom_point).</code></pre>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<ul>
+<li>Use facet_grid, age or depth on y-axis</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(-core_id, -depth_cm, -age_ad, <span class="dt">key =</span> param, <span class="dt">value =</span> value) %&gt;%
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
+<span class="st">  </span><span class="kw">geom_path</span>() +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">facet_grid</span>(core_id~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
+<span class="st">  </span><span class="kw">scale_y_reverse</span>()</code></pre></div>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
+<pre><code>## Warning: Removed 14 rows containing missing values (geom_point).</code></pre>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+</div>
+<div id="species-data" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Species data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_long &lt;-<span class="st"> </span>arnold_counts %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(-age_bp, -depth_cm, <span class="dt">key =</span> taxon, <span class="dt">value =</span> valve_count) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(depth_cm) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">relative_abundance =</span> valve_count /<span class="st"> </span><span class="kw">sum</span>(valve_count) *<span class="st"> </span><span class="dv">100</span>) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(taxon) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">max</span>(relative_abundance) &gt;<span class="st"> </span><span class="dv">20</span>) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(arnold_counts_long, <span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> relative_abundance)) +
+<span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> <span class="dv">0</span>, <span class="dt">yend =</span> depth_cm)) +
+<span class="st">  </span><span class="kw">geom_path</span>() +
+<span class="st">  </span><span class="kw">facet_grid</span>(~taxon, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">space =</span> <span class="st">&quot;free_x&quot;</span>) +
+<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>)) +
+<span class="st">  </span><span class="kw">theme_minimal</span>() +
+<span class="st">  </span><span class="kw">theme</span>(
+    <span class="dt">strip.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">vjust =</span> <span class="dv">0</span>)
+  )
+
+<span class="co"># gt &lt;- ggplot_gtable(ggplot_build(p))</span>
+<span class="co"># gt$layout$clip[gt$layout$name==&quot;panel-1-1&quot;] = &quot;off&quot;</span>
+<span class="co"># grid::grid.draw(gt)</span>
+p</code></pre></div>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+</div>
 </div>
 <div id="using-analoguestratiplot" class="section level2">
-<h2><span class="header-section-number">5.3</span> Using analogue::stratiplot</h2>
+<h2><span class="header-section-number">5.4</span> Using analogue::stratiplot</h2>
 </div>
 <div id="using-riojastrat.plot" class="section level2">
-<h2><span class="header-section-number">5.4</span> Using rioja::strat.plot</h2>
+<h2><span class="header-section-number">5.5</span> Using rioja::strat.plot</h2>
 </div>
 <div id="summary-4" class="section level2">
-<h2><span class="header-section-number">5.5</span> Summary</h2>
+<h2><span class="header-section-number">5.6</span> Summary</h2>
 <p>Tutorial summary</p>
 
 </div>
