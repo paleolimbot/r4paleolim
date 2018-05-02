@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="prepare-load.html">
-
+<link rel="prev" href="creating-visualizations-using-ggplot.html">
+<link rel="next" href="using-rstudio-projects.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -194,54 +194,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="using-rstudio-projects" class="section level1">
-<h1><span class="header-section-number">Tutorial 5</span> Using RStudio Projects</h1>
-<p>Even if you know how to code in R, you will still need a strategy of how to organize your data, code, and output to take advantage of all the things R and RStudio have to offer. This tutorial suggests one way of doing this, with the take home message that you should <strong>stay organized!</strong></p>
-<div id="prerequisites-5" class="section level2">
-<h2><span class="header-section-number">5.1</span> Prerequisites</h2>
-<p>The only prerequisite for this tutorial is RStudio. This tutorial draws heavily on the <a href="http://r4ds.had.co.nz/workflow-projects.html">Projects chapter</a> and the <a href="http://r4ds.had.co.nz/workflow-scripts.html">Scripts chapter</a> in <a href="http://r4ds.had.co.nz/">R for Data Science</a> by Hadley Wickham.</p>
+<div id="prepare-load" class="section level1">
+<h1><span class="header-section-number">Tutorial 4</span> Preparing and Loading Data</h1>
+<p>Intro</p>
+<p>Draws from <a href="http://r4ds.had.co.nz/transform.html">data transformation</a> and <a href="http://r4ds.had.co.nz/data-import.html">data import</a> from <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
+<div id="prerequisites-4" class="section level2">
+<h2><span class="header-section-number">4.1</span> Prerequisites</h2>
+<p>The prerequisites for this tutorial are <code>tidyverse</code>. If this package isn’t installed, you’ll have to install it using <code>install.packages()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<p>Load the package when you’re done! If there are errors, you may have not installed the above packages correctly!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<p>Finally, you will need to obtain the example data. You will need to <a href="data/halifax_geochem.xlsx">download the Halifax geochemistry dataset as an excel sheet</a>, <a href="data/halifax_geochem.csv">download the Halifax geochemistry dataset as a CSV file</a>, and put the files in the “data/” folder of your current project.</p>
 </div>
-<div id="projects" class="section level2">
-<h2><span class="header-section-number">5.2</span> Projects</h2>
-<p>Projects are a notion in RStudio that let you keep a set of related data and scripts organized in a single directory. R scripts are rarely useful without data files, and data files are rarely useful on their own when using R for data analyis. Furthermore, the figures and tables you generate using R are only replicable if you know which script created them! An RStudio project lets you keep your data, scripts, and output in the same <strong>working directory</strong>, so that it is easy to refer to your data from your files, and easy to know which scripts generated your analysis.</p>
+<div id="preparing-data" class="section level2">
+<h2><span class="header-section-number">4.2</span> Preparing data</h2>
+<p>Data comes in a nearly infinite variety of formats and configurations. Occasionally, you are in charge of entering data yourself, in which case you can plan ahead on how your data looks.</p>
 </div>
-<div id="creating-a-new-project" class="section level2">
-<h2><span class="header-section-number">5.3</span> Creating a new project</h2>
-<p>To create a new project, chose <em>New project…</em> from the <em>File</em> menu, or click on the little RStudio icon in the upper right side of your screen to open the <em>New project</em> dialog.</p>
-<div class="figure">
-<img src="05-Project-Management-Figs/new-project-1.png" alt="The project menu in RStudio is located in the upper right corner of the screen. When you have created more projects, you can easily switch between them here." />
-<p class="caption">The project menu in RStudio is located in the upper right corner of the screen. When you have created more projects, you can easily switch between them here.</p>
+<div id="loading-data" class="section level2">
+<h2><span class="header-section-number">4.3</span> Loading data</h2>
 </div>
-<p>This will direct you to a dialog that gives you some options about how to create your RStudio project. If you already have a folder that contains your scripts and/or data, you can use the <em>Existing Directory</em> option to turn that directory into a project. To create a brand new directory that is an RStudio project, choose the <em>New Directory</em> option. This will give you another menu, from which you’ll want to choose <strong>Empty Project</strong>. This will give you a window with a few options about where to create your project.</p>
-<div class="figure">
-<img src="05-Project-Management-Figs/new-project-2.png" alt="Creating an RStudio project requires a directory name and a place where that directory lives. Name the project something descriptive and put it somwhere you can find it! The Desktop is not a bad place to start (you can move projects around after you’ve created them)." />
-<p class="caption">Creating an RStudio project requires a directory name and a place where that directory lives. Name the project something descriptive and put it somwhere you can find it! The Desktop is not a bad place to start (you can move projects around after you’ve created them).</p>
+<div id="cleaning-data" class="section level2">
+<h2><span class="header-section-number">4.4</span> Cleaning data</h2>
 </div>
-</div>
-<div id="organizing-a-project" class="section level2">
-<h2><span class="header-section-number">5.4</span> Organizing a project</h2>
-<p>Most projects have at least three components: <strong>data</strong>, <strong>scripts</strong>, and <strong>output</strong> (once you get to using R Markdown you might have a fourth, <strong>documents</strong>). A well-organized project has defined places where these things live. I tend to put raw data (data that I have never touched, which usually means it is from an instrument or the internet or from somebody else’s spreadsheet) in a folder called <code>raw_data/</code>, and cleaned data in a folder called <code>data/</code>. Scripts (<code>.R</code> files) can live in a folder called <code>scripts/</code>, and output can live in a folder called <code>output/</code> or <code>figures/</code>. R Markdown files (documents) need to live in the main project directory for a very good reason that you will learn when we get to using R Markdown. The point is not that you need to or should have specific folders, but that it is clear to you and others where to look for the various components of your project.</p>
-<div class="figure">
-<img src="05-Project-Management-Figs/organized-project.png" alt="A directory structure for a recent project collecting Halifax Water DOC measurements. The raw data folder contains an excel sheet from Halifax Water, and the clean_data.R script reads the excel sheet and generates halifax_wq.csv, which is read by all the scripts that do analysis and generate figures within the project." />
-<p class="caption">A directory structure for a recent project collecting Halifax Water DOC measurements. The raw data folder contains an excel sheet from Halifax Water, and the clean_data.R script reads the excel sheet and generates halifax_wq.csv, which is read by all the scripts that do analysis and generate figures within the project.</p>
-</div>
-</div>
-<div id="why-use-a-project" class="section level2">
-<h2><span class="header-section-number">5.5</span> Why use a project?</h2>
-<p>The main advantage of using a project is that the working directory when you open one is automatically set to the directory of the project. This means that you never have to call <code>setwd()</code>, since your data always lives fairly close to your R script. In the above example of a recent RStudio project, <code>hw_toc_plot.R</code> reads in <code>halifax_wq.csv</code> using the command <code>read_csv(&quot;data/halifax_wq.csv&quot;)</code>. No matter where the project lives on the computer (or indeed, whose computer the project lives on), this script can remain unchanged. This gives you the freedom to move the project folder about your computer, or to have it live somewhere like Dropbox or GitHub such that the project can be shared with others.</p>
-</div>
-<div id="summary-4" class="section level2">
-<h2><span class="header-section-number">5.6</span> Summary</h2>
-<p>This tutorial suggested one method of organizing R scripts and data to leverage the full potential of R and RStudio. Projects are an easy way to collect data, scripts, and output together in the same folder so that output can be replicated and analysis in scripts can be easily regenerated by yourself and others.</p>
+<div id="summary-3" class="section level2">
+<h2><span class="header-section-number">4.5</span> Summary</h2>
+<p>Tutorial summary</p>
+<p>Draws from <a href="http://r4ds.had.co.nz/transform.html">data transformation</a> and <a href="http://r4ds.had.co.nz/data-import.html">data import</a> from <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
 
-<div id="refs" class="references">
-<div>
-<p>Dunnington, Dewey W., I. S. Spooner, Wendy H. Krkošek, Graham A. Gagnon, R. Jack Cornett, Chris E. White, Benjamin Misiuk, and Drake Tymstra. 2018. “Anthropogenic Activity in the Halifax Region, Nova Scotia, Canada, as Recorded by Bulk Geochemistry of Lake Sediments.” doi:<a href="https://doi.org/10.1080/10402381.2018.1461715">10.1080/10402381.2018.1461715</a>.</p>
-</div>
-<div>
-<p>Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. New York: O’Reily. <a href="http://r4ds.had.co.nz/" class="uri">http://r4ds.had.co.nz/</a>.</p>
-</div>
-</div>
 </div>
 </div>
             </section>
@@ -249,8 +228,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="prepare-load.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="creating-visualizations-using-ggplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="using-rstudio-projects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -280,7 +259,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/paleolimbot/r4paleolim/edit/master/05-Project-Management.Rmd",
+"link": "https://github.com/paleolimbot/r4paleolim/edit/master/04-data.Rmd",
 "text": "Edit"
 },
 "download": null,

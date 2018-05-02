@@ -25,7 +25,7 @@
 <meta name="author" content="Brent Thorne and Dewey Dunnington">
 
 
-<meta name="date" content="2018-05-01">
+<meta name="date" content="2018-05-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="working-with-tables-using-the-tidyverse.html">
-<link rel="next" href="preparing-and-loading-your-data-into-r.html">
+<link rel="next" href="prepare-load.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -137,14 +137,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#the-pipe"><i class="fa fa-check"></i><b>2.6</b> The Pipe (%&gt;%)</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#exercises-2"><i class="fa fa-check"></i><b>2.6.1</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#sorting-a-data-frame"><i class="fa fa-check"></i><b>2.7</b> Sorting A Data Frame</a></li>
+<li class="chapter" data-level="2.7" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#arranging-sorting-a-data-frame"><i class="fa fa-check"></i><b>2.7</b> Arranging (sorting) A Data Frame</a></li>
 <li class="chapter" data-level="2.8" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#distinct-values"><i class="fa fa-check"></i><b>2.8</b> Distinct Values</a></li>
-<li class="chapter" data-level="2.9" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#summarising-a-data-frame"><i class="fa fa-check"></i><b>2.9</b> Summarising A Data Frame</a><ul>
-<li class="chapter" data-level="2.9.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#excercises-2"><i class="fa fa-check"></i><b>2.9.1</b> Excercises</a></li>
+<li class="chapter" data-level="2.9" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#calculating-columns-using-mutate"><i class="fa fa-check"></i><b>2.9</b> Calculating columns using <code>mutate()</code></a></li>
+<li class="chapter" data-level="2.10" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#summarising-a-data-frame"><i class="fa fa-check"></i><b>2.10</b> Summarising A Data Frame</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#excercises-2"><i class="fa fa-check"></i><b>2.10.1</b> Excercises</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#extracting-columns"><i class="fa fa-check"></i><b>2.10</b> Extracting Columns</a></li>
-<li class="chapter" data-level="2.11" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#base-r-subsetting-vs.select-and-filter"><i class="fa fa-check"></i><b>2.11</b> Base R Subsetting vs. select() and filter()</a></li>
-<li class="chapter" data-level="2.12" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#summary-1"><i class="fa fa-check"></i><b>2.12</b> Summary</a></li>
+<li class="chapter" data-level="2.11" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#extracting-columns"><i class="fa fa-check"></i><b>2.11</b> Extracting Columns</a></li>
+<li class="chapter" data-level="2.12" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#base-r-subsetting-vs.select-and-filter"><i class="fa fa-check"></i><b>2.12</b> Base R Subsetting vs. select() and filter()</a></li>
+<li class="chapter" data-level="2.13" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#summary-1"><i class="fa fa-check"></i><b>2.13</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html"><i class="fa fa-check"></i><b>3</b> Creating Visualizations using ggplot</a><ul>
 <li class="chapter" data-level="3.1" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#prerequisites-3"><i class="fa fa-check"></i><b>3.1</b> Prerequisites</a></li>
@@ -158,12 +159,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#summary-2"><i class="fa fa-check"></i><b>3.7</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html"><i class="fa fa-check"></i><b>4</b> Preparing and Loading your data into R</a><ul>
-<li class="chapter" data-level="4.1" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html#prerequisites-4"><i class="fa fa-check"></i><b>4.1</b> Prerequisites</a></li>
-<li class="chapter" data-level="4.2" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html#preparing-data"><i class="fa fa-check"></i><b>4.2</b> Preparing data</a></li>
-<li class="chapter" data-level="4.3" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html#loading-data"><i class="fa fa-check"></i><b>4.3</b> Loading data</a></li>
-<li class="chapter" data-level="4.4" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html#cleaning-data"><i class="fa fa-check"></i><b>4.4</b> Cleaning data</a></li>
-<li class="chapter" data-level="4.5" data-path="preparing-and-loading-your-data-into-r.html"><a href="preparing-and-loading-your-data-into-r.html#summary-3"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
+<li class="chapter" data-level="4" data-path="prepare-load.html"><a href="prepare-load.html"><i class="fa fa-check"></i><b>4</b> Preparing and Loading Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="prepare-load.html"><a href="prepare-load.html#prerequisites-4"><i class="fa fa-check"></i><b>4.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="4.2" data-path="prepare-load.html"><a href="prepare-load.html#preparing-data"><i class="fa fa-check"></i><b>4.2</b> Preparing data</a></li>
+<li class="chapter" data-level="4.3" data-path="prepare-load.html"><a href="prepare-load.html#loading-data"><i class="fa fa-check"></i><b>4.3</b> Loading data</a></li>
+<li class="chapter" data-level="4.4" data-path="prepare-load.html"><a href="prepare-load.html#cleaning-data"><i class="fa fa-check"></i><b>4.4</b> Cleaning data</a></li>
+<li class="chapter" data-level="4.5" data-path="prepare-load.html"><a href="prepare-load.html#summary-3"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html"><i class="fa fa-check"></i><b>5</b> Using RStudio Projects</a><ul>
 <li class="chapter" data-level="5.1" data-path="using-rstudio-projects.html"><a href="using-rstudio-projects.html#prerequisites-5"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
@@ -202,13 +203,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The prerequisite for this tutorial is the <code>tidyverse</code> package. If this package isn’t installed, you’ll have to install it using <code>install.packages()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
 <p>Load the packages when you’re done! If there are errors, you may have not installed the above packages correctly!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(readxl)</code></pre></div>
-<p>Finally, you will need to obtain the example data. You will need to <a href="data/halifax_geochem.xlsx">download the dataset as an excel sheet</a> and put it in the “data” folder of your current project.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read local version to build</span>
-halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/halifax_geochem.xlsx&quot;</span>)</code></pre></div>
-<p>It’s worth mentioning a little bit about what this data frame contains, since we’ll be working with it for the rest of this tutorial.</p>
-<p>TODO: describe the halifax_geochem dataset</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<p>Finally, you will need to load the example data. For now, copy and paste the following code to load the <a href="data/halifax_geochem.csv">Halifax geochemistry dataset</a> (we will learn how to read various types of files into R in the <a href="prepare-load.html#prepare-load">preparing and loading data</a> tutorial).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
+  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv&quot;</span>,
+  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())
+)</code></pre></div>
+<p>It’s worth mentioning a little bit about what this data frame contains, since we’ll be working with it for the rest of this tutorial. The data contains several bulk geochemical parameters from a recent study of Halifax drinking water reservoirs <span class="citation">(Dunnington et al. <a href="#ref-dunnington18">2018</a>)</span>, including Pockwock Lake, Lake Major, Bennery Lake, Lake Fletcher, Lake Lemont, First Chain Lake, First Lake, and Second Lake. (Later, we will take a look at the <a href="data/halifax_geochem_cores.xlsx">core locations</a> as well as the geochemical data).</p>
 </div>
 <div id="using-ggplot" class="section level2">
 <h2><span class="header-section-number">3.2</span> Using ggplot</h2>
@@ -255,13 +256,19 @@ halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_excel</span>
 
 </div>
 </div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-dunnington18">
+<p>Dunnington, Dewey W., I. S. Spooner, Wendy H. Krkošek, Graham A. Gagnon, R. Jack Cornett, Chris E. White, Benjamin Misiuk, and Drake Tymstra. 2018. “Anthropogenic Activity in the Halifax Region, Nova Scotia, Canada, as Recorded by Bulk Geochemistry of Lake Sediments.” doi:<a href="https://doi.org/10.1080/10402381.2018.1461715">10.1080/10402381.2018.1461715</a>.</p>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
 <a href="working-with-tables-using-the-tidyverse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="preparing-and-loading-your-data-into-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prepare-load.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
