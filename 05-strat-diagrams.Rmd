@@ -1,0 +1,54 @@
+
+# Creating Strat diagraoms {#strat-diagrams}
+
+Intro
+
+## Prerequisites
+
+The prerequisites for this tutorial are the **tidyverse** package, the **analogue** package, and the **rioja** package. If you haven't installed the **analogue** and **rioja** packages yet, you'll have to install them using `install.packages()`.
+
+```{r, eval = FALSE}
+install.packages(c("rioja", "analogue"))
+```
+
+Load the tidyverse when you're done! We will load the other packages when we use functions that require them below.
+
+```{r}
+library(tidyverse)
+```
+
+Finally, you will need to obtain the example data. In this tutorial, we will use the [Lake Arnold](https://www.google.com/maps/place/Lake+Arnold/@44.1305679,-73.9831746,11714m/data=!3m1!1e3!4m5!3m4!1s0x4ccaddaff2a5e819:0x392dc3e7c14fb40f!8m2!3d44.1310666!4d-73.9440977) diatom counts [tidy CSV version of the data](data/lake_arnold_valve_counts_tidy.csv) [@whitehead89], and the [Halifax geochemistry data](data/halifax_geochem.csv). If you have these files downloaded you can load them yourself (see Tutorial \@ref(prepare-load)), or you can copy/paste the following code to load the two datasets.
+
+```{r, include=FALSE}
+halifax_geochem <- read_csv(
+  "data/halifax_geochem.csv",
+  col_types = cols(.default = col_guess())
+)
+
+arnold_counts <- read_csv(
+  "data/lake_arnold_valve_counts_tidy.csv",
+  col_types = cols(.default = col_guess())
+)
+```
+
+```{r, eval=FALSE}
+halifax_geochem <- read_csv(
+  "http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv",
+  col_types = cols(.default = col_guess())
+)
+
+arnold_counts <- read_csv(
+  "http://paleolimbot.github.io/r4paleolim/data/lake_arnold_valve_counts_tidy.csv",
+  col_types = cols(.default = col_guess())
+)
+```
+
+## Using ggplot
+
+## Using analogue::stratiplot
+
+## Using rioja::strat.plot
+
+## Summary
+
+Tutorial summary

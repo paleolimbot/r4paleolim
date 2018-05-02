@@ -19,7 +19,7 @@ Load the package when you're done! If there are errors, you may have not install
 library(tidyverse)
 ```
 
-Finally, you will need to obtain the example data. You will need to [download the Halifax geochemistry dataset as an excel sheet](data/halifax_geochem.xlsx), [download the Halifax geochemistry dataset as a CSV file](data/halifax_geochem.csv), and put the files in the "data/" folder of your current project.
+Finally, you will need to obtain the example data. In this tutorial, we will use [Lake Arnold](https://www.google.com/maps/place/Lake+Arnold/@44.1305679,-73.9831746,11714m/data=!3m1!1e3!4m5!3m4!1s0x4ccaddaff2a5e819:0x392dc3e7c14fb40f!8m2!3d44.1310666!4d-73.9440977) diatom counts [@whitehead89], obtained from the [Neotoma database](https://www.neotomadb.org/). You will need to download the [tidy CSV version of the data](data/lake_arnold_valve_counts_tidy.csv), and the [Excel version of the data](data/lake_arnold_valve_counts.xlsx).
 
 ## Preparing data
 
