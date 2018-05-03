@@ -163,7 +163,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1" data-path="prepare-load.html"><a href="prepare-load.html#prerequisites-4"><i class="fa fa-check"></i><b>4.1</b> Prerequisites</a></li>
 <li class="chapter" data-level="4.2" data-path="prepare-load.html"><a href="prepare-load.html#loading-data"><i class="fa fa-check"></i><b>4.2</b> Loading data</a></li>
 <li class="chapter" data-level="4.3" data-path="prepare-load.html"><a href="prepare-load.html#transforming-data"><i class="fa fa-check"></i><b>4.3</b> Transforming data</a></li>
-<li class="chapter" data-level="4.4" data-path="prepare-load.html"><a href="prepare-load.html#summary-3"><i class="fa fa-check"></i><b>4.4</b> Summary</a></li>
+<li class="chapter" data-level="4.4" data-path="prepare-load.html"><a href="prepare-load.html#exporing-data"><i class="fa fa-check"></i><b>4.4</b> Exporing data</a></li>
+<li class="chapter" data-level="4.5" data-path="prepare-load.html"><a href="prepare-load.html#summary-3"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="strat-diagrams.html"><a href="strat-diagrams.html"><i class="fa fa-check"></i><b>5</b> Creating Strat diagraoms</a><ul>
 <li class="chapter" data-level="5.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#prerequisites-5"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
@@ -177,6 +178,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.5" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-riojastrat.plot"><i class="fa fa-check"></i><b>5.5</b> Using rioja::strat.plot</a></li>
 <li class="chapter" data-level="5.6" data-path="strat-diagrams.html"><a href="strat-diagrams.html#summary-4"><i class="fa fa-check"></i><b>5.6</b> Summary</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="ordination-cluster.html"><a href="ordination-cluster.html"><i class="fa fa-check"></i><b>6</b> Ordination and clustering</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -201,7 +203,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="prepare-load" class="section level1">
 <h1><span class="header-section-number">Tutorial 4</span> Preparing and Loading Data</h1>
 <p>Intro</p>
-<p>Draws from <a href="http://r4ds.had.co.nz/transform.html">data transformation</a> and <a href="http://r4ds.had.co.nz/data-import.html">data import</a> from <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
+<p>Draws from <a href="http://r4ds.had.co.nz/transform.html">data transformation</a>, <a href="http://r4ds.had.co.nz/tidy-data.html">tidy data</a> and <a href="http://r4ds.had.co.nz/data-import.html">data import</a> from <a href="http://r4ds.had.co.nz/">R for Data Science</a> <span class="citation">(Grolemund and Wickham <a href="#ref-r4ds">2017</a>)</span>.</p>
 <div id="prerequisites-4" class="section level2">
 <h2><span class="header-section-number">4.1</span> Prerequisites</h2>
 <p>The prerequisites for this tutorial are <code>tidyverse</code>. If this package isn’t installed, you’ll have to install it using <code>install.packages()</code>.</p>
@@ -506,8 +508,14 @@ common_taxa</code></pre></div>
 ## 10 Melosira distans                   5           1                  0.204
 ## # ... with 86 more rows</code></pre>
 </div>
+<div id="exporing-data" class="section level2">
+<h2><span class="header-section-number">4.4</span> Exporing data</h2>
+<ul>
+<li>use write_csv, writexl::write_xlsx, to write output</li>
+</ul>
+</div>
 <div id="summary-3" class="section level2">
-<h2><span class="header-section-number">4.4</span> Summary</h2>
+<h2><span class="header-section-number">4.5</span> Summary</h2>
 <p>Tutorial summary</p>
 <p>Draws from <a href="http://r4ds.had.co.nz/transform.html">data transformation</a> and <a href="http://r4ds.had.co.nz/data-import.html">data import</a> from <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
 
@@ -515,11 +523,11 @@ common_taxa</code></pre></div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-whitehead89">
-<p>Whitehead, Donald R., Donald F. Charles, Stephen T. Jackson, John P. Smol, and Daniel R. Engstrom. 1989. “The Developmental History of Adirondack (N.Y.) Lakes.” <em>Journal of Paleolimnology</em> 2 (3): 185–206. doi:<a href="https://doi.org/10.1007/BF00202046">10.1007/BF00202046</a>.</p>
-</div>
 <div id="ref-r4ds">
 <p>Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. New York: O’Reily. <a href="http://r4ds.had.co.nz/" class="uri">http://r4ds.had.co.nz/</a>.</p>
+</div>
+<div id="ref-whitehead89">
+<p>Whitehead, Donald R., Donald F. Charles, Stephen T. Jackson, John P. Smol, and Daniel R. Engstrom. 1989. “The Developmental History of Adirondack (N.Y.) Lakes.” <em>Journal of Paleolimnology</em> 2 (3): 185–206. doi:<a href="https://doi.org/10.1007/BF00202046">10.1007/BF00202046</a>.</p>
 </div>
 </div>
             </section>
