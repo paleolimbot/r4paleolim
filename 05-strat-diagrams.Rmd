@@ -1,14 +1,14 @@
 
-# Creating Strat diagraoms {#strat-diagrams}
+# Creating Stratigraphic Diagrams {#strat-diagrams}
 
-Intro
+Creating beautiful stratigraphic diagrams is difficult in any program, and while it is not necessarily easier to create beautiful digrams in R the first time, R becomes useful when the data used to create the graph get updated, requiring you to re-make the plot. In the course of a thesis, one can re-make a figure many, many times with various modifications. Learning to create publication-ready stratigraphic plots in R is a front-end investment of time that becomes useful after the first few rounds of revisions. This tutorial is designed to give you the tools to make such diagrams with your own data.
 
 ## Prerequisites
 
-The prerequisites for this tutorial are the **tidyverse** package, the **analogue** package, and the **rioja** package. If you haven't installed the **analogue** and **rioja** packages yet, you'll have to install them using `install.packages()`.
+The prerequisites for this tutorial are the **tidyverse** package and the **analogue** package. If you haven't installed the **analogue** package yet, you'll have to install it using `install.packages()`.
 
 ```{r, eval = FALSE}
-install.packages(c("rioja", "analogue"))
+install.packages("analogue")
 ```
 
 Load the tidyverse when you're done! We will load the other packages when we use functions that require them below.
@@ -25,7 +25,7 @@ halifax_geochem <- read_csv(
   col_types = cols(.default = col_guess())
 )
 
-arnold_counts <- read_csv(
+arnold_counts_csv <- read_csv(
   "data/lake_arnold_valve_counts_tidy.csv",
   col_types = cols(.default = col_guess())
 )
@@ -43,86 +43,383 @@ arnold_counts <- read_csv(
 )
 ```
 
-## Data preparation
+## Workflow
 
-- TODO: How to rename columns so that they look pretty, how to use `gather()` and `spread()` to get data in the right form for the various functions.
+It's worth mentioning a bit about how one might go about integrating R into one's figure-creating workflow. I suggest creating a file (something like `create_figures.R`) that loads the data, creates the figures, and saves the figures, within an RStudio project that also contains the data files. Keeping the data needed to create the figures and the script used to create the figures close means that you can reproduce the figure if you need to change the script (or change the data!), and using an RStudio project means you can move the folder around your computer (or to somebody else's computer) and your scripts won't change. I usually have an RStudio project with a subdirectory for `data-raw` (the data from the instrument/tech/emailed from other lab), `data` (the user-modified version of the files in `data-raw` that are R-friendly), and `figures` (the R-generated figures).
 
-## Using ggplot
+## General stratigraphic diagrams
 
-### Single core
+Stratigraphic diagrams are at heart, a set of plots that share a Y axis. The Y-axis represents time, which can be expressed as depth or as some unit of actual time (e.g., AD 2018, or 1200 years BP), and the X-axis is the value of each parameter. We will use the **ggplot2** package to create these graphics for non-species data, and the **analogue** package to create the graphics for species composition data.
+
+### Data preparation
+
+Getting your data in a form that is usable by the plotting function is most of the battle to creating a figure. In the case of `ggplot()`, we need the data to be in a "parameter-long" form, with one row for each measurement (each point on the graph). In Tutorial \@ref(prepare-load) we learned how to use `gather()` to turn a "parameter-wide" data frame into a "parameter-long" data frame. We are mostly going to focus on plotting the Pockwock Lake core, so we will also filter the data to include only one core for now.
 
 ```{r}
-halifax_geochem %>%
+halifax_geochem_meas <- halifax_geochem %>%
   filter(core_id == "POC15-2") %>%
-  gather(-core_id, -depth_cm, -age_ad, key = param, value = value) %>%
+  gather(key = param, value = value, -core_id, -depth_cm, -age_ad)
+
+halifax_geochem_meas
+```
+
+### Plotting a single core
+
+Plotting a single core with `ggplot()` involves several steps:
+
+- The initial `ggplot()` call, where we set which columns will get mapped to the `x` and `y` values for each layer.
+- Two layers: `geom_path()` and `geom_point()` (we don't use `geom_line()` because it was written by non-paleolimnologists and connects the line in odd ways)
+- Specify how data are divided between facets using `facet_wrap()`. We need the scales to be free on the X-axis because each parameter has a different range of values, however the Y-axis should be the same for all facets.
+- Reverse the Y-axis, so that a depth of 0 is at the top.
+- Remove the X label, and set the Y label to "Depth (cm)".
+
+```{r, warning=FALSE}
+halifax_geochem_meas %>%
   ggplot(aes(y = depth_cm, x = value)) +
   geom_path() +
   geom_point() +
   facet_wrap(~param, scales = "free_x") +
-  scale_y_reverse()
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)")
+```
+
+### Changing the colours
+
+The default colour scheme in **ggplot2** is great for the web, but not so much for publication. I usually use `theme_bw()`, which is the black-and-white version of the default theme. There are several others, including `theme_minimal()`, `theme_classic()`, `theme_linedraw()`, and many more. You can add them to the end of your plot like so:
+
+```{r, warning=FALSE}
+halifax_geochem_meas %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)") +
+  theme_bw()
+```
+
+Alternatively, you can use the following line to set your theme for the rest of your R session! I usually set the theme to `theme_bw()` right under my call to `library(tidyverse)` in a script.
+
+```{r}
+theme_set(theme_bw())
+```
+
+### Facet configuration
+
+The `facet_wrap()` function has `nrow` and `ncol` arguments that allow customization of how facets are laid out. Sometimes changing the figure size is also helpful, which can be done when the figure is exported using `ggsave()`. In general, you should only set one of `nrow` or `ncol`.
+
+```{r, warning=FALSE}
+halifax_geochem_meas %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x", ncol = 4) +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)")
+```
+
+### Reordering facets
+
+To control the orderering of the facets, we need to turn the `param` column into a `factor()`, which is kind of like a "multiple choice" vector that stores the order of its choices. We first need to create a character vector that defines the order, use `mutate()` to create a new column containing the facet label as a factor, then make `facet_wrap()` use that column to create the facets instead of `param`.
+
+```{r, warning=FALSE}
+facet_order <- c(
+  "Ti_percent", "K_percent", 
+  "C_percent", "C/N", 
+  "d13C_permille", "d15N_permille"
+)
+
+halifax_geochem_meas %>%
+  mutate(facet = factor(param, levels = facet_order)) %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~facet, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)")
+```
+
+### Relabeling facets
+
+When using `facet_wrap()`, **ggplot2** uses the value of each unique value in a column to create the label. This means that we need to rename each item to a suitable label prior to feeding it in to `ggplot()`. I think the easiest way to do this is `fct_recode()`, because it also keeps the order of the input (if you've already set the input to be a `factor()`), and you only have to rename the values that need renaming. (Note: I've use the unicode superscript 1-9 characters to get the superscript effect, because the other way is much harder. You can copy and paste these, or google [superscript 1 unicode](https://www.google.com/search?q=superscript+1+unicode)).
+
+```{r, warning=FALSE}
+halifax_geochem_meas %>%
+  mutate(facet_label = fct_recode(
+    param,
+    "Ti (%)" = "Ti_percent",
+    "K (%)" = "K_percent",
+    "C (%)" = "C_percent",
+    "δ¹³C (‰)" = "d13C_permille",
+    "δ¹⁵N (‰)" = "d15N_permille"
+  )) %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~facet_label, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)")
+```
+
+### Adding annotations
+
+In general, adding text to the plot is difficult and not advisable. Adding horizontal lines and rectangles to highlight a particular region of the plot is much easier, and I have rarely had to resort to adding actual text to a plot using **ggplot2**. If this is critical to your application, you can use `ggsave()` to export a `.svg` file or `.pdf` file, and import it into your favourite vector drawing program (I happen to like [Inkscape](https://inkscape.org/en/)).
+
+Horizontal lines can be added using `geom_hline()`. When using the `yintercept` argument, a horizontal line will be drawn on all panels.
+
+```{r, warning=FALSE}
+halifax_geochem_meas %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_hline(yintercept = c(7, 14, 21), alpha = 0.7, lty = 2) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)")
+```
+
+To only draw on some panels, you will need to create a tibble with a column that specifies the facet. A small example:
+
+```{r, warning=FALSE}
+hline_data <- tibble(
+  param = "C/N",
+  depth = 14
+)
+
+halifax_geochem_meas %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_hline(
+    aes(yintercept = depth), data = hline_data,
+    lty = 2, alpha = 0.7
+  ) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)")
+```
+
+Rectangles can also be useful to draw in the background to highlight a range of depths. Rectangles also require tibble that specifies their appearance, which can contain the facet variable if the rectangle should only be drawn on some facets. Using `xmin = -Inf` and `xmax = Inf` ensures that the rectangles touch the edge of each facet.
+
+```{r, warning=FALSE}
+rect_data <- tibble(
+  max_depth = 21,
+  min_depth = 14
+)
+
+halifax_geochem_meas %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_rect(
+    aes(ymin = min_depth, ymax = max_depth), data = rect_data,
+    alpha = 0.3, xmin = -Inf, xmax = Inf, inherit.aes = FALSE
+  ) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)")
+```
+
+### A second axis for ages
+
+Depending on the application, ages can be used directly on the Y-axis, or you can include depth on the Y-axis and use a second axis on the right for ages. This can be done using `scale_y_reverse()` with the `sec.axis` argument. This axis is created using a one-to-one transformation, which requires the age-depth information as a tibble. Here I use a transformation function based on `approx()`, which, if you make sure your age-depth data frame is the same as the pockwock one, you should be able to safely copy and paste to add to your plot.
+
+```{r, warning=FALSE}
+pockwock_age_depth <- halifax_geochem %>%
+  filter(core_id == "POC15-2") %>%
+  select(depth_cm, age_ad)
+
+halifax_geochem_meas %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x") +
+  scale_y_reverse(
+    sec.axis = sec_axis(
+      trans = ~approx(pockwock_age_depth, xout = .)$y,
+      name = "Age (Year AD)",
+      breaks = c(2000, 1950, 1900, 1850, 1800, 1750)
+    ),
+    expand = c(0, 0)
+  ) +
+  labs(x = NULL, y = "Depth (cm)")
 ```
 
 ### Multiple cores
 
-- Use colour aesthetic, age on y axis
+Plotting multiple cores can happen in a few ways. First, you can map the `core_id` column to the colour aesthetic (you could use the linetype aesthetic if you need black and white output). You can specify the legend label using the `labs()` function.
 
-```{r}
+```{r, warning=FALSE}
 halifax_geochem %>%
   filter(core_id %in% c("POC15-2", "MAJ15-1")) %>%
-  gather(-core_id, -depth_cm, -age_ad, key = param, value = value) %>%
-  ggplot(aes(y = age_ad, x = value, colour = core_id)) +
+  gather(key = param, value = value, -core_id, -depth_cm, -age_ad) %>%
+  ggplot(aes(y = depth_cm, x = value, colour = core_id)) +
   geom_path() +
   geom_point() +
-  facet_wrap(~param, scales = "free_x")
+  facet_wrap(~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)", colour = "Core ID")
 ```
 
-- Use facet_grid, age or depth on y-axis
+Second, you can use `facet_grid()` instead of `facet_wrap()`. Here you can use age or depth on the y axis, although you can't use the second axis trick from above to have dates as a second axis.
 
-```{r}
+```{r, warning=FALSE}
 halifax_geochem %>%
   filter(core_id %in% c("POC15-2", "MAJ15-1")) %>%
-  gather(-core_id, -depth_cm, -age_ad, key = param, value = value) %>%
+  gather(key = param, value = value, -core_id, -depth_cm, -age_ad) %>%
   ggplot(aes(y = depth_cm, x = value)) +
   geom_path() +
   geom_point() +
   facet_grid(core_id~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)", colour = "Core ID")
+```
+
+For both of these, you can use the same tricks we used to change the order of the facets to change the order and labelling of the end result.
+
+## Species composition diagrams
+
+### Data setup
+
+```{r}
+arnold_counts <- arnold_counts_csv %>%
+  gather(-age_bp, -depth_cm, key = taxon, value = valve_count) %>%
+  group_by(depth_cm) %>%
+  mutate(relative_abundance_percent = valve_count / sum(valve_count) * 100) %>%
+  ungroup()
+
+arnold_counts
+```
+
+```{r}
+arnold_common_taxa <- arnold_counts %>%
+  group_by(taxon) %>%
+  summarise(max_rel_abund = max(relative_abundance_percent)) %>%
+  filter(max_rel_abund >= 10) %>%
+  arrange(max_rel_abund) %>%
+  pull(taxon)
+
+arnold_common_taxa
+```
+
+```{r}
+arnold_counts_common <- arnold_counts %>%
+  filter(taxon %in% arnold_common_taxa) %>%
+  mutate(taxon = factor(taxon, levels = arnold_common_taxa)) %>%
+  arrange(taxon)
+
+arnold_counts_common
+```
+
+```{r}
+arnold_counts_common <- arnold_counts %>%
+  filter(taxon %in% arnold_common_taxa) %>%
+  mutate(taxon = factor(taxon, levels = arnold_common_taxa)) %>%
+  arrange(taxon)
+
+arnold_counts_common
+```
+
+```{r}
+arnold_rel_abundance_wide <- arnold_counts_common %>%
+  select(depth_cm, age_bp, taxon, relative_abundance_percent) %>%
+  spread(key = taxon, value = relative_abundance_percent)
+
+arnold_rel_abundance_wide
+```
+
+### Using analogue::Stratiplot
+
+```{r}
+library(analogue)
+Stratiplot(
+  arnold_rel_abundance_wide %>% select(-depth_cm, -age_bp),
+  arnold_rel_abundance_wide$depth_cm
+)
+```
+
+```{r, message=FALSE, warning=FALSE}
+Stratiplot(
+  arnold_rel_abundance_wide %>% select(-depth_cm, -age_bp),
+  arnold_rel_abundance_wide$depth_cm, 
+  # sets the x and y labels
+  ylab = "Depth (cm)", 
+  xlab = "Relative abundance (%)",
+  # adds padding to the top of the plot
+  # to fix cut-off taxa names
+  topPad = 10, 
+  # make the plot type a "bar" plot
+  type = "h", 
+  # make the bar colour black
+  col = "black"
+)
+```
+
+### Using ggplot2 (for those with an unconditional love of ggplot2)
+
+Use geom_segment to make the bars
+
+```{r}
+ggplot(
+  arnold_counts_common, 
+  aes(y = depth_cm, x = relative_abundance_percent)
+) +
+  # draw horizontal lines of the appropriate length for each depth
+  geom_segment(aes(xend = 0, yend = depth_cm), lwd = 1) +
+  # facet by taxon, keeping distance on the x axis comparable
+  # between facets
+  facet_grid(~taxon, scales = "free_x", space = "free_x") +
+  # reverse the y axis for depth
   scale_y_reverse()
 ```
 
-### Species data
-
 ```{r}
-arnold_counts_long <- arnold_counts %>%
-  gather(-age_bp, -depth_cm, key = taxon, value = valve_count) %>%
-  group_by(depth_cm) %>%
-  mutate(relative_abundance = valve_count / sum(valve_count) * 100) %>%
-  ungroup() %>%
-  group_by(taxon) %>%
-  filter(max(relative_abundance) > 20) %>%
-  ungroup()
-```
-
-```{r}
-p <- ggplot(arnold_counts_long, aes(y = depth_cm, x = relative_abundance)) +
-  geom_segment(aes(xend = 0, yend = depth_cm)) +
-  geom_path() +
+plot_obj <- ggplot(
+  arnold_counts_common, 
+  aes(y = depth_cm, x = relative_abundance_percent)
+) +
+  # draw horizontal lines of the appropriate length for each depth
+  geom_segment(aes(xend = 0, yend = depth_cm), lwd = 1) +
+  # facet by taxon, keeping distance on the x axis comparable
+  # between facets
   facet_grid(~taxon, scales = "free_x", space = "free_x") +
+  # reverse the y axis for depth
   scale_y_reverse() +
-  scale_x_continuous(breaks = c(0, 5, 10, 15, 20, 25, 30)) +
+  # make all facets use the same break values
+  # (helps with cluttered breaks)
+  scale_x_continuous(breaks = c(0, 10, 20, 30)) +
+  # set the x and y labels
+  labs(x = "Relative Abundance (%)", y = "Depth (cm)") +
+  # customize the appearance
   theme_minimal() +
   theme(
-    strip.text.x = element_text(angle = 45, hjust = 0, vjust = 0)
+    # rotate the facet labels
+    strip.text.x = element_text(angle = 60, hjust = 0, vjust = 0), 
+    # turn off the label background
+    strip.background = element_blank(),
+    # add some margin to the right of the plot so that the rightmost label
+    # isn't cut off
+    # c(top, right, bottom, left)
+    plot.margin = unit(c(0, 0.5, 0, 0), "inches"),
+    # turn off spacing between facets
+    panel.spacing.x = unit(0.05, "inches")
   )
 
-# gt <- ggplot_gtable(ggplot_build(p))
-# gt$layout$clip[gt$layout$name=="panel-1-1"] = "off"
-# grid::grid.draw(gt)
-p
+plot_obj
 ```
 
-## Using analogue::stratiplot
+```{r}
+# voodoo that makes it so that facet labels can overlap
+# https://stackoverflow.com/questions/49740215/ggplot-facet-grid-label-cut-off
+plot_grob <- ggplotGrob(plot_obj)
+for(i in which(grepl("strip-t", plot_grob$layout$name))){
+  plot_grob$grobs[[i]]$layout$clip <- "off"
+}
 
-## Using rioja::strat.plot
+# needed to draw the modified plot_grob
+grid::grid.newpage()
+grid::grid.draw(plot_grob)
+```
 
 ## Summary
 
