@@ -16,13 +16,19 @@ description: "A set of R tutorials for paleolimnology."
 
 # Introduction {-}
 
-TODO: write this section 
+This is the website for the “R for Paleolimnology” workshop given at the [Quebec-Ontario Paleolimnology Symposium (PALS) 2018](www.pals2017.com). Here you will find an expanded version of the given workshop where you will lern how to conduct data science in R with an emphasis on Paleolimnology. You will learn and be able to work on a wide variety of skill sets in R including: how to get your data into R, how to structure your data, how to transform your data, and most importantly, how to visualize your paleolimnological data! By the end of this book we hope that you can take you passion for Paleolimnology and make data analysis enjoyable! No really, it can be enjoyable once you develop these skillsets!
 
 ## Prerequisites
 
 R, RStudio, tidyverse
 
-TODO: installing R and RStudio
+### Installing R and RStudio
+
+Please download both R and RStudio, links below will direct you to the download page, just selesct the appropriate download for your operating system and follow the instructions given!
+
+- [R](https://cran.r-project.org/)
+- [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
+
 
 ## Other places to learn R/RStudio/tidyverse
 
