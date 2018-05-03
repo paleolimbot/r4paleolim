@@ -3,7 +3,7 @@
 
 Intro
 
-Draws from [data transformation](http://r4ds.had.co.nz/transform.html) and [data import](http://r4ds.had.co.nz/data-import.html) from [R for Data Science](http://r4ds.had.co.nz/).
+Draws from [data transformation](http://r4ds.had.co.nz/transform.html), [tidy data](http://r4ds.had.co.nz/tidy-data.html) and [data import](http://r4ds.had.co.nz/data-import.html) from [R for Data Science](http://r4ds.had.co.nz/) [@r4ds].
 
 ## Prerequisites
 
@@ -176,6 +176,10 @@ Filter the counts:
 arnold_rel_abund %>%
   filter(taxon %in% common_taxa)
 ```
+
+## Exporing data
+
+- use write_csv, writexl::write_xlsx, to write output
 
 ## Summary
 

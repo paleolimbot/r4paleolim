@@ -1,0 +1,6 @@
+
+# Ordination and clustering {#ordination-cluster}
+
+Using the vegan package to do DCA, CCA, and PCA
+
+Using the rioja package to do CONISS
