@@ -25,7 +25,7 @@
 <meta name="author" content="Brent Thorne and Dewey Dunnington">
 
 
-<meta name="date" content="2018-05-02">
+<meta name="date" content="2018-05-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -161,10 +161,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="prepare-load.html"><a href="prepare-load.html"><i class="fa fa-check"></i><b>4</b> Preparing and Loading Data</a><ul>
 <li class="chapter" data-level="4.1" data-path="prepare-load.html"><a href="prepare-load.html#prerequisites-4"><i class="fa fa-check"></i><b>4.1</b> Prerequisites</a></li>
-<li class="chapter" data-level="4.2" data-path="prepare-load.html"><a href="prepare-load.html#preparing-data"><i class="fa fa-check"></i><b>4.2</b> Preparing data</a></li>
-<li class="chapter" data-level="4.3" data-path="prepare-load.html"><a href="prepare-load.html#loading-data"><i class="fa fa-check"></i><b>4.3</b> Loading data</a></li>
-<li class="chapter" data-level="4.4" data-path="prepare-load.html"><a href="prepare-load.html#cleaning-data"><i class="fa fa-check"></i><b>4.4</b> Cleaning data</a></li>
-<li class="chapter" data-level="4.5" data-path="prepare-load.html"><a href="prepare-load.html#summary-3"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
+<li class="chapter" data-level="4.2" data-path="prepare-load.html"><a href="prepare-load.html#loading-data"><i class="fa fa-check"></i><b>4.2</b> Loading data</a></li>
+<li class="chapter" data-level="4.3" data-path="prepare-load.html"><a href="prepare-load.html#transforming-data"><i class="fa fa-check"></i><b>4.3</b> Transforming data</a></li>
+<li class="chapter" data-level="4.4" data-path="prepare-load.html"><a href="prepare-load.html#summary-3"><i class="fa fa-check"></i><b>4.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="strat-diagrams.html"><a href="strat-diagrams.html"><i class="fa fa-check"></i><b>5</b> Creating Strat diagraoms</a><ul>
 <li class="chapter" data-level="5.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#prerequisites-5"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
@@ -210,19 +209,305 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Load the package when you’re done! If there are errors, you may have not installed the above packages correctly!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
 <p>Finally, you will need to obtain the example data. In this tutorial, we will use <a href="https://www.google.com/maps/place/Lake+Arnold/@44.1305679,-73.9831746,11714m/data=!3m1!1e3!4m5!3m4!1s0x4ccaddaff2a5e819:0x392dc3e7c14fb40f!8m2!3d44.1310666!4d-73.9440977">Lake Arnold</a> diatom counts <span class="citation">(Whitehead et al. <a href="#ref-whitehead89">1989</a>)</span>, obtained from the <a href="https://www.neotomadb.org/">Neotoma database</a>. You will need to download the <a href="data/lake_arnold_valve_counts_tidy.csv">tidy CSV version of the data</a>, and the <a href="data/lake_arnold_valve_counts.xlsx">Excel version of the data</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">include_graphics</span>(<span class="st">&quot;04-data-figs/arnold_excel_counts.png&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:fig-arnold-excel"></span>
+<img src="04-data-figs/arnold_excel_counts.png" alt="Excel screenshot of the Lake Arnold data. The format of one row per taxon with one column per sample is one way that these data are organized in the wild."  />
+<p class="caption">
+Figure 4.1: Excel screenshot of the Lake Arnold data. The format of one row per taxon with one column per sample is one way that these data are organized in the wild.
+</p>
 </div>
-<div id="preparing-data" class="section level2">
-<h2><span class="header-section-number">4.2</span> Preparing data</h2>
-<p>Data comes in a nearly infinite variety of formats and configurations. Occasionally, you are in charge of entering data yourself, in which case you can plan ahead on how your data looks.</p>
 </div>
 <div id="loading-data" class="section level2">
-<h2><span class="header-section-number">4.3</span> Loading data</h2>
+<h2><span class="header-section-number">4.2</span> Loading data</h2>
+<p>If data are in a CSV, use <code>read_csv()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_csv &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/lake_arnold_valve_counts_tidy.csv&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_integer()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<p>The function will guess all the column types, which you can copy and paste into your read call like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_csv &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
+  <span class="st">&quot;data/lake_arnold_valve_counts_tidy.csv&quot;</span>,
+  <span class="dt">col_types =</span> <span class="kw">cols</span>(
+    <span class="dt">.default =</span> <span class="kw">col_integer</span>()
+  )
+)</code></pre></div>
+<p>This will make sure that your column types are read properly in the future, and if any columns are guessed incorrectly, they can be fixed here. For more see the <a href="http://r4ds.had.co.nz/data-import.html">data import</a> chapter of <span class="citation">Grolemund and Wickham (<a href="#ref-r4ds">2017</a>)</span>.</p>
+<p>We will revisit the <code>arnold_counts_csv</code> data frame shortly. It contains the data in the form expected by many R functions, particularly for ordination/transfer function calculations, however it is more common to see the data in a form shown in Figure <a href="prepare-load.html#fig:fig-arnold-excel">4.1</a>. If data are in an Excel sheet, we can use the <strong>readxl</strong> package. This package is installed with the tidyverse, but you need to load it explicitly to use the <code>read_excel()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)
+
+arnold_counts_excel &lt;-<span class="st"> </span><span class="kw">read_excel</span>(
+  <span class="st">&quot;data/lake_arnold_valve_counts.xlsx&quot;</span>,
+  <span class="dt">sheet =</span> <span class="st">&quot;taxon counts&quot;</span>,
+  <span class="dt">skip =</span> <span class="dv">1</span>
+)</code></pre></div>
 </div>
-<div id="cleaning-data" class="section level2">
-<h2><span class="header-section-number">4.4</span> Cleaning data</h2>
+<div id="transforming-data" class="section level2">
+<h2><span class="header-section-number">4.3</span> Transforming data</h2>
+<p><code>gather()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_excel %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, -taxon)</code></pre></div>
+<pre><code>## # A tibble: 2,128 x 3
+##    taxon                               depth_cm valve_count
+##    &lt;chr&gt;                               &lt;chr&gt;          &lt;dbl&gt;
+##  1 Achnanthes linearis fo. curta       0                 NA
+##  2 Achnanthes marginulata              0                  8
+##  3 Achnanthes minutissima              0                 NA
+##  4 Achnanthes sp.                      0                 NA
+##  5 Actinella punctata                  0                  3
+##  6 Anomoeoneis serians                 0                  5
+##  7 Anomoeoneis serians var. brachysira 0                  3
+##  8 Anomoeoneis vitrea                  0                 NA
+##  9 Caloneis ventricosa var. minuta     0                 NA
+## 10 Cocconeis sp.                       0                 NA
+## # ... with 2,118 more rows</code></pre>
+<p>Change type of depth column:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_excel %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, -taxon) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">depth_cm =</span> <span class="kw">as.numeric</span>(depth_cm))</code></pre></div>
+<pre><code>## # A tibble: 2,128 x 3
+##    taxon                               depth_cm valve_count
+##    &lt;chr&gt;                                  &lt;dbl&gt;       &lt;dbl&gt;
+##  1 Achnanthes linearis fo. curta              0          NA
+##  2 Achnanthes marginulata                     0           8
+##  3 Achnanthes minutissima                     0          NA
+##  4 Achnanthes sp.                             0          NA
+##  5 Actinella punctata                         0           3
+##  6 Anomoeoneis serians                        0           5
+##  7 Anomoeoneis serians var. brachysira        0           3
+##  8 Anomoeoneis vitrea                         0          NA
+##  9 Caloneis ventricosa var. minuta            0          NA
+## 10 Cocconeis sp.                              0          NA
+## # ... with 2,118 more rows</code></pre>
+<p>Change <code>NA</code> valve counts to 0:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_excel %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, -taxon) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">depth_cm =</span> <span class="kw">as.numeric</span>(depth_cm)) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">valve_count =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(valve_count), <span class="dv">0</span>, valve_count))</code></pre></div>
+<pre><code>## # A tibble: 2,128 x 3
+##    taxon                               depth_cm valve_count
+##    &lt;chr&gt;                                  &lt;dbl&gt;       &lt;dbl&gt;
+##  1 Achnanthes linearis fo. curta              0           0
+##  2 Achnanthes marginulata                     0           8
+##  3 Achnanthes minutissima                     0           0
+##  4 Achnanthes sp.                             0           0
+##  5 Actinella punctata                         0           3
+##  6 Anomoeoneis serians                        0           5
+##  7 Anomoeoneis serians var. brachysira        0           3
+##  8 Anomoeoneis vitrea                         0           0
+##  9 Caloneis ventricosa var. minuta            0           0
+## 10 Cocconeis sp.                              0           0
+## # ... with 2,118 more rows</code></pre>
+<p>This form of data is particularly useful because it contains one row per measurement, and looses no data. When finished constructing the pipe, assign to a variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts &lt;-<span class="st"> </span>arnold_counts_excel %&gt;%
+<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, -taxon) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">depth_cm =</span> <span class="kw">as.numeric</span>(depth_cm)) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">valve_count =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(valve_count), <span class="dv">0</span>, valve_count))</code></pre></div>
+<p>Things we can do with the data in this form:</p>
+<p>Use a grouped mutate to calculate relative abundance:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abund &lt;-<span class="st"> </span>arnold_counts %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(depth_cm) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">relative_abundance_percent =</span> valve_count /<span class="st"> </span><span class="kw">sum</span>(valve_count) *<span class="st"> </span><span class="dv">100</span>) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>()
+
+arnold_rel_abund</code></pre></div>
+<pre><code>## # A tibble: 2,128 x 4
+##    taxon                      depth_cm valve_count relative_abundance_per…
+##    &lt;chr&gt;                         &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
+##  1 Achnanthes linearis fo. c…        0           0                   0    
+##  2 Achnanthes marginulata            0           8                   2.07 
+##  3 Achnanthes minutissima            0           0                   0    
+##  4 Achnanthes sp.                    0           0                   0    
+##  5 Actinella punctata                0           3                   0.775
+##  6 Anomoeoneis serians               0           5                   1.29 
+##  7 Anomoeoneis serians var. …        0           3                   0.775
+##  8 Anomoeoneis vitrea                0           0                   0    
+##  9 Caloneis ventricosa var. …        0           0                   0    
+## 10 Cocconeis sp.                     0           0                   0    
+## # ... with 2,118 more rows</code></pre>
+<p>Summarise by taxon, find most common taxa:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abund %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(taxon) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(
+    <span class="dt">min_rel_abund =</span> <span class="kw">min</span>(relative_abundance_percent),
+    <span class="dt">max_rel_abund =</span> <span class="kw">max</span>(relative_abundance_percent),
+    <span class="dt">mean_rel_abund =</span> <span class="kw">mean</span>(relative_abundance_percent)
+  ) %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(max_rel_abund))</code></pre></div>
+<pre><code>## # A tibble: 133 x 4
+##    taxon                        min_rel_abund max_rel_abund mean_rel_abund
+##    &lt;chr&gt;                                &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Fragilaria construens                    0          30.8          1.92 
+##  2 Fragilaria virescens var. b…             0          25.6          3.08 
+##  3 Cymbella hebridica                       0          23.7          7.21 
+##  4 Melosira distans                         0          23.5          7.18 
+##  5 Pinnularia biceps                        0          21.1          7.13 
+##  6 Pinnularia microstauron                  0          20.6          2.68 
+##  7 Fragilaria brevistriata                  0          15.2          0.953
+##  8 Fragilaria pinnata                       0          15            0.954
+##  9 Navicula subtilissima                    0          14.9          6.21 
+## 10 Anomoeoneis serians var. br…             0          13.0          4.78 
+## # ... with 123 more rows</code></pre>
+<p>Summarise by depth, find depths with greatest richness:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abund %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(depth_cm) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(
+    <span class="dt">n_valves =</span> <span class="kw">sum</span>(valve_count),
+    <span class="dt">total_rel_abund =</span> <span class="kw">sum</span>(relative_abundance_percent),
+    <span class="dt">n_taxa =</span> <span class="kw">sum</span>(valve_count &gt;<span class="st"> </span><span class="dv">0</span>)
+  )</code></pre></div>
+<pre><code>## # A tibble: 16 x 4
+##    depth_cm n_valves total_rel_abund n_taxa
+##       &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;  &lt;int&gt;
+##  1        0      387             100     44
+##  2        5      489             100     50
+##  3       45      398             100     51
+##  4       75      368             100     40
+##  5      115      484             100     44
+##  6      175      384             100     51
+##  7      235      346             100     47
+##  8      275      381             100     47
+##  9      325      339             100     50
+## 10      375      394             100     40
+## 11      425      245             100     36
+## 12      445      382             100     44
+## 13      475      386             100     44
+## 14      495      384             100     47
+## 15      525      375             100     42
+## 16      555      400             100     29</code></pre>
+<p>Create form of data with one row per depth value (this is almost the same as the <code>arnold_counts_csv</code> that we loaded earlier):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abund %&gt;%
+<span class="st">  </span><span class="kw">select</span>(taxon, depth_cm, relative_abundance_percent) %&gt;%
+<span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> taxon, <span class="dt">value =</span> relative_abundance_percent)</code></pre></div>
+<pre><code>## # A tibble: 16 x 134
+##    depth_cm `Achnanthes linearis … `Achnanthes margin… `Achnanthes minuti…
+##       &lt;dbl&gt;                  &lt;dbl&gt;               &lt;dbl&gt;               &lt;dbl&gt;
+##  1        0                  0                    2.07               0    
+##  2        5                  0                    2.25               0    
+##  3       45                  0                    1.76               0    
+##  4       75                  0                    3.26               0    
+##  5      115                  0                    1.24               0    
+##  6      175                  0                    3.39               0    
+##  7      235                  0                    6.07               0    
+##  8      275                  0                    6.56               0.262
+##  9      325                  0                    5.90               0.885
+## 10      375                  0                    1.02               0    
+## 11      425                  0.816                4.90               0    
+## 12      445                  1.57                 3.93               0    
+## 13      475                  0                    6.22               0    
+## 14      495                  0                    3.12               0    
+## 15      525                  0                    1.33               5.6  
+## 16      555                  0                    0                  0    
+## # ... with 130 more variables: `Achnanthes sp.` &lt;dbl&gt;, `Actinella
+## #   punctata` &lt;dbl&gt;, `Anomoeoneis serians` &lt;dbl&gt;, `Anomoeoneis serians
+## #   var. brachysira` &lt;dbl&gt;, `Anomoeoneis vitrea` &lt;dbl&gt;, `Caloneis
+## #   ventricosa var. minuta` &lt;dbl&gt;, `Cocconeis sp.` &lt;dbl&gt;, `Cyclotella
+## #   glomerata` &lt;dbl&gt;, `Cyclotella stelligera` &lt;dbl&gt;, `Cymbella
+## #   cistula` &lt;dbl&gt;, `Cymbella gaeumannii` &lt;dbl&gt;, `Cymbella
+## #   hebridica` &lt;dbl&gt;, `Cymbella laevis` &lt;dbl&gt;, `Cymbella lunata` &lt;dbl&gt;,
+## #   `Cymbella microcephala` &lt;dbl&gt;, `Cymbella minuta` &lt;dbl&gt;, `Cymbella
+## #   sinuata` &lt;dbl&gt;, `Cymbella sp.` &lt;dbl&gt;, `Diploneis elliptica` &lt;dbl&gt;,
+## #   `Diploneis marginestriata` &lt;dbl&gt;, `Diploneis oculata` &lt;dbl&gt;, `Eunotia
+## #   arcus` &lt;dbl&gt;, `Eunotia assymetrica` &lt;dbl&gt;, `Eunotia bactriana` &lt;dbl&gt;,
+## #   `Eunotia bidentula` &lt;dbl&gt;, `Eunotia bigibba` &lt;dbl&gt;, `Eunotia
+## #   curvata` &lt;dbl&gt;, `Eunotia diodon` &lt;dbl&gt;, `Eunotia elegans` &lt;dbl&gt;,
+## #   `Eunotia exigua` &lt;dbl&gt;, `Eunotia fallax` &lt;dbl&gt;, `Eunotia
+## #   flexuosa` &lt;dbl&gt;, `Eunotia gibbosa` &lt;dbl&gt;, `Eunotia hexaglyphis` &lt;dbl&gt;,
+## #   `Eunotia incisa` &lt;dbl&gt;, `Eunotia major` &lt;dbl&gt;, `Eunotia
+## #   microcephala` &lt;dbl&gt;, `Eunotia monodon` &lt;dbl&gt;, `Eunotia
+## #   naegelii` &lt;dbl&gt;, `Eunotia pectinalis` &lt;dbl&gt;, `Eunotia pectinalis var.
+## #   minor` &lt;dbl&gt;, `Eunotia perpusilla` &lt;dbl&gt;, `Eunotia praerupta` &lt;dbl&gt;,
+## #   `Eunotia serra` &lt;dbl&gt;, `Eunotia soleirolii` &lt;dbl&gt;, `Eunotia
+## #   spp.` &lt;dbl&gt;, `Eunotia sudetica` &lt;dbl&gt;, `Eunotia suecica` &lt;dbl&gt;,
+## #   `Eunotia tenella` &lt;dbl&gt;, `Eunotia triodon` &lt;dbl&gt;, `Eunotia
+## #   vanheurckii` &lt;dbl&gt;, `Eunotia vanheurckii var. intermedia` &lt;dbl&gt;,
+## #   `Fragilaria brevistriata` &lt;dbl&gt;, `Fragilaria constricta` &lt;dbl&gt;,
+## #   `Fragilaria constricta fo. stricta` &lt;dbl&gt;, `Fragilaria
+## #   construens` &lt;dbl&gt;, `Fragilaria construens var. binodis` &lt;dbl&gt;,
+## #   `Fragilaria construens var. pumila` &lt;dbl&gt;, `Fragilaria construens var.
+## #   venter` &lt;dbl&gt;, `Fragilaria pinnata` &lt;dbl&gt;, `Fragilaria sp.` &lt;dbl&gt;,
+## #   `Fragilaria virescens` &lt;dbl&gt;, `Fragilaria virescens var.
+## #   birostrata` &lt;dbl&gt;, `Frustulia rhomboides` &lt;dbl&gt;, `Frustulia rhomboides
+## #   var. capitata` &lt;dbl&gt;, `Frustulia rhomboides var. crassinervia` &lt;dbl&gt;,
+## #   `Frustulia rhomboides var. saxonica` &lt;dbl&gt;, `Gomphonema
+## #   angustatum` &lt;dbl&gt;, `Gomphonema gracile` &lt;dbl&gt;, `Gomphonema
+## #   parvulum` &lt;dbl&gt;, `Gomphonema sp.` &lt;dbl&gt;, `Melosira distans` &lt;dbl&gt;,
+## #   `Melosira distans var. africana (small) SER ADIR` &lt;dbl&gt;, `Melosira
+## #   distans var. lirata` &lt;dbl&gt;, `Melosira distans var. lirata fo.
+## #   seriata` &lt;dbl&gt;, `Melosira italica var. subarctica` &lt;dbl&gt;, `Melosira
+## #   sp.` &lt;dbl&gt;, `Navicula angusta` &lt;dbl&gt;, `Navicula gysingensis` &lt;dbl&gt;,
+## #   `Navicula mediocris` &lt;dbl&gt;, `Navicula minima` &lt;dbl&gt;, `Navicula
+## #   monmouthiana-stodderi` &lt;dbl&gt;, `Navicula mutica` &lt;dbl&gt;, `Navicula
+## #   notha` &lt;dbl&gt;, `Navicula pseudoscutiformis` &lt;dbl&gt;, `Navicula
+## #   radiosa` &lt;dbl&gt;, `Navicula sp.` &lt;dbl&gt;, `Navicula subtilissima` &lt;dbl&gt;,
+## #   `Navicula tenuicephala` &lt;dbl&gt;, `Navicula vanheurckii` &lt;dbl&gt;, `Neidium
+## #   affine` &lt;dbl&gt;, `Neidium affine var. longiceps` &lt;dbl&gt;, `Neidium
+## #   bisulcatum` &lt;dbl&gt;, `Neidium herrmannii` &lt;dbl&gt;, `Neidium iridis` &lt;dbl&gt;,
+## #   `Neidium iridis var. amphigomphus` &lt;dbl&gt;, `Neidium sp.` &lt;dbl&gt;,
+## #   `Nitzschia acuta` &lt;dbl&gt;, `Nitzschia dissipata` &lt;dbl&gt;, `Nitzschia
+## #   linearis` &lt;dbl&gt;, …</code></pre>
+<p>Use a left-join to add age-depth info:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_age_depth &lt;-<span class="st"> </span><span class="kw">read_excel</span>(
+  <span class="st">&quot;data/lake_arnold_valve_counts.xlsx&quot;</span>,
+  <span class="dt">sheet =</span> <span class="st">&quot;age depth model&quot;</span>,
+  <span class="dt">skip =</span> <span class="dv">1</span>
+)
+
+arnold_rel_abund %&gt;%
+<span class="st">  </span><span class="kw">left_join</span>(arnold_age_depth, <span class="dt">by =</span> <span class="st">&quot;depth_cm&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">select</span>(taxon, depth_cm, age_bp, <span class="kw">everything</span>())</code></pre></div>
+<pre><code>## # A tibble: 2,128 x 5
+##    taxon                 depth_cm age_bp valve_count relative_abundance_p…
+##    &lt;chr&gt;                    &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;                 &lt;dbl&gt;
+##  1 Achnanthes linearis …        0    -39           0                 0    
+##  2 Achnanthes marginula…        0    -39           8                 2.07 
+##  3 Achnanthes minutissi…        0    -39           0                 0    
+##  4 Achnanthes sp.               0    -39           0                 0    
+##  5 Actinella punctata           0    -39           3                 0.775
+##  6 Anomoeoneis serians          0    -39           5                 1.29 
+##  7 Anomoeoneis serians …        0    -39           3                 0.775
+##  8 Anomoeoneis vitrea           0    -39           0                 0    
+##  9 Caloneis ventricosa …        0    -39           0                 0    
+## 10 Cocconeis sp.                0    -39           0                 0    
+## # ... with 2,118 more rows</code></pre>
+<p>Filter to only include some taxa:</p>
+<p>Find common taxa:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">common_taxa &lt;-<span class="st"> </span>arnold_rel_abund %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(taxon) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(
+    <span class="dt">max_rel_abund =</span> <span class="kw">max</span>(relative_abundance_percent)
+  ) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(max_rel_abund &gt;=<span class="st"> </span><span class="dv">20</span>) %&gt;%
+<span class="st">  </span><span class="kw">pull</span>(taxon)
+
+common_taxa</code></pre></div>
+<pre><code>## [1] &quot;Cymbella hebridica&quot;                  
+## [2] &quot;Fragilaria construens&quot;               
+## [3] &quot;Fragilaria virescens var. birostrata&quot;
+## [4] &quot;Melosira distans&quot;                    
+## [5] &quot;Pinnularia biceps&quot;                   
+## [6] &quot;Pinnularia microstauron&quot;</code></pre>
+<p>Filter the counts:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abund %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(taxon %in%<span class="st"> </span>common_taxa)</code></pre></div>
+<pre><code>## # A tibble: 96 x 4
+##    taxon                       depth_cm valve_count relative_abundance_pe…
+##    &lt;chr&gt;                          &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
+##  1 Cymbella hebridica                 0          24                  6.20 
+##  2 Fragilaria construens              0           0                  0    
+##  3 Fragilaria virescens var. …        0          99                 25.6  
+##  4 Melosira distans                   0           0                  0    
+##  5 Pinnularia biceps                  0           0                  0    
+##  6 Pinnularia microstauron            0           0                  0    
+##  7 Cymbella hebridica                 5          42                  8.59 
+##  8 Fragilaria construens              5           0                  0    
+##  9 Fragilaria virescens var. …        5          90                 18.4  
+## 10 Melosira distans                   5           1                  0.204
+## # ... with 86 more rows</code></pre>
 </div>
 <div id="summary-3" class="section level2">
-<h2><span class="header-section-number">4.5</span> Summary</h2>
+<h2><span class="header-section-number">4.4</span> Summary</h2>
 <p>Tutorial summary</p>
 <p>Draws from <a href="http://r4ds.had.co.nz/transform.html">data transformation</a> and <a href="http://r4ds.had.co.nz/data-import.html">data import</a> from <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
 
@@ -232,6 +517,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="refs" class="references">
 <div id="ref-whitehead89">
 <p>Whitehead, Donald R., Donald F. Charles, Stephen T. Jackson, John P. Smol, and Daniel R. Engstrom. 1989. “The Developmental History of Adirondack (N.Y.) Lakes.” <em>Journal of Paleolimnology</em> 2 (3): 185–206. doi:<a href="https://doi.org/10.1007/BF00202046">10.1007/BF00202046</a>.</p>
+</div>
+<div id="ref-r4ds">
+<p>Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. New York: O’Reily. <a href="http://r4ds.had.co.nz/" class="uri">http://r4ds.had.co.nz/</a>.</p>
 </div>
 </div>
             </section>
