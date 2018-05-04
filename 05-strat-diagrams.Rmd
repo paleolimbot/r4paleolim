@@ -5,10 +5,11 @@ Creating beautiful stratigraphic diagrams is difficult in any program, and while
 
 ## Prerequisites
 
-The prerequisites for this tutorial are the **tidyverse** package and the **analogue** package. If you haven't installed the **analogue** package yet, you'll have to install it using `install.packages()`.
+The prerequisites for this tutorial are the **tidyverse** package, the **gridExtra** package, and the **analogue** package. If you haven't installed the **analogue** or **gridExtra** packages yet, you'll have to install them using `install.packages()`.
 
 ```{r, eval = FALSE}
 install.packages("analogue")
+install.packages("gridExtra")
 ```
 
 Load the tidyverse when you're done! We will load the other packages when we use functions that require them below.
@@ -161,6 +162,27 @@ halifax_geochem_meas %>%
   labs(x = NULL, y = "Depth (cm)")
 ```
 
+If the unicode superscript effect doesn't work on your computer (it doesn't work for $\delta^{15}\text{N}$) on my computer), you will have to resort to `plotmath`. This is a custom way R invented to render complex formatting, and you can use it with **ggplot2** in various ways. The best way to implement this to start is to copy and paste, and check out `?plotmath` if you're curious what the syntax is. The key is to relabel the facets to very specific looking text (if in doubt, surround everything in single quotes like this: `'C/N'`), and then use `labeller = label_parsed` within `facet_wrap()` (also works in `facet_grid()`).
+
+```{r, warning=FALSE}
+halifax_geochem_meas %>%
+  mutate(facet_label = fct_recode(
+    param,
+    "'Ti (%)'" = "Ti_percent",
+    "'K (%)'" = "K_percent",
+    "'C (%)'" = "C_percent",
+    "delta ^ 13 * C" = "d13C_permille",
+    "delta ^ 15 * N" = "d15N_permille",
+    "'C/N'" = "C/N"
+  )) %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~facet_label, scales = "free_x", labeller = label_parsed) +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)")
+```
+
 ### Adding annotations
 
 In general, adding text to the plot is difficult and not advisable. Adding horizontal lines and rectangles to highlight a particular region of the plot is much easier, and I have rarely had to resort to adding actual text to a plot using **ggplot2**. If this is critical to your application, you can use `ggsave()` to export a `.svg` file or `.pdf` file, and import it into your favourite vector drawing program (I happen to like [Inkscape](https://inkscape.org/en/)).
@@ -253,6 +275,7 @@ Plotting multiple cores can happen in a few ways. First, you can map the `core_i
 halifax_geochem %>%
   filter(core_id %in% c("POC15-2", "MAJ15-1")) %>%
   gather(key = param, value = value, -core_id, -depth_cm, -age_ad) %>%
+  # add colour = core_id to aesthetics
   ggplot(aes(y = depth_cm, x = value, colour = core_id)) +
   geom_path() +
   geom_point() +
@@ -270,16 +293,142 @@ halifax_geochem %>%
   ggplot(aes(y = depth_cm, x = value)) +
   geom_path() +
   geom_point() +
-  facet_grid(core_id~param, scales = "free_x") +
+  # use facet_grid instead of facet_wrap
+  facet_grid(core_id ~ param, scales = "free_x") +
   scale_y_reverse() +
   labs(x = NULL, y = "Depth (cm)", colour = "Core ID")
 ```
 
 For both of these, you can use the same tricks we used to change the order of the facets to change the order and labelling of the end result.
 
+### Overlapping x-axis labels
+
+The default placement of labels in **ggplot2** can result in labels that overlap and look ugly in the final product. There are a few solutions, including (1) Rotate the labels by 90 degrees (this works in most circumstances):
+
+```{r, warning=FALSE}
+halifax_geochem %>%
+  filter(core_id %in% c("POC15-2", "MAJ15-1")) %>%
+  gather(key = param, value = value, -core_id, -depth_cm, -age_ad) %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_grid(core_id~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)", colour = "Core ID") +
+  # modify axis labels
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5)
+  )
+```
+
+You can also (2) make the font size for the labels smaller (the value is in points):
+
+```{r, warning=FALSE}
+halifax_geochem %>%
+  filter(core_id %in% c("POC15-2", "MAJ15-1")) %>%
+  gather(key = param, value = value, -core_id, -depth_cm, -age_ad) %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_grid(core_id~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)", colour = "Core ID") +
+  # modify axis labels
+  theme(
+    axis.text.x = element_text(size = 7)
+  )
+```
+
+Finally, you can (3) suggest a number of breaks to use in `scale_x_continuous()`:
+
+```{r, warning=FALSE}
+halifax_geochem %>%
+  filter(core_id %in% c("POC15-2", "MAJ15-1")) %>%
+  gather(key = param, value = value, -core_id, -depth_cm, -age_ad) %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_grid(core_id~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)", colour = "Core ID") +
+  # x axis scale
+  scale_x_continuous(breaks = scales::extended_breaks(n = 3))
+```
+
+### Saving a plot
+
+You can use the same strategy we used in Tutorial \@ref(creating-visualizations-using-ggplot) to save the plots we created in this section. The easiest way to do this is to save the plot to an object, then use `ggsave()` to write the object to disk.
+
+```{r}
+halifax_geochem_plot <- halifax_geochem_meas %>%
+  ggplot(aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)")
+
+ggsave(
+  plot = halifax_geochem_plot, 
+  filename = "geochem_plot_file_name.png",
+  height = 4, width = 6.5,
+  units = "in",
+  dpi = 300
+)
+```
+
+```{r, include=FALSE}
+unlink("geochem_plot_file_name.png")
+```
+
+You can also save files as .pdf and .svg, but .png is probably the most reliable for importing into Word documents. If you need to edit the file in a vector drawing program afterward (or you need to give the final result to a journal), using .pdf or .svg is probably best. Note that exporting to .svg requires the **svglite** package.
+
+## Exercises
+
+- Make a simple stratigraphic diagram of the "BEN15-2" core. Use `age_ad` on the Y-axis. Your plot should look like this:
+
+```{r, warning = FALSE}
+halifax_geochem %>%
+  filter(core_id == "BEN15-2") %>%
+  gather(key = param, value = value, -core_id, -depth_cm, -age_ad) %>%
+  ggplot(aes(y = age_ad, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x") +
+  labs(x = NULL, y = "Depth (cm)")
+```
+
+- Make a stratigraphic diagram of the "FCL16-1" and "LEM16-1" cores. For bonus points, use proper sub/superscripts for the delta parameters and keep C/N, C, and stable isotopes together, include units in parentheses for all parameters, and use `age_ad` on the Y-axis. In the end, your plot (with bonus marks) should look like this:
+
+```{r echo = FALSE, warning = FALSE}
+halifax_geochem %>%
+  filter(core_id %in% c("FCL16-1", "LEM16-1")) %>%
+  gather(key = param, value = value, -core_id, -depth_cm, -age_ad) %>%
+  mutate(facet_label = fct_recode(
+    param,
+    "'Ti (%)'" = "Ti_percent",
+    "'K (%)'" = "K_percent",
+    "'C (%)'" = "C_percent",
+    "delta ^ 13 * C" = "d13C_permille",
+    "delta ^ 15 * N" = "d15N_permille",
+    "'C/N'" = "C/N"
+  )) %>%
+  ggplot(aes(y = age_ad, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_grid(core_id ~ facet_label, scales = "free_x", labeller = label_parsed) +
+  labs(x = NULL, y = "Depth (cm)")
+```
+
 ## Species composition diagrams
 
-### Data setup
+Species composition diagrams are like other types of strat diagrams, except they have long variable names and generally require scaling of the space such that 10% on one facet is the same distance as 10% on another facet. There are two approaches for this: using **ggplot2** is more verbose but more flexible (you can use most of the tips/tricks above to add secondary axes, horizontal lines, etc.), and using the `Stratiplot()` function in the **analogue** package is less verbose but requires that you have your data in a very specific form. We will go over both approaches here, but if you can make **ggplot2** work for you, the plot looks much nicer.
+
+### Using ggplot2
+
+#### Data setup
+
+Similar to non-speices data, **ggplot2** needs the data to be in "parameter-long" form. Usually the value plotted on the X-axis of species composition plots is a relative abundance (in percent), which we can calculate using a grouped `mutate()`.
 
 ```{r}
 arnold_counts <- arnold_counts_csv %>%
@@ -290,6 +439,8 @@ arnold_counts <- arnold_counts_csv %>%
 
 arnold_counts
 ```
+
+Because there are many taxa, we will restrict our plot to those with a maximum relative abundance of 10% or more. We need this as a vector so that we can `filter()` the `arnold_counts` data above and change the `taxon` column to a `factor()` so that it is plotted in a specific order. Generally this order is some preference gradient, but that isn't a part of this particular dataset. Instead, we will order from least abundant to most abundant.
 
 ```{r}
 arnold_common_taxa <- arnold_counts %>%
@@ -311,14 +462,167 @@ arnold_counts_common <- arnold_counts %>%
 arnold_counts_common
 ```
 
-```{r}
-arnold_counts_common <- arnold_counts %>%
-  filter(taxon %in% arnold_common_taxa) %>%
-  mutate(taxon = factor(taxon, levels = arnold_common_taxa)) %>%
-  arrange(taxon)
+#### Plotting one core
 
-arnold_counts_common
+Using **ggplot2** to plot species composition strat diagrams is similar to plotting geochemical data, with three important differences: the geometry is usually a horizontal bar plot, the facet labels are so long that they need to be rotated, and the horizontal distance in each facet must be equal between facets (so that 10% relative abundance is the same on the leftmost facet as the rightmost facet). We solve the first by replacing `geom_path()` and `geom_point()` with `geom_segment()`, and the third by replacing `facet_wrap()` with `facet_grid()` using `space = "free_x"` to keep the distance on each facet comparable in the x direction. Setting the breaks on the x-axis helps keep the axes less cluttered and maintains the idea of equal space visually.
+
+```{r}
+ggplot(
+  arnold_counts_common, 
+  aes(y = depth_cm, x = relative_abundance_percent)
+) +
+  # draw horizontal lines of the appropriate length for each depth
+  geom_segment(aes(xend = 0, yend = depth_cm), lwd = 1) +
+  # facet by taxon, keeping distance on the x axis comparable
+  # between facets
+  facet_grid(~taxon, scales = "free_x", space = "free_x") +
+  # have the same breaks for all x axes
+  scale_x_continuous(breaks = c(0, 10, 20, 30)) +
+  # reverse the y axis for depth
+  scale_y_reverse() +
+  labs(x = "Relative Abundance (%)", y = "Depth (cm)")
 ```
+
+The problem of rotated and partially overlapping facet labels is one that takes some code to deal with. The good news is, the code is the same regardless of which plot you are trying to create, so you can copy/paste it for any plot that needs rotated facet labels. We do this in two steps: rotate and align the facet labels within `theme()`, and then use what can only be described as voodoo to eliminate the default clipping used by **ggplot2**.
+
+```{r}
+species_plot_obj <- ggplot(
+  arnold_counts_common, 
+  aes(y = depth_cm, x = relative_abundance_percent)
+) +
+  # draw horizontal lines of the appropriate length for each depth
+  geom_segment(aes(xend = 0, yend = depth_cm), lwd = 1) +
+  # facet by taxon, keeping distance on the x axis comparable
+  # between facets
+  facet_grid(~taxon, scales = "free_x", space = "free_x") +
+  # reverse the y axis for depth
+  scale_y_reverse() +
+  # make all facets use the same break values
+  # (helps with cluttered breaks)
+  scale_x_continuous(breaks = c(0, 10, 20, 30)) +
+  # set the x and y labels
+  labs(x = "Relative Abundance (%)", y = "Depth (cm)") +
+  # customize the appearance
+  theme(
+    # rotate the facet labels
+    strip.text.x = element_text(angle = 60, hjust = 0, vjust = 0), 
+    # turn off the label background
+    strip.background = element_blank()
+  )
+
+# voodoo that makes it so that facet labels can overlap
+# https://stackoverflow.com/questions/49740215/ggplot-facet-grid-label-cut-off
+species_plot_grob <- ggplotGrob(species_plot_obj)
+for(i in which(grepl("strip-t", species_plot_grob$layout$name))){
+  species_plot_grob$grobs[[i]]$layout$clip <- "off"
+}
+
+# needed to draw the modified plot_grob
+grid::grid.draw(species_plot_grob)
+```
+
+#### Saving a plot
+
+Because we have modified the plot after it is has been built, we need to use the base-R way of saving things. This is done using the `pdf()`, `png()` and `svg()` functions (and calling `dev.off()` afterward). Call `grid::grid.draw()` in the middle like this:
+
+```{r, results='hide'}
+png(
+  "my_species_plot.png", 
+  width = 6.5, 
+  height = 4, 
+  res = 300,
+  units = "in"
+)
+grid::grid.draw(species_plot_grob)
+dev.off()
+
+pdf(
+  "my_species_plot.pdf", 
+  width = 6.5, 
+  height = 4
+)
+grid::grid.draw(species_plot_grob)
+dev.off()
+```
+
+```{r, include = FALSE}
+unlink("my_species_plot.pdf")
+unlink("my_species_plot.png")
+```
+
+#### Adjusting spacing
+
+For more fine-tuned control of the appearance, you can use various arguments within `theme()`. The two that I've used in this situation are `plot.margin` to add some padding to the right (this helps with the occasional cutoff rightmost facet label), and `panel.spacing.x` to adjust the spacing between panels.
+
+```{r, eval = FALSE}
+  ... +
+  theme(
+    ...,
+    # add some margin to the right of the plot so that the rightmost label
+    # isn't cut off
+    # c(top, right, bottom, left)
+    plot.margin = unit(c(0, 0.5, 0, 0), "inches"),
+    # adjust spacing between facets
+    panel.spacing.x = unit(0.05, "inches")
+  )
+```
+
+#### Non-species data
+
+Often strat diagrams include some other kind of data in addition to the species data, like a PC1 summary or diatom-inferred pH. I'll calculate a few diversity indicies for this dataset as a demonstration.
+
+```{r}
+species_diversity <- arnold_counts %>%
+  group_by(depth_cm) %>%
+  summarise(
+    richness = sum(valve_count != 0),
+    simpsons = 1 - sum((relative_abundance_percent / 100) ^ 2),
+    hill_n2 = 1 / sum((relative_abundance_percent / 100) ^ 2)
+  ) %>%
+  gather(key = param, value = value, -depth_cm)
+
+diversity_plot <- ggplot(species_diversity, aes(y = depth_cm, x = value)) +
+  geom_path() +
+  geom_point() +
+  facet_wrap(~param, scales = "free_x") +
+  scale_y_reverse() +
+  labs(x = NULL, y = "Depth (cm)")
+
+diversity_plot
+```
+
+When using **ggplot2**, there is no easy way to combine this with a species plot (you will see a way to do this in the **analogue** package [below](#strat-species-analogue)). The only way I know of to do this is to with **ggplot2** is to (1) modify the non-species data such that it has no y-axis label, no y-axis ticks, and no y-axis break labels, (2) remove the plot background from the second plot (to avoid clipping), (3) fudge the plot margins on the second plot so that the plots align properly (below I set the top and bottom margins to 1.74 and 0.30 inches, respectively, but you will have to fudge this yourself), and (4) use the `grid.arrange()` function from the **gridExtra** package to combine the two plots (you can set the relative widths, but you should have the number of rows be 1). Make sure to use the "grob" version of the species plot, which kept the species names from being clipped. Make sure that your depth values actually align before removing the axis labels completely!
+
+```{r, message=FALSE}
+gridExtra::grid.arrange(
+  species_plot_grob,
+  diversity_plot + 
+    labs(y = NULL) +
+    scale_y_reverse(labels = NULL) +
+    theme(
+      plot.margin = unit(c(1.74, 0, 0.30, 0), "inches"),
+      axis.ticks.y = element_blank(),
+      plot.background = element_blank()
+    ),
+  nrow = 1,
+  widths = c(2.5, 1)
+)
+```
+
+You can save this plot by enclosing the `grid.arrange()` call in `png()` (or `pdf()`) and `dev.off()`.
+
+### Using analogue::Stratiplot {#strat-species-analogue}
+
+The [**analogue** package](https://github.com/gavinsimpson/analogue) by [Gavin Simpson](https://www.fromthebottomoftheheap.net/) has a number of useful functions for paleolimnologists, including a `Stratiplot()` function designed to produce stratigraphic plots. I find the **ggplot2** version to be more flexible, but the default look and feel works for you, `Stratiplot()` is definitely easier. Because we are using functions from another package, we have to load the package using `library()`.
+
+```{r}
+# install using install.packages("analogue")
+library(analogue)
+```
+
+#### Data preparation
+
+The data required by `Stratiplot()` is a data frame of relative abundances (as columns). To calculate this from our filtered data, we can use the `spread()` function to get the data in "parameter wide" form.
 
 ```{r}
 arnold_rel_abundance_wide <- arnold_counts_common %>%
@@ -328,15 +632,18 @@ arnold_rel_abundance_wide <- arnold_counts_common %>%
 arnold_rel_abundance_wide
 ```
 
-### Using analogue::Stratiplot
+#### Plotting a single core
+
+The `Stratiplot()` function takes two arguments: the first is a version of the data frame we just created without any of the depth information. The second is the depth information as a vector.
 
 ```{r}
-library(analogue)
 Stratiplot(
   arnold_rel_abundance_wide %>% select(-depth_cm, -age_bp),
   arnold_rel_abundance_wide$depth_cm
 )
 ```
+
+There are many arguments to `Stratiplot()`, but I found for this example that the following values worked for this particular dataset. In particular, increasing the `topPad` parameter was needed to keep the species labels from being cutoff.
 
 ```{r, message=FALSE, warning=FALSE}
 Stratiplot(
@@ -355,27 +662,81 @@ Stratiplot(
 )
 ```
 
-### Using ggplot2 (for those with an unconditional love of ggplot2)
+#### Non-species data
 
-Use geom_segment to make the bars
+Including non-species data is similar to including species data using `Stratiplot()`, but the `varTypes` argument needs to specify that the non-species variables should have independently sized axes. This should be a vector with the same number of elements as variables in the plot (I've use `rep()` to repeat "relative" and "absolute" the correct number of times.)
 
 ```{r}
-ggplot(
-  arnold_counts_common, 
-  aes(y = depth_cm, x = relative_abundance_percent)
-) +
-  # draw horizontal lines of the appropriate length for each depth
-  geom_segment(aes(xend = 0, yend = depth_cm), lwd = 1) +
-  # facet by taxon, keeping distance on the x axis comparable
-  # between facets
-  facet_grid(~taxon, scales = "free_x", space = "free_x") +
-  # reverse the y axis for depth
-  scale_y_reverse()
+species_diversity <- arnold_counts %>%
+  group_by(depth_cm) %>%
+  summarise(
+    richness = sum(valve_count != 0),
+    simpsons = 1 - sum((relative_abundance_percent / 100) ^ 2),
+    hill_n2 = 1 / sum((relative_abundance_percent / 100) ^ 2)
+  )
+
+arnold_rel_abundance_wide_div <- cbind(
+  arnold_rel_abundance_wide,
+  species_diversity %>% select(-depth_cm)
+)
+
+Stratiplot(
+  arnold_rel_abundance_wide_div %>% select(-depth_cm, -age_bp),
+  arnold_rel_abundance_wide_div$depth_cm, 
+  varTypes = c(rep("relative", 11), rep("absolute", 3)),
+  ylab = "Depth (cm)", 
+  xlab = "Relative abundance (%)",
+  topPad = 10, 
+  type = "h", 
+  col = "black"
+)
 ```
 
-```{r}
-plot_obj <- ggplot(
-  arnold_counts_common, 
+#### Saving a plot
+
+You can save these plots by enclosing the `Stratiplot()` call in `png()` (or `pdf()`) and `dev.off()`:
+
+```{r, results='hide'}
+png(
+  "my_species_plot.png", 
+  width = 6.5, 
+  height = 4, 
+  res = 300,
+  units = "in"
+)
+Stratiplot(
+  arnold_rel_abundance_wide %>% select(-depth_cm, -age_bp),
+  arnold_rel_abundance_wide$depth_cm, 
+  # sets the x and y labels
+  ylab = "Depth (cm)", 
+  xlab = "Relative abundance (%)",
+  # adds padding to the top of the plot
+  # to fix cut-off taxa names
+  topPad = 10, 
+  # make the plot type a "bar" plot
+  type = "h", 
+  # make the bar colour black
+  col = "black"
+)
+dev.off()
+```
+
+## Exercises
+
+- Use either **ggplot2** or **analogue** to plot the species `c("Surirella delicatissima", "Anomoeoneis serians var. brachysira", "Navicula subtilissima", "Fragilaria pinnata", "Fragilaria brevistriata")`. For bonus points, use **ggplot2** and rotate the axis labels.
+
+```{r, echo=FALSE}
+arnold_exercise_taxa <- c(
+  "Surirella delicatissima", "Anomoeoneis serians var. brachysira", 
+  "Navicula subtilissima", "Fragilaria pinnata", "Fragilaria brevistriata"
+)
+
+arnold_exercise_data <- arnold_counts %>%
+  filter(taxon %in% arnold_exercise_taxa) %>%
+  mutate(taxon = factor(taxon, levels = arnold_exercise_taxa))
+
+exercise_plot_obj <- ggplot(
+  arnold_exercise_data, 
   aes(y = depth_cm, x = relative_abundance_percent)
 ) +
   # draw horizontal lines of the appropriate length for each depth
@@ -391,36 +752,43 @@ plot_obj <- ggplot(
   # set the x and y labels
   labs(x = "Relative Abundance (%)", y = "Depth (cm)") +
   # customize the appearance
-  theme_minimal() +
   theme(
     # rotate the facet labels
     strip.text.x = element_text(angle = 60, hjust = 0, vjust = 0), 
     # turn off the label background
-    strip.background = element_blank(),
-    # add some margin to the right of the plot so that the rightmost label
-    # isn't cut off
-    # c(top, right, bottom, left)
-    plot.margin = unit(c(0, 0.5, 0, 0), "inches"),
-    # turn off spacing between facets
-    panel.spacing.x = unit(0.05, "inches")
+    strip.background = element_blank()
   )
 
-plot_obj
-```
-
-```{r}
 # voodoo that makes it so that facet labels can overlap
-# https://stackoverflow.com/questions/49740215/ggplot-facet-grid-label-cut-off
-plot_grob <- ggplotGrob(plot_obj)
-for(i in which(grepl("strip-t", plot_grob$layout$name))){
-  plot_grob$grobs[[i]]$layout$clip <- "off"
+exercise_plot_grob <- ggplotGrob(exercise_plot_obj)
+for(i in which(grepl("strip-t", exercise_plot_grob$layout$name))){
+  exercise_plot_grob$grobs[[i]]$layout$clip <- "off"
 }
 
 # needed to draw the modified plot_grob
 grid::grid.newpage()
-grid::grid.draw(plot_grob)
+grid::grid.draw(exercise_plot_grob)
+
+# stratiplot
+arnold_exercise_wide <- arnold_exercise_data %>%
+  select(depth_cm, age_bp, taxon, relative_abundance_percent) %>%
+  spread(key = taxon, value = relative_abundance_percent)
+
+Stratiplot(
+  arnold_exercise_wide %>% select(-depth_cm, -age_bp),
+  arnold_exercise_wide$depth_cm, 
+  ylab = "Depth (cm)", 
+  xlab = "Relative abundance (%)",
+  topPad = 10, 
+  type = "h", 
+  col = "black"
+)
+```
+
+```{r, include = FALSE}
+unlink("my_species_plot.png")
 ```
 
 ## Summary
 
-Tutorial summary
+In this tutorial, we used **ggplot2** and the **analogue** package to create (and save) stratigraphic diagrams for geochemical and species composition data. Unforunately, I don't know of any good resources currently available for creating stratigraphic plots in R, although there is an [R session at IPA-IAL](https://ipa-ial.geo.su.se/courses-and-meetings) this year.
