@@ -25,14 +25,14 @@
 <meta name="author" content="Brent Thorne and Dewey Dunnington">
 
 
-<meta name="date" content="2018-05-03">
+<meta name="date" content="2018-05-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="ordination-cluster.html">
+<link rel="prev" href="strat-diagrams.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -168,19 +168,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.4" data-path="prepare-load.html"><a href="prepare-load.html#exporing-data"><i class="fa fa-check"></i><b>4.4</b> Exporing data</a></li>
 <li class="chapter" data-level="4.5" data-path="prepare-load.html"><a href="prepare-load.html#summary-3"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="strat-diagrams.html"><a href="strat-diagrams.html"><i class="fa fa-check"></i><b>5</b> Creating Strat diagraoms</a><ul>
+<li class="chapter" data-level="5" data-path="strat-diagrams.html"><a href="strat-diagrams.html"><i class="fa fa-check"></i><b>5</b> Creating Stratigraphic Diagrams</a><ul>
 <li class="chapter" data-level="5.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#prerequisites-5"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
-<li class="chapter" data-level="5.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#data-preparation"><i class="fa fa-check"></i><b>5.2</b> Data preparation</a></li>
-<li class="chapter" data-level="5.3" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-ggplot-1"><i class="fa fa-check"></i><b>5.3</b> Using ggplot</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#single-core"><i class="fa fa-check"></i><b>5.3.1</b> Single core</a></li>
-<li class="chapter" data-level="5.3.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#multiple-cores"><i class="fa fa-check"></i><b>5.3.2</b> Multiple cores</a></li>
-<li class="chapter" data-level="5.3.3" data-path="strat-diagrams.html"><a href="strat-diagrams.html#species-data"><i class="fa fa-check"></i><b>5.3.3</b> Species data</a></li>
+<li class="chapter" data-level="5.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#workflow"><i class="fa fa-check"></i><b>5.2</b> Workflow</a></li>
+<li class="chapter" data-level="5.3" data-path="strat-diagrams.html"><a href="strat-diagrams.html#general-stratigraphic-diagrams"><i class="fa fa-check"></i><b>5.3</b> General stratigraphic diagrams</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#data-preparation"><i class="fa fa-check"></i><b>5.3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="5.3.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#plotting-a-single-core"><i class="fa fa-check"></i><b>5.3.2</b> Plotting a single core</a></li>
+<li class="chapter" data-level="5.3.3" data-path="strat-diagrams.html"><a href="strat-diagrams.html#changing-the-colours"><i class="fa fa-check"></i><b>5.3.3</b> Changing the colours</a></li>
+<li class="chapter" data-level="5.3.4" data-path="strat-diagrams.html"><a href="strat-diagrams.html#facet-configuration"><i class="fa fa-check"></i><b>5.3.4</b> Facet configuration</a></li>
+<li class="chapter" data-level="5.3.5" data-path="strat-diagrams.html"><a href="strat-diagrams.html#reordering-facets"><i class="fa fa-check"></i><b>5.3.5</b> Reordering facets</a></li>
+<li class="chapter" data-level="5.3.6" data-path="strat-diagrams.html"><a href="strat-diagrams.html#relabeling-facets"><i class="fa fa-check"></i><b>5.3.6</b> Relabeling facets</a></li>
+<li class="chapter" data-level="5.3.7" data-path="strat-diagrams.html"><a href="strat-diagrams.html#adding-annotations"><i class="fa fa-check"></i><b>5.3.7</b> Adding annotations</a></li>
+<li class="chapter" data-level="5.3.8" data-path="strat-diagrams.html"><a href="strat-diagrams.html#a-second-axis-for-ages"><i class="fa fa-check"></i><b>5.3.8</b> A second axis for ages</a></li>
+<li class="chapter" data-level="5.3.9" data-path="strat-diagrams.html"><a href="strat-diagrams.html#multiple-cores"><i class="fa fa-check"></i><b>5.3.9</b> Multiple cores</a></li>
+<li class="chapter" data-level="5.3.10" data-path="strat-diagrams.html"><a href="strat-diagrams.html#overlapping-x-axis-labels"><i class="fa fa-check"></i><b>5.3.10</b> Overlapping x-axis labels</a></li>
+<li class="chapter" data-level="5.3.11" data-path="strat-diagrams.html"><a href="strat-diagrams.html#saving-a-plot"><i class="fa fa-check"></i><b>5.3.11</b> Saving a plot</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-analoguestratiplot"><i class="fa fa-check"></i><b>5.4</b> Using analogue::stratiplot</a></li>
-<li class="chapter" data-level="5.5" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-riojastrat.plot"><i class="fa fa-check"></i><b>5.5</b> Using rioja::strat.plot</a></li>
-<li class="chapter" data-level="5.6" data-path="strat-diagrams.html"><a href="strat-diagrams.html#summary-4"><i class="fa fa-check"></i><b>5.6</b> Summary</a></li>
+<li class="chapter" data-level="5.4" data-path="strat-diagrams.html"><a href="strat-diagrams.html#exercises-3"><i class="fa fa-check"></i><b>5.4</b> Exercises</a></li>
+<li class="chapter" data-level="5.5" data-path="strat-diagrams.html"><a href="strat-diagrams.html#species-composition-diagrams"><i class="fa fa-check"></i><b>5.5</b> Species composition diagrams</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-ggplot2"><i class="fa fa-check"></i><b>5.5.1</b> Using ggplot2</a></li>
+<li class="chapter" data-level="5.5.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#strat-species-analogue"><i class="fa fa-check"></i><b>5.5.2</b> Using analogue::Stratiplot</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ordination-cluster.html"><a href="ordination-cluster.html"><i class="fa fa-check"></i><b>6</b> Ordination and clustering</a></li>
+<li class="chapter" data-level="5.6" data-path="strat-diagrams.html"><a href="strat-diagrams.html#exercises-4"><i class="fa fa-check"></i><b>5.6</b> Exercises</a></li>
+<li class="chapter" data-level="5.7" data-path="strat-diagrams.html"><a href="strat-diagrams.html#summary-4"><i class="fa fa-check"></i><b>5.7</b> Summary</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -222,7 +233,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="ordination-cluster.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="strat-diagrams.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -264,6 +275,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
