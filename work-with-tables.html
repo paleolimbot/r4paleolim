@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Paleolimnology</title>
+  <meta name="description" content="A set of R tutorials for paleolimnology.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Paleolimnology" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A set of R tutorials for paleolimnology." />
+  <meta name="github-repo" content="paleolimbot/r4paleolim" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Paleolimnology" />
+  
+  <meta name="twitter:description" content="A set of R tutorials for paleolimnology." />
+  
+
+<meta name="author" content="Brent Thorne and Dewey Dunnington">
+
+
+<meta name="date" content="2018-05-07">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="basic-r.html">
+<link rel="next" href="creating-visualizations-using-ggplot.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R for Paleolimnology</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>0.1</b> Prerequisites</a><ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>0.1.1</b> Installing R and RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#other-places-to-learn-rrstudiotidyverse"><i class="fa fa-check"></i><b>0.2</b> Other places to learn R/RStudio/tidyverse</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i><b>0.3</b> Colophon</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>1</b> Basic R</a><ul>
+<li class="chapter" data-level="1.1" data-path="basic-r.html"><a href="basic-r.html#prerequisites-1"><i class="fa fa-check"></i><b>1.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="1.2" data-path="basic-r.html"><a href="basic-r.html#expressions-and-variables"><i class="fa fa-check"></i><b>1.2</b> Expressions and Variables</a></li>
+<li class="chapter" data-level="1.3" data-path="basic-r.html"><a href="basic-r.html#functions"><i class="fa fa-check"></i><b>1.3</b> Functions</a></li>
+<li class="chapter" data-level="1.4" data-path="basic-r.html"><a href="basic-r.html#vectors"><i class="fa fa-check"></i><b>1.4</b> Vectors</a></li>
+<li class="chapter" data-level="1.5" data-path="basic-r.html"><a href="basic-r.html#indexing"><i class="fa fa-check"></i><b>1.5</b> Indexing</a></li>
+<li class="chapter" data-level="1.6" data-path="basic-r.html"><a href="basic-r.html#missing-values"><i class="fa fa-check"></i><b>1.6</b> Missing Values</a></li>
+<li class="chapter" data-level="1.7" data-path="basic-r.html"><a href="basic-r.html#data-frames"><i class="fa fa-check"></i><b>1.7</b> Data Frames</a></li>
+<li class="chapter" data-level="1.8" data-path="basic-r.html"><a href="basic-r.html#loading-packages"><i class="fa fa-check"></i><b>1.8</b> Loading Packages</a></li>
+<li class="chapter" data-level="1.9" data-path="basic-r.html"><a href="basic-r.html#using-the-script-editor"><i class="fa fa-check"></i><b>1.9</b> Using the Script Editor</a></li>
+<li class="chapter" data-level="1.10" data-path="basic-r.html"><a href="basic-r.html#the-environment"><i class="fa fa-check"></i><b>1.10</b> The Environment</a></li>
+<li class="chapter" data-level="1.11" data-path="basic-r.html"><a href="basic-r.html#excercises"><i class="fa fa-check"></i><b>1.11</b> Excercises</a></li>
+<li class="chapter" data-level="1.12" data-path="basic-r.html"><a href="basic-r.html#summary"><i class="fa fa-check"></i><b>1.12</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="work-with-tables.html"><a href="work-with-tables.html"><i class="fa fa-check"></i><b>2</b> Working with Tables using the Tidyverse</a><ul>
+<li class="chapter" data-level="2.1" data-path="work-with-tables.html"><a href="work-with-tables.html#prerequisites-2"><i class="fa fa-check"></i><b>2.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2.2" data-path="work-with-tables.html"><a href="work-with-tables.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>2.2</b> Viewing a Data Frame</a></li>
+<li class="chapter" data-level="2.3" data-path="work-with-tables.html"><a href="work-with-tables.html#selecting-columns"><i class="fa fa-check"></i><b>2.3</b> Selecting Columns</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="work-with-tables.html"><a href="work-with-tables.html#excercises-1"><i class="fa fa-check"></i><b>2.3.1</b> Excercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="work-with-tables.html"><a href="work-with-tables.html#filtering-rows"><i class="fa fa-check"></i><b>2.4</b> Filtering Rows</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="work-with-tables.html"><a href="work-with-tables.html#exercises"><i class="fa fa-check"></i><b>2.4.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="work-with-tables.html"><a href="work-with-tables.html#selecting-and-filtering"><i class="fa fa-check"></i><b>2.5</b> Selecting and Filtering</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="work-with-tables.html"><a href="work-with-tables.html#exercises-1"><i class="fa fa-check"></i><b>2.5.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="work-with-tables.html"><a href="work-with-tables.html#the-pipe"><i class="fa fa-check"></i><b>2.6</b> The Pipe (%&gt;%)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="work-with-tables.html"><a href="work-with-tables.html#exercises-2"><i class="fa fa-check"></i><b>2.6.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="work-with-tables.html"><a href="work-with-tables.html#arranging-sorting-a-data-frame"><i class="fa fa-check"></i><b>2.7</b> Arranging (sorting) A Data Frame</a></li>
+<li class="chapter" data-level="2.8" data-path="work-with-tables.html"><a href="work-with-tables.html#distinct-values"><i class="fa fa-check"></i><b>2.8</b> Distinct Values</a></li>
+<li class="chapter" data-level="2.9" data-path="work-with-tables.html"><a href="work-with-tables.html#calculating-columns-using-mutate"><i class="fa fa-check"></i><b>2.9</b> Calculating columns using <code>mutate()</code></a></li>
+<li class="chapter" data-level="2.10" data-path="work-with-tables.html"><a href="work-with-tables.html#summarising-a-data-frame"><i class="fa fa-check"></i><b>2.10</b> Summarising A Data Frame</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="work-with-tables.html"><a href="work-with-tables.html#excercises-2"><i class="fa fa-check"></i><b>2.10.1</b> Excercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="work-with-tables.html"><a href="work-with-tables.html#extracting-columns"><i class="fa fa-check"></i><b>2.11</b> Extracting Columns</a></li>
+<li class="chapter" data-level="2.12" data-path="work-with-tables.html"><a href="work-with-tables.html#base-r-subsetting-vs.select-and-filter"><i class="fa fa-check"></i><b>2.12</b> Base R Subsetting vs. select() and filter()</a></li>
+<li class="chapter" data-level="2.13" data-path="work-with-tables.html"><a href="work-with-tables.html#summary-1"><i class="fa fa-check"></i><b>2.13</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html"><i class="fa fa-check"></i><b>3</b> Creating Visualizations using ggplot</a><ul>
+<li class="chapter" data-level="3.1" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#prerequisites-3"><i class="fa fa-check"></i><b>3.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="3.2" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#using-ggplot"><i class="fa fa-check"></i><b>3.2</b> Using ggplot</a></li>
+<li class="chapter" data-level="3.3" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#aesthetics"><i class="fa fa-check"></i><b>3.3</b> Aesthetics</a></li>
+<li class="chapter" data-level="3.4" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#geometries"><i class="fa fa-check"></i><b>3.4</b> Geometries</a></li>
+<li class="chapter" data-level="3.5" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#facets"><i class="fa fa-check"></i><b>3.5</b> Facets</a></li>
+<li class="chapter" data-level="3.6" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#make-it-look-pretty"><i class="fa fa-check"></i><b>3.6</b> Make it look pretty</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#labels"><i class="fa fa-check"></i><b>3.6.1</b> Labels</a></li>
+<li class="chapter" data-level="3.6.2" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#scales"><i class="fa fa-check"></i><b>3.6.2</b> Scales</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#summary-2"><i class="fa fa-check"></i><b>3.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="prepare-load.html"><a href="prepare-load.html"><i class="fa fa-check"></i><b>4</b> Preparing and Loading Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="prepare-load.html"><a href="prepare-load.html#prerequisites-4"><i class="fa fa-check"></i><b>4.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="4.2" data-path="prepare-load.html"><a href="prepare-load.html#loading-data"><i class="fa fa-check"></i><b>4.2</b> Loading data</a></li>
+<li class="chapter" data-level="4.3" data-path="prepare-load.html"><a href="prepare-load.html#transforming-data"><i class="fa fa-check"></i><b>4.3</b> Transforming data</a></li>
+<li class="chapter" data-level="4.4" data-path="prepare-load.html"><a href="prepare-load.html#exporing-data"><i class="fa fa-check"></i><b>4.4</b> Exporing data</a></li>
+<li class="chapter" data-level="4.5" data-path="prepare-load.html"><a href="prepare-load.html#summary-3"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="strat-diagrams.html"><a href="strat-diagrams.html"><i class="fa fa-check"></i><b>5</b> Creating Stratigraphic Diagrams</a><ul>
+<li class="chapter" data-level="5.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#prerequisites-5"><i class="fa fa-check"></i><b>5.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="5.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#workflow"><i class="fa fa-check"></i><b>5.2</b> Workflow</a></li>
+<li class="chapter" data-level="5.3" data-path="strat-diagrams.html"><a href="strat-diagrams.html#general-stratigraphic-diagrams"><i class="fa fa-check"></i><b>5.3</b> General stratigraphic diagrams</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#data-preparation"><i class="fa fa-check"></i><b>5.3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="5.3.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#plotting-a-single-core"><i class="fa fa-check"></i><b>5.3.2</b> Plotting a single core</a></li>
+<li class="chapter" data-level="5.3.3" data-path="strat-diagrams.html"><a href="strat-diagrams.html#changing-the-colours"><i class="fa fa-check"></i><b>5.3.3</b> Changing the colours</a></li>
+<li class="chapter" data-level="5.3.4" data-path="strat-diagrams.html"><a href="strat-diagrams.html#facet-configuration"><i class="fa fa-check"></i><b>5.3.4</b> Facet configuration</a></li>
+<li class="chapter" data-level="5.3.5" data-path="strat-diagrams.html"><a href="strat-diagrams.html#reordering-facets"><i class="fa fa-check"></i><b>5.3.5</b> Reordering facets</a></li>
+<li class="chapter" data-level="5.3.6" data-path="strat-diagrams.html"><a href="strat-diagrams.html#relabeling-facets"><i class="fa fa-check"></i><b>5.3.6</b> Relabeling facets</a></li>
+<li class="chapter" data-level="5.3.7" data-path="strat-diagrams.html"><a href="strat-diagrams.html#adding-annotations"><i class="fa fa-check"></i><b>5.3.7</b> Adding annotations</a></li>
+<li class="chapter" data-level="5.3.8" data-path="strat-diagrams.html"><a href="strat-diagrams.html#a-second-axis-for-ages"><i class="fa fa-check"></i><b>5.3.8</b> A second axis for ages</a></li>
+<li class="chapter" data-level="5.3.9" data-path="strat-diagrams.html"><a href="strat-diagrams.html#multiple-cores"><i class="fa fa-check"></i><b>5.3.9</b> Multiple cores</a></li>
+<li class="chapter" data-level="5.3.10" data-path="strat-diagrams.html"><a href="strat-diagrams.html#overlapping-x-axis-labels"><i class="fa fa-check"></i><b>5.3.10</b> Overlapping x-axis labels</a></li>
+<li class="chapter" data-level="5.3.11" data-path="strat-diagrams.html"><a href="strat-diagrams.html#saving-a-plot"><i class="fa fa-check"></i><b>5.3.11</b> Saving a plot</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="strat-diagrams.html"><a href="strat-diagrams.html#exercises-3"><i class="fa fa-check"></i><b>5.4</b> Exercises</a></li>
+<li class="chapter" data-level="5.5" data-path="strat-diagrams.html"><a href="strat-diagrams.html#species-composition-diagrams"><i class="fa fa-check"></i><b>5.5</b> Species composition diagrams</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="strat-diagrams.html"><a href="strat-diagrams.html#using-ggplot2"><i class="fa fa-check"></i><b>5.5.1</b> Using ggplot2</a></li>
+<li class="chapter" data-level="5.5.2" data-path="strat-diagrams.html"><a href="strat-diagrams.html#strat-species-analogue"><i class="fa fa-check"></i><b>5.5.2</b> Using analogue::Stratiplot</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="strat-diagrams.html"><a href="strat-diagrams.html#exercises-4"><i class="fa fa-check"></i><b>5.6</b> Exercises</a></li>
+<li class="chapter" data-level="5.7" data-path="strat-diagrams.html"><a href="strat-diagrams.html#summary-4"><i class="fa fa-check"></i><b>5.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Paleolimnology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="work-with-tables" class="section level1">
+<h1><span class="header-section-number">Tutorial 2</span> Working with Tables using the Tidyverse</h1>
+<p>In this tutorial we will introduce the <strong>tibble</strong> (also called a data frame), or the object type that R uses to store tables. Most of the data you will work with in R can be represented by a table (think an excel sheet), and one of the main advantages of using R is that the data frame is a powerful and intuitive interface for tabular data. In this tutorial we will use the <a href="http://www.tidyverse.org/">tidyverse</a> to manipulate and summarise tabular data. The tutorial is a companion to the <a href="http://r4ds.had.co.nz/transform.html">Data transformation</a> chapter in <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
+<div id="prerequisites-2" class="section level2">
+<h2><span class="header-section-number">2.1</span> Prerequisites</h2>
+<p>The prerequisite for this tutorial is the <code>tidyverse</code> package. If this package isn’t installed, you’ll have to install it using <code>install.packages()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<p>Load the packages when you’re done! If there are errors, you may have not installed the above packages correctly!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<p>Finally, you will need to load the example data. For now, copy and paste the following code to load the <a href="data/halifax_geochem.csv">Halifax geochemistry dataset</a> (we will learn how to read various types of files into R in the <a href="prepare-load.html#prepare-load">preparing and loading data</a> tutorial).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
+  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv&quot;</span>,
+  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())
+)</code></pre></div>
+<p>It’s worth mentioning a little bit about what this data frame contains, since we’ll be working with it for the rest of this tutorial. The data contains several bulk geochemical parameters from a recent study of Halifax drinking water reservoirs <span class="citation">(Dunnington et al. <a href="#ref-dunnington18">2018</a>)</span>, including Pockwock Lake, Lake Major, Bennery Lake, Lake Fletcher, Lake Lemont, First Chain Lake, First Lake, and Second Lake. (Later, we will take a look at the <a href="data/halifax_geochem_cores.xlsx">core locations</a> as well as the geochemical data).</p>
+</div>
+<div id="viewing-a-data-frame" class="section level2">
+<h2><span class="header-section-number">2.2</span> Viewing a Data Frame</h2>
+<p>The variable we have just created (<code>halifax_geochem</code>) is a <strong>tibble</strong>, which is a table of values much like you would find in a spreadsheet (you will notice that we loaded it directly from an Excel spreadhseet). Each column in the tibble represents a variable (in this case, the core identifier, depth of the sample, age represented by that sample, and several geochemical parameters), and each row in the table represents an observation (in this case, a sample from a sediment core).</p>
+<p>In RStudio’s “Environment” tab (usually at the top right of the screen), you should see a variable called <code>halifax_geochem</code> in the list. You can inspect it by clicking on the variable name, after which a tab will appear displaying the contents of the variable you just loaded. Clicking the little arrow to the left of the name will display the structure of the data frame, including the column names and some sample values. You can also do both of these things using the R commands <code>View()</code> and <code>glimpse()</code>, respectively. Also useful is the <code>head()</code> function, which will display the first few rows of a data frame.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(halifax_geochem) <span class="co"># will display a graphic table browser</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(halifax_geochem) <span class="co"># will display a text summary of the object</span></code></pre></div>
+<pre><code>## Observations: 326
+## Variables: 9
+## $ core_id       &lt;chr&gt; &quot;BEN15-2&quot;, &quot;BEN15-2&quot;, &quot;BEN15-2&quot;, &quot;BEN15-2&quot;, &quot;BEN...
+## $ depth_cm      &lt;dbl&gt; 0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5...
+## $ age_ad        &lt;dbl&gt; 2015.903, 2015.188, 2014.474, 2012.950, 2011.425...
+## $ C_percent     &lt;dbl&gt; 14.75718, 14.65701, 14.94983, 14.54558, 14.40408...
+## $ `C/N`         &lt;dbl&gt; 12.15765, 12.17829, 11.92338, 11.67900, 11.61200...
+## $ d13C_permille &lt;dbl&gt; -30.24752, -30.31042, -30.35799, -30.33835, -30....
+## $ d15N_permille &lt;dbl&gt; 2.461962, 2.447662, 2.336219, 2.528572, 2.662515...
+## $ K_percent     &lt;dbl&gt; 1.0026000, 1.0857000, 0.9782000, 0.9423000, 1.07...
+## $ Ti_percent    &lt;dbl&gt; 0.1693000, 0.1823000, 0.1678000, 0.1664000, 0.18...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(halifax_geochem) <span class="co"># will display the first few rows of the data</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 9
+##   core_id depth_cm age_ad C_percent `C/N` d13C_permille d15N_permille
+##   &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+## 1 BEN15-2      0    2016.      14.8  12.2         -30.2          2.46
+## 2 BEN15-2      0.5  2015.      14.7  12.2         -30.3          2.45
+## 3 BEN15-2      1    2014.      14.9  11.9         -30.4          2.34
+## 4 BEN15-2      1.5  2013.      14.5  11.7         -30.3          2.53
+## 5 BEN15-2      2    2011.      14.4  11.6         -30.4          2.66
+## 6 BEN15-2      2.5  2010.      14.4  11.9         -30.3          2.48
+## # ... with 2 more variables: K_percent &lt;dbl&gt;, Ti_percent &lt;dbl&gt;</code></pre>
+</div>
+<div id="selecting-columns" class="section level2">
+<h2><span class="header-section-number">2.3</span> Selecting Columns</h2>
+<p>One way to subset <code>halifax_geochem</code> is to subset by column, for which we will use the <code>select()</code> function. For example, we may only be interested in the stable isotope information, represented by the columns <code>d13C_permille</code> and <code>d15N_permille</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stable_isotope_data &lt;-<span class="st"> </span><span class="kw">select</span>(
+  halifax_geochem, 
+  core_id, depth_cm, age_ad, 
+  d13C_permille, d15N_permille
+)</code></pre></div>
+<p>The first argument to the <code>select()</code> function is the original data frame (in this case, <code>halifax_geochem</code>), and the remaining arguments are the names of the columns to be selected. To select the <code>core_id</code>, <code>age_ad</code>, <code>Ti</code>, and <code>K</code> columns, you would use the following R command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">geochem_data &lt;-<span class="st"> </span><span class="kw">select</span>(halifax_geochem, core_id, depth_cm, age_ad, Ti_percent, K_percent)</code></pre></div>
+<p>Some column names in <code>halifax_geochem</code> contain characters that could be interpreted as an operation (e.g., <code>C/N</code>, which is the name of the column and not <code>C</code> divided by <code>N</code>). To select these columns, you will need to surround the column name in backticks:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(halifax_geochem, core_id, depth_cm, age_ad, <span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>)</code></pre></div>
+<div id="excercises-1" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Excercises</h3>
+<ul>
+<li>Use <code>View()</code>, <code>glimpse()</code>, and <code>head()</code> to preview the two data frames we just created. Do they have the columns you would expect?</li>
+<li>Use <code>select()</code> to select <code>core_id</code>, <code>depth_cm</code>, C/N, d13C, and d15N, and assign it to the variable <code>cn_data</code>.</li>
+</ul>
+</div>
+</div>
+<div id="filtering-rows" class="section level2">
+<h2><span class="header-section-number">2.4</span> Filtering Rows</h2>
+<p>Another way to subset <code>halifax_geochem</code> is by filtering rows using column values, similar to the filter feature in Microsoft Excel. This is done using the <code>filter()</code> function. For example, we may only be interested in the core from Pockwock Lake.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pockwock_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id ==<span class="st"> &quot;POC15-2&quot;</span>)</code></pre></div>
+<p>Just like <code>select()</code>, the first argument to <code>filter()</code> is the original data frame, and the subsequent arguments are the conditions that each row must satisfy in order to be included in the output. Column values are referred to by the column name (in the above example, <code>core_id</code>), so to include all rows where the value in the <code>core_id</code> column is POC15-2, we use <code>core_id == &quot;POC15-2&quot;</code>. Passing multiple conditions means each row must satisfy all of the conditions, such that to obtain the data from core POC15-2 where the depth in the core was 0 cm, we can use the following call to <code>filter()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pockwock_surface_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id ==<span class="st"> &quot;POC15-2&quot;</span>, depth_cm ==<span class="st"> </span><span class="dv">0</span>)</code></pre></div>
+<p>It is very important that there are two equals signs within <code>filter()</code>! The <code>==</code> operator tests for equality (e.g. <code>(2 + 2) == 4</code>), whereas the <code>=</code> operator assigns a value or passes a named argument to a function, which is not what you’re trying to do within <code>filter()</code>. Other common operators that are useful within filter are <code>!=</code> (not equal to), <code>&gt;</code> (greater than), <code>&lt;</code> (less than), <code>&gt;=</code> (greater than or equal to), <code>&lt;=</code> (less than or equal to), and <code>%in%</code> (tests if the value is one of several values). Using these, we could find out which observations are representative of the era 1950 to present:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_recent &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, age_ad &gt;=<span class="st"> </span><span class="dv">1950</span>)</code></pre></div>
+<p>We could also find observations from multiple cores:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>))</code></pre></div>
+<div id="exercises" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Exercises</h3>
+<ul>
+<li>Use <code>View()</code>, <code>glimpse()</code>, and <code>head()</code> to preview the data frames we just created. Do they have the rows you would expect?</li>
+<li>Use <code>filter()</code> to find observations from the core FCL16-1 with an age between 1900 and present, and assign it to a name of your choosing.</li>
+<li>Are there any observations with a C/N value greater than 20? (hint: you will have to surround <code>C/N</code> in backticks)</li>
+</ul>
+</div>
+</div>
+<div id="selecting-and-filtering" class="section level2">
+<h2><span class="header-section-number">2.5</span> Selecting and Filtering</h2>
+<p>Often we need to use both <code>select()</code> and <code>filter()</code> to obtain the desired subset of a data frame. To do this, we need to pass the result of <code>select()</code> to <code>filter()</code>, or the result of <code>filter()</code> to select. For example, we could create a data frame of recent (age greater than 1950) stable isotope measurements (you’ll recall that we selected stable isotope columns in the data frame <code>stable_isotope_data</code>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">recent_stable_isotopes &lt;-<span class="st"> </span><span class="kw">filter</span>(stable_isotope_data, age_ad &gt;=<span class="st"> </span><span class="dv">1950</span>)
+recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</span>(
+  data_recent,
+  core_id, depth_cm, age_ad, 
+  d13C_permille, d15N_permille
+)</code></pre></div>
+<div id="exercises-1" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Exercises</h3>
+<ul>
+<li>Use <code>View()</code>, <code>glimpse()</code>, and/or <code>head()</code> to verify that <code>recent_stable_isotopes</code> and <code>recent_stable_isotopes_2</code> are identical.</li>
+</ul>
+</div>
+</div>
+<div id="the-pipe" class="section level2">
+<h2><span class="header-section-number">2.6</span> The Pipe (%&gt;%)</h2>
+<p>There is an easier way! Instead of creating intermediary variables every time we want to subset a data frame using <code>select()</code> and <code>filter()</code>, we can use the pipe operator (<code>%&gt;%</code>) to pass the result of one function call to another. Thus, creating our <code>recent_stable_isotopes</code> data frame from above becomes one line with one variable assignment instead of two.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">recent_stable_isotopes_pipe &lt;-<span class="st"> </span>halifax_geochem %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(age_ad &gt;=<span class="st"> </span><span class="dv">1950</span>) %&gt;%
+<span class="st">  </span><span class="kw">select</span>(core_id, depth_cm, age_ad, d13C_permille, d15N_permille)</code></pre></div>
+<p>What <code>%&gt;%</code> does is pass the left side into the first argument of the function call on the right side. Thus, <code>filter(halifax_geochem, age_ad &gt;= 1950)</code> becomes <code>halifax_geochem %&gt;% filter(age_ad &gt;= 1950)</code>. When using the tidyverse family of packages, you should use the pipe as often as possible! It usually makes for more readable, less error-prone code, and reduces the number of temporary variables you create that clutter up your workspace. When using <code>filter()</code> and <code>select()</code> with other tidyverse manipulations like <code>arrange()</code>, <code>group_by()</code>, <code>summarise()</code>, and <code>mutate()</code>, the pipe becomes indispensable.</p>
+<div id="exercises-2" class="section level3">
+<h3><span class="header-section-number">2.6.1</span> Exercises</h3>
+<ul>
+<li>Inspect <code>recent_stable_isotopes_pipe</code> to ensure it is identical to <code>recent_stable_isotopes</code>.</li>
+<li>Create a data frame of stable isotope data from surface samples (<code>depth_cm == 0</code>) using <code>halifax_geochem</code>, <code>filter()</code>, <code>select()</code>, and <code>%&gt;%</code> and assign it to a variable of a suitable name.</li>
+</ul>
+</div>
+</div>
+<div id="arranging-sorting-a-data-frame" class="section level2">
+<h2><span class="header-section-number">2.7</span> Arranging (sorting) A Data Frame</h2>
+<p>Sometimes it is desirable to view rows in a particular order, which can be used to quickly determine min and max values of various parameters. You can do this in the interactive editor using <code>View()</code>, but sometimes rows need to be in particular order for plotting or other analysis. This is done using the <code>arrange()</code> function. For example, it may make sense to view <code>halifax_geochem</code> in ascending <code>core_id</code> and <code>depth_cm</code> order (most recent first):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(core_id, depth_cm)</code></pre></div>
+<pre><code>## # A tibble: 326 x 9
+##    core_id depth_cm age_ad C_percent `C/N` d13C_permille d15N_permille
+##    &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+##  1 BEN15-2      0    2016.      14.8  12.2         -30.2          2.46
+##  2 BEN15-2      0.5  2015.      14.7  12.2         -30.3          2.45
+##  3 BEN15-2      1    2014.      14.9  11.9         -30.4          2.34
+##  4 BEN15-2      1.5  2013.      14.5  11.7         -30.3          2.53
+##  5 BEN15-2      2    2011.      14.4  11.6         -30.4          2.66
+##  6 BEN15-2      2.5  2010.      14.4  11.9         -30.3          2.48
+##  7 BEN15-2      3    2008.      14.4  11.9         -30.3          2.53
+##  8 BEN15-2      3.5  2005.      14.3  12.0         -30.2          2.60
+##  9 BEN15-2      4    2002.      14.0  12.0         -30.2          2.60
+## 10 BEN15-2      4.5  1999.      13.7  12.1         -30.2          2.48
+## # ... with 316 more rows, and 2 more variables: K_percent &lt;dbl&gt;,
+## #   Ti_percent &lt;dbl&gt;</code></pre>
+<p>Or descending depth order (most recent last):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(core_id, <span class="kw">desc</span>(depth_cm))</code></pre></div>
+<pre><code>## # A tibble: 326 x 9
+##    core_id depth_cm age_ad C_percent `C/N` d13C_permille d15N_permille
+##    &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+##  1 BEN15-2       29  1742.      14.5  13.4         -29.3          3.54
+##  2 BEN15-2       28  1751.      14.5  13.5         -29.3          3.60
+##  3 BEN15-2       27  1759.      15.1  13.4         -29.4          3.60
+##  4 BEN15-2       26  1768.      15.9  13.5         -29.5          3.57
+##  5 BEN15-2       25  1776.      16.7  13.4         -29.6          3.42
+##  6 BEN15-2       24  1784.      16.8  13.4         -29.5          3.42
+##  7 BEN15-2       23  1793.      16.5  13.5         -29.4          3.39
+##  8 BEN15-2       22  1801.      17.2  13.4         -29.4          3.41
+##  9 BEN15-2       21  1810.      17.3  13.6         -29.4          3.22
+## 10 BEN15-2       20  1818.      17.6  13.5         -29.4          3.18
+## # ... with 316 more rows, and 2 more variables: K_percent &lt;dbl&gt;,
+## #   Ti_percent &lt;dbl&gt;</code></pre>
+<p>The <code>arrange()</code> function takes columns as arguments, surrounded by <code>desc()</code> if that column should be sorted in descending order.</p>
+</div>
+<div id="distinct-values" class="section level2">
+<h2><span class="header-section-number">2.8</span> Distinct Values</h2>
+<p>It is often useful to know which values exist in a data frame. For example, I’ve told you that the core locations are for various lakes in the halifax area, but what are they actually called in the dataset? To do this, we can use the <code>distinct()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">distinct</span>(core_id)</code></pre></div>
+<pre><code>## # A tibble: 8 x 1
+##   core_id
+##   &lt;chr&gt;  
+## 1 BEN15-2
+## 2 FCL16-1
+## 3 FLE16-1
+## 4 FLK12-1
+## 5 LEM16-1
+## 6 MAJ15-1
+## 7 POC15-2
+## 8 SLK13-1</code></pre>
+<p>The <code>distinct()</code> function can take any number of column names as arguments, although in this particular dataset there isn’t a good example for this.</p>
+</div>
+<div id="calculating-columns-using-mutate" class="section level2">
+<h2><span class="header-section-number">2.9</span> Calculating columns using <code>mutate()</code></h2>
+<p>To create a brand-new column, we can use the <code>mutate()</code> function. This creates a column in a way that we can use existing column names to calculate a new column. For example, we could convert the <code>age_ad</code> column to years before 1950:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age_bp =</span> <span class="dv">1950</span> -<span class="st"> </span>age_ad) %&gt;%
+<span class="st">  </span><span class="kw">select</span>(core_id, age_ad, age_bp)</code></pre></div>
+<pre><code>## # A tibble: 326 x 3
+##    core_id age_ad age_bp
+##    &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+##  1 BEN15-2  2016.  -65.9
+##  2 BEN15-2  2015.  -65.2
+##  3 BEN15-2  2014.  -64.5
+##  4 BEN15-2  2013.  -62.9
+##  5 BEN15-2  2011.  -61.4
+##  6 BEN15-2  2010.  -59.6
+##  7 BEN15-2  2008.  -57.8
+##  8 BEN15-2  2005.  -54.9
+##  9 BEN15-2  2002.  -52.1
+## 10 BEN15-2  1999.  -49.3
+## # ... with 316 more rows</code></pre>
+<p>Or, we could convert the <code>K_percent</code> and <code>Ti_percent</code> columns to parts per million:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(
+    <span class="dt">K_ppm =</span> K_percent *<span class="st"> </span><span class="dv">10000</span>,
+    <span class="dt">Ti_ppm =</span> Ti_percent *<span class="st"> </span><span class="dv">10000</span>
+  ) %&gt;%
+<span class="st">  </span><span class="kw">select</span>(core_id, K_percent, K_ppm, Ti_percent, Ti_ppm)</code></pre></div>
+<pre><code>## # A tibble: 326 x 5
+##    core_id K_percent  K_ppm Ti_percent Ti_ppm
+##    &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;
+##  1 BEN15-2     1.00  10026       0.169  1693 
+##  2 BEN15-2     1.09  10857.      0.182  1823 
+##  3 BEN15-2     0.978  9782       0.168  1678 
+##  4 BEN15-2     0.942  9423       0.166  1664 
+##  5 BEN15-2     1.08  10784.      0.183  1832.
+##  6 BEN15-2     1.09  10863       0.183  1830 
+##  7 BEN15-2     1.04  10374.      0.176  1762 
+##  8 BEN15-2     0.97   9700       0.167  1670 
+##  9 BEN15-2     1.12  11175       0.179  1791 
+## 10 BEN15-2     1.01  10064.      0.17   1700.
+## # ... with 316 more rows</code></pre>
+</div>
+<div id="summarising-a-data-frame" class="section level2">
+<h2><span class="header-section-number">2.10</span> Summarising A Data Frame</h2>
+<p>So far we have looked at subsets of <code>halifax_geochem</code>, but what if we want per-core averages instead of raw data values? Using the tidyverse, we can <code>group_by()</code> the <code>core_id</code> column, and <code>summarise()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(core_id) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_CN =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>))</code></pre></div>
+<pre><code>## # A tibble: 8 x 2
+##   core_id mean_CN
+##   &lt;chr&gt;     &lt;dbl&gt;
+## 1 BEN15-2    12.8
+## 2 FCL16-1    14.2
+## 3 FLE16-1    12.4
+## 4 FLK12-1    12.8
+## 5 LEM16-1    12.6
+## 6 MAJ15-1    NA  
+## 7 POC15-2    NA  
+## 8 SLK13-1    NA</code></pre>
+<p>Here <code>group_by()</code> gets a list of columns, for which each unique combination of values will get one row in the output. <code>summarise()</code> gets a list of expressions that are evaluated for every unique combination of values defined by <code>group_by()</code> (e.g., <code>mean_CN</code> is the <code>mean()</code> of the <code>C/N</code> column for each core). Often, we want to include a number of summary columns in the output, which we can do by pasing more expressions to <code>summarise()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(core_id) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(
+    <span class="dt">mean_CN =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>),
+    <span class="dt">min_CN =</span> <span class="kw">min</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>),
+    <span class="dt">max_CN =</span> <span class="kw">max</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>),
+    <span class="dt">sd_CN =</span> <span class="kw">sd</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>)
+  )</code></pre></div>
+<pre><code>## # A tibble: 8 x 5
+##   core_id mean_CN min_CN max_CN  sd_CN
+##   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 BEN15-2    12.8   11.6   13.6  0.648
+## 2 FCL16-1    14.2   12.1   16.5  1.05 
+## 3 FLE16-1    12.4   10.5   13.3  0.830
+## 4 FLK12-1    12.8   10.6   14.9  1.02 
+## 5 LEM16-1    12.6   11.8   13.1  0.307
+## 6 MAJ15-1    NA     NA     NA   NA    
+## 7 POC15-2    NA     NA     NA   NA    
+## 8 SLK13-1    NA     NA     NA   NA</code></pre>
+<p>You will notice that in for several cores the summary values are <code>NA</code>, or missing. This is because R propogates missing values unless you explicitly tell it not to. To fix this, you could replace <code>mean(`C/N`)</code> with <code>mean(`C/N`, na.rm = TRUE)</code>. Other useful functions to use inside <code>summarise()</code> include <code>mean()</code>, <code>median()</code>, <code>sd()</code>, <code>sum()</code>, <code>min()</code>, and <code>max()</code>. These all take a vector of values and produce a single aggregate value suitable for use in <code>summarise()</code>. One special function, <code>n()</code>, you can use (with no arguments) inside <code>summarise()</code> to tell you how many observations were aggregated to produce the values in that row.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(core_id) %&gt;%
+<span class="st">  </span><span class="kw">summarise</span>(
+    <span class="dt">mean_CN =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
+    <span class="dt">min_CN =</span> <span class="kw">min</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
+    <span class="dt">max_CN =</span> <span class="kw">max</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
+    <span class="dt">sd_CN =</span> <span class="kw">sd</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
+    <span class="dt">n =</span> <span class="kw">n</span>()
+  )</code></pre></div>
+<pre><code>## # A tibble: 8 x 6
+##   core_id mean_CN min_CN max_CN sd_CN     n
+##   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+## 1 BEN15-2    12.8   11.6   13.6 0.648    35
+## 2 FCL16-1    14.2   12.1   16.5 1.05     49
+## 3 FLE16-1    12.4   10.5   13.3 0.830    37
+## 4 FLK12-1    12.8   10.6   14.9 1.02     33
+## 5 LEM16-1    12.6   11.8   13.1 0.307    35
+## 6 MAJ15-1    15.7   14.3   18.4 1.09     51
+## 7 POC15-2    15.2   13.6   17.4 1.26     52
+## 8 SLK13-1    11.4   10.3   11.9 0.443    34</code></pre>
+<p>It’s always a good idea to include <code>n()</code> inside <code>summarise()</code>, if nothing else as a check to make sure you’ve used <code>group_by()</code> with the correct columns.</p>
+<div id="excercises-2" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> Excercises</h3>
+<ul>
+<li>Assign the data frame we just created to a variable, and inspect it using <code>View()</code> and <code>str()</code>. Which cores have the most terrestrial C/N signature? Which cores have the most aquatic signature?</li>
+<li>Create a similar data frame to the one we just created but using <code>C_percent</code>. Which cores had the highest peak organic value.</li>
+<li>Which cores had the oldest estimated basal date?</li>
+</ul>
+</div>
+</div>
+<div id="extracting-columns" class="section level2">
+<h2><span class="header-section-number">2.11</span> Extracting Columns</h2>
+<p>When we use <code>select()</code> or <code>distinct()</code>, we get back a data frame, however occasionally we need one or a few of the vectors that make up the data frame (recall from the last tutorial that data frames are a collection of column vectors). If we needed <em>just</em> the temperature values, we can use the <code>$</code> operator or the <code>pull()</code> function to extract a column vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem$C_percent</code></pre></div>
+<pre><code>##   [1] 14.757176 14.657012 14.949832 14.545579 14.404084 14.403361 14.417744
+##   [8] 14.279836 14.013717 13.703397 13.403708 12.918529 12.905447 13.359170
+##  [15] 13.852618 14.386124 14.533912 14.593866 15.667289 14.765232 15.028548
+##  [22] 15.290797 16.107091 16.828205 17.336513 17.591619 17.311306 17.183589
+##  [29] 16.492232 16.808112 16.701580 15.903060 15.069473 14.535988 14.529308
+##  [36] 16.865924 15.026170 15.495396 14.920478 14.986076 15.500813 15.359202
+##  [43] 15.174549 15.809170 15.493308 13.107648 14.348712 13.259158 13.556510
+##  [50] 13.119736 12.610362 12.626289 13.510481 13.516503 13.673926 13.739241
+##  [57] 13.319716 12.752857 12.449856 13.769313 13.594019 14.074802 15.168339
+##  [64] 16.618788 16.359283 16.105118 16.514953 18.517095 17.978341 17.371192
+##  [71] 16.311194 17.566880 17.477789 17.054982 17.685215 17.953537 19.507351
+##  [78] 20.374763 20.849903 18.816935 19.815698 20.777122 20.852904 21.074918
+##  [85]  6.263526  6.173985  6.054831  5.702408  5.113311  4.834282  4.572133
+##  [92]  4.370639  4.433741  4.321790  4.511906  4.997175  5.026973  5.507729
+##  [99]  5.613024  6.005021  6.368445  6.736808  7.413337  7.826077  8.387502
+## [106]  8.641869  9.651663 10.471288 11.024577 11.867441  9.647337 11.459685
+## [113] 11.809470 12.079710 11.911566 12.071773 12.279458 12.478523 12.579303
+## [120] 12.571033 12.838081  4.533660  4.587350  4.313170  4.358330  4.424750
+## [127]  4.803090  7.139540  9.071560  9.337890  9.629480  9.318650 10.515000
+## [134]  9.964780 11.282600 10.048000 10.303900 11.186500 10.948100  9.480070
+## [141]  8.809490  8.579200  8.531470  9.635170  9.138650  9.447680  8.802510
+## [148]  9.611150  9.787400  9.432920  8.768380  8.822690  9.401530  9.579060
+## [155] 14.321988 13.170802 12.511922 10.561964  9.652961  8.523713  7.645318
+## [162]  7.462763  7.544005  7.347211  7.537033  7.310795  7.341749  7.476305
+## [169]  7.421047  7.381802  7.398633  7.934676  8.815771  9.335244 10.760830
+## [176] 11.400979 11.250975 12.138173 12.768363 12.735964 12.427341 12.086503
+## [183] 13.644940 14.713456 15.641560 16.972044 17.678566 17.798798 18.278828
+## [190]        NA 16.269317 15.259672 14.197484 14.270182 14.714715 13.955317
+## [197] 13.719997 13.917566 16.450386 20.130244 21.488213 21.169039 20.821857
+## [204] 18.802373 16.951176 15.031508 13.885433 13.419708 13.391310 13.438673
+## [211] 12.997013 12.731380 13.096725 12.781592 12.687495 11.733670 11.623405
+## [218] 12.029799 12.674604 13.561877 15.560322 16.826027 17.238919 16.435055
+## [225] 16.156588 16.386247 15.994739 15.808491 15.335339 15.501906 15.750462
+## [232] 15.813097 15.818069 15.763004 15.763415 15.848448 15.543236 15.343314
+## [239] 15.133554 14.878146        NA 20.122789        NA 21.543915 20.494810
+## [246] 20.208873 20.149571 19.043943 17.930155 16.835701 17.243781 17.922027
+## [253] 17.457315 15.637815 15.053572 15.151438 14.823894 14.666839 14.135732
+## [260] 13.915358 14.326561 14.778377 15.763145 16.940269 17.786186 18.217911
+## [267] 17.992235 18.166406 19.032422 19.143826 18.636600 18.702145 18.130120
+## [274] 18.365359 18.074177 18.062602 18.280654 18.331464 17.700223 17.002926
+## [281] 17.245358 17.465165 17.076685 16.854514 16.893483 16.955922 16.795793
+## [288] 16.874876 16.822462 16.450231 16.734635 16.486585  5.704334  5.306090
+## [295]        NA  5.350935  5.207219  5.303574  5.609634  6.246534  6.315260
+## [302]  6.913474  7.164375  7.701242  7.572774  6.123106  6.953925  6.500808
+## [309]  9.940868  7.538145 11.425805  9.094246 12.094420 12.084451 12.244675
+## [316] 12.116512 12.069895 12.102366 11.977507 11.889317 11.935524 10.761811
+## [323] 11.463138  7.890573 11.445759 11.556214</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%<span class="st"> </span><span class="kw">pull</span>(C_percent)</code></pre></div>
+<pre><code>##   [1] 14.757176 14.657012 14.949832 14.545579 14.404084 14.403361 14.417744
+##   [8] 14.279836 14.013717 13.703397 13.403708 12.918529 12.905447 13.359170
+##  [15] 13.852618 14.386124 14.533912 14.593866 15.667289 14.765232 15.028548
+##  [22] 15.290797 16.107091 16.828205 17.336513 17.591619 17.311306 17.183589
+##  [29] 16.492232 16.808112 16.701580 15.903060 15.069473 14.535988 14.529308
+##  [36] 16.865924 15.026170 15.495396 14.920478 14.986076 15.500813 15.359202
+##  [43] 15.174549 15.809170 15.493308 13.107648 14.348712 13.259158 13.556510
+##  [50] 13.119736 12.610362 12.626289 13.510481 13.516503 13.673926 13.739241
+##  [57] 13.319716 12.752857 12.449856 13.769313 13.594019 14.074802 15.168339
+##  [64] 16.618788 16.359283 16.105118 16.514953 18.517095 17.978341 17.371192
+##  [71] 16.311194 17.566880 17.477789 17.054982 17.685215 17.953537 19.507351
+##  [78] 20.374763 20.849903 18.816935 19.815698 20.777122 20.852904 21.074918
+##  [85]  6.263526  6.173985  6.054831  5.702408  5.113311  4.834282  4.572133
+##  [92]  4.370639  4.433741  4.321790  4.511906  4.997175  5.026973  5.507729
+##  [99]  5.613024  6.005021  6.368445  6.736808  7.413337  7.826077  8.387502
+## [106]  8.641869  9.651663 10.471288 11.024577 11.867441  9.647337 11.459685
+## [113] 11.809470 12.079710 11.911566 12.071773 12.279458 12.478523 12.579303
+## [120] 12.571033 12.838081  4.533660  4.587350  4.313170  4.358330  4.424750
+## [127]  4.803090  7.139540  9.071560  9.337890  9.629480  9.318650 10.515000
+## [134]  9.964780 11.282600 10.048000 10.303900 11.186500 10.948100  9.480070
+## [141]  8.809490  8.579200  8.531470  9.635170  9.138650  9.447680  8.802510
+## [148]  9.611150  9.787400  9.432920  8.768380  8.822690  9.401530  9.579060
+## [155] 14.321988 13.170802 12.511922 10.561964  9.652961  8.523713  7.645318
+## [162]  7.462763  7.544005  7.347211  7.537033  7.310795  7.341749  7.476305
+## [169]  7.421047  7.381802  7.398633  7.934676  8.815771  9.335244 10.760830
+## [176] 11.400979 11.250975 12.138173 12.768363 12.735964 12.427341 12.086503
+## [183] 13.644940 14.713456 15.641560 16.972044 17.678566 17.798798 18.278828
+## [190]        NA 16.269317 15.259672 14.197484 14.270182 14.714715 13.955317
+## [197] 13.719997 13.917566 16.450386 20.130244 21.488213 21.169039 20.821857
+## [204] 18.802373 16.951176 15.031508 13.885433 13.419708 13.391310 13.438673
+## [211] 12.997013 12.731380 13.096725 12.781592 12.687495 11.733670 11.623405
+## [218] 12.029799 12.674604 13.561877 15.560322 16.826027 17.238919 16.435055
+## [225] 16.156588 16.386247 15.994739 15.808491 15.335339 15.501906 15.750462
+## [232] 15.813097 15.818069 15.763004 15.763415 15.848448 15.543236 15.343314
+## [239] 15.133554 14.878146        NA 20.122789        NA 21.543915 20.494810
+## [246] 20.208873 20.149571 19.043943 17.930155 16.835701 17.243781 17.922027
+## [253] 17.457315 15.637815 15.053572 15.151438 14.823894 14.666839 14.135732
+## [260] 13.915358 14.326561 14.778377 15.763145 16.940269 17.786186 18.217911
+## [267] 17.992235 18.166406 19.032422 19.143826 18.636600 18.702145 18.130120
+## [274] 18.365359 18.074177 18.062602 18.280654 18.331464 17.700223 17.002926
+## [281] 17.245358 17.465165 17.076685 16.854514 16.893483 16.955922 16.795793
+## [288] 16.874876 16.822462 16.450231 16.734635 16.486585  5.704334  5.306090
+## [295]        NA  5.350935  5.207219  5.303574  5.609634  6.246534  6.315260
+## [302]  6.913474  7.164375  7.701242  7.572774  6.123106  6.953925  6.500808
+## [309]  9.940868  7.538145 11.425805  9.094246 12.094420 12.084451 12.244675
+## [316] 12.116512 12.069895 12.102366 11.977507 11.889317 11.935524 10.761811
+## [323] 11.463138  7.890573 11.445759 11.556214</code></pre>
+<p>The problem with doing this is that our mean temperature values no longer have any context! They come from multiple cores, but this is not reflected without the other columns. Nevertheless, many R functions outside of the tidyverse require input as vectors (including many you’ve used so far, including <code>mean()</code>, <code>max()</code>, <code>min()</code>, etc.), and you will often see the <code>$</code> used in code written in other places to refer to columns. Functions in the tidyverse allow you to refer to columns by name (without the <code>$</code>) when used within specific functions (<code>summarise()</code> is a good example), so you should do this whenever you can!</p>
+</div>
+<div id="base-r-subsetting-vs.select-and-filter" class="section level2">
+<h2><span class="header-section-number">2.12</span> Base R Subsetting vs. select() and filter()</h2>
+<p>In the wild, there are many ways to select columns and filter rows. I highly reccomend using <code>filter()</code> and <code>select()</code> to do this when writing new code, but you may see R code that subsets a data frame using square brackets in the form <code>my_data_frame[c(&quot;column_name_1&quot;, &quot;column_name_2&quot;)]</code> or <code>my_data_frame[my_data_frame$column_name_1 &gt; some_number, c(&quot;column_name_1&quot;, &quot;column_name_2&quot;)]</code>. The latter is equivalent to <code>my_data_frame %&gt;% select(column_name_1, column_name_2) %&gt;% filter(column_name_1 &gt; some_number)</code>. The tidyverse method of subsetting I find to be much more clear and far less error-prone, but it’s worth knowing the other form so you can read R code written by others!</p>
+</div>
+<div id="summary-1" class="section level2">
+<h2><span class="header-section-number">2.13</span> Summary</h2>
+<p>In this tutorial we introduced the use of <code>select()</code>, <code>filter()</code>, <code>arrange()</code>, <code>distinct()</code>, and the pipe (<code>%&gt;%</code>). We also used <code>group_by()</code> and <code>summarise()</code> to provide summary statistics from a data frame. These functions are the building blocks of other powerful tools in the tidyverse. For more information, see the <a href="http://r4ds.had.co.nz/transform.html">Data transformation</a> chapter in <a href="http://r4ds.had.co.nz/">R for Data Science</a>. Another good resource is the <a href="https://www.rstudio.com/resources/webinars/tidyverse-visualization-and-manipulation-basics/">tidyverse, visualization, and manipulation basics</a> tutorial from Garrett Grolemund.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-dunnington18">
+<p>Dunnington, Dewey W., I. S. Spooner, Wendy H. Krkošek, Graham A. Gagnon, R. Jack Cornett, Chris E. White, Benjamin Misiuk, and Drake Tymstra. 2018. “Anthropogenic Activity in the Halifax Region, Nova Scotia, Canada, as Recorded by Bulk Geochemistry of Lake Sediments.” doi:<a href="https://doi.org/10.1080/10402381.2018.1461715">10.1080/10402381.2018.1461715</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basic-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="creating-visualizations-using-ggplot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/paleolimbot/r4paleolim/edit/master/02-dplyr.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
