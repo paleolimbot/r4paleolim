@@ -1,5 +1,5 @@
 
-# Working with Tables using the Tidyverse
+# Working with Tables using the Tidyverse {#work-with-tables}
 
 In this tutorial we will introduce the **tibble** (also called a data frame), or the object type that R uses to store tables. Most of the data you will work with in R can be represented by a table (think an excel sheet), and one of the main advantages of using R is that the data frame is a powerful and intuitive interface for tabular data. In this tutorial we will use the [tidyverse](http://www.tidyverse.org/) to manipulate and summarise tabular data. The tutorial is a companion to the [Data transformation](http://r4ds.had.co.nz/transform.html) chapter in [R for Data Science](http://r4ds.had.co.nz/).
 
