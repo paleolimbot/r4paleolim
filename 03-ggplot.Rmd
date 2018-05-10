@@ -146,11 +146,28 @@ ggplot(data = halifax_geochem, mapping = aes(x = K_percent, y = Ti_percent)) +
 
 ### Labels
 
-`labs()` function
+Rather than using the column headings from your data table which often are (and should be) rittled with short form versions of what it represents as well as underscores for any division of words. The `labs()` function cab be used to give your figure a more desirable presentation to the end users. Here I have changed the x and y values from `K_percent` and `Ti_percent` to `K (%)` and `Ti (%)` respectively. While we're at it, lets change the legend title text just for fun!
+
+```{r}
+
+ggplot(data = pockwock_major_data, mapping = aes(x = K_percent, y = Ti_percent, colour = core_id)) +
+  geom_line() +
+  geom_point()
+
+ggplot(data = pockwock_major_data, mapping = aes(x = K_percent, y = Ti_percent, colour = core_id)) +
+  geom_line() +
+  geom_point() +
+  labs(x="K (%)",y="Ti (%)", colour = "Core ID")
+
+```
+
+### Themes
 
 ### Scales
 
-`scale_*_discrete()`, `scale_*_continuous()`
+We can also change the scales of our axis using `scale_*_discrete()` or `scale_*_continuous()`. Common discrete scale parameters: name, breaks, labels, na.value, limits and guide. 
+
+
 
 ## Summary
 
