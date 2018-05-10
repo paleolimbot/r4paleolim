@@ -92,7 +92,7 @@ View(geochem_data); str(geochem_data); head(geochem_data)
 cn_data <- select(halifax_geochem, core_id, depth_cm, `C/N`, d13C_permille, d15N_permille)
 ```
 
-## Filtering Rows
+## Filtering Rows {#chap2_filter}
 
 Another way to subset `halifax_geochem` is by filtering rows using column values, similar to the filter feature in Microsoft Excel. This is done using the `filter()` function. For example, we may only be interested in the core from Pockwock Lake.
 

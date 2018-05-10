@@ -1,7 +1,7 @@
 
 # Creating Visualizations using ggplot
 
-Intro
+This tutorial will introduce you to using `ggplot2` in order to visualize your data. R has many options for creating graphs and figures but, `ggplot2` is versitile, firendly to learn, and quite elegant. Using `ggplot2` you will be able to quickly learn the basics of it's functionallity and apply those skills to more advanced figures as explained in [Chapter 5](#strat-diagrams).
 
 For more information, see the [data visualization](http://r4ds.had.co.nz/data-visualisation.html) chapter in [R for Data Science](http://r4ds.had.co.nz/).
 
@@ -40,7 +40,15 @@ It's worth mentioning a little bit about what this data frame contains, since we
 
 ## Using ggplot
 
-The Grammar of Graphics (the "gg" in "ggplot") is a way of describing a graphic that is derived from data, which in R is done using the `ggplot()` function and its many friends. Unlike other plotting functions, `ggplot()` builds graphics from the data up (rather than starting with a template of a graphic and working backward). We will start with an example:
+The Grammar of Graphics (the "gg" in "ggplot") is a way of describing a graphic that is derived from data, which in R is done using the `ggplot()` function and its many friends. Unlike other plotting functions, `ggplot()` builds graphics from the data up (rather than starting with a template of a graphic and working backward). Before we can use `ggplot` functionality we need to use the skills learned in [Chapter 2](#work-with-tables) where we filtered our data. See if you can use `filter()` on the `halifax_geochem` data to create the `pockwock_data` and `pockwock_major_data` variable (HINT: check out the [Filtering Rows](#chap2_filter) secontion in [Chapter 2](#work-with tabl)).
+
+```{r}
+pockwock_data <- filter(halifax_geochem, core_id == "POC15-2")
+
+pockwock_major_data <- filter(halifax_geochem, core_id %in% c("POC15-2", "MAJ15-1"))
+```
+
+Now we can start with the `ggplot` example using the `pockwock_major_data`:
 
 ```{r}
 
