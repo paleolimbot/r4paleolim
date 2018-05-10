@@ -157,7 +157,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.5" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#facets"><i class="fa fa-check"></i><b>3.5</b> Facets</a></li>
 <li class="chapter" data-level="3.6" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#make-it-look-pretty"><i class="fa fa-check"></i><b>3.6</b> Make it look pretty</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#labels"><i class="fa fa-check"></i><b>3.6.1</b> Labels</a></li>
-<li class="chapter" data-level="3.6.2" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#scales"><i class="fa fa-check"></i><b>3.6.2</b> Scales</a></li>
+<li class="chapter" data-level="3.6.2" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#themes"><i class="fa fa-check"></i><b>3.6.2</b> Themes</a></li>
+<li class="chapter" data-level="3.6.3" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#scales"><i class="fa fa-check"></i><b>3.6.3</b> Scales</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#summary-2"><i class="fa fa-check"></i><b>3.7</b> Summary</a></li>
 </ul></li>
@@ -281,7 +282,7 @@ halifax_geochem_meas</code></pre></div>
 <span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
 </div>
 <div id="changing-the-colours" class="section level3">
 <h3><span class="header-section-number">5.3.3</span> Changing the colours</h3>
@@ -294,7 +295,7 @@ halifax_geochem_meas</code></pre></div>
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>) +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
 <p>Alternatively, you can use the following line to set your theme for the rest of your R session! I usually set the theme to <code>theme_bw()</code> right under my call to <code>library(tidyverse)</code> in a script.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">theme_set</span>(<span class="kw">theme_bw</span>())</code></pre></div>
 </div>
@@ -308,7 +309,7 @@ halifax_geochem_meas</code></pre></div>
 <span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">ncol =</span> <span class="dv">4</span>) +
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
 </div>
 <div id="reordering-facets" class="section level3">
 <h3><span class="header-section-number">5.3.5</span> Reordering facets</h3>
@@ -327,7 +328,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">facet_wrap</span>(~facet, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
 </div>
 <div id="relabeling-facets" class="section level3">
 <h3><span class="header-section-number">5.3.6</span> Relabeling facets</h3>
@@ -347,7 +348,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">facet_wrap</span>(~facet_label, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
 <p>If the unicode superscript effect doesn’t work on your computer (it doesn’t work for <span class="math inline">\(\delta^{15}\text{N}\)</span>) on my computer), you will have to resort to <code>plotmath</code>. This is a custom way R invented to render complex formatting, and you can use it with <strong>ggplot2</strong> in various ways. The best way to implement this to start is to copy and paste, and check out <code>?plotmath</code> if you’re curious what the syntax is. The key is to relabel the facets to very specific looking text (if in doubt, surround everything in single quotes like this: <code>'C/N'</code>), and then use <code>labeller = label_parsed</code> within <code>facet_wrap()</code> (also works in <code>facet_grid()</code>).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">facet_label =</span> <span class="kw">fct_recode</span>(
@@ -365,7 +366,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">facet_wrap</span>(~facet_label, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">labeller =</span> label_parsed) +
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
 </div>
 <div id="adding-annotations" class="section level3">
 <h3><span class="header-section-number">5.3.7</span> Adding annotations</h3>
@@ -379,7 +380,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
 <p>To only draw on some panels, you will need to create a tibble with a column that specifies the facet. A small example:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hline_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(
   <span class="dt">param =</span> <span class="st">&quot;C/N&quot;</span>,
@@ -397,7 +398,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
 <p>Rectangles can also be useful to draw in the background to highlight a range of depths. Rectangles also require tibble that specifies their appearance, which can contain the facet variable if the rectangle should only be drawn on some facets. Using <code>xmin = -Inf</code> and <code>xmax = Inf</code> ensures that the rectangles touch the edge of each facet.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rect_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(
   <span class="dt">max_depth =</span> <span class="dv">21</span>,
@@ -415,7 +416,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
 </div>
 <div id="a-second-axis-for-ages" class="section level3">
 <h3><span class="header-section-number">5.3.8</span> A second axis for ages</h3>
@@ -438,7 +439,7 @@ halifax_geochem_meas %&gt;%
     <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)
   ) +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
 </div>
 <div id="multiple-cores" class="section level3">
 <h3><span class="header-section-number">5.3.9</span> Multiple cores</h3>
@@ -453,7 +454,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
 <p>Second, you can use <code>facet_grid()</code> instead of <code>facet_wrap()</code>. Here you can use age or depth on the y axis, although you can’t use the second axis trick from above to have dates as a second axis.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
 <span class="st">  </span><span class="kw">filter</span>(core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) %&gt;%
@@ -465,7 +466,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">facet_grid</span>(core_id ~<span class="st"> </span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
 <p>For both of these, you can use the same tricks we used to change the order of the facets to change the order and labelling of the end result.</p>
 </div>
 <div id="overlapping-x-axis-labels" class="section level3">
@@ -484,7 +485,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">theme</span>(
     <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>)
   )</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 <p>You can also (2) make the font size for the labels smaller (the value is in points):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
 <span class="st">  </span><span class="kw">filter</span>(core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) %&gt;%
@@ -499,7 +500,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">theme</span>(
     <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>)
   )</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
 <p>Finally, you can (3) suggest a number of breaks to use in <code>scale_x_continuous()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
 <span class="st">  </span><span class="kw">filter</span>(core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) %&gt;%
@@ -512,7 +513,7 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>) +
 <span class="st">  </span><span class="co"># x axis scale</span>
 <span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> scales::<span class="kw">extended_breaks</span>(<span class="dt">n =</span> <span class="dv">3</span>))</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
 </div>
 <div id="saving-a-plot" class="section level3">
 <h3><span class="header-section-number">5.3.11</span> Saving a plot</h3>
@@ -550,11 +551,11 @@ halifax_geochem_meas %&gt;%
 <span class="st">  </span><span class="kw">geom_point</span>() +
 <span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
 <ul>
 <li>Make a stratigraphic diagram of the “FCL16-1” and “LEM16-1” cores. For bonus points, use proper sub/superscripts for the delta parameters and keep C/N, C, and stable isotopes together, include units in parentheses for all parameters, and use <code>age_ad</code> on the Y-axis. In the end, your plot (with bonus marks) should look like this:</li>
 </ul>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 </div>
 <div id="species-composition-diagrams" class="section level2">
 <h2><span class="header-section-number">5.5</span> Species composition diagrams</h2>
@@ -643,7 +644,7 @@ arnold_counts_common</code></pre></div>
 <span class="st">  </span><span class="co"># reverse the y axis for depth</span>
 <span class="st">  </span><span class="kw">scale_y_reverse</span>() +
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Relative Abundance (%)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
 <p>The problem of rotated and partially overlapping facet labels is one that takes some code to deal with. The good news is, the code is the same regardless of which plot you are trying to create, so you can copy/paste it for any plot that needs rotated facet labels. We do this in two steps: rotate and align the facet labels within <code>theme()</code>, and then use what can only be described as voodoo to eliminate the default clipping used by <strong>ggplot2</strong>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">species_plot_obj &lt;-<span class="st"> </span><span class="kw">ggplot</span>(
   arnold_counts_common, 
@@ -678,7 +679,7 @@ for(i in <span class="kw">which</span>(<span class="kw">grepl</span>(<span class
 
 <span class="co"># needed to draw the modified plot_grob</span>
 grid::<span class="kw">grid.draw</span>(species_plot_grob)</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 </div>
 <div id="saving-a-plot-1" class="section level4">
 <h4><span class="header-section-number">5.5.1.3</span> Saving a plot</h4>
@@ -735,7 +736,7 @@ diversity_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(spec
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)
 
 diversity_plot</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <p>When using <strong>ggplot2</strong>, there is no easy way to combine this with a species plot (you will see a way to do this in the <strong>analogue</strong> package <a href="strat-diagrams.html#strat-species-analogue">below</a>). The only way I know of to do this is to with <strong>ggplot2</strong> is to (1) modify the non-species data such that it has no y-axis label, no y-axis ticks, and no y-axis break labels, (2) remove the plot background from the second plot (to avoid clipping), (3) fudge the plot margins on the second plot so that the plots align properly (below I set the top and bottom margins to 1.74 and 0.30 inches, respectively, but you will have to fudge this yourself), and (4) use the <code>grid.arrange()</code> function from the <strong>gridExtra</strong> package to combine the two plots (you can set the relative widths, but you should have the number of rows be 1). Make sure to use the “grob” version of the species plot, which kept the species names from being clipped. Make sure that your depth values actually align before removing the axis labels completely!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gridExtra::<span class="kw">grid.arrange</span>(
   species_plot_grob,
@@ -750,7 +751,7 @@ diversity_plot</code></pre></div>
   <span class="dt">nrow =</span> <span class="dv">1</span>,
   <span class="dt">widths =</span> <span class="kw">c</span>(<span class="fl">2.5</span>, <span class="dv">1</span>)
 )</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
 <p>You can save this plot by enclosing the <code>grid.arrange()</code> call in <code>png()</code> (or <code>pdf()</code>) and <code>dev.off()</code>.</p>
 </div>
 </div>
@@ -804,7 +805,7 @@ arnold_rel_abundance_wide</code></pre></div>
   arnold_rel_abundance_wide %&gt;%<span class="st"> </span><span class="kw">select</span>(-depth_cm, -age_bp),
   arnold_rel_abundance_wide$depth_cm
 )</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
 <p>There are many arguments to <code>Stratiplot()</code>, but I found for this example that the following values worked for this particular dataset. In particular, increasing the <code>topPad</code> parameter was needed to keep the species labels from being cutoff.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Stratiplot</span>(
   arnold_rel_abundance_wide %&gt;%<span class="st"> </span><span class="kw">select</span>(-depth_cm, -age_bp),
@@ -820,7 +821,7 @@ arnold_rel_abundance_wide</code></pre></div>
   <span class="co"># make the bar colour black</span>
   <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>
 )</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
 </div>
 <div id="non-species-data-1" class="section level4">
 <h4><span class="header-section-number">5.5.2.3</span> Non-species data</h4>
@@ -848,7 +849,7 @@ arnold_rel_abundance_wide_div &lt;-<span class="st"> </span><span class="kw">cbi
   <span class="dt">type =</span> <span class="st">&quot;h&quot;</span>, 
   <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>
 )</code></pre></div>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
 </div>
 <div id="saving-a-plot-2" class="section level4">
 <h4><span class="header-section-number">5.5.2.4</span> Saving a plot</h4>
@@ -883,7 +884,7 @@ arnold_rel_abundance_wide_div &lt;-<span class="st"> </span><span class="kw">cbi
 <ul>
 <li>Use either <strong>ggplot2</strong> or <strong>analogue</strong> to plot the species <code>c(&quot;Surirella delicatissima&quot;, &quot;Anomoeoneis serians var. brachysira&quot;, &quot;Navicula subtilissima&quot;, &quot;Fragilaria pinnata&quot;, &quot;Fragilaria brevistriata&quot;)</code>. For bonus points, use <strong>ggplot2</strong> and rotate the axis labels.</li>
 </ul>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-139-1.png" width="672" /><img src="r4paleolim_files/figure-html/unnamed-chunk-139-2.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-140-1.png" width="672" /><img src="r4paleolim_files/figure-html/unnamed-chunk-140-2.png" width="672" /></p>
 </div>
 <div id="summary-4" class="section level2">
 <h2><span class="header-section-number">5.7</span> Summary</h2>

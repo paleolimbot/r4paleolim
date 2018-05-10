@@ -157,7 +157,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.5" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#facets"><i class="fa fa-check"></i><b>3.5</b> Facets</a></li>
 <li class="chapter" data-level="3.6" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#make-it-look-pretty"><i class="fa fa-check"></i><b>3.6</b> Make it look pretty</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#labels"><i class="fa fa-check"></i><b>3.6.1</b> Labels</a></li>
-<li class="chapter" data-level="3.6.2" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#scales"><i class="fa fa-check"></i><b>3.6.2</b> Scales</a></li>
+<li class="chapter" data-level="3.6.2" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#themes"><i class="fa fa-check"></i><b>3.6.2</b> Themes</a></li>
+<li class="chapter" data-level="3.6.3" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#scales"><i class="fa fa-check"></i><b>3.6.3</b> Scales</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="creating-visualizations-using-ggplot.html"><a href="creating-visualizations-using-ggplot.html#summary-2"><i class="fa fa-check"></i><b>3.7</b> Summary</a></li>
 </ul></li>
@@ -309,11 +310,28 @@ pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>
 <h2><span class="header-section-number">3.6</span> Make it look pretty</h2>
 <div id="labels" class="section level3">
 <h3><span class="header-section-number">3.6.1</span> Labels</h3>
-<p><code>labs()</code> function</p>
+<p>Rather than using the column headings from your data table which often are (and should be) rittled with short form versions of what it represents as well as underscores for any division of words. The <code>labs()</code> function cab be used to give your figure a more desirable presentation to the end users. Here I have changed the x and y values from <code>K_percent</code> and <code>Ti_percent</code> to <code>K (%)</code> and <code>Ti (%)</code> respectively. While we’re at it, lets change the legend title text just for fun!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;K (%)&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Ti (%)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>)</code></pre></div>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_path).
+
+## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-82-2.png" width="672" /></p>
+</div>
+<div id="themes" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Themes</h3>
 </div>
 <div id="scales" class="section level3">
-<h3><span class="header-section-number">3.6.2</span> Scales</h3>
-<p><code>scale_*_discrete()</code>, <code>scale_*_continuous()</code></p>
+<h3><span class="header-section-number">3.6.3</span> Scales</h3>
+<p>We can also change the scales of our axis using <code>scale_*_discrete()</code> or <code>scale_*_continuous()</code>. Common discrete scale parameters: name, breaks, labels, na.value, limits and guide.</p>
 </div>
 </div>
 <div id="summary-2" class="section level2">
