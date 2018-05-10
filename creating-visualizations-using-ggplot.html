@@ -25,7 +25,7 @@
 <meta name="author" content="Brent Thorne and Dewey Dunnington">
 
 
-<meta name="date" content="2018-05-07">
+<meta name="date" content="2018-05-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -130,7 +130,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="work-with-tables.html"><a href="work-with-tables.html#selecting-columns"><i class="fa fa-check"></i><b>2.3</b> Selecting Columns</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="work-with-tables.html"><a href="work-with-tables.html#excercises-1"><i class="fa fa-check"></i><b>2.3.1</b> Excercises</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="work-with-tables.html"><a href="work-with-tables.html#filtering-rows"><i class="fa fa-check"></i><b>2.4</b> Filtering Rows</a><ul>
+<li class="chapter" data-level="2.4" data-path="work-with-tables.html"><a href="work-with-tables.html#chap2_filter"><i class="fa fa-check"></i><b>2.4</b> Filtering Rows</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="work-with-tables.html"><a href="work-with-tables.html#exercises"><i class="fa fa-check"></i><b>2.4.1</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="work-with-tables.html"><a href="work-with-tables.html#selecting-and-filtering"><i class="fa fa-check"></i><b>2.5</b> Selecting and Filtering</a><ul>
@@ -215,7 +215,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="creating-visualizations-using-ggplot" class="section level1">
 <h1><span class="header-section-number">Tutorial 3</span> Creating Visualizations using ggplot</h1>
-<p>Intro</p>
+<p>This tutorial will introduce you to using <code>ggplot2</code> in order to visualize your data. R has many options for creating graphs and figures but, <code>ggplot2</code> is versitile, firendly to learn, and quite elegant. Using <code>ggplot2</code> you will be able to quickly learn the basics of it’s functionallity and apply those skills to more advanced figures as explained in <a href="strat-diagrams.html#strat-diagrams">Chapter 5</a>.</p>
 <p>For more information, see the <a href="http://r4ds.had.co.nz/data-visualisation.html">data visualization</a> chapter in <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
 <div id="prerequisites-3" class="section level2">
 <h2><span class="header-section-number">3.1</span> Prerequisites</h2>
@@ -232,11 +232,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="using-ggplot" class="section level2">
 <h2><span class="header-section-number">3.2</span> Using ggplot</h2>
-<p>The Grammar of Graphics (the “gg” in “ggplot”) is a way of describing a graphic that is derived from data, which in R is done using the <code>ggplot()</code> function and its many friends. Unlike other plotting functions, <code>ggplot()</code> builds graphics from the data up (rather than starting with a template of a graphic and working backward). We will start with an example:</p>
+<p>The Grammar of Graphics (the “gg” in “ggplot”) is a way of describing a graphic that is derived from data, which in R is done using the <code>ggplot()</code> function and its many friends. Unlike other plotting functions, <code>ggplot()</code> builds graphics from the data up (rather than starting with a template of a graphic and working backward). Before we can use <code>ggplot</code> functionality we need to use the skills learned in <a href="work-with-tables.html#work-with-tables">Chapter 2</a> where we filtered our data. See if you can use <code>filter()</code> on the <code>halifax_geochem</code> data to create the <code>pockwock_data</code> and <code>pockwock_major_data</code> variable (HINT: check out the <a href="work-with-tables.html#chap2_filter">Filtering Rows</a> secontion in <a href="#work-with%20tabl">Chapter 2</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pockwock_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id ==<span class="st"> &quot;POC15-2&quot;</span>)
+
+pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>))</code></pre></div>
+<p>Now we can start with the <code>ggplot</code> example using the <code>pockwock_major_data</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent)) +
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 <ul>
 <li>What the structure of the <code>ggplot()</code> call is</li>
 </ul>
@@ -255,17 +259,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) +
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 <p>Notice how there is a legend automatically generated for us? We will look into changeing the labelling of that later in this tutorial! We can also choose to categorize our data with shapes other than the points seen previously, since not all figures may be welcome if they have colour!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">shape =</span> core_id)) +
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 <p>Now we can try to provide some information on depth by making each symbols size relative to its depth value. For this example I only want to use the <code>pockwock_data</code> we previously created in <a href="work-with-tables.html#work-with-tables">Chapter 2</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">size =</span> depth_cm)) +
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 </div>
 <div id="geometries" class="section level2">
 <h2><span class="header-section-number">3.4</span> Geometries</h2>
@@ -273,14 +277,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) +
 <span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 <p>Or we could choose multiple geometries!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) +
 <span class="st">  </span><span class="kw">geom_line</span>() +
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
 </div>
 <div id="facets" class="section level2">
 <h2><span class="header-section-number">3.5</span> Facets</h2>
@@ -291,7 +295,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">facet_wrap</span>(~core_id)</code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
 <pre><code>## Warning: Removed 7 rows containing missing values (geom_point).</code></pre>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
 <p>This is great, however we may wnat to change the layout of these facet plots. We can do this easily by specifying the number of rows <code>nrow=</code> or the number of columns <code>ncol=</code> within <code>facet_wrap</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> halifax_geochem, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent)) +
 <span class="st">  </span><span class="kw">geom_line</span>() +
@@ -299,7 +303,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">facet_wrap</span>(~core_id, <span class="dt">ncol =</span> <span class="dv">4</span>)</code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
 <pre><code>## Warning: Removed 7 rows containing missing values (geom_point).</code></pre>
-<p><img src="r4paleolim_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p><img src="r4paleolim_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 </div>
 <div id="make-it-look-pretty" class="section level2">
 <h2><span class="header-section-number">3.6</span> Make it look pretty</h2>
