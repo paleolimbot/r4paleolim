@@ -25,7 +25,7 @@
 <meta name="author" content="Brent Thorne and Dewey Dunnington">
 
 
-<meta name="date" content="2018-05-10">
+<meta name="date" content="2018-05-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -220,22 +248,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="prerequisites-2" class="section level2">
 <h2><span class="header-section-number">2.1</span> Prerequisites</h2>
 <p>The prerequisite for this tutorial is the <code>tidyverse</code> package. If this package isn’t installed, you’ll have to install it using <code>install.packages()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
 <p>Load the packages when you’re done! If there are errors, you may have not installed the above packages correctly!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>Finally, you will need to load the example data. For now, copy and paste the following code to load the <a href="data/halifax_geochem.csv">Halifax geochemistry dataset</a> (we will learn how to read various types of files into R in the <a href="prepare-load.html#prepare-load">preparing and loading data</a> tutorial).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
-  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv&quot;</span>,
-  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())
-)</code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_csv</span>(</a>
+<a class="sourceLine" id="cb82-2" data-line-number="2">  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv&quot;</span>,</a>
+<a class="sourceLine" id="cb82-3" data-line-number="3">  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())</a>
+<a class="sourceLine" id="cb82-4" data-line-number="4">)</a></code></pre></div>
 <p>It’s worth mentioning a little bit about what this data frame contains, since we’ll be working with it for the rest of this tutorial. The data contains several bulk geochemical parameters from a recent study of Halifax drinking water reservoirs <span class="citation">(Dunnington et al. <a href="#ref-dunnington18">2018</a>)</span>, including Pockwock Lake, Lake Major, Bennery Lake, Lake Fletcher, Lake Lemont, First Chain Lake, First Lake, and Second Lake. (Later, we will take a look at the <a href="data/halifax_geochem_cores.xlsx">core locations</a> as well as the geochemical data).</p>
 </div>
 <div id="viewing-a-data-frame" class="section level2">
 <h2><span class="header-section-number">2.2</span> Viewing a Data Frame</h2>
 <p>The variable we have just created (<code>halifax_geochem</code>) is a <strong>tibble</strong>, which is a table of values much like you would find in a spreadsheet (you will notice that we loaded it directly from an Excel spreadhseet). Each column in the tibble represents a variable (in this case, the core identifier, depth of the sample, age represented by that sample, and several geochemical parameters), and each row in the table represents an observation (in this case, a sample from a sediment core).</p>
 <p>In RStudio’s “Environment” tab (usually at the top right of the screen), you should see a variable called <code>halifax_geochem</code> in the list. You can inspect it by clicking on the variable name, after which a tab will appear displaying the contents of the variable you just loaded. Clicking the little arrow to the left of the name will display the structure of the data frame, including the column names and some sample values. You can also do both of these things using the R commands <code>View()</code> and <code>glimpse()</code>, respectively. Also useful is the <code>head()</code> function, which will display the first few rows of a data frame.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(halifax_geochem) <span class="co"># will display a graphic table browser</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(halifax_geochem) <span class="co"># will display a text summary of the object</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">View</span>(halifax_geochem) <span class="co"># will display a graphic table browser</span></a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">glimpse</span>(halifax_geochem) <span class="co"># will display a text summary of the object</span></a></code></pre></div>
 <pre><code>## Observations: 326
 ## Variables: 9
 ## $ core_id       &lt;chr&gt; &quot;BEN15-2&quot;, &quot;BEN15-2&quot;, &quot;BEN15-2&quot;, &quot;BEN15-2&quot;, &quot;BEN...
@@ -247,7 +275,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## $ d15N_permille &lt;dbl&gt; 2.461962, 2.447662, 2.336219, 2.528572, 2.662515...
 ## $ K_percent     &lt;dbl&gt; 1.0026000, 1.0857000, 0.9782000, 0.9423000, 1.07...
 ## $ Ti_percent    &lt;dbl&gt; 0.1693000, 0.1823000, 0.1678000, 0.1664000, 0.18...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(halifax_geochem) <span class="co"># will display the first few rows of the data</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="kw">head</span>(halifax_geochem) <span class="co"># will display the first few rows of the data</span></a></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##   core_id depth_cm age_ad C_percent `C/N` d13C_permille d15N_permille
 ##   &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
@@ -262,15 +290,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="selecting-columns" class="section level2">
 <h2><span class="header-section-number">2.3</span> Selecting Columns</h2>
 <p>One way to subset <code>halifax_geochem</code> is to subset by column, for which we will use the <code>select()</code> function. For example, we may only be interested in the stable isotope information, represented by the columns <code>d13C_permille</code> and <code>d15N_permille</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stable_isotope_data &lt;-<span class="st"> </span><span class="kw">select</span>(
-  halifax_geochem, 
-  core_id, depth_cm, age_ad, 
-  d13C_permille, d15N_permille
-)</code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">stable_isotope_data &lt;-<span class="st"> </span><span class="kw">select</span>(</a>
+<a class="sourceLine" id="cb88-2" data-line-number="2">  halifax_geochem, </a>
+<a class="sourceLine" id="cb88-3" data-line-number="3">  core_id, depth_cm, age_ad, </a>
+<a class="sourceLine" id="cb88-4" data-line-number="4">  d13C_permille, d15N_permille</a>
+<a class="sourceLine" id="cb88-5" data-line-number="5">)</a></code></pre></div>
 <p>The first argument to the <code>select()</code> function is the original data frame (in this case, <code>halifax_geochem</code>), and the remaining arguments are the names of the columns to be selected. To select the <code>core_id</code>, <code>age_ad</code>, <code>Ti</code>, and <code>K</code> columns, you would use the following R command:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">geochem_data &lt;-<span class="st"> </span><span class="kw">select</span>(halifax_geochem, core_id, depth_cm, age_ad, Ti_percent, K_percent)</code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">geochem_data &lt;-<span class="st"> </span><span class="kw">select</span>(halifax_geochem, core_id, depth_cm, age_ad, Ti_percent, K_percent)</a></code></pre></div>
 <p>Some column names in <code>halifax_geochem</code> contain characters that could be interpreted as an operation (e.g., <code>C/N</code>, which is the name of the column and not <code>C</code> divided by <code>N</code>). To select these columns, you will need to surround the column name in backticks:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">select</span>(halifax_geochem, core_id, depth_cm, age_ad, <span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>)</code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">select</span>(halifax_geochem, core_id, depth_cm, age_ad, <span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>)</a></code></pre></div>
 <div id="excercises-1" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Excercises</h3>
 <ul>
@@ -282,13 +310,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="chap2_filter" class="section level2">
 <h2><span class="header-section-number">2.4</span> Filtering Rows</h2>
 <p>Another way to subset <code>halifax_geochem</code> is by filtering rows using column values, similar to the filter feature in Microsoft Excel. This is done using the <code>filter()</code> function. For example, we may only be interested in the core from Pockwock Lake.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pockwock_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id ==<span class="st"> &quot;POC15-2&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">pockwock_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id <span class="op">==</span><span class="st"> &quot;POC15-2&quot;</span>)</a></code></pre></div>
 <p>Just like <code>select()</code>, the first argument to <code>filter()</code> is the original data frame, and the subsequent arguments are the conditions that each row must satisfy in order to be included in the output. Column values are referred to by the column name (in the above example, <code>core_id</code>), so to include all rows where the value in the <code>core_id</code> column is POC15-2, we use <code>core_id == &quot;POC15-2&quot;</code>. Passing multiple conditions means each row must satisfy all of the conditions, such that to obtain the data from core POC15-2 where the depth in the core was 0 cm, we can use the following call to <code>filter()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pockwock_surface_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id ==<span class="st"> &quot;POC15-2&quot;</span>, depth_cm ==<span class="st"> </span><span class="dv">0</span>)</code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1">pockwock_surface_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id <span class="op">==</span><span class="st"> &quot;POC15-2&quot;</span>, depth_cm <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)</a></code></pre></div>
 <p>It is very important that there are two equals signs within <code>filter()</code>! The <code>==</code> operator tests for equality (e.g. <code>(2 + 2) == 4</code>), whereas the <code>=</code> operator assigns a value or passes a named argument to a function, which is not what you’re trying to do within <code>filter()</code>. Other common operators that are useful within filter are <code>!=</code> (not equal to), <code>&gt;</code> (greater than), <code>&lt;</code> (less than), <code>&gt;=</code> (greater than or equal to), <code>&lt;=</code> (less than or equal to), and <code>%in%</code> (tests if the value is one of several values). Using these, we could find out which observations are representative of the era 1950 to present:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data_recent &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, age_ad &gt;=<span class="st"> </span><span class="dv">1950</span>)</code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1">data_recent &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, age_ad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1950</span>)</a></code></pre></div>
 <p>We could also find observations from multiple cores:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>))</a></code></pre></div>
 <div id="exercises" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> Exercises</h3>
 <ul>
@@ -301,12 +329,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="selecting-and-filtering" class="section level2">
 <h2><span class="header-section-number">2.5</span> Selecting and Filtering</h2>
 <p>Often we need to use both <code>select()</code> and <code>filter()</code> to obtain the desired subset of a data frame. To do this, we need to pass the result of <code>select()</code> to <code>filter()</code>, or the result of <code>filter()</code> to select. For example, we could create a data frame of recent (age greater than 1950) stable isotope measurements (you’ll recall that we selected stable isotope columns in the data frame <code>stable_isotope_data</code>):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">recent_stable_isotopes &lt;-<span class="st"> </span><span class="kw">filter</span>(stable_isotope_data, age_ad &gt;=<span class="st"> </span><span class="dv">1950</span>)
-recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</span>(
-  data_recent,
-  core_id, depth_cm, age_ad, 
-  d13C_permille, d15N_permille
-)</code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1">recent_stable_isotopes &lt;-<span class="st"> </span><span class="kw">filter</span>(stable_isotope_data, age_ad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1950</span>)</a>
+<a class="sourceLine" id="cb95-2" data-line-number="2">recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</span>(</a>
+<a class="sourceLine" id="cb95-3" data-line-number="3">  data_recent,</a>
+<a class="sourceLine" id="cb95-4" data-line-number="4">  core_id, depth_cm, age_ad, </a>
+<a class="sourceLine" id="cb95-5" data-line-number="5">  d13C_permille, d15N_permille</a>
+<a class="sourceLine" id="cb95-6" data-line-number="6">)</a></code></pre></div>
 <div id="exercises-1" class="section level3">
 <h3><span class="header-section-number">2.5.1</span> Exercises</h3>
 <ul>
@@ -317,9 +345,9 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 <div id="the-pipe" class="section level2">
 <h2><span class="header-section-number">2.6</span> The Pipe (%&gt;%)</h2>
 <p>There is an easier way! Instead of creating intermediary variables every time we want to subset a data frame using <code>select()</code> and <code>filter()</code>, we can use the pipe operator (<code>%&gt;%</code>) to pass the result of one function call to another. Thus, creating our <code>recent_stable_isotopes</code> data frame from above becomes one line with one variable assignment instead of two.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">recent_stable_isotopes_pipe &lt;-<span class="st"> </span>halifax_geochem %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(age_ad &gt;=<span class="st"> </span><span class="dv">1950</span>) %&gt;%
-<span class="st">  </span><span class="kw">select</span>(core_id, depth_cm, age_ad, d13C_permille, d15N_permille)</code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">recent_stable_isotopes_pipe &lt;-<span class="st"> </span>halifax_geochem <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(age_ad <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1950</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb96-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(core_id, depth_cm, age_ad, d13C_permille, d15N_permille)</a></code></pre></div>
 <p>What <code>%&gt;%</code> does is pass the left side into the first argument of the function call on the right side. Thus, <code>filter(halifax_geochem, age_ad &gt;= 1950)</code> becomes <code>halifax_geochem %&gt;% filter(age_ad &gt;= 1950)</code>. When using the tidyverse family of packages, you should use the pipe as often as possible! It usually makes for more readable, less error-prone code, and reduces the number of temporary variables you create that clutter up your workspace. When using <code>filter()</code> and <code>select()</code> with other tidyverse manipulations like <code>arrange()</code>, <code>group_by()</code>, <code>summarise()</code>, and <code>mutate()</code>, the pipe becomes indispensable.</p>
 <div id="exercises-2" class="section level3">
 <h3><span class="header-section-number">2.6.1</span> Exercises</h3>
@@ -332,8 +360,8 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 <div id="arranging-sorting-a-data-frame" class="section level2">
 <h2><span class="header-section-number">2.7</span> Arranging (sorting) A Data Frame</h2>
 <p>Sometimes it is desirable to view rows in a particular order, which can be used to quickly determine min and max values of various parameters. You can do this in the interactive editor using <code>View()</code>, but sometimes rows need to be in particular order for plotting or other analysis. This is done using the <code>arrange()</code> function. For example, it may make sense to view <code>halifax_geochem</code> in ascending <code>core_id</code> and <code>depth_cm</code> order (most recent first):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">arrange</span>(core_id, depth_cm)</code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(core_id, depth_cm)</a></code></pre></div>
 <pre><code>## # A tibble: 326 x 9
 ##    core_id depth_cm age_ad C_percent `C/N` d13C_permille d15N_permille
 ##    &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
@@ -350,8 +378,8 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 ## # ... with 316 more rows, and 2 more variables: K_percent &lt;dbl&gt;,
 ## #   Ti_percent &lt;dbl&gt;</code></pre>
 <p>Or descending depth order (most recent last):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">arrange</span>(core_id, <span class="kw">desc</span>(depth_cm))</code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb99-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(core_id, <span class="kw">desc</span>(depth_cm))</a></code></pre></div>
 <pre><code>## # A tibble: 326 x 9
 ##    core_id depth_cm age_ad C_percent `C/N` d13C_permille d15N_permille
 ##    &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
@@ -372,8 +400,8 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 <div id="distinct-values" class="section level2">
 <h2><span class="header-section-number">2.8</span> Distinct Values</h2>
 <p>It is often useful to know which values exist in a data frame. For example, I’ve told you that the core locations are for various lakes in the halifax area, but what are they actually called in the dataset? To do this, we can use the <code>distinct()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">distinct</span>(core_id)</code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb101-2" data-line-number="2"><span class="st">  </span><span class="kw">distinct</span>(core_id)</a></code></pre></div>
 <pre><code>## # A tibble: 8 x 1
 ##   core_id
 ##   &lt;chr&gt;  
@@ -390,9 +418,9 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 <div id="calculating-columns-using-mutate" class="section level2">
 <h2><span class="header-section-number">2.9</span> Calculating columns using <code>mutate()</code></h2>
 <p>To create a brand-new column, we can use the <code>mutate()</code> function. This creates a column in a way that we can use existing column names to calculate a new column. For example, we could convert the <code>age_ad</code> column to years before 1950:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age_bp =</span> <span class="dv">1950</span> -<span class="st"> </span>age_ad) %&gt;%
-<span class="st">  </span><span class="kw">select</span>(core_id, age_ad, age_bp)</code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb103-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age_bp =</span> <span class="dv">1950</span> <span class="op">-</span><span class="st"> </span>age_ad) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb103-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(core_id, age_ad, age_bp)</a></code></pre></div>
 <pre><code>## # A tibble: 326 x 3
 ##    core_id age_ad age_bp
 ##    &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;
@@ -408,12 +436,12 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 ## 10 BEN15-2  1999.  -49.3
 ## # ... with 316 more rows</code></pre>
 <p>Or, we could convert the <code>K_percent</code> and <code>Ti_percent</code> columns to parts per million:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(
-    <span class="dt">K_ppm =</span> K_percent *<span class="st"> </span><span class="dv">10000</span>,
-    <span class="dt">Ti_ppm =</span> Ti_percent *<span class="st"> </span><span class="dv">10000</span>
-  ) %&gt;%
-<span class="st">  </span><span class="kw">select</span>(core_id, K_percent, K_ppm, Ti_percent, Ti_ppm)</code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb105-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb105-3" data-line-number="3">    <span class="dt">K_ppm =</span> K_percent <span class="op">*</span><span class="st"> </span><span class="dv">10000</span>,</a>
+<a class="sourceLine" id="cb105-4" data-line-number="4">    <span class="dt">Ti_ppm =</span> Ti_percent <span class="op">*</span><span class="st"> </span><span class="dv">10000</span></a>
+<a class="sourceLine" id="cb105-5" data-line-number="5">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb105-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(core_id, K_percent, K_ppm, Ti_percent, Ti_ppm)</a></code></pre></div>
 <pre><code>## # A tibble: 326 x 5
 ##    core_id K_percent  K_ppm Ti_percent Ti_ppm
 ##    &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;
@@ -432,9 +460,9 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 <div id="summarising-a-data-frame" class="section level2">
 <h2><span class="header-section-number">2.10</span> Summarising A Data Frame</h2>
 <p>So far we have looked at subsets of <code>halifax_geochem</code>, but what if we want per-core averages instead of raw data values? Using the tidyverse, we can <code>group_by()</code> the <code>core_id</code> column, and <code>summarise()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(core_id) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_CN =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>))</code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb107-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(core_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_CN =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 8 x 2
 ##   core_id mean_CN
 ##   &lt;chr&gt;     &lt;dbl&gt;
@@ -447,14 +475,14 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 ## 7 POC15-2    NA  
 ## 8 SLK13-1    NA</code></pre>
 <p>Here <code>group_by()</code> gets a list of columns, for which each unique combination of values will get one row in the output. <code>summarise()</code> gets a list of expressions that are evaluated for every unique combination of values defined by <code>group_by()</code> (e.g., <code>mean_CN</code> is the <code>mean()</code> of the <code>C/N</code> column for each core). Often, we want to include a number of summary columns in the output, which we can do by pasing more expressions to <code>summarise()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(core_id) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">mean_CN =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>),
-    <span class="dt">min_CN =</span> <span class="kw">min</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>),
-    <span class="dt">max_CN =</span> <span class="kw">max</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>),
-    <span class="dt">sd_CN =</span> <span class="kw">sd</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>)
-  )</code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(core_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb109-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb109-4" data-line-number="4">    <span class="dt">mean_CN =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>),</a>
+<a class="sourceLine" id="cb109-5" data-line-number="5">    <span class="dt">min_CN =</span> <span class="kw">min</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>),</a>
+<a class="sourceLine" id="cb109-6" data-line-number="6">    <span class="dt">max_CN =</span> <span class="kw">max</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>),</a>
+<a class="sourceLine" id="cb109-7" data-line-number="7">    <span class="dt">sd_CN =</span> <span class="kw">sd</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>)</a>
+<a class="sourceLine" id="cb109-8" data-line-number="8">  )</a></code></pre></div>
 <pre><code>## # A tibble: 8 x 5
 ##   core_id mean_CN min_CN max_CN  sd_CN
 ##   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -467,15 +495,15 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 ## 7 POC15-2    NA     NA     NA   NA    
 ## 8 SLK13-1    NA     NA     NA   NA</code></pre>
 <p>You will notice that in for several cores the summary values are <code>NA</code>, or missing. This is because R propogates missing values unless you explicitly tell it not to. To fix this, you could replace <code>mean(`C/N`)</code> with <code>mean(`C/N`, na.rm = TRUE)</code>. Other useful functions to use inside <code>summarise()</code> include <code>mean()</code>, <code>median()</code>, <code>sd()</code>, <code>sum()</code>, <code>min()</code>, and <code>max()</code>. These all take a vector of values and produce a single aggregate value suitable for use in <code>summarise()</code>. One special function, <code>n()</code>, you can use (with no arguments) inside <code>summarise()</code> to tell you how many observations were aggregated to produce the values in that row.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(core_id) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">mean_CN =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-    <span class="dt">min_CN =</span> <span class="kw">min</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-    <span class="dt">max_CN =</span> <span class="kw">max</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-    <span class="dt">sd_CN =</span> <span class="kw">sd</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),
-    <span class="dt">n =</span> <span class="kw">n</span>()
-  )</code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(core_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb111-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb111-4" data-line-number="4">    <span class="dt">mean_CN =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb111-5" data-line-number="5">    <span class="dt">min_CN =</span> <span class="kw">min</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb111-6" data-line-number="6">    <span class="dt">max_CN =</span> <span class="kw">max</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb111-7" data-line-number="7">    <span class="dt">sd_CN =</span> <span class="kw">sd</span>(<span class="st">`</span><span class="dt">C/N</span><span class="st">`</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb111-8" data-line-number="8">    <span class="dt">n =</span> <span class="kw">n</span>()</a>
+<a class="sourceLine" id="cb111-9" data-line-number="9">  )</a></code></pre></div>
 <pre><code>## # A tibble: 8 x 6
 ##   core_id mean_CN min_CN max_CN sd_CN     n
 ##   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
@@ -500,7 +528,7 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 <div id="extracting-columns" class="section level2">
 <h2><span class="header-section-number">2.11</span> Extracting Columns</h2>
 <p>When we use <code>select()</code> or <code>distinct()</code>, we get back a data frame, however occasionally we need one or a few of the vectors that make up the data frame (recall from the last tutorial that data frames are a collection of column vectors). If we needed <em>just</em> the temperature values, we can use the <code>$</code> operator or the <code>pull()</code> function to extract a column vector.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem$C_percent</code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">halifax_geochem<span class="op">$</span>C_percent</a></code></pre></div>
 <pre><code>##   [1] 14.757176 14.657012 14.949832 14.545579 14.404084 14.403361 14.417744
 ##   [8] 14.279836 14.013717 13.703397 13.403708 12.918529 12.905447 13.359170
 ##  [15] 13.852618 14.386124 14.533912 14.593866 15.667289 14.765232 15.028548
@@ -548,7 +576,7 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 ## [309]  9.940868  7.538145 11.425805  9.094246 12.094420 12.084451 12.244675
 ## [316] 12.116512 12.069895 12.102366 11.977507 11.889317 11.935524 10.761811
 ## [323] 11.463138  7.890573 11.445759 11.556214</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%<span class="st"> </span><span class="kw">pull</span>(C_percent)</code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(C_percent)</a></code></pre></div>
 <pre><code>##   [1] 14.757176 14.657012 14.949832 14.545579 14.404084 14.403361 14.417744
 ##   [8] 14.279836 14.013717 13.703397 13.403708 12.918529 12.905447 13.359170
 ##  [15] 13.852618 14.386124 14.533912 14.593866 15.667289 14.765232 15.028548
@@ -611,7 +639,7 @@ recent_stable_isotopes2 &lt;-<span class="st"> </span><span class="kw">select</s
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-dunnington18">
-<p>Dunnington, Dewey W., I. S. Spooner, Wendy H. Krkošek, Graham A. Gagnon, R. Jack Cornett, Chris E. White, Benjamin Misiuk, and Drake Tymstra. 2018. “Anthropogenic Activity in the Halifax Region, Nova Scotia, Canada, as Recorded by Bulk Geochemistry of Lake Sediments.” doi:<a href="https://doi.org/10.1080/10402381.2018.1461715">10.1080/10402381.2018.1461715</a>.</p>
+<p>Dunnington, Dewey W., I. S. Spooner, Wendy H. Krkošek, Graham A. Gagnon, R. Jack Cornett, Chris E. White, Benjamin Misiuk, and Drake Tymstra. 2018. “Anthropogenic Activity in the Halifax Region, Nova Scotia, Canada, as Recorded by Bulk Geochemistry of Lake Sediments.” <a href="https://doi.org/10.1080/10402381.2018.1461715" class="uri">https://doi.org/10.1080/10402381.2018.1461715</a>.</p>
 </div>
 </div>
             </section>
@@ -666,7 +694,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

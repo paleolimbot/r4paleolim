@@ -25,7 +25,7 @@
 <meta name="author" content="Brent Thorne and Dewey Dunnington">
 
 
-<meta name="date" content="2018-05-10">
+<meta name="date" content="2018-05-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -221,11 +249,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="prerequisites-4" class="section level2">
 <h2><span class="header-section-number">4.1</span> Prerequisites</h2>
 <p>The prerequisites for this tutorial are <code>tidyverse</code>. If this package isn’t installed, you’ll have to install it using <code>install.packages()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
 <p>Load the package when you’re done! If there are errors, you may have not installed the above packages correctly!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>Finally, you will need to obtain the example data. In this tutorial, we will use <a href="https://www.google.com/maps/place/Lake+Arnold/@44.1305679,-73.9831746,11714m/data=!3m1!1e3!4m5!3m4!1s0x4ccaddaff2a5e819:0x392dc3e7c14fb40f!8m2!3d44.1310666!4d-73.9440977">Lake Arnold</a> diatom counts <span class="citation">(Whitehead et al. <a href="#ref-whitehead89">1989</a>)</span>, obtained from the <a href="https://www.neotomadb.org/">Neotoma database</a>. You will need to download the <a href="data/lake_arnold_valve_counts_tidy.csv">tidy CSV version of the data</a>, and the <a href="data/lake_arnold_valve_counts.xlsx">Excel version of the data</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">include_graphics</span>(<span class="st">&quot;04-data-figs/arnold_excel_counts.png&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;04-data-figs/arnold_excel_counts.png&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:fig-arnold-excel"></span>
 <img src="04-data-figs/arnold_excel_counts.png" alt="Excel screenshot of the Lake Arnold data. The format of one row per taxon with one column per sample is one way that these data are organized in the wild."  />
 <p class="caption">
@@ -236,34 +264,34 @@ Figure 4.1: Excel screenshot of the Lake Arnold data. The format of one row per 
 <div id="loading-data" class="section level2">
 <h2><span class="header-section-number">4.2</span> Loading data</h2>
 <p>If data are in a CSV, use <code>read_csv()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_csv &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/lake_arnold_valve_counts_tidy.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1">arnold_counts_csv &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/lake_arnold_valve_counts_tidy.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   .default = col_integer()
 ## )</code></pre>
 <pre><code>## See spec(...) for full column specifications.</code></pre>
 <p>The function will guess all the column types, which you can copy and paste into your read call like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_csv &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
-  <span class="st">&quot;data/lake_arnold_valve_counts_tidy.csv&quot;</span>,
-  <span class="dt">col_types =</span> <span class="kw">cols</span>(
-    <span class="dt">.default =</span> <span class="kw">col_integer</span>()
-  )
-)</code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1">arnold_counts_csv &lt;-<span class="st"> </span><span class="kw">read_csv</span>(</a>
+<a class="sourceLine" id="cb151-2" data-line-number="2">  <span class="st">&quot;data/lake_arnold_valve_counts_tidy.csv&quot;</span>,</a>
+<a class="sourceLine" id="cb151-3" data-line-number="3">  <span class="dt">col_types =</span> <span class="kw">cols</span>(</a>
+<a class="sourceLine" id="cb151-4" data-line-number="4">    <span class="dt">.default =</span> <span class="kw">col_integer</span>()</a>
+<a class="sourceLine" id="cb151-5" data-line-number="5">  )</a>
+<a class="sourceLine" id="cb151-6" data-line-number="6">)</a></code></pre></div>
 <p>This will make sure that your column types are read properly in the future, and if any columns are guessed incorrectly, they can be fixed here. For more see the <a href="http://r4ds.had.co.nz/data-import.html">data import</a> chapter of <span class="citation">Grolemund and Wickham (<a href="#ref-r4ds">2017</a>)</span>.</p>
 <p>We will revisit the <code>arnold_counts_csv</code> data frame shortly. It contains the data in the form expected by many R functions, particularly for ordination/transfer function calculations, however it is more common to see the data in a form shown in Figure <a href="prepare-load.html#fig:fig-arnold-excel">4.1</a>. If data are in an Excel sheet, we can use the <strong>readxl</strong> package. This package is installed with the tidyverse, but you need to load it explicitly to use the <code>read_excel()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)
-
-arnold_counts_excel &lt;-<span class="st"> </span><span class="kw">read_excel</span>(
-  <span class="st">&quot;data/lake_arnold_valve_counts.xlsx&quot;</span>,
-  <span class="dt">sheet =</span> <span class="st">&quot;taxon counts&quot;</span>,
-  <span class="dt">skip =</span> <span class="dv">1</span>
-)</code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb152-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb152-3" data-line-number="3">arnold_counts_excel &lt;-<span class="st"> </span><span class="kw">read_excel</span>(</a>
+<a class="sourceLine" id="cb152-4" data-line-number="4">  <span class="st">&quot;data/lake_arnold_valve_counts.xlsx&quot;</span>,</a>
+<a class="sourceLine" id="cb152-5" data-line-number="5">  <span class="dt">sheet =</span> <span class="st">&quot;taxon counts&quot;</span>,</a>
+<a class="sourceLine" id="cb152-6" data-line-number="6">  <span class="dt">skip =</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb152-7" data-line-number="7">)</a></code></pre></div>
 </div>
 <div id="transforming-data" class="section level2">
 <h2><span class="header-section-number">4.3</span> Transforming data</h2>
 <p><code>gather()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_excel %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, -taxon)</code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1">arnold_counts_excel <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb153-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, <span class="op">-</span>taxon)</a></code></pre></div>
 <pre><code>## # A tibble: 2,128 x 3
 ##    taxon                               depth_cm valve_count
 ##    &lt;chr&gt;                               &lt;chr&gt;          &lt;dbl&gt;
@@ -279,9 +307,9 @@ arnold_counts_excel &lt;-<span class="st"> </span><span class="kw">read_excel</s
 ## 10 Cocconeis sp.                       0                 NA
 ## # ... with 2,118 more rows</code></pre>
 <p>Change type of depth column:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_excel %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, -taxon) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">depth_cm =</span> <span class="kw">as.numeric</span>(depth_cm))</code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1">arnold_counts_excel <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb155-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, <span class="op">-</span>taxon) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb155-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">depth_cm =</span> <span class="kw">as.numeric</span>(depth_cm))</a></code></pre></div>
 <pre><code>## # A tibble: 2,128 x 3
 ##    taxon                               depth_cm valve_count
 ##    &lt;chr&gt;                                  &lt;dbl&gt;       &lt;dbl&gt;
@@ -297,10 +325,10 @@ arnold_counts_excel &lt;-<span class="st"> </span><span class="kw">read_excel</s
 ## 10 Cocconeis sp.                              0          NA
 ## # ... with 2,118 more rows</code></pre>
 <p>Change <code>NA</code> valve counts to 0:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_excel %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, -taxon) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">depth_cm =</span> <span class="kw">as.numeric</span>(depth_cm)) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">valve_count =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(valve_count), <span class="dv">0</span>, valve_count))</code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1">arnold_counts_excel <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb157-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, <span class="op">-</span>taxon) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb157-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">depth_cm =</span> <span class="kw">as.numeric</span>(depth_cm)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb157-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">valve_count =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(valve_count), <span class="dv">0</span>, valve_count))</a></code></pre></div>
 <pre><code>## # A tibble: 2,128 x 3
 ##    taxon                               depth_cm valve_count
 ##    &lt;chr&gt;                                  &lt;dbl&gt;       &lt;dbl&gt;
@@ -316,18 +344,18 @@ arnold_counts_excel &lt;-<span class="st"> </span><span class="kw">read_excel</s
 ## 10 Cocconeis sp.                              0           0
 ## # ... with 2,118 more rows</code></pre>
 <p>This form of data is particularly useful because it contains one row per measurement, and looses no data. When finished constructing the pipe, assign to a variable:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts &lt;-<span class="st"> </span>arnold_counts_excel %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, -taxon) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">depth_cm =</span> <span class="kw">as.numeric</span>(depth_cm)) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">valve_count =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(valve_count), <span class="dv">0</span>, valve_count))</code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1">arnold_counts &lt;-<span class="st"> </span>arnold_counts_excel <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb159-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> depth_cm, <span class="dt">value =</span> valve_count, <span class="op">-</span>taxon) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb159-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">depth_cm =</span> <span class="kw">as.numeric</span>(depth_cm)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb159-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">valve_count =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(valve_count), <span class="dv">0</span>, valve_count))</a></code></pre></div>
 <p>Things we can do with the data in this form:</p>
 <p>Use a grouped mutate to calculate relative abundance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abund &lt;-<span class="st"> </span>arnold_counts %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(depth_cm) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">relative_abundance_percent =</span> valve_count /<span class="st"> </span><span class="kw">sum</span>(valve_count) *<span class="st"> </span><span class="dv">100</span>) %&gt;%
-<span class="st">  </span><span class="kw">ungroup</span>()
-
-arnold_rel_abund</code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1">arnold_rel_abund &lt;-<span class="st"> </span>arnold_counts <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb160-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(depth_cm) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb160-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">relative_abundance_percent =</span> valve_count <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(valve_count) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb160-4" data-line-number="4"><span class="st">  </span><span class="kw">ungroup</span>()</a>
+<a class="sourceLine" id="cb160-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb160-6" data-line-number="6">arnold_rel_abund</a></code></pre></div>
 <pre><code>## # A tibble: 2,128 x 4
 ##    taxon                      depth_cm valve_count relative_abundance_per…
 ##    &lt;chr&gt;                         &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -343,14 +371,14 @@ arnold_rel_abund</code></pre></div>
 ## 10 Cocconeis sp.                     0           0                   0    
 ## # ... with 2,118 more rows</code></pre>
 <p>Summarise by taxon, find most common taxa:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abund %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(taxon) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">min_rel_abund =</span> <span class="kw">min</span>(relative_abundance_percent),
-    <span class="dt">max_rel_abund =</span> <span class="kw">max</span>(relative_abundance_percent),
-    <span class="dt">mean_rel_abund =</span> <span class="kw">mean</span>(relative_abundance_percent)
-  ) %&gt;%
-<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(max_rel_abund))</code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1">arnold_rel_abund <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb162-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(taxon) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb162-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb162-4" data-line-number="4">    <span class="dt">min_rel_abund =</span> <span class="kw">min</span>(relative_abundance_percent),</a>
+<a class="sourceLine" id="cb162-5" data-line-number="5">    <span class="dt">max_rel_abund =</span> <span class="kw">max</span>(relative_abundance_percent),</a>
+<a class="sourceLine" id="cb162-6" data-line-number="6">    <span class="dt">mean_rel_abund =</span> <span class="kw">mean</span>(relative_abundance_percent)</a>
+<a class="sourceLine" id="cb162-7" data-line-number="7">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb162-8" data-line-number="8"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(max_rel_abund))</a></code></pre></div>
 <pre><code>## # A tibble: 133 x 4
 ##    taxon                        min_rel_abund max_rel_abund mean_rel_abund
 ##    &lt;chr&gt;                                &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;
@@ -366,13 +394,13 @@ arnold_rel_abund</code></pre></div>
 ## 10 Anomoeoneis serians var. br…             0          13.0          4.78 
 ## # ... with 123 more rows</code></pre>
 <p>Summarise by depth, find depths with greatest richness:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abund %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(depth_cm) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">n_valves =</span> <span class="kw">sum</span>(valve_count),
-    <span class="dt">total_rel_abund =</span> <span class="kw">sum</span>(relative_abundance_percent),
-    <span class="dt">n_taxa =</span> <span class="kw">sum</span>(valve_count &gt;<span class="st"> </span><span class="dv">0</span>)
-  )</code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1">arnold_rel_abund <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb164-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(depth_cm) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb164-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb164-4" data-line-number="4">    <span class="dt">n_valves =</span> <span class="kw">sum</span>(valve_count),</a>
+<a class="sourceLine" id="cb164-5" data-line-number="5">    <span class="dt">total_rel_abund =</span> <span class="kw">sum</span>(relative_abundance_percent),</a>
+<a class="sourceLine" id="cb164-6" data-line-number="6">    <span class="dt">n_taxa =</span> <span class="kw">sum</span>(valve_count <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb164-7" data-line-number="7">  )</a></code></pre></div>
 <pre><code>## # A tibble: 16 x 4
 ##    depth_cm n_valves total_rel_abund n_taxa
 ##       &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;  &lt;int&gt;
@@ -393,9 +421,9 @@ arnold_rel_abund</code></pre></div>
 ## 15      525      375             100     42
 ## 16      555      400             100     29</code></pre>
 <p>Create form of data with one row per depth value (this is almost the same as the <code>arnold_counts_csv</code> that we loaded earlier):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abund %&gt;%
-<span class="st">  </span><span class="kw">select</span>(taxon, depth_cm, relative_abundance_percent) %&gt;%
-<span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> taxon, <span class="dt">value =</span> relative_abundance_percent)</code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1">arnold_rel_abund <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb166-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(taxon, depth_cm, relative_abundance_percent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb166-3" data-line-number="3"><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> taxon, <span class="dt">value =</span> relative_abundance_percent)</a></code></pre></div>
 <pre><code>## # A tibble: 16 x 134
 ##    depth_cm `Achnanthes linearis … `Achnanthes margin… `Achnanthes minuti…
 ##       &lt;dbl&gt;                  &lt;dbl&gt;               &lt;dbl&gt;               &lt;dbl&gt;
@@ -464,15 +492,15 @@ arnold_rel_abund</code></pre></div>
 ## #   `Nitzschia acuta` &lt;dbl&gt;, `Nitzschia dissipata` &lt;dbl&gt;, `Nitzschia
 ## #   linearis` &lt;dbl&gt;, …</code></pre>
 <p>Use a left-join to add age-depth info:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_age_depth &lt;-<span class="st"> </span><span class="kw">read_excel</span>(
-  <span class="st">&quot;data/lake_arnold_valve_counts.xlsx&quot;</span>,
-  <span class="dt">sheet =</span> <span class="st">&quot;age depth model&quot;</span>,
-  <span class="dt">skip =</span> <span class="dv">1</span>
-)
-
-arnold_rel_abund %&gt;%
-<span class="st">  </span><span class="kw">left_join</span>(arnold_age_depth, <span class="dt">by =</span> <span class="st">&quot;depth_cm&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">select</span>(taxon, depth_cm, age_bp, <span class="kw">everything</span>())</code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1">arnold_age_depth &lt;-<span class="st"> </span><span class="kw">read_excel</span>(</a>
+<a class="sourceLine" id="cb168-2" data-line-number="2">  <span class="st">&quot;data/lake_arnold_valve_counts.xlsx&quot;</span>,</a>
+<a class="sourceLine" id="cb168-3" data-line-number="3">  <span class="dt">sheet =</span> <span class="st">&quot;age depth model&quot;</span>,</a>
+<a class="sourceLine" id="cb168-4" data-line-number="4">  <span class="dt">skip =</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb168-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb168-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb168-7" data-line-number="7">arnold_rel_abund <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb168-8" data-line-number="8"><span class="st">  </span><span class="kw">left_join</span>(arnold_age_depth, <span class="dt">by =</span> <span class="st">&quot;depth_cm&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb168-9" data-line-number="9"><span class="st">  </span><span class="kw">select</span>(taxon, depth_cm, age_bp, <span class="kw">everything</span>())</a></code></pre></div>
 <pre><code>## # A tibble: 2,128 x 5
 ##    taxon                 depth_cm age_bp valve_count relative_abundance_p…
 ##    &lt;chr&gt;                    &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;                 &lt;dbl&gt;
@@ -489,15 +517,15 @@ arnold_rel_abund %&gt;%
 ## # ... with 2,118 more rows</code></pre>
 <p>Filter to only include some taxa:</p>
 <p>Find common taxa:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">common_taxa &lt;-<span class="st"> </span>arnold_rel_abund %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(taxon) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">max_rel_abund =</span> <span class="kw">max</span>(relative_abundance_percent)
-  ) %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(max_rel_abund &gt;=<span class="st"> </span><span class="dv">20</span>) %&gt;%
-<span class="st">  </span><span class="kw">pull</span>(taxon)
-
-common_taxa</code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" data-line-number="1">common_taxa &lt;-<span class="st"> </span>arnold_rel_abund <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb170-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(taxon) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb170-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb170-4" data-line-number="4">    <span class="dt">max_rel_abund =</span> <span class="kw">max</span>(relative_abundance_percent)</a>
+<a class="sourceLine" id="cb170-5" data-line-number="5">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb170-6" data-line-number="6"><span class="st">  </span><span class="kw">filter</span>(max_rel_abund <span class="op">&gt;=</span><span class="st"> </span><span class="dv">20</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb170-7" data-line-number="7"><span class="st">  </span><span class="kw">pull</span>(taxon)</a>
+<a class="sourceLine" id="cb170-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb170-9" data-line-number="9">common_taxa</a></code></pre></div>
 <pre><code>## [1] &quot;Cymbella hebridica&quot;                  
 ## [2] &quot;Fragilaria construens&quot;               
 ## [3] &quot;Fragilaria virescens var. birostrata&quot;
@@ -505,8 +533,8 @@ common_taxa</code></pre></div>
 ## [5] &quot;Pinnularia biceps&quot;                   
 ## [6] &quot;Pinnularia microstauron&quot;</code></pre>
 <p>Filter the counts:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abund %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(taxon %in%<span class="st"> </span>common_taxa)</code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1">arnold_rel_abund <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb172-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(taxon <span class="op">%in%</span><span class="st"> </span>common_taxa)</a></code></pre></div>
 <pre><code>## # A tibble: 96 x 4
 ##    taxon                       depth_cm valve_count relative_abundance_pe…
 ##    &lt;chr&gt;                          &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
@@ -541,7 +569,7 @@ common_taxa</code></pre></div>
 <p>Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. New York: O’Reily. <a href="http://r4ds.had.co.nz/" class="uri">http://r4ds.had.co.nz/</a>.</p>
 </div>
 <div id="ref-whitehead89">
-<p>Whitehead, Donald R., Donald F. Charles, Stephen T. Jackson, John P. Smol, and Daniel R. Engstrom. 1989. “The Developmental History of Adirondack (N.Y.) Lakes.” <em>Journal of Paleolimnology</em> 2 (3): 185–206. doi:<a href="https://doi.org/10.1007/BF00202046">10.1007/BF00202046</a>.</p>
+<p>Whitehead, Donald R., Donald F. Charles, Stephen T. Jackson, John P. Smol, and Daniel R. Engstrom. 1989. “The Developmental History of Adirondack (N.Y.) Lakes.” <em>Journal of Paleolimnology</em> 2 (3): 185–206. <a href="https://doi.org/10.1007/BF00202046" class="uri">https://doi.org/10.1007/BF00202046</a>.</p>
 </div>
 </div>
             </section>
@@ -596,7 +624,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

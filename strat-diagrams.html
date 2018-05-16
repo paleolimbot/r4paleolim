@@ -25,7 +25,7 @@
 <meta name="author" content="Brent Thorne and Dewey Dunnington">
 
 
-<meta name="date" content="2018-05-10">
+<meta name="date" content="2018-05-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -220,20 +248,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="prerequisites-5" class="section level2">
 <h2><span class="header-section-number">5.1</span> Prerequisites</h2>
 <p>The prerequisites for this tutorial are the <strong>tidyverse</strong> package, the <strong>gridExtra</strong> package, and the <strong>analogue</strong> package. If you haven’t installed the <strong>analogue</strong> or <strong>gridExtra</strong> packages yet, you’ll have to install them using <code>install.packages()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;analogue&quot;</span>)
-<span class="kw">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;analogue&quot;</span>)</a>
+<a class="sourceLine" id="cb174-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</a></code></pre></div>
 <p>Load the tidyverse when you’re done! We will load the other packages when we use functions that require them below.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>Finally, you will need to obtain the example data. In this tutorial, we will use the <a href="https://www.google.com/maps/place/Lake+Arnold/@44.1305679,-73.9831746,11714m/data=!3m1!1e3!4m5!3m4!1s0x4ccaddaff2a5e819:0x392dc3e7c14fb40f!8m2!3d44.1310666!4d-73.9440977">Lake Arnold</a> diatom counts <a href="data/lake_arnold_valve_counts_tidy.csv">tidy CSV version of the data</a> <span class="citation">(Whitehead et al. <a href="#ref-whitehead89">1989</a>)</span>, and the <a href="data/halifax_geochem.csv">Halifax geochemistry data</a>. If you have these files downloaded you can load them yourself (see Tutorial <a href="prepare-load.html#prepare-load">4</a>), or you can copy/paste the following code to load the two datasets.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
-  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv&quot;</span>,
-  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())
-)
-
-arnold_counts &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
-  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/lake_arnold_valve_counts_tidy.csv&quot;</span>,
-  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())
-)</code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1">halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_csv</span>(</a>
+<a class="sourceLine" id="cb176-2" data-line-number="2">  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv&quot;</span>,</a>
+<a class="sourceLine" id="cb176-3" data-line-number="3">  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())</a>
+<a class="sourceLine" id="cb176-4" data-line-number="4">)</a>
+<a class="sourceLine" id="cb176-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb176-6" data-line-number="6">arnold_counts &lt;-<span class="st"> </span><span class="kw">read_csv</span>(</a>
+<a class="sourceLine" id="cb176-7" data-line-number="7">  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/lake_arnold_valve_counts_tidy.csv&quot;</span>,</a>
+<a class="sourceLine" id="cb176-8" data-line-number="8">  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())</a>
+<a class="sourceLine" id="cb176-9" data-line-number="9">)</a></code></pre></div>
 </div>
 <div id="workflow" class="section level2">
 <h2><span class="header-section-number">5.2</span> Workflow</h2>
@@ -245,11 +273,11 @@ arnold_counts &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
 <div id="data-preparation" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Data preparation</h3>
 <p>Getting your data in a form that is usable by the plotting function is most of the battle to creating a figure. In the case of <code>ggplot()</code>, we need the data to be in a “parameter-long” form, with one row for each measurement (each point on the graph). In Tutorial <a href="prepare-load.html#prepare-load">4</a> we learned how to use <code>gather()</code> to turn a “parameter-wide” data frame into a “parameter-long” data frame. We are mostly going to focus on plotting the Pockwock Lake core, so we will also filter the data to include only one core for now.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem_meas &lt;-<span class="st"> </span>halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(core_id ==<span class="st"> &quot;POC15-2&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, -core_id, -depth_cm, -age_ad)
-
-halifax_geochem_meas</code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1">halifax_geochem_meas &lt;-<span class="st"> </span>halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb177-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(core_id <span class="op">==</span><span class="st"> &quot;POC15-2&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb177-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, <span class="op">-</span>core_id, <span class="op">-</span>depth_cm, <span class="op">-</span>age_ad)</a>
+<a class="sourceLine" id="cb177-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb177-5" data-line-number="5">halifax_geochem_meas</a></code></pre></div>
 <pre><code>## # A tibble: 312 x 5
 ##    core_id depth_cm age_ad param     value
 ##    &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
@@ -275,264 +303,264 @@ halifax_geochem_meas</code></pre></div>
 <li>Reverse the Y-axis, so that a depth of 0 is at the top.</li>
 <li>Remove the X label, and set the Y label to “Depth (cm)”.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1">halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb179-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb179-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb179-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb179-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb179-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb179-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
 </div>
 <div id="changing-the-colours" class="section level3">
 <h3><span class="header-section-number">5.3.3</span> Changing the colours</h3>
 <p>The default colour scheme in <strong>ggplot2</strong> is great for the web, but not so much for publication. I usually use <code>theme_bw()</code>, which is the black-and-white version of the default theme. There are several others, including <code>theme_minimal()</code>, <code>theme_classic()</code>, <code>theme_linedraw()</code>, and many more. You can add them to the end of your plot like so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1">halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb180-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb180-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
 <p>Alternatively, you can use the following line to set your theme for the rest of your R session! I usually set the theme to <code>theme_bw()</code> right under my call to <code>library(tidyverse)</code> in a script.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">theme_set</span>(<span class="kw">theme_bw</span>())</code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1"><span class="kw">theme_set</span>(<span class="kw">theme_bw</span>())</a></code></pre></div>
 </div>
 <div id="facet-configuration" class="section level3">
 <h3><span class="header-section-number">5.3.4</span> Facet configuration</h3>
 <p>The <code>facet_wrap()</code> function has <code>nrow</code> and <code>ncol</code> arguments that allow customization of how facets are laid out. Sometimes changing the figure size is also helpful, which can be done when the figure is exported using <code>ggsave()</code>. In general, you should only set one of <code>nrow</code> or <code>ncol</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">ncol =</span> <span class="dv">4</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1">halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb182-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb182-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb182-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb182-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">ncol =</span> <span class="dv">4</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb182-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb182-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
 </div>
 <div id="reordering-facets" class="section level3">
 <h3><span class="header-section-number">5.3.5</span> Reordering facets</h3>
 <p>To control the orderering of the facets, we need to turn the <code>param</code> column into a <code>factor()</code>, which is kind of like a “multiple choice” vector that stores the order of its choices. We first need to create a character vector that defines the order, use <code>mutate()</code> to create a new column containing the facet label as a factor, then make <code>facet_wrap()</code> use that column to create the facets instead of <code>param</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">facet_order &lt;-<span class="st"> </span><span class="kw">c</span>(
-  <span class="st">&quot;Ti_percent&quot;</span>, <span class="st">&quot;K_percent&quot;</span>, 
-  <span class="st">&quot;C_percent&quot;</span>, <span class="st">&quot;C/N&quot;</span>, 
-  <span class="st">&quot;d13C_permille&quot;</span>, <span class="st">&quot;d15N_permille&quot;</span>
-)
-
-halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">facet =</span> <span class="kw">factor</span>(param, <span class="dt">levels =</span> facet_order)) %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~facet, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1">facet_order &lt;-<span class="st"> </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb183-2" data-line-number="2">  <span class="st">&quot;Ti_percent&quot;</span>, <span class="st">&quot;K_percent&quot;</span>, </a>
+<a class="sourceLine" id="cb183-3" data-line-number="3">  <span class="st">&quot;C_percent&quot;</span>, <span class="st">&quot;C/N&quot;</span>, </a>
+<a class="sourceLine" id="cb183-4" data-line-number="4">  <span class="st">&quot;d13C_permille&quot;</span>, <span class="st">&quot;d15N_permille&quot;</span></a>
+<a class="sourceLine" id="cb183-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb183-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb183-7" data-line-number="7">halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb183-8" data-line-number="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">facet =</span> <span class="kw">factor</span>(param, <span class="dt">levels =</span> facet_order)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb183-9" data-line-number="9"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb183-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb183-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb183-12" data-line-number="12"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>facet, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb183-13" data-line-number="13"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb183-14" data-line-number="14"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
 </div>
 <div id="relabeling-facets" class="section level3">
 <h3><span class="header-section-number">5.3.6</span> Relabeling facets</h3>
 <p>When using <code>facet_wrap()</code>, <strong>ggplot2</strong> uses the value of each unique value in a column to create the label. This means that we need to rename each item to a suitable label prior to feeding it in to <code>ggplot()</code>. I think the easiest way to do this is <code>fct_recode()</code>, because it also keeps the order of the input (if you’ve already set the input to be a <code>factor()</code>), and you only have to rename the values that need renaming. (Note: I’ve use the unicode superscript 1-9 characters to get the superscript effect, because the other way is much harder. You can copy and paste these, or google <a href="https://www.google.com/search?q=superscript+1+unicode">superscript 1 unicode</a>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">facet_label =</span> <span class="kw">fct_recode</span>(
-    param,
-    <span class="st">&quot;Ti (%)&quot;</span> =<span class="st"> &quot;Ti_percent&quot;</span>,
-    <span class="st">&quot;K (%)&quot;</span> =<span class="st"> &quot;K_percent&quot;</span>,
-    <span class="st">&quot;C (%)&quot;</span> =<span class="st"> &quot;C_percent&quot;</span>,
-    <span class="st">&quot;δ¹³C (‰)&quot;</span> =<span class="st"> &quot;d13C_permille&quot;</span>,
-    <span class="st">&quot;δ¹⁵N (‰)&quot;</span> =<span class="st"> &quot;d15N_permille&quot;</span>
-  )) %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~facet_label, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1">halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb184-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">facet_label =</span> <span class="kw">fct_recode</span>(</a>
+<a class="sourceLine" id="cb184-3" data-line-number="3">    param,</a>
+<a class="sourceLine" id="cb184-4" data-line-number="4">    <span class="st">&quot;Ti (%)&quot;</span> =<span class="st"> &quot;Ti_percent&quot;</span>,</a>
+<a class="sourceLine" id="cb184-5" data-line-number="5">    <span class="st">&quot;K (%)&quot;</span> =<span class="st"> &quot;K_percent&quot;</span>,</a>
+<a class="sourceLine" id="cb184-6" data-line-number="6">    <span class="st">&quot;C (%)&quot;</span> =<span class="st"> &quot;C_percent&quot;</span>,</a>
+<a class="sourceLine" id="cb184-7" data-line-number="7">    <span class="st">&quot;δ¹³C (‰)&quot;</span> =<span class="st"> &quot;d13C_permille&quot;</span>,</a>
+<a class="sourceLine" id="cb184-8" data-line-number="8">    <span class="st">&quot;δ¹⁵N (‰)&quot;</span> =<span class="st"> &quot;d15N_permille&quot;</span></a>
+<a class="sourceLine" id="cb184-9" data-line-number="9">  )) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb184-10" data-line-number="10"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb184-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb184-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb184-13" data-line-number="13"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>facet_label, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb184-14" data-line-number="14"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb184-15" data-line-number="15"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
 <p>If the unicode superscript effect doesn’t work on your computer (it doesn’t work for <span class="math inline">\(\delta^{15}\text{N}\)</span>) on my computer), you will have to resort to <code>plotmath</code>. This is a custom way R invented to render complex formatting, and you can use it with <strong>ggplot2</strong> in various ways. The best way to implement this to start is to copy and paste, and check out <code>?plotmath</code> if you’re curious what the syntax is. The key is to relabel the facets to very specific looking text (if in doubt, surround everything in single quotes like this: <code>'C/N'</code>), and then use <code>labeller = label_parsed</code> within <code>facet_wrap()</code> (also works in <code>facet_grid()</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">facet_label =</span> <span class="kw">fct_recode</span>(
-    param,
-    <span class="st">&quot;&#39;Ti (%)&#39;&quot;</span> =<span class="st"> &quot;Ti_percent&quot;</span>,
-    <span class="st">&quot;&#39;K (%)&#39;&quot;</span> =<span class="st"> &quot;K_percent&quot;</span>,
-    <span class="st">&quot;&#39;C (%)&#39;&quot;</span> =<span class="st"> &quot;C_percent&quot;</span>,
-    <span class="st">&quot;delta ^ 13 * C&quot;</span> =<span class="st"> &quot;d13C_permille&quot;</span>,
-    <span class="st">&quot;delta ^ 15 * N&quot;</span> =<span class="st"> &quot;d15N_permille&quot;</span>,
-    <span class="st">&quot;&#39;C/N&#39;&quot;</span> =<span class="st"> &quot;C/N&quot;</span>
-  )) %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~facet_label, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">labeller =</span> label_parsed) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1">halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb185-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">facet_label =</span> <span class="kw">fct_recode</span>(</a>
+<a class="sourceLine" id="cb185-3" data-line-number="3">    param,</a>
+<a class="sourceLine" id="cb185-4" data-line-number="4">    <span class="st">&quot;&#39;Ti (%)&#39;&quot;</span> =<span class="st"> &quot;Ti_percent&quot;</span>,</a>
+<a class="sourceLine" id="cb185-5" data-line-number="5">    <span class="st">&quot;&#39;K (%)&#39;&quot;</span> =<span class="st"> &quot;K_percent&quot;</span>,</a>
+<a class="sourceLine" id="cb185-6" data-line-number="6">    <span class="st">&quot;&#39;C (%)&#39;&quot;</span> =<span class="st"> &quot;C_percent&quot;</span>,</a>
+<a class="sourceLine" id="cb185-7" data-line-number="7">    <span class="st">&quot;delta ^ 13 * C&quot;</span> =<span class="st"> &quot;d13C_permille&quot;</span>,</a>
+<a class="sourceLine" id="cb185-8" data-line-number="8">    <span class="st">&quot;delta ^ 15 * N&quot;</span> =<span class="st"> &quot;d15N_permille&quot;</span>,</a>
+<a class="sourceLine" id="cb185-9" data-line-number="9">    <span class="st">&quot;&#39;C/N&#39;&quot;</span> =<span class="st"> &quot;C/N&quot;</span></a>
+<a class="sourceLine" id="cb185-10" data-line-number="10">  )) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb185-11" data-line-number="11"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb185-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb185-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb185-14" data-line-number="14"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>facet_label, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">labeller =</span> label_parsed) <span class="op">+</span></a>
+<a class="sourceLine" id="cb185-15" data-line-number="15"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb185-16" data-line-number="16"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
 </div>
 <div id="adding-annotations" class="section level3">
 <h3><span class="header-section-number">5.3.7</span> Adding annotations</h3>
 <p>In general, adding text to the plot is difficult and not advisable. Adding horizontal lines and rectangles to highlight a particular region of the plot is much easier, and I have rarely had to resort to adding actual text to a plot using <strong>ggplot2</strong>. If this is critical to your application, you can use <code>ggsave()</code> to export a <code>.svg</code> file or <code>.pdf</code> file, and import it into your favourite vector drawing program (I happen to like <a href="https://inkscape.org/en/">Inkscape</a>).</p>
 <p>Horizontal lines can be added using <code>geom_hline()</code>. When using the <code>yintercept</code> argument, a horizontal line will be drawn on all panels.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">14</span>, <span class="dv">21</span>), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">lty =</span> <span class="dv">2</span>) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1">halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb186-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb186-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">14</span>, <span class="dv">21</span>), <span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">lty =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb186-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb186-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb186-6" data-line-number="6"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb186-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb186-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
 <p>To only draw on some panels, you will need to create a tibble with a column that specifies the facet. A small example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hline_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(
-  <span class="dt">param =</span> <span class="st">&quot;C/N&quot;</span>,
-  <span class="dt">depth =</span> <span class="dv">14</span>
-)
-
-halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_hline</span>(
-    <span class="kw">aes</span>(<span class="dt">yintercept =</span> depth), <span class="dt">data =</span> hline_data,
-    <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>
-  ) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1">hline_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb187-2" data-line-number="2">  <span class="dt">param =</span> <span class="st">&quot;C/N&quot;</span>,</a>
+<a class="sourceLine" id="cb187-3" data-line-number="3">  <span class="dt">depth =</span> <span class="dv">14</span></a>
+<a class="sourceLine" id="cb187-4" data-line-number="4">)</a>
+<a class="sourceLine" id="cb187-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb187-6" data-line-number="6">halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb187-7" data-line-number="7"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb187-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_hline</span>(</a>
+<a class="sourceLine" id="cb187-9" data-line-number="9">    <span class="kw">aes</span>(<span class="dt">yintercept =</span> depth), <span class="dt">data =</span> hline_data,</a>
+<a class="sourceLine" id="cb187-10" data-line-number="10">    <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span></a>
+<a class="sourceLine" id="cb187-11" data-line-number="11">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb187-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb187-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb187-14" data-line-number="14"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb187-15" data-line-number="15"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb187-16" data-line-number="16"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
 <p>Rectangles can also be useful to draw in the background to highlight a range of depths. Rectangles also require tibble that specifies their appearance, which can contain the facet variable if the rectangle should only be drawn on some facets. Using <code>xmin = -Inf</code> and <code>xmax = Inf</code> ensures that the rectangles touch the edge of each facet.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rect_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(
-  <span class="dt">max_depth =</span> <span class="dv">21</span>,
-  <span class="dt">min_depth =</span> <span class="dv">14</span>
-)
-
-halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_rect</span>(
-    <span class="kw">aes</span>(<span class="dt">ymin =</span> min_depth, <span class="dt">ymax =</span> max_depth), <span class="dt">data =</span> rect_data,
-    <span class="dt">alpha =</span> <span class="fl">0.3</span>, <span class="dt">xmin =</span> -<span class="ot">Inf</span>, <span class="dt">xmax =</span> <span class="ot">Inf</span>, <span class="dt">inherit.aes =</span> <span class="ot">FALSE</span>
-  ) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1">rect_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb188-2" data-line-number="2">  <span class="dt">max_depth =</span> <span class="dv">21</span>,</a>
+<a class="sourceLine" id="cb188-3" data-line-number="3">  <span class="dt">min_depth =</span> <span class="dv">14</span></a>
+<a class="sourceLine" id="cb188-4" data-line-number="4">)</a>
+<a class="sourceLine" id="cb188-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb188-6" data-line-number="6">halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb188-7" data-line-number="7"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb188-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_rect</span>(</a>
+<a class="sourceLine" id="cb188-9" data-line-number="9">    <span class="kw">aes</span>(<span class="dt">ymin =</span> min_depth, <span class="dt">ymax =</span> max_depth), <span class="dt">data =</span> rect_data,</a>
+<a class="sourceLine" id="cb188-10" data-line-number="10">    <span class="dt">alpha =</span> <span class="fl">0.3</span>, <span class="dt">xmin =</span> <span class="op">-</span><span class="ot">Inf</span>, <span class="dt">xmax =</span> <span class="ot">Inf</span>, <span class="dt">inherit.aes =</span> <span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb188-11" data-line-number="11">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb188-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb188-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb188-14" data-line-number="14"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb188-15" data-line-number="15"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb188-16" data-line-number="16"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
 </div>
 <div id="a-second-axis-for-ages" class="section level3">
 <h3><span class="header-section-number">5.3.8</span> A second axis for ages</h3>
 <p>Depending on the application, ages can be used directly on the Y-axis, or you can include depth on the Y-axis and use a second axis on the right for ages. This can be done using <code>scale_y_reverse()</code> with the <code>sec.axis</code> argument. This axis is created using a one-to-one transformation, which requires the age-depth information as a tibble. Here I use a transformation function based on <code>approx()</code>, which, if you make sure your age-depth data frame is the same as the pockwock one, you should be able to safely copy and paste to add to your plot.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pockwock_age_depth &lt;-<span class="st"> </span>halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(core_id ==<span class="st"> &quot;POC15-2&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">select</span>(depth_cm, age_ad)
-
-halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>(
-    <span class="dt">sec.axis =</span> <span class="kw">sec_axis</span>(
-      <span class="dt">trans =</span> ~<span class="kw">approx</span>(pockwock_age_depth, <span class="dt">xout =</span> .)$y,
-      <span class="dt">name =</span> <span class="st">&quot;Age (Year AD)&quot;</span>,
-      <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">2000</span>, <span class="dv">1950</span>, <span class="dv">1900</span>, <span class="dv">1850</span>, <span class="dv">1800</span>, <span class="dv">1750</span>)
-    ),
-    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)
-  ) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1">pockwock_age_depth &lt;-<span class="st"> </span>halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb189-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(core_id <span class="op">==</span><span class="st"> &quot;POC15-2&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb189-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(depth_cm, age_ad)</a>
+<a class="sourceLine" id="cb189-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb189-5" data-line-number="5">halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb189-6" data-line-number="6"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb189-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb189-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb189-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb189-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_y_reverse</span>(</a>
+<a class="sourceLine" id="cb189-11" data-line-number="11">    <span class="dt">sec.axis =</span> <span class="kw">sec_axis</span>(</a>
+<a class="sourceLine" id="cb189-12" data-line-number="12">      <span class="dt">trans =</span> <span class="op">~</span><span class="kw">approx</span>(pockwock_age_depth, <span class="dt">xout =</span> .)<span class="op">$</span>y,</a>
+<a class="sourceLine" id="cb189-13" data-line-number="13">      <span class="dt">name =</span> <span class="st">&quot;Age (Year AD)&quot;</span>,</a>
+<a class="sourceLine" id="cb189-14" data-line-number="14">      <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">2000</span>, <span class="dv">1950</span>, <span class="dv">1900</span>, <span class="dv">1850</span>, <span class="dv">1800</span>, <span class="dv">1750</span>)</a>
+<a class="sourceLine" id="cb189-15" data-line-number="15">    ),</a>
+<a class="sourceLine" id="cb189-16" data-line-number="16">    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb189-17" data-line-number="17">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb189-18" data-line-number="18"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
 </div>
 <div id="multiple-cores" class="section level3">
 <h3><span class="header-section-number">5.3.9</span> Multiple cores</h3>
 <p>Plotting multiple cores can happen in a few ways. First, you can map the <code>core_id</code> column to the colour aesthetic (you could use the linetype aesthetic if you need black and white output). You can specify the legend label using the <code>labs()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, -core_id, -depth_cm, -age_ad) %&gt;%
-<span class="st">  </span><span class="co"># add colour = core_id to aesthetics</span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value, <span class="dt">colour =</span> core_id)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb190-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(core_id <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb190-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, <span class="op">-</span>core_id, <span class="op">-</span>depth_cm, <span class="op">-</span>age_ad) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb190-4" data-line-number="4"><span class="st">  </span><span class="co"># add colour = core_id to aesthetics</span></a>
+<a class="sourceLine" id="cb190-5" data-line-number="5"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value, <span class="dt">colour =</span> core_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb190-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb190-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb190-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb190-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb190-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
 <p>Second, you can use <code>facet_grid()</code> instead of <code>facet_wrap()</code>. Here you can use age or depth on the y axis, although you can’t use the second axis trick from above to have dates as a second axis.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, -core_id, -depth_cm, -age_ad) %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="co"># use facet_grid instead of facet_wrap</span>
-<span class="st">  </span><span class="kw">facet_grid</span>(core_id ~<span class="st"> </span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb191-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(core_id <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb191-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, <span class="op">-</span>core_id, <span class="op">-</span>depth_cm, <span class="op">-</span>age_ad) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb191-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb191-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb191-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb191-7" data-line-number="7"><span class="st">  </span><span class="co"># use facet_grid instead of facet_wrap</span></a>
+<a class="sourceLine" id="cb191-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_grid</span>(core_id <span class="op">~</span><span class="st"> </span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb191-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb191-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
 <p>For both of these, you can use the same tricks we used to change the order of the facets to change the order and labelling of the end result.</p>
 </div>
 <div id="overlapping-x-axis-labels" class="section level3">
 <h3><span class="header-section-number">5.3.10</span> Overlapping x-axis labels</h3>
 <p>The default placement of labels in <strong>ggplot2</strong> can result in labels that overlap and look ugly in the final product. There are a few solutions, including (1) Rotate the labels by 90 degrees (this works in most circumstances):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, -core_id, -depth_cm, -age_ad) %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_grid</span>(core_id~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>) +
-<span class="st">  </span><span class="co"># modify axis labels</span>
-<span class="st">  </span><span class="kw">theme</span>(
-    <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>)
-  )</code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb192-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(core_id <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb192-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, <span class="op">-</span>core_id, <span class="op">-</span>depth_cm, <span class="op">-</span>age_ad) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb192-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb192-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb192-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb192-7" data-line-number="7"><span class="st">  </span><span class="kw">facet_grid</span>(core_id<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb192-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb192-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb192-10" data-line-number="10"><span class="st">  </span><span class="co"># modify axis labels</span></a>
+<a class="sourceLine" id="cb192-11" data-line-number="11"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb192-12" data-line-number="12">    <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb192-13" data-line-number="13">  )</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 <p>You can also (2) make the font size for the labels smaller (the value is in points):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, -core_id, -depth_cm, -age_ad) %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_grid</span>(core_id~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>) +
-<span class="st">  </span><span class="co"># modify axis labels</span>
-<span class="st">  </span><span class="kw">theme</span>(
-    <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>)
-  )</code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb193-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(core_id <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb193-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, <span class="op">-</span>core_id, <span class="op">-</span>depth_cm, <span class="op">-</span>age_ad) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb193-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb193-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb193-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb193-7" data-line-number="7"><span class="st">  </span><span class="kw">facet_grid</span>(core_id<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb193-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb193-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb193-10" data-line-number="10"><span class="st">  </span><span class="co"># modify axis labels</span></a>
+<a class="sourceLine" id="cb193-11" data-line-number="11"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb193-12" data-line-number="12">    <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb193-13" data-line-number="13">  )</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
 <p>Finally, you can (3) suggest a number of breaks to use in <code>scale_x_continuous()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, -core_id, -depth_cm, -age_ad) %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_grid</span>(core_id~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>) +
-<span class="st">  </span><span class="co"># x axis scale</span>
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> scales::<span class="kw">extended_breaks</span>(<span class="dt">n =</span> <span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb194-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(core_id <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb194-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, <span class="op">-</span>core_id, <span class="op">-</span>depth_cm, <span class="op">-</span>age_ad) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb194-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb194-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb194-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb194-7" data-line-number="7"><span class="st">  </span><span class="kw">facet_grid</span>(core_id<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb194-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb194-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb194-10" data-line-number="10"><span class="st">  </span><span class="co"># x axis scale</span></a>
+<a class="sourceLine" id="cb194-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> scales<span class="op">::</span><span class="kw">extended_breaks</span>(<span class="dt">n =</span> <span class="dv">3</span>))</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
 </div>
 <div id="saving-a-plot" class="section level3">
 <h3><span class="header-section-number">5.3.11</span> Saving a plot</h3>
 <p>You can use the same strategy we used in Tutorial <a href="creating-visualizations-using-ggplot.html#creating-visualizations-using-ggplot">3</a> to save the plots we created in this section. The easiest way to do this is to save the plot to an object, then use <code>ggsave()</code> to write the object to disk.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem_plot &lt;-<span class="st"> </span>halifax_geochem_meas %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)
-
-<span class="kw">ggsave</span>(
-  <span class="dt">plot =</span> halifax_geochem_plot, 
-  <span class="dt">filename =</span> <span class="st">&quot;geochem_plot_file_name.png&quot;</span>,
-  <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">width =</span> <span class="fl">6.5</span>,
-  <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>,
-  <span class="dt">dpi =</span> <span class="dv">300</span>
-)</code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1">halifax_geochem_plot &lt;-<span class="st"> </span>halifax_geochem_meas <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb195-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb195-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb195-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb195-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb195-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb195-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a>
+<a class="sourceLine" id="cb195-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb195-9" data-line-number="9"><span class="kw">ggsave</span>(</a>
+<a class="sourceLine" id="cb195-10" data-line-number="10">  <span class="dt">plot =</span> halifax_geochem_plot, </a>
+<a class="sourceLine" id="cb195-11" data-line-number="11">  <span class="dt">filename =</span> <span class="st">&quot;geochem_plot_file_name.png&quot;</span>,</a>
+<a class="sourceLine" id="cb195-12" data-line-number="12">  <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">width =</span> <span class="fl">6.5</span>,</a>
+<a class="sourceLine" id="cb195-13" data-line-number="13">  <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>,</a>
+<a class="sourceLine" id="cb195-14" data-line-number="14">  <span class="dt">dpi =</span> <span class="dv">300</span></a>
+<a class="sourceLine" id="cb195-15" data-line-number="15">)</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
 <pre><code>## Warning: Removed 10 rows containing missing values (geom_point).</code></pre>
 <p>You can also save files as .pdf and .svg, but .png is probably the most reliable for importing into Word documents. If you need to edit the file in a vector drawing program afterward (or you need to give the final result to a journal), using .pdf or .svg is probably best. Note that exporting to .svg requires the <strong>svglite</strong> package.</p>
@@ -543,14 +571,14 @@ halifax_geochem_meas %&gt;%
 <ul>
 <li>Make a simple stratigraphic diagram of the “BEN15-2” core. Use <code>age_ad</code> on the Y-axis. Your plot should look like this:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(core_id ==<span class="st"> &quot;BEN15-2&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, -core_id, -depth_cm, -age_ad) %&gt;%
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> age_ad, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1">halifax_geochem <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb198-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(core_id <span class="op">==</span><span class="st"> &quot;BEN15-2&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb198-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, <span class="op">-</span>core_id, <span class="op">-</span>depth_cm, <span class="op">-</span>age_ad) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb198-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> age_ad, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb198-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb198-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb198-7" data-line-number="7"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb198-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
 <ul>
 <li>Make a stratigraphic diagram of the “FCL16-1” and “LEM16-1” cores. For bonus points, use proper sub/superscripts for the delta parameters and keep C/N, C, and stable isotopes together, include units in parentheses for all parameters, and use <code>age_ad</code> on the Y-axis. In the end, your plot (with bonus marks) should look like this:</li>
@@ -565,13 +593,13 @@ halifax_geochem_meas %&gt;%
 <div id="data-setup" class="section level4">
 <h4><span class="header-section-number">5.5.1.1</span> Data setup</h4>
 <p>Similar to non-speices data, <strong>ggplot2</strong> needs the data to be in “parameter-long” form. Usually the value plotted on the X-axis of species composition plots is a relative abundance (in percent), which we can calculate using a grouped <code>mutate()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts &lt;-<span class="st"> </span>arnold_counts_csv %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(-age_bp, -depth_cm, <span class="dt">key =</span> taxon, <span class="dt">value =</span> valve_count) %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(depth_cm) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">relative_abundance_percent =</span> valve_count /<span class="st"> </span><span class="kw">sum</span>(valve_count) *<span class="st"> </span><span class="dv">100</span>) %&gt;%
-<span class="st">  </span><span class="kw">ungroup</span>()
-
-arnold_counts</code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" data-line-number="1">arnold_counts &lt;-<span class="st"> </span>arnold_counts_csv <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb199-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="op">-</span>age_bp, <span class="op">-</span>depth_cm, <span class="dt">key =</span> taxon, <span class="dt">value =</span> valve_count) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb199-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(depth_cm) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb199-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">relative_abundance_percent =</span> valve_count <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(valve_count) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb199-5" data-line-number="5"><span class="st">  </span><span class="kw">ungroup</span>()</a>
+<a class="sourceLine" id="cb199-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb199-7" data-line-number="7">arnold_counts</a></code></pre></div>
 <pre><code>## # A tibble: 2,128 x 5
 ##    depth_cm age_bp taxon                  valve_count relative_abundance_…
 ##       &lt;int&gt;  &lt;int&gt; &lt;chr&gt;                        &lt;int&gt;                &lt;dbl&gt;
@@ -587,14 +615,14 @@ arnold_counts</code></pre></div>
 ## 10      375   6196 Achnanthes marginulata           4                 1.02
 ## # ... with 2,118 more rows</code></pre>
 <p>Because there are many taxa, we will restrict our plot to those with a maximum relative abundance of 10% or more. We need this as a vector so that we can <code>filter()</code> the <code>arnold_counts</code> data above and change the <code>taxon</code> column to a <code>factor()</code> so that it is plotted in a specific order. Generally this order is some preference gradient, but that isn’t a part of this particular dataset. Instead, we will order from least abundant to most abundant.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_common_taxa &lt;-<span class="st"> </span>arnold_counts %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(taxon) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">max_rel_abund =</span> <span class="kw">max</span>(relative_abundance_percent)) %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(max_rel_abund &gt;=<span class="st"> </span><span class="dv">10</span>) %&gt;%
-<span class="st">  </span><span class="kw">arrange</span>(max_rel_abund) %&gt;%
-<span class="st">  </span><span class="kw">pull</span>(taxon)
-
-arnold_common_taxa</code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1">arnold_common_taxa &lt;-<span class="st"> </span>arnold_counts <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(taxon) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">max_rel_abund =</span> <span class="kw">max</span>(relative_abundance_percent)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(max_rel_abund <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(max_rel_abund) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb201-6" data-line-number="6"><span class="st">  </span><span class="kw">pull</span>(taxon)</a>
+<a class="sourceLine" id="cb201-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb201-8" data-line-number="8">arnold_common_taxa</a></code></pre></div>
 <pre><code>##  [1] &quot;Surirella delicatissima&quot;             
 ##  [2] &quot;Anomoeoneis serians var. brachysira&quot; 
 ##  [3] &quot;Navicula subtilissima&quot;               
@@ -606,12 +634,12 @@ arnold_common_taxa</code></pre></div>
 ##  [9] &quot;Cymbella hebridica&quot;                  
 ## [10] &quot;Fragilaria virescens var. birostrata&quot;
 ## [11] &quot;Fragilaria construens&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_counts_common &lt;-<span class="st"> </span>arnold_counts %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(taxon %in%<span class="st"> </span>arnold_common_taxa) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">taxon =</span> <span class="kw">factor</span>(taxon, <span class="dt">levels =</span> arnold_common_taxa)) %&gt;%
-<span class="st">  </span><span class="kw">arrange</span>(taxon)
-
-arnold_counts_common</code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1">arnold_counts_common &lt;-<span class="st"> </span>arnold_counts <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb203-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(taxon <span class="op">%in%</span><span class="st"> </span>arnold_common_taxa) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb203-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">taxon =</span> <span class="kw">factor</span>(taxon, <span class="dt">levels =</span> arnold_common_taxa)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb203-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(taxon)</a>
+<a class="sourceLine" id="cb203-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb203-6" data-line-number="6">arnold_counts_common</a></code></pre></div>
 <pre><code>## # A tibble: 176 x 5
 ##    depth_cm age_bp taxon                   valve_count relative_abundance…
 ##       &lt;int&gt;  &lt;int&gt; &lt;fct&gt;                         &lt;int&gt;               &lt;dbl&gt;
@@ -630,127 +658,127 @@ arnold_counts_common</code></pre></div>
 <div id="plotting-one-core" class="section level4">
 <h4><span class="header-section-number">5.5.1.2</span> Plotting one core</h4>
 <p>Using <strong>ggplot2</strong> to plot species composition strat diagrams is similar to plotting geochemical data, with three important differences: the geometry is usually a horizontal bar plot, the facet labels are so long that they need to be rotated, and the horizontal distance in each facet must be equal between facets (so that 10% relative abundance is the same on the leftmost facet as the rightmost facet). We solve the first by replacing <code>geom_path()</code> and <code>geom_point()</code> with <code>geom_segment()</code>, and the third by replacing <code>facet_wrap()</code> with <code>facet_grid()</code> using <code>space = &quot;free_x&quot;</code> to keep the distance on each facet comparable in the x direction. Setting the breaks on the x-axis helps keep the axes less cluttered and maintains the idea of equal space visually.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(
-  arnold_counts_common, 
-  <span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> relative_abundance_percent)
-) +
-<span class="st">  </span><span class="co"># draw horizontal lines of the appropriate length for each depth</span>
-<span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> <span class="dv">0</span>, <span class="dt">yend =</span> depth_cm), <span class="dt">lwd =</span> <span class="dv">1</span>) +
-<span class="st">  </span><span class="co"># facet by taxon, keeping distance on the x axis comparable</span>
-<span class="st">  </span><span class="co"># between facets</span>
-<span class="st">  </span><span class="kw">facet_grid</span>(~taxon, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">space =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="co"># have the same breaks for all x axes</span>
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)) +
-<span class="st">  </span><span class="co"># reverse the y axis for depth</span>
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Relative Abundance (%)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb205-2" data-line-number="2">  arnold_counts_common, </a>
+<a class="sourceLine" id="cb205-3" data-line-number="3">  <span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> relative_abundance_percent)</a>
+<a class="sourceLine" id="cb205-4" data-line-number="4">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb205-5" data-line-number="5"><span class="st">  </span><span class="co"># draw horizontal lines of the appropriate length for each depth</span></a>
+<a class="sourceLine" id="cb205-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> <span class="dv">0</span>, <span class="dt">yend =</span> depth_cm), <span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb205-7" data-line-number="7"><span class="st">  </span><span class="co"># facet by taxon, keeping distance on the x axis comparable</span></a>
+<a class="sourceLine" id="cb205-8" data-line-number="8"><span class="st">  </span><span class="co"># between facets</span></a>
+<a class="sourceLine" id="cb205-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span>taxon, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">space =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb205-10" data-line-number="10"><span class="st">  </span><span class="co"># have the same breaks for all x axes</span></a>
+<a class="sourceLine" id="cb205-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb205-12" data-line-number="12"><span class="st">  </span><span class="co"># reverse the y axis for depth</span></a>
+<a class="sourceLine" id="cb205-13" data-line-number="13"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb205-14" data-line-number="14"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Relative Abundance (%)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
 <p>The problem of rotated and partially overlapping facet labels is one that takes some code to deal with. The good news is, the code is the same regardless of which plot you are trying to create, so you can copy/paste it for any plot that needs rotated facet labels. We do this in two steps: rotate and align the facet labels within <code>theme()</code>, and then use what can only be described as voodoo to eliminate the default clipping used by <strong>ggplot2</strong>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">species_plot_obj &lt;-<span class="st"> </span><span class="kw">ggplot</span>(
-  arnold_counts_common, 
-  <span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> relative_abundance_percent)
-) +
-<span class="st">  </span><span class="co"># draw horizontal lines of the appropriate length for each depth</span>
-<span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> <span class="dv">0</span>, <span class="dt">yend =</span> depth_cm), <span class="dt">lwd =</span> <span class="dv">1</span>) +
-<span class="st">  </span><span class="co"># facet by taxon, keeping distance on the x axis comparable</span>
-<span class="st">  </span><span class="co"># between facets</span>
-<span class="st">  </span><span class="kw">facet_grid</span>(~taxon, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">space =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="co"># reverse the y axis for depth</span>
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="co"># make all facets use the same break values</span>
-<span class="st">  </span><span class="co"># (helps with cluttered breaks)</span>
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)) +
-<span class="st">  </span><span class="co"># set the x and y labels</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Relative Abundance (%)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>) +
-<span class="st">  </span><span class="co"># customize the appearance</span>
-<span class="st">  </span><span class="kw">theme</span>(
-    <span class="co"># rotate the facet labels</span>
-    <span class="dt">strip.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">60</span>, <span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">vjust =</span> <span class="dv">0</span>), 
-    <span class="co"># turn off the label background</span>
-    <span class="dt">strip.background =</span> <span class="kw">element_blank</span>()
-  )
-
-<span class="co"># voodoo that makes it so that facet labels can overlap</span>
-<span class="co"># https://stackoverflow.com/questions/49740215/ggplot-facet-grid-label-cut-off</span>
-species_plot_grob &lt;-<span class="st"> </span><span class="kw">ggplotGrob</span>(species_plot_obj)
-for(i in <span class="kw">which</span>(<span class="kw">grepl</span>(<span class="st">&quot;strip-t&quot;</span>, species_plot_grob$layout$name))){
-  species_plot_grob$grobs[[i]]$layout$clip &lt;-<span class="st"> &quot;off&quot;</span>
-}
-
-<span class="co"># needed to draw the modified plot_grob</span>
-grid::<span class="kw">grid.draw</span>(species_plot_grob)</code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1">species_plot_obj &lt;-<span class="st"> </span><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb206-2" data-line-number="2">  arnold_counts_common, </a>
+<a class="sourceLine" id="cb206-3" data-line-number="3">  <span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> relative_abundance_percent)</a>
+<a class="sourceLine" id="cb206-4" data-line-number="4">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb206-5" data-line-number="5"><span class="st">  </span><span class="co"># draw horizontal lines of the appropriate length for each depth</span></a>
+<a class="sourceLine" id="cb206-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> <span class="dv">0</span>, <span class="dt">yend =</span> depth_cm), <span class="dt">lwd =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb206-7" data-line-number="7"><span class="st">  </span><span class="co"># facet by taxon, keeping distance on the x axis comparable</span></a>
+<a class="sourceLine" id="cb206-8" data-line-number="8"><span class="st">  </span><span class="co"># between facets</span></a>
+<a class="sourceLine" id="cb206-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span>taxon, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>, <span class="dt">space =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb206-10" data-line-number="10"><span class="st">  </span><span class="co"># reverse the y axis for depth</span></a>
+<a class="sourceLine" id="cb206-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb206-12" data-line-number="12"><span class="st">  </span><span class="co"># make all facets use the same break values</span></a>
+<a class="sourceLine" id="cb206-13" data-line-number="13"><span class="st">  </span><span class="co"># (helps with cluttered breaks)</span></a>
+<a class="sourceLine" id="cb206-14" data-line-number="14"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb206-15" data-line-number="15"><span class="st">  </span><span class="co"># set the x and y labels</span></a>
+<a class="sourceLine" id="cb206-16" data-line-number="16"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Relative Abundance (%)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb206-17" data-line-number="17"><span class="st">  </span><span class="co"># customize the appearance</span></a>
+<a class="sourceLine" id="cb206-18" data-line-number="18"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb206-19" data-line-number="19">    <span class="co"># rotate the facet labels</span></a>
+<a class="sourceLine" id="cb206-20" data-line-number="20">    <span class="dt">strip.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">60</span>, <span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">vjust =</span> <span class="dv">0</span>), </a>
+<a class="sourceLine" id="cb206-21" data-line-number="21">    <span class="co"># turn off the label background</span></a>
+<a class="sourceLine" id="cb206-22" data-line-number="22">    <span class="dt">strip.background =</span> <span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb206-23" data-line-number="23">  )</a>
+<a class="sourceLine" id="cb206-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb206-25" data-line-number="25"><span class="co"># voodoo that makes it so that facet labels can overlap</span></a>
+<a class="sourceLine" id="cb206-26" data-line-number="26"><span class="co"># https://stackoverflow.com/questions/49740215/ggplot-facet-grid-label-cut-off</span></a>
+<a class="sourceLine" id="cb206-27" data-line-number="27">species_plot_grob &lt;-<span class="st"> </span><span class="kw">ggplotGrob</span>(species_plot_obj)</a>
+<a class="sourceLine" id="cb206-28" data-line-number="28"><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">which</span>(<span class="kw">grepl</span>(<span class="st">&quot;strip-t&quot;</span>, species_plot_grob<span class="op">$</span>layout<span class="op">$</span>name))){</a>
+<a class="sourceLine" id="cb206-29" data-line-number="29">  species_plot_grob<span class="op">$</span>grobs[[i]]<span class="op">$</span>layout<span class="op">$</span>clip &lt;-<span class="st"> &quot;off&quot;</span></a>
+<a class="sourceLine" id="cb206-30" data-line-number="30">}</a>
+<a class="sourceLine" id="cb206-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb206-32" data-line-number="32"><span class="co"># needed to draw the modified plot_grob</span></a>
+<a class="sourceLine" id="cb206-33" data-line-number="33">grid<span class="op">::</span><span class="kw">grid.draw</span>(species_plot_grob)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 </div>
 <div id="saving-a-plot-1" class="section level4">
 <h4><span class="header-section-number">5.5.1.3</span> Saving a plot</h4>
 <p>Because we have modified the plot after it is has been built, we need to use the base-R way of saving things. This is done using the <code>pdf()</code>, <code>png()</code> and <code>svg()</code> functions (and calling <code>dev.off()</code> afterward). Call <code>grid::grid.draw()</code> in the middle like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">png</span>(
-  <span class="st">&quot;my_species_plot.png&quot;</span>, 
-  <span class="dt">width =</span> <span class="fl">6.5</span>, 
-  <span class="dt">height =</span> <span class="dv">4</span>, 
-  <span class="dt">res =</span> <span class="dv">300</span>,
-  <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>
-)
-grid::<span class="kw">grid.draw</span>(species_plot_grob)
-<span class="kw">dev.off</span>()
-
-<span class="kw">pdf</span>(
-  <span class="st">&quot;my_species_plot.pdf&quot;</span>, 
-  <span class="dt">width =</span> <span class="fl">6.5</span>, 
-  <span class="dt">height =</span> <span class="dv">4</span>
-)
-grid::<span class="kw">grid.draw</span>(species_plot_grob)
-<span class="kw">dev.off</span>()</code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="kw">png</span>(</a>
+<a class="sourceLine" id="cb207-2" data-line-number="2">  <span class="st">&quot;my_species_plot.png&quot;</span>, </a>
+<a class="sourceLine" id="cb207-3" data-line-number="3">  <span class="dt">width =</span> <span class="fl">6.5</span>, </a>
+<a class="sourceLine" id="cb207-4" data-line-number="4">  <span class="dt">height =</span> <span class="dv">4</span>, </a>
+<a class="sourceLine" id="cb207-5" data-line-number="5">  <span class="dt">res =</span> <span class="dv">300</span>,</a>
+<a class="sourceLine" id="cb207-6" data-line-number="6">  <span class="dt">units =</span> <span class="st">&quot;in&quot;</span></a>
+<a class="sourceLine" id="cb207-7" data-line-number="7">)</a>
+<a class="sourceLine" id="cb207-8" data-line-number="8">grid<span class="op">::</span><span class="kw">grid.draw</span>(species_plot_grob)</a>
+<a class="sourceLine" id="cb207-9" data-line-number="9"><span class="kw">dev.off</span>()</a>
+<a class="sourceLine" id="cb207-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb207-11" data-line-number="11"><span class="kw">pdf</span>(</a>
+<a class="sourceLine" id="cb207-12" data-line-number="12">  <span class="st">&quot;my_species_plot.pdf&quot;</span>, </a>
+<a class="sourceLine" id="cb207-13" data-line-number="13">  <span class="dt">width =</span> <span class="fl">6.5</span>, </a>
+<a class="sourceLine" id="cb207-14" data-line-number="14">  <span class="dt">height =</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb207-15" data-line-number="15">)</a>
+<a class="sourceLine" id="cb207-16" data-line-number="16">grid<span class="op">::</span><span class="kw">grid.draw</span>(species_plot_grob)</a>
+<a class="sourceLine" id="cb207-17" data-line-number="17"><span class="kw">dev.off</span>()</a></code></pre></div>
 </div>
 <div id="adjusting-spacing" class="section level4">
 <h4><span class="header-section-number">5.5.1.4</span> Adjusting spacing</h4>
 <p>For more fine-tuned control of the appearance, you can use various arguments within <code>theme()</code>. The two that I’ve used in this situation are <code>plot.margin</code> to add some padding to the right (this helps with the occasional cutoff rightmost facet label), and <code>panel.spacing.x</code> to adjust the spacing between panels.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  ... +
-<span class="st">  </span><span class="kw">theme</span>(
-    ...,
-    <span class="co"># add some margin to the right of the plot so that the rightmost label</span>
-    <span class="co"># isn&#39;t cut off</span>
-    <span class="co"># c(top, right, bottom, left)</span>
-    <span class="dt">plot.margin =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="st">&quot;inches&quot;</span>),
-    <span class="co"># adjust spacing between facets</span>
-    <span class="dt">panel.spacing.x =</span> <span class="kw">unit</span>(<span class="fl">0.05</span>, <span class="st">&quot;inches&quot;</span>)
-  )</code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1">  ... <span class="op">+</span></a>
+<a class="sourceLine" id="cb208-2" data-line-number="2"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb208-3" data-line-number="3">    ...,</a>
+<a class="sourceLine" id="cb208-4" data-line-number="4">    <span class="co"># add some margin to the right of the plot so that the rightmost label</span></a>
+<a class="sourceLine" id="cb208-5" data-line-number="5">    <span class="co"># isn&#39;t cut off</span></a>
+<a class="sourceLine" id="cb208-6" data-line-number="6">    <span class="co"># c(top, right, bottom, left)</span></a>
+<a class="sourceLine" id="cb208-7" data-line-number="7">    <span class="dt">plot.margin =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="st">&quot;inches&quot;</span>),</a>
+<a class="sourceLine" id="cb208-8" data-line-number="8">    <span class="co"># adjust spacing between facets</span></a>
+<a class="sourceLine" id="cb208-9" data-line-number="9">    <span class="dt">panel.spacing.x =</span> <span class="kw">unit</span>(<span class="fl">0.05</span>, <span class="st">&quot;inches&quot;</span>)</a>
+<a class="sourceLine" id="cb208-10" data-line-number="10">  )</a></code></pre></div>
 </div>
 <div id="non-species-data" class="section level4">
 <h4><span class="header-section-number">5.5.1.5</span> Non-species data</h4>
 <p>Often strat diagrams include some other kind of data in addition to the species data, like a PC1 summary or diatom-inferred pH. I’ll calculate a few diversity indicies for this dataset as a demonstration.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">species_diversity &lt;-<span class="st"> </span>arnold_counts %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(depth_cm) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">richness =</span> <span class="kw">sum</span>(valve_count !=<span class="st"> </span><span class="dv">0</span>),
-    <span class="dt">simpsons =</span> <span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>((relative_abundance_percent /<span class="st"> </span><span class="dv">100</span>) ^<span class="st"> </span><span class="dv">2</span>),
-    <span class="dt">hill_n2 =</span> <span class="dv">1</span> /<span class="st"> </span><span class="kw">sum</span>((relative_abundance_percent /<span class="st"> </span><span class="dv">100</span>) ^<span class="st"> </span><span class="dv">2</span>)
-  ) %&gt;%
-<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, -depth_cm)
-
-diversity_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(species_diversity, <span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) +
-<span class="st">  </span><span class="kw">geom_path</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)
-
-diversity_plot</code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">species_diversity &lt;-<span class="st"> </span>arnold_counts <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb209-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(depth_cm) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb209-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb209-4" data-line-number="4">    <span class="dt">richness =</span> <span class="kw">sum</span>(valve_count <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb209-5" data-line-number="5">    <span class="dt">simpsons =</span> <span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">sum</span>((relative_abundance_percent <span class="op">/</span><span class="st"> </span><span class="dv">100</span>) <span class="op">^</span><span class="st"> </span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb209-6" data-line-number="6">    <span class="dt">hill_n2 =</span> <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>((relative_abundance_percent <span class="op">/</span><span class="st"> </span><span class="dv">100</span>) <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb209-7" data-line-number="7">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb209-8" data-line-number="8"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> param, <span class="dt">value =</span> value, <span class="op">-</span>depth_cm)</a>
+<a class="sourceLine" id="cb209-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb209-10" data-line-number="10">diversity_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(species_diversity, <span class="kw">aes</span>(<span class="dt">y =</span> depth_cm, <span class="dt">x =</span> value)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb209-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb209-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb209-13" data-line-number="13"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>param, <span class="dt">scales =</span> <span class="st">&quot;free_x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb209-14" data-line-number="14"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb209-15" data-line-number="15"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Depth (cm)&quot;</span>)</a>
+<a class="sourceLine" id="cb209-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb209-17" data-line-number="17">diversity_plot</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <p>When using <strong>ggplot2</strong>, there is no easy way to combine this with a species plot (you will see a way to do this in the <strong>analogue</strong> package <a href="strat-diagrams.html#strat-species-analogue">below</a>). The only way I know of to do this is to with <strong>ggplot2</strong> is to (1) modify the non-species data such that it has no y-axis label, no y-axis ticks, and no y-axis break labels, (2) remove the plot background from the second plot (to avoid clipping), (3) fudge the plot margins on the second plot so that the plots align properly (below I set the top and bottom margins to 1.74 and 0.30 inches, respectively, but you will have to fudge this yourself), and (4) use the <code>grid.arrange()</code> function from the <strong>gridExtra</strong> package to combine the two plots (you can set the relative widths, but you should have the number of rows be 1). Make sure to use the “grob” version of the species plot, which kept the species names from being clipped. Make sure that your depth values actually align before removing the axis labels completely!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gridExtra::<span class="kw">grid.arrange</span>(
-  species_plot_grob,
-  diversity_plot +<span class="st"> </span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="ot">NULL</span>) +
-<span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">labels =</span> <span class="ot">NULL</span>) +
-<span class="st">    </span><span class="kw">theme</span>(
-      <span class="dt">plot.margin =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="fl">1.74</span>, <span class="dv">0</span>, <span class="fl">0.30</span>, <span class="dv">0</span>), <span class="st">&quot;inches&quot;</span>),
-      <span class="dt">axis.ticks.y =</span> <span class="kw">element_blank</span>(),
-      <span class="dt">plot.background =</span> <span class="kw">element_blank</span>()
-    ),
-  <span class="dt">nrow =</span> <span class="dv">1</span>,
-  <span class="dt">widths =</span> <span class="kw">c</span>(<span class="fl">2.5</span>, <span class="dv">1</span>)
-)</code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(</a>
+<a class="sourceLine" id="cb210-2" data-line-number="2">  species_plot_grob,</a>
+<a class="sourceLine" id="cb210-3" data-line-number="3">  diversity_plot <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb210-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb210-5" data-line-number="5"><span class="st">    </span><span class="kw">scale_y_reverse</span>(<span class="dt">labels =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb210-6" data-line-number="6"><span class="st">    </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb210-7" data-line-number="7">      <span class="dt">plot.margin =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="fl">1.74</span>, <span class="dv">0</span>, <span class="fl">0.30</span>, <span class="dv">0</span>), <span class="st">&quot;inches&quot;</span>),</a>
+<a class="sourceLine" id="cb210-8" data-line-number="8">      <span class="dt">axis.ticks.y =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb210-9" data-line-number="9">      <span class="dt">plot.background =</span> <span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb210-10" data-line-number="10">    ),</a>
+<a class="sourceLine" id="cb210-11" data-line-number="11">  <span class="dt">nrow =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb210-12" data-line-number="12">  <span class="dt">widths =</span> <span class="kw">c</span>(<span class="fl">2.5</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb210-13" data-line-number="13">)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
 <p>You can save this plot by enclosing the <code>grid.arrange()</code> call in <code>png()</code> (or <code>pdf()</code>) and <code>dev.off()</code>.</p>
 </div>
@@ -758,8 +786,8 @@ diversity_plot</code></pre></div>
 <div id="strat-species-analogue" class="section level3">
 <h3><span class="header-section-number">5.5.2</span> Using analogue::Stratiplot</h3>
 <p>The <a href="https://github.com/gavinsimpson/analogue"><strong>analogue</strong> package</a> by <a href="https://www.fromthebottomoftheheap.net/">Gavin Simpson</a> has a number of useful functions for paleolimnologists, including a <code>Stratiplot()</code> function designed to produce stratigraphic plots. I find the <strong>ggplot2</strong> version to be more flexible, but the default look and feel works for you, <code>Stratiplot()</code> is definitely easier. Because we are using functions from another package, we have to load the package using <code>library()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install using install.packages(&quot;analogue&quot;)</span>
-<span class="kw">library</span>(analogue)</code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1"><span class="co"># install using install.packages(&quot;analogue&quot;)</span></a>
+<a class="sourceLine" id="cb211-2" data-line-number="2"><span class="kw">library</span>(analogue)</a></code></pre></div>
 <pre><code>## Loading required package: vegan</code></pre>
 <pre><code>## Loading required package: permute</code></pre>
 <pre><code>## Loading required package: lattice</code></pre>
@@ -768,11 +796,11 @@ diversity_plot</code></pre></div>
 <div id="data-preparation-1" class="section level4">
 <h4><span class="header-section-number">5.5.2.1</span> Data preparation</h4>
 <p>The data required by <code>Stratiplot()</code> is a data frame of relative abundances (as columns). To calculate this from our filtered data, we can use the <code>spread()</code> function to get the data in “parameter wide” form.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arnold_rel_abundance_wide &lt;-<span class="st"> </span>arnold_counts_common %&gt;%
-<span class="st">  </span><span class="kw">select</span>(depth_cm, age_bp, taxon, relative_abundance_percent) %&gt;%
-<span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> taxon, <span class="dt">value =</span> relative_abundance_percent)
-
-arnold_rel_abundance_wide</code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1">arnold_rel_abundance_wide &lt;-<span class="st"> </span>arnold_counts_common <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb217-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(depth_cm, age_bp, taxon, relative_abundance_percent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb217-3" data-line-number="3"><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> taxon, <span class="dt">value =</span> relative_abundance_percent)</a>
+<a class="sourceLine" id="cb217-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb217-5" data-line-number="5">arnold_rel_abundance_wide</a></code></pre></div>
 <pre><code>## # A tibble: 16 x 13
 ##    depth_cm age_bp `Surirella delica… `Anomoeoneis seria… `Navicula subti…
 ##       &lt;int&gt;  &lt;int&gt;              &lt;dbl&gt;               &lt;dbl&gt;            &lt;dbl&gt;
@@ -801,81 +829,81 @@ arnold_rel_abundance_wide</code></pre></div>
 <div id="plotting-a-single-core-1" class="section level4">
 <h4><span class="header-section-number">5.5.2.2</span> Plotting a single core</h4>
 <p>The <code>Stratiplot()</code> function takes two arguments: the first is a version of the data frame we just created without any of the depth information. The second is the depth information as a vector.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Stratiplot</span>(
-  arnold_rel_abundance_wide %&gt;%<span class="st"> </span><span class="kw">select</span>(-depth_cm, -age_bp),
-  arnold_rel_abundance_wide$depth_cm
-)</code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="kw">Stratiplot</span>(</a>
+<a class="sourceLine" id="cb219-2" data-line-number="2">  arnold_rel_abundance_wide <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>depth_cm, <span class="op">-</span>age_bp),</a>
+<a class="sourceLine" id="cb219-3" data-line-number="3">  arnold_rel_abundance_wide<span class="op">$</span>depth_cm</a>
+<a class="sourceLine" id="cb219-4" data-line-number="4">)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
 <p>There are many arguments to <code>Stratiplot()</code>, but I found for this example that the following values worked for this particular dataset. In particular, increasing the <code>topPad</code> parameter was needed to keep the species labels from being cutoff.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Stratiplot</span>(
-  arnold_rel_abundance_wide %&gt;%<span class="st"> </span><span class="kw">select</span>(-depth_cm, -age_bp),
-  arnold_rel_abundance_wide$depth_cm, 
-  <span class="co"># sets the x and y labels</span>
-  <span class="dt">ylab =</span> <span class="st">&quot;Depth (cm)&quot;</span>, 
-  <span class="dt">xlab =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,
-  <span class="co"># adds padding to the top of the plot</span>
-  <span class="co"># to fix cut-off taxa names</span>
-  <span class="dt">topPad =</span> <span class="dv">10</span>, 
-  <span class="co"># make the plot type a &quot;bar&quot; plot</span>
-  <span class="dt">type =</span> <span class="st">&quot;h&quot;</span>, 
-  <span class="co"># make the bar colour black</span>
-  <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>
-)</code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1"><span class="kw">Stratiplot</span>(</a>
+<a class="sourceLine" id="cb220-2" data-line-number="2">  arnold_rel_abundance_wide <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>depth_cm, <span class="op">-</span>age_bp),</a>
+<a class="sourceLine" id="cb220-3" data-line-number="3">  arnold_rel_abundance_wide<span class="op">$</span>depth_cm, </a>
+<a class="sourceLine" id="cb220-4" data-line-number="4">  <span class="co"># sets the x and y labels</span></a>
+<a class="sourceLine" id="cb220-5" data-line-number="5">  <span class="dt">ylab =</span> <span class="st">&quot;Depth (cm)&quot;</span>, </a>
+<a class="sourceLine" id="cb220-6" data-line-number="6">  <span class="dt">xlab =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</a>
+<a class="sourceLine" id="cb220-7" data-line-number="7">  <span class="co"># adds padding to the top of the plot</span></a>
+<a class="sourceLine" id="cb220-8" data-line-number="8">  <span class="co"># to fix cut-off taxa names</span></a>
+<a class="sourceLine" id="cb220-9" data-line-number="9">  <span class="dt">topPad =</span> <span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb220-10" data-line-number="10">  <span class="co"># make the plot type a &quot;bar&quot; plot</span></a>
+<a class="sourceLine" id="cb220-11" data-line-number="11">  <span class="dt">type =</span> <span class="st">&quot;h&quot;</span>, </a>
+<a class="sourceLine" id="cb220-12" data-line-number="12">  <span class="co"># make the bar colour black</span></a>
+<a class="sourceLine" id="cb220-13" data-line-number="13">  <span class="dt">col =</span> <span class="st">&quot;black&quot;</span></a>
+<a class="sourceLine" id="cb220-14" data-line-number="14">)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
 </div>
 <div id="non-species-data-1" class="section level4">
 <h4><span class="header-section-number">5.5.2.3</span> Non-species data</h4>
 <p>Including non-species data is similar to including species data using <code>Stratiplot()</code>, but the <code>varTypes</code> argument needs to specify that the non-species variables should have independently sized axes. This should be a vector with the same number of elements as variables in the plot (I’ve use <code>rep()</code> to repeat “relative” and “absolute” the correct number of times.)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">species_diversity &lt;-<span class="st"> </span>arnold_counts %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(depth_cm) %&gt;%
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">richness =</span> <span class="kw">sum</span>(valve_count !=<span class="st"> </span><span class="dv">0</span>),
-    <span class="dt">simpsons =</span> <span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>((relative_abundance_percent /<span class="st"> </span><span class="dv">100</span>) ^<span class="st"> </span><span class="dv">2</span>),
-    <span class="dt">hill_n2 =</span> <span class="dv">1</span> /<span class="st"> </span><span class="kw">sum</span>((relative_abundance_percent /<span class="st"> </span><span class="dv">100</span>) ^<span class="st"> </span><span class="dv">2</span>)
-  )
-
-arnold_rel_abundance_wide_div &lt;-<span class="st"> </span><span class="kw">cbind</span>(
-  arnold_rel_abundance_wide,
-  species_diversity %&gt;%<span class="st"> </span><span class="kw">select</span>(-depth_cm)
-)
-
-<span class="kw">Stratiplot</span>(
-  arnold_rel_abundance_wide_div %&gt;%<span class="st"> </span><span class="kw">select</span>(-depth_cm, -age_bp),
-  arnold_rel_abundance_wide_div$depth_cm, 
-  <span class="dt">varTypes =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;relative&quot;</span>, <span class="dv">11</span>), <span class="kw">rep</span>(<span class="st">&quot;absolute&quot;</span>, <span class="dv">3</span>)),
-  <span class="dt">ylab =</span> <span class="st">&quot;Depth (cm)&quot;</span>, 
-  <span class="dt">xlab =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,
-  <span class="dt">topPad =</span> <span class="dv">10</span>, 
-  <span class="dt">type =</span> <span class="st">&quot;h&quot;</span>, 
-  <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>
-)</code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1">species_diversity &lt;-<span class="st"> </span>arnold_counts <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb221-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(depth_cm) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb221-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb221-4" data-line-number="4">    <span class="dt">richness =</span> <span class="kw">sum</span>(valve_count <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb221-5" data-line-number="5">    <span class="dt">simpsons =</span> <span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">sum</span>((relative_abundance_percent <span class="op">/</span><span class="st"> </span><span class="dv">100</span>) <span class="op">^</span><span class="st"> </span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb221-6" data-line-number="6">    <span class="dt">hill_n2 =</span> <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>((relative_abundance_percent <span class="op">/</span><span class="st"> </span><span class="dv">100</span>) <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb221-7" data-line-number="7">  )</a>
+<a class="sourceLine" id="cb221-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb221-9" data-line-number="9">arnold_rel_abundance_wide_div &lt;-<span class="st"> </span><span class="kw">cbind</span>(</a>
+<a class="sourceLine" id="cb221-10" data-line-number="10">  arnold_rel_abundance_wide,</a>
+<a class="sourceLine" id="cb221-11" data-line-number="11">  species_diversity <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>depth_cm)</a>
+<a class="sourceLine" id="cb221-12" data-line-number="12">)</a>
+<a class="sourceLine" id="cb221-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb221-14" data-line-number="14"><span class="kw">Stratiplot</span>(</a>
+<a class="sourceLine" id="cb221-15" data-line-number="15">  arnold_rel_abundance_wide_div <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>depth_cm, <span class="op">-</span>age_bp),</a>
+<a class="sourceLine" id="cb221-16" data-line-number="16">  arnold_rel_abundance_wide_div<span class="op">$</span>depth_cm, </a>
+<a class="sourceLine" id="cb221-17" data-line-number="17">  <span class="dt">varTypes =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;relative&quot;</span>, <span class="dv">11</span>), <span class="kw">rep</span>(<span class="st">&quot;absolute&quot;</span>, <span class="dv">3</span>)),</a>
+<a class="sourceLine" id="cb221-18" data-line-number="18">  <span class="dt">ylab =</span> <span class="st">&quot;Depth (cm)&quot;</span>, </a>
+<a class="sourceLine" id="cb221-19" data-line-number="19">  <span class="dt">xlab =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</a>
+<a class="sourceLine" id="cb221-20" data-line-number="20">  <span class="dt">topPad =</span> <span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb221-21" data-line-number="21">  <span class="dt">type =</span> <span class="st">&quot;h&quot;</span>, </a>
+<a class="sourceLine" id="cb221-22" data-line-number="22">  <span class="dt">col =</span> <span class="st">&quot;black&quot;</span></a>
+<a class="sourceLine" id="cb221-23" data-line-number="23">)</a></code></pre></div>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
 </div>
 <div id="saving-a-plot-2" class="section level4">
 <h4><span class="header-section-number">5.5.2.4</span> Saving a plot</h4>
 <p>You can save these plots by enclosing the <code>Stratiplot()</code> call in <code>png()</code> (or <code>pdf()</code>) and <code>dev.off()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">png</span>(
-  <span class="st">&quot;my_species_plot.png&quot;</span>, 
-  <span class="dt">width =</span> <span class="fl">6.5</span>, 
-  <span class="dt">height =</span> <span class="dv">4</span>, 
-  <span class="dt">res =</span> <span class="dv">300</span>,
-  <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>
-)
-<span class="kw">Stratiplot</span>(
-  arnold_rel_abundance_wide %&gt;%<span class="st"> </span><span class="kw">select</span>(-depth_cm, -age_bp),
-  arnold_rel_abundance_wide$depth_cm, 
-  <span class="co"># sets the x and y labels</span>
-  <span class="dt">ylab =</span> <span class="st">&quot;Depth (cm)&quot;</span>, 
-  <span class="dt">xlab =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,
-  <span class="co"># adds padding to the top of the plot</span>
-  <span class="co"># to fix cut-off taxa names</span>
-  <span class="dt">topPad =</span> <span class="dv">10</span>, 
-  <span class="co"># make the plot type a &quot;bar&quot; plot</span>
-  <span class="dt">type =</span> <span class="st">&quot;h&quot;</span>, 
-  <span class="co"># make the bar colour black</span>
-  <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>
-)
-<span class="kw">dev.off</span>()</code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1"><span class="kw">png</span>(</a>
+<a class="sourceLine" id="cb222-2" data-line-number="2">  <span class="st">&quot;my_species_plot.png&quot;</span>, </a>
+<a class="sourceLine" id="cb222-3" data-line-number="3">  <span class="dt">width =</span> <span class="fl">6.5</span>, </a>
+<a class="sourceLine" id="cb222-4" data-line-number="4">  <span class="dt">height =</span> <span class="dv">4</span>, </a>
+<a class="sourceLine" id="cb222-5" data-line-number="5">  <span class="dt">res =</span> <span class="dv">300</span>,</a>
+<a class="sourceLine" id="cb222-6" data-line-number="6">  <span class="dt">units =</span> <span class="st">&quot;in&quot;</span></a>
+<a class="sourceLine" id="cb222-7" data-line-number="7">)</a>
+<a class="sourceLine" id="cb222-8" data-line-number="8"><span class="kw">Stratiplot</span>(</a>
+<a class="sourceLine" id="cb222-9" data-line-number="9">  arnold_rel_abundance_wide <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>depth_cm, <span class="op">-</span>age_bp),</a>
+<a class="sourceLine" id="cb222-10" data-line-number="10">  arnold_rel_abundance_wide<span class="op">$</span>depth_cm, </a>
+<a class="sourceLine" id="cb222-11" data-line-number="11">  <span class="co"># sets the x and y labels</span></a>
+<a class="sourceLine" id="cb222-12" data-line-number="12">  <span class="dt">ylab =</span> <span class="st">&quot;Depth (cm)&quot;</span>, </a>
+<a class="sourceLine" id="cb222-13" data-line-number="13">  <span class="dt">xlab =</span> <span class="st">&quot;Relative abundance (%)&quot;</span>,</a>
+<a class="sourceLine" id="cb222-14" data-line-number="14">  <span class="co"># adds padding to the top of the plot</span></a>
+<a class="sourceLine" id="cb222-15" data-line-number="15">  <span class="co"># to fix cut-off taxa names</span></a>
+<a class="sourceLine" id="cb222-16" data-line-number="16">  <span class="dt">topPad =</span> <span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb222-17" data-line-number="17">  <span class="co"># make the plot type a &quot;bar&quot; plot</span></a>
+<a class="sourceLine" id="cb222-18" data-line-number="18">  <span class="dt">type =</span> <span class="st">&quot;h&quot;</span>, </a>
+<a class="sourceLine" id="cb222-19" data-line-number="19">  <span class="co"># make the bar colour black</span></a>
+<a class="sourceLine" id="cb222-20" data-line-number="20">  <span class="dt">col =</span> <span class="st">&quot;black&quot;</span></a>
+<a class="sourceLine" id="cb222-21" data-line-number="21">)</a>
+<a class="sourceLine" id="cb222-22" data-line-number="22"><span class="kw">dev.off</span>()</a></code></pre></div>
 </div>
 </div>
 </div>
@@ -895,7 +923,7 @@ arnold_rel_abundance_wide_div &lt;-<span class="st"> </span><span class="kw">cbi
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-whitehead89">
-<p>Whitehead, Donald R., Donald F. Charles, Stephen T. Jackson, John P. Smol, and Daniel R. Engstrom. 1989. “The Developmental History of Adirondack (N.Y.) Lakes.” <em>Journal of Paleolimnology</em> 2 (3): 185–206. doi:<a href="https://doi.org/10.1007/BF00202046">10.1007/BF00202046</a>.</p>
+<p>Whitehead, Donald R., Donald F. Charles, Stephen T. Jackson, John P. Smol, and Daniel R. Engstrom. 1989. “The Developmental History of Adirondack (N.Y.) Lakes.” <em>Journal of Paleolimnology</em> 2 (3): 185–206. <a href="https://doi.org/10.1007/BF00202046" class="uri">https://doi.org/10.1007/BF00202046</a>.</p>
 </div>
 </div>
             </section>
@@ -950,7 +978,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

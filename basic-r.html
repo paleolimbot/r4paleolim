@@ -25,7 +25,7 @@
 <meta name="author" content="Brent Thorne and Dewey Dunnington">
 
 
-<meta name="date" content="2018-05-10">
+<meta name="date" content="2018-05-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -224,9 +252,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="prerequisites-1" class="section level2">
 <h2><span class="header-section-number">1.1</span> Prerequisites</h2>
 <p>The prerequisite for this tutorial is the <code>tidyverse</code> package. If this package isn’t installed, you’ll have to install it using <code>install.packages()</code>, which you can type after the <code>&gt;</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
 <p>Load the packages when you’re done! If there are errors, you may have not installed the above packages correctly!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <pre><code>## ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
@@ -239,42 +267,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="expressions-and-variables" class="section level2">
 <h2><span class="header-section-number">1.2</span> Expressions and Variables</h2>
 <p>Let’s start with the basics. Try typing in something like this at the prompt:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> +<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> *<span class="st"> </span><span class="dv">5</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> ^<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="dv">5</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <pre><code>## [1] 25</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> *<span class="st"> </span>(<span class="dv">5</span> +<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 12</code></pre>
 <p>As you can see, R works just like a calculator and evaluates all of these <strong>expressions</strong> just like you would expect. If we would like to save the result of one of these expressions we can assign that value to a <strong>variable</strong> like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span> +<span class="st"> </span><span class="dv">1</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
 <p>Then, to view the value of <code>x</code> we can just type <code>x</code> at the console, and R will show us the value.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> x</code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"> x</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>The <code>&lt;-</code> means “assign the value on the right to the variable on the left”. We can also use <code>x</code> in any expression and R will substitute its value in like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x +<span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">x <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>An <strong>expression</strong> is something that R can evaluate to produce a value, like <code>2+2</code> or <code>x + 2</code>. Any time you type this in the console without assigning it to a <strong>variable</strong>, R will print out the value. In fact, any time you type anything into the R console, R is evaluating that expression, which may or may not return a value. If there is no value returned, R won’t print anything when you press enter.</p>
 <p>So far we’ve just used numbers, but often we need to enter text into R. Whenever we do this, we surround the text in quotes, like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mytext &lt;-<span class="st"> &quot;I am text&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">mytext &lt;-<span class="st"> &quot;I am text&quot;</span></a></code></pre></div>
 <p>Text (called <strong>character</strong> vectors) are one of many data types available in R.</p>
 </div>
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">1.3</span> Functions</h2>
 <p>A function is some kind of operation that takes one or more <strong>arguments</strong> (input values) and produces a <strong>return value</strong> (output value). The <code>sqrt()</code> function is a good example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">4</span>)</code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">sqrt</span>(<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Here, <code>4</code> is an <strong>argument</strong>, and the function <strong>returns</strong> the square root of that, which is <code>2</code>. Functions can take more arguments, like the <code>max</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">max</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>Here we are giving the <code>max</code> function 5 arguments, of which it returns the maximum. One other way we specify arguments is by <strong>keyword arguments</strong>, like in the <code>paste</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;string1&quot;</span>, <span class="st">&quot;string2&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">paste</span>(<span class="st">&quot;string1&quot;</span>, <span class="st">&quot;string2&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;string1_string2&quot;</code></pre>
 <p>The <code>paste</code> function takes its arguments and combines them using the <code>sep</code> that we specify, in this case <code>&quot;_&quot;</code>. The function <strong>returns</strong> this string. Many functions in R have many many arguments and usually we only want to modify one or two of interest to us. The format is always <code>key=value</code>, where <code>key</code> is the name of the keyword and <code>value</code> is some <strong>expression</strong> we would like to use as the value for that argument.</p>
 <p>R contains thousands of functions that do most of what you could possibly imagine with regards to data and statistics, but remembering which one you want and how to use it can be difficult. Luckily, RStudio makes it easy using tab autocompletion and easy access to help files. To autocomplete, start typing the name of the function and press the <code>[Tab]</code> key (or <code>Ctrl+Space</code>), and RStudio will helpfully provide you with suggestions.</p>
 <p>To access the documentation for a particular function, you can type <code>?</code> in front of the function name and press return, and RStudio will open the help file for you if it exists.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?paste</code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">?paste</a></code></pre></div>
 <p>Will bring up the following:</p>
 <blockquote>
 <h4 id="description"><span class="header-section-number">1.3</span> Description</h4>
@@ -304,7 +332,8 @@ one or more <span style="font-family: Courier New, Courier; color: #666666;"><b>
 </td>
 <td>
 <p>
-a character string to separate the terms. Not <code><a href="NA.html">NA_character_</a></code>.
+a character string to separate the terms. Not
+<code><a href="NA.html">NA_character_</a></code>.
 </p>
 </td>
 </tr>
@@ -314,7 +343,8 @@ a character string to separate the terms. Not <code><a href="NA.html">NA_charact
 </td>
 <td>
 <p>
-an optional character string to separate the results. Not <code><a href="NA.html">NA_character_</a></code>.
+an optional character string to separate the results. Not
+<code><a href="NA.html">NA_character_</a></code>.
 </p>
 </td>
 </tr>
@@ -325,75 +355,75 @@ an optional character string to separate the results. Not <code><a href="NA.html
 <div id="vectors" class="section level2">
 <h2><span class="header-section-number">1.4</span> Vectors</h2>
 <p>So far we’ve just been dealing with single values like <code>2+2</code> or <code>&quot;mystring&quot;</code>, but the real power of R is that it can operate easily on large lists of data, so it makes sense that it provides us with an easy way to work with this data. These lists of data are called <strong>vectors</strong>, and we create them using the <code>c</code> function (<code>c</code> stands for <strong>concatenate</strong>, or join together).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>)
-myvector</code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">myvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">myvector</a></code></pre></div>
 <pre><code>## [1] 10  9  8  7  2</code></pre>
 <p>Here the <code>c</code> function took our <strong>arguments</strong> of 10, 9, 8, 7, and 2, and <strong>returned</strong> a <strong>vector</strong>, which we assigned to the variable named <code>myvector</code>. When we evaluated <code>myvector</code>, it printed out the list of values it contained.</p>
 <p>Vectors don’t just have to contain numbers, they can contain strings as well.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mytextvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;word1&quot;</span>, <span class="st">&quot;word2&quot;</span>, <span class="st">&quot;word3&quot;</span>)
-mytextvector</code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">mytextvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;word1&quot;</span>, <span class="st">&quot;word2&quot;</span>, <span class="st">&quot;word3&quot;</span>)</a>
+<a class="sourceLine" id="cb35-2" data-line-number="2">mytextvector</a></code></pre></div>
 <pre><code>## [1] &quot;word1&quot; &quot;word2&quot; &quot;word3&quot;</code></pre>
 <p>Here the <code>c</code> function took our <strong>arguments</strong> and <strong>returned</strong> a <strong>vector</strong> of strings, which we assigned to the variable <code>mytextvector</code>.</p>
 <p>It is common to have to generate a vector of all the integer values between two numbers, so R provides a short form for this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">10</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">20</span>:<span class="dv">12</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="dv">20</span><span class="op">:</span><span class="dv">12</span></a></code></pre></div>
 <pre><code>## [1] 20 19 18 17 16 15 14 13 12</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myothervector &lt;-<span class="st"> </span><span class="dv">13</span>:<span class="dv">16</span>
-myothervector</code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">myothervector &lt;-<span class="st"> </span><span class="dv">13</span><span class="op">:</span><span class="dv">16</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">myothervector</a></code></pre></div>
 <pre><code>## [1] 13 14 15 16</code></pre>
 <p>You can also use an <strong>expression</strong> on either side of the <code>:</code>, like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">5</span>^<span class="dv">2</span>):(<span class="dv">3</span>*<span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">(<span class="dv">5</span><span class="op">^</span><span class="dv">2</span>)<span class="op">:</span>(<span class="dv">3</span><span class="op">*</span><span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## [1] 25 26 27 28 29 30</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">start &lt;-<span class="st"> </span><span class="dv">25</span>
-end &lt;-<span class="st"> </span>start +<span class="st"> </span><span class="dv">5</span>
-start:end</code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">start &lt;-<span class="st"> </span><span class="dv">25</span></a>
+<a class="sourceLine" id="cb45-2" data-line-number="2">end &lt;-<span class="st"> </span>start <span class="op">+</span><span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb45-3" data-line-number="3">start<span class="op">:</span>end</a></code></pre></div>
 <pre><code>## [1] 25 26 27 28 29 30</code></pre>
 </div>
 <div id="indexing" class="section level2">
 <h2><span class="header-section-number">1.5</span> Indexing</h2>
 <p>Now we’ve created vectors, but to get at what’s inside them we need to retrieve values using an <strong>index</strong>. We do this using square brackets like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>)
-myvector[<span class="dv">1</span>]</code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">myvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">myvector[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector[<span class="dv">5</span>]</code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">myvector[<span class="dv">5</span>]</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector[<span class="dv">3</span>]</code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">myvector[<span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>This code creates a vector, assigns it to the variable <code>myvector</code>, then retrieves the 1st, 5th, and 3rd value stored in that vector. If we would like multiple values from the vector, we can pass multiple values as indices, like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>)]</code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">myvector[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>)]</a></code></pre></div>
 <pre><code>## [1] 10  2  8</code></pre>
 <p>You’ll notice that the index that we’re using is actually a vector itself! I know, we’re using a vector to index a vector and it’s a little trippy, but it’s incredibly useful. You’ll remember that we can easily create vectors of sequential integers, which we can use to get a sequence of values from a vector by using it as an index.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> myvector[<span class="dv">1</span>:<span class="dv">3</span>]</code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"> myvector[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] 10  9  8</code></pre>
 <p>This would be equivalent to:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> myvector[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)]</code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"> myvector[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)]</a></code></pre></div>
 <pre><code>## [1] 10  9  8</code></pre>
 <p>There is one other useful way to index a vector using a vector, which is to use a <code>TRUE</code>/<code>FALSE</code> vector. This is probably the most useful of the indexing methods, because it allows you to do things like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector[myvector &gt;<span class="st"> </span><span class="dv">7</span>]</code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">myvector[myvector <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>]</a></code></pre></div>
 <pre><code>## [1] 10  9  8</code></pre>
 <p>This works because <code>myvector &gt; 7</code> is, itself, a <code>TRUE</code>/<code>FALSE</code> vector with the same length as <code>myvector</code>, indicating whether or not it is greater than 7 at any given position.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myvector &gt;<span class="st"> </span><span class="dv">7</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">myvector <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span></a></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
 </div>
 <div id="missing-values" class="section level2">
 <h2><span class="header-section-number">1.6</span> Missing Values</h2>
 <p>Missing values are represented in R using <code>NA</code>, or “not assigned”. The fact that R handles missing values is one of the best reasons to use R for data analysis, because missing values are common in real data. <code>NA</code> values are propogated by R functions, meaning that if you take the <code>mean()</code> of a vector containing a missing value, it will give you <code>NA</code> as the average!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>This is rarely what you want, but is a good practice to explicitly handle missing values in your code, and R forces you to do this. To avoid getting an NA back, you can use <code>na.rm = TRUE</code>, an argument that is available in many R functions.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 </div>
 <div id="data-frames" class="section level2">
 <h2><span class="header-section-number">1.7</span> Data Frames</h2>
 <p>The vast majority of data in R is kept in a <strong>tibble</strong> (often called a <strong>data frame</strong>), which is a collection of <strong>vectors</strong> of the same length. You can think of a <strong>tibble</strong> as a table, with each column in the table being of the same type (numeric, character, TRUE/FALSE, etc.).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_tibble &lt;-<span class="st"> </span><span class="kw">tibble</span>(
-  <span class="dt">number =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), 
-  <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>),
-  <span class="dt">is_one =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)
-)
-my_tibble</code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">my_tibble &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb67-2" data-line-number="2">  <span class="dt">number =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), </a>
+<a class="sourceLine" id="cb67-3" data-line-number="3">  <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>),</a>
+<a class="sourceLine" id="cb67-4" data-line-number="4">  <span class="dt">is_one =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb67-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb67-6" data-line-number="6">my_tibble</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   number name  is_one
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt; 
@@ -401,11 +431,11 @@ my_tibble</code></pre></div>
 ## 2      2 two   FALSE 
 ## 3      3 three FALSE</code></pre>
 <p>The syntax for creating a <strong>tibble</strong> is <code>tibble(column_name = value)</code>. The above tibble has three columns (<code>number</code>, a numeric column, <code>name</code>, a character column, and <code>is_one</code>, a logical TRUE/FALSE column). You can get these values as vectors again using the <code>$</code> operator, which allows you to extract a vector from a data frame.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_tibble$number</code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">my_tibble<span class="op">$</span>number</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_tibble$name</code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">my_tibble<span class="op">$</span>name</a></code></pre></div>
 <pre><code>## [1] &quot;one&quot;   &quot;two&quot;   &quot;three&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_tibble$is_one</code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">my_tibble<span class="op">$</span>is_one</a></code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE</code></pre>
 <p>You can think of tibbles as a collection of vectors (<strong>variables</strong>) having the same number of elements. The number of elements has to be equal for all columns, meaning the <em>i</em><sup>th</sup> value of each vector forms an <strong>observation</strong>. Data in this form is very useful and is the subject of most of the following tutorials.</p>
 </div>
@@ -413,11 +443,11 @@ my_tibble</code></pre></div>
 <h2><span class="header-section-number">1.8</span> Loading Packages</h2>
 <p>Basic R functionality is designed to provide basic functions to help with data analysis, but may add-ons are available and code you find online (including here, shortly) will often tell you to load a “package” using <code>library()</code>. This will be a call to the <code>library()</code> function in the form <code>library(packagename)</code>, where <code>packagename</code> is the name of the package which contains the functions you are interested in using (all of the subsequent tutorials will use <code>library(tidyverse)</code>, because the <code>tidyverse</code> package contains many useful functions that you will use on a regular basis. When you call <code>library(packagename)</code>, it will make these functions available to you. Occasionally you will see something like <code>packagename::function_name()</code>, which is a method to use a function without making <em>all</em> of the functions in a package. This is equivalent to typing <code>library(packagename)</code> then <code>function_name()</code> on the next line. You can install packages using <code>install.packages(&quot;packagename&quot;)</code> (note the quotes around <code>packagename</code>!).</p>
 <p>For example, let’s install the <code>tidyverse</code> package now, since you’ll be using it in the rest of this series.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.pacakges</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="kw">install.pacakges</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
 <p>Then, load it using <code>library()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>Finally, we are ready to call a function from the package. The <code>tidyverse</code> package actually installs and loads a family of useful packages for us, a list of which we can access using <code>tidyverse_packages()</code>. Try it!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tidyverse_packages</span>()</code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">tidyverse_packages</span>()</a></code></pre></div>
 <pre><code>##  [1] &quot;broom&quot;       &quot;cli&quot;         &quot;crayon&quot;      &quot;dplyr&quot;       &quot;dbplyr&quot;     
 ##  [6] &quot;forcats&quot;     &quot;ggplot2&quot;     &quot;haven&quot;       &quot;hms&quot;         &quot;httr&quot;       
 ## [11] &quot;jsonlite&quot;    &quot;lubridate&quot;   &quot;magrittr&quot;    &quot;modelr&quot;      &quot;purrr&quot;      
@@ -450,9 +480,9 @@ my_tibble</code></pre></div>
 <div id="excercises" class="section level2">
 <h2><span class="header-section-number">1.11</span> Excercises</h2>
 <p>To practice the basics of R, complete the very first <a href="http://swirlstats.com/">swirl</a> module, R Programming / Basic Building Blocks. To do this, you’ll need to install and load <strong>swirl</strong> by typing this at the R prompt:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)
-<span class="kw">library</span>(swirl)
-<span class="kw">swirl</span>()</code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)</a>
+<a class="sourceLine" id="cb79-2" data-line-number="2"><span class="kw">library</span>(swirl)</a>
+<a class="sourceLine" id="cb79-3" data-line-number="3"><span class="kw">swirl</span>()</a></code></pre></div>
 <p>You should get a friendly greeting that will prompt you to choose a course (you want number 1, “R Programming: The basics of programming in R”) and a module (you want number 1, “Basic Building Blocks”). I suggest stopping after the first module, as <a href="http://r4ds.had.co.nz/">R for Data Science</a> provides a more effective introduction to the language.</p>
 </div>
 <div id="summary" class="section level2">
@@ -519,7 +549,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

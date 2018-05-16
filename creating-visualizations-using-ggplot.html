@@ -25,7 +25,7 @@
 <meta name="author" content="Brent Thorne and Dewey Dunnington">
 
 
-<meta name="date" content="2018-05-10">
+<meta name="date" content="2018-05-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -221,25 +249,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="prerequisites-3" class="section level2">
 <h2><span class="header-section-number">3.1</span> Prerequisites</h2>
 <p>The prerequisite for this tutorial is the <code>tidyverse</code> package. If this package isn’t installed, you’ll have to install it using <code>install.packages()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
 <p>Load the packages when you’re done! If there are errors, you may have not installed the above packages correctly!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>Finally, you will need to load the example data. For now, copy and paste the following code to load the <a href="data/halifax_geochem.csv">Halifax geochemistry dataset</a> (we will learn how to read various types of files into R in the <a href="prepare-load.html#prepare-load">preparing and loading data</a> tutorial).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_csv</span>(
-  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv&quot;</span>,
-  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())
-)</code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">halifax_geochem &lt;-<span class="st"> </span><span class="kw">read_csv</span>(</a>
+<a class="sourceLine" id="cb119-2" data-line-number="2">  <span class="st">&quot;http://paleolimbot.github.io/r4paleolim/data/halifax_geochem.csv&quot;</span>,</a>
+<a class="sourceLine" id="cb119-3" data-line-number="3">  <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_guess</span>())</a>
+<a class="sourceLine" id="cb119-4" data-line-number="4">)</a></code></pre></div>
 <p>It’s worth mentioning a little bit about what this data frame contains, since we’ll be working with it for the rest of this tutorial. The data contains several bulk geochemical parameters from a recent study of Halifax drinking water reservoirs <span class="citation">(Dunnington et al. <a href="#ref-dunnington18">2018</a>)</span>, including Pockwock Lake, Lake Major, Bennery Lake, Lake Fletcher, Lake Lemont, First Chain Lake, First Lake, and Second Lake. (Later, we will take a look at the <a href="data/halifax_geochem_cores.xlsx">core locations</a> as well as the geochemical data).</p>
 </div>
 <div id="using-ggplot" class="section level2">
 <h2><span class="header-section-number">3.2</span> Using ggplot</h2>
 <p>The Grammar of Graphics (the “gg” in “ggplot”) is a way of describing a graphic that is derived from data, which in R is done using the <code>ggplot()</code> function and its many friends. Unlike other plotting functions, <code>ggplot()</code> builds graphics from the data up (rather than starting with a template of a graphic and working backward). Before we can use <code>ggplot</code> functionality we need to use the skills learned in <a href="work-with-tables.html#work-with-tables">Chapter 2</a> where we filtered our data. See if you can use <code>filter()</code> on the <code>halifax_geochem</code> data to create the <code>pockwock_data</code> and <code>pockwock_major_data</code> variable (HINT: check out the <a href="work-with-tables.html#chap2_filter">Filtering Rows</a> secontion in <a href="#work-with%20tabl">Chapter 2</a>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pockwock_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id ==<span class="st"> &quot;POC15-2&quot;</span>)
-
-pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1">pockwock_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id <span class="op">==</span><span class="st"> &quot;POC15-2&quot;</span>)</a>
+<a class="sourceLine" id="cb120-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb120-3" data-line-number="3">pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>(halifax_geochem, core_id <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;POC15-2&quot;</span>, <span class="st">&quot;MAJ15-1&quot;</span>))</a></code></pre></div>
 <p>Now we can start with the <code>ggplot</code> example using the <code>pockwock_major_data</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent)) +
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb121-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 <ul>
@@ -257,32 +285,32 @@ pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>
 <div id="aesthetics" class="section level2">
 <h2><span class="header-section-number">3.3</span> Aesthetics</h2>
 <p>Categorical/Grouping Variables get mapped to X, Y, Colour, Shape, Linetype. Continuous Variables get mapped to X, Y, Colour, Size. For example, we can choose to colour the previous figure in order to visually see the difference between core samples by simply adding a <code>colour = core_id</code> argument to the aesthetic:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) +
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb123-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 <p>Notice how there is a legend automatically generated for us? We will look into changeing the labelling of that later in this tutorial! We can also choose to categorize our data with shapes other than the points seen previously, since not all figures may be welcome if they have colour!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">shape =</span> core_id)) +
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">shape =</span> core_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb125-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 <p>Now we can try to provide some information on depth by making each symbols size relative to its depth value. For this example I only want to use the <code>pockwock_data</code> we previously created in <a href="work-with-tables.html#work-with-tables">Chapter 2</a>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">size =</span> depth_cm)) +
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">size =</span> depth_cm)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb127-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 </div>
 <div id="geometries" class="section level2">
 <h2><span class="header-section-number">3.4</span> Geometries</h2>
 <p>We can easily change the type of geometry being used in the <code>ggplot</code> we have been working on. Here is an example of the same figure as above only with <code>geom_line</code> instead of <code>geom_point</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) +
-<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb129-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 <p>Or we could choose multiple geometries!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) +
-<span class="st">  </span><span class="kw">geom_line</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb131-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb131-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
@@ -290,18 +318,18 @@ pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>
 <div id="facets" class="section level2">
 <h2><span class="header-section-number">3.5</span> Facets</h2>
 <p>An alternative to altering aesthetics of a plot to provide the end-user with visual seperation is to split your plot into facets, subplots that each display one subset of the data. We can do this simply by using the <code>facet_wrap()</code> argument. For this example we can use the origional <code>halifax_geochem</code> table and create one facet for each core!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> halifax_geochem, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent)) +
-<span class="st">  </span><span class="kw">geom_line</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~core_id)</code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> halifax_geochem, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb134-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb134-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb134-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>core_id)</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
 <pre><code>## Warning: Removed 7 rows containing missing values (geom_point).</code></pre>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
 <p>This is great, however we may wnat to change the layout of these facet plots. We can do this easily by specifying the number of rows <code>nrow=</code> or the number of columns <code>ncol=</code> within <code>facet_wrap</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> halifax_geochem, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent)) +
-<span class="st">  </span><span class="kw">geom_line</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~core_id, <span class="dt">ncol =</span> <span class="dv">4</span>)</code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> halifax_geochem, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb137-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb137-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb137-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>core_id, <span class="dt">ncol =</span> <span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
 <pre><code>## Warning: Removed 7 rows containing missing values (geom_point).</code></pre>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
@@ -311,16 +339,16 @@ pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>
 <div id="labels" class="section level3">
 <h3><span class="header-section-number">3.6.1</span> Labels</h3>
 <p>Rather than using the column headings from your data table which often are (and should be) rittled with short form versions of what it represents as well as underscores for any division of words. The <code>labs()</code> function cab be used to give your figure a more desirable presentation to the end users. Here I have changed the x and y values from <code>K_percent</code> and <code>Ti_percent</code> to <code>K (%)</code> and <code>Ti (%)</code> respectively. While we’re at it, lets change the legend title text just for fun!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) +
-<span class="st">  </span><span class="kw">geom_line</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb140-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb140-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).</code></pre>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <p><img src="r4paleolim_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) +
-<span class="st">  </span><span class="kw">geom_line</span>() +
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;K (%)&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Ti (%)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> pockwock_major_data, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> K_percent, <span class="dt">y =</span> Ti_percent, <span class="dt">colour =</span> core_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb143-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb143-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb143-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;K (%)&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Ti (%)&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;Core ID&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_path).
 
 ## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
@@ -344,7 +372,7 @@ pockwock_major_data &lt;-<span class="st"> </span><span class="kw">filter</span>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-dunnington18">
-<p>Dunnington, Dewey W., I. S. Spooner, Wendy H. Krkošek, Graham A. Gagnon, R. Jack Cornett, Chris E. White, Benjamin Misiuk, and Drake Tymstra. 2018. “Anthropogenic Activity in the Halifax Region, Nova Scotia, Canada, as Recorded by Bulk Geochemistry of Lake Sediments.” doi:<a href="https://doi.org/10.1080/10402381.2018.1461715">10.1080/10402381.2018.1461715</a>.</p>
+<p>Dunnington, Dewey W., I. S. Spooner, Wendy H. Krkošek, Graham A. Gagnon, R. Jack Cornett, Chris E. White, Benjamin Misiuk, and Drake Tymstra. 2018. “Anthropogenic Activity in the Halifax Region, Nova Scotia, Canada, as Recorded by Bulk Geochemistry of Lake Sediments.” <a href="https://doi.org/10.1080/10402381.2018.1461715" class="uri">https://doi.org/10.1080/10402381.2018.1461715</a>.</p>
 </div>
 </div>
             </section>
@@ -399,7 +427,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
