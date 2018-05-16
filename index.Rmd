@@ -16,7 +16,7 @@ description: "A set of R tutorials for paleolimnology."
 
 # Introduction {-}
 
-This is the website for the “R for Paleolimnology” workshop given at the [Quebec-Ontario Paleolimnology Symposium (PALS) 2018](http://www.pals2017.com/). Here you will find an expanded version of the given workshop where you will lern how to conduct data science in R with an emphasis on Paleolimnology. You will learn and be able to work on a wide variety of skill sets in R including: how to get your data into R, how to structure your data, how to transform your data, and most importantly, how to visualize your paleolimnological data! By the end of this book we hope that you can take you passion for Paleolimnology and make data analysis enjoyable! No really, it can be enjoyable once you develop these skillsets!
+This is the website for the “R for Paleolimnology” workshop given at the [Quebec-Ontario Paleolimnology Symposium (PALS) 2018](http://www.pals2017.com/). Here you will find an expanded version of the given workshop where you will learn how to conduct data science in R with an emphasis on Paleolimnology. You will learn and be able to work on a wide variety of skill sets in R including: how to get your data into R, how to structure your data, how to transform your data, and most importantly, how to visualize your paleolimnological data! By the end of this book we hope that you can take your passion for Paleolimnology and make data analysis enjoyable! No really, it can be enjoyable once you develop these skillsets!
 
 ## Prerequisites
 
