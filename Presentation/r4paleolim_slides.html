@@ -453,9 +453,9 @@ my_tibble
 ## # A tibble: 3 x 3
 ##   number name  is_one
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt; 
-## 1      1 one   TRUE  
-## 2      2 two   FALSE 
-## 3      3 three FALSE
+## 1     1. one   TRUE  
+## 2     2. two   FALSE 
+## 3     3. three FALSE
 ```
 
 ---
@@ -620,12 +620,12 @@ head(halifax_geochem) # will display the first few rows of the data
 ## # A tibble: 6 x 9
 ##   core_id depth_cm age_ad C_percent `C/N` d13C_permille d15N_permille
 ##   &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
-## 1 BEN15-2      0    2016.      14.8  12.2         -30.2          2.46
-## 2 BEN15-2      0.5  2015.      14.7  12.2         -30.3          2.45
-## 3 BEN15-2      1    2014.      14.9  11.9         -30.4          2.34
-## 4 BEN15-2      1.5  2013.      14.5  11.7         -30.3          2.53
-## 5 BEN15-2      2    2011.      14.4  11.6         -30.4          2.66
-## 6 BEN15-2      2.5  2010.      14.4  11.9         -30.3          2.48
+## 1 BEN15-2    0.     2016.      14.8  12.2         -30.2          2.46
+## 2 BEN15-2    0.500  2015.      14.7  12.2         -30.3          2.45
+## 3 BEN15-2    1.00   2014.      14.9  11.9         -30.4          2.34
+## 4 BEN15-2    1.50   2013.      14.5  11.7         -30.3          2.53
+## 5 BEN15-2    2.00   2011.      14.4  11.6         -30.4          2.66
+## 6 BEN15-2    2.50   2010.      14.4  11.9         -30.3          2.48
 ## # ... with 2 more variables: K_percent &lt;dbl&gt;, Ti_percent &lt;dbl&gt;
 ```
 
@@ -817,23 +817,23 @@ halifax_geochem %&gt;%
 ## # A tibble: 326 x 9
 ##    core_id depth_cm age_ad C_percent `C/N` d13C_permille d15N_permille
 ##    &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
-##  1 BEN15-2      0    2016.      14.8  12.2         -30.2          2.46
-##  2 BEN15-2      0.5  2015.      14.7  12.2         -30.3          2.45
-##  3 BEN15-2      1    2014.      14.9  11.9         -30.4          2.34
-##  4 BEN15-2      1.5  2013.      14.5  11.7         -30.3          2.53
-##  5 BEN15-2      2    2011.      14.4  11.6         -30.4          2.66
-##  6 BEN15-2      2.5  2010.      14.4  11.9         -30.3          2.48
-##  7 BEN15-2      3    2008.      14.4  11.9         -30.3          2.53
-##  8 BEN15-2      3.5  2005.      14.3  12.0         -30.2          2.60
-##  9 BEN15-2      4    2002.      14.0  12.0         -30.2          2.60
-## 10 BEN15-2      4.5  1999.      13.7  12.1         -30.2          2.48
+##  1 BEN15-2    0.     2016.      14.8  12.2         -30.2          2.46
+##  2 BEN15-2    0.500  2015.      14.7  12.2         -30.3          2.45
+##  3 BEN15-2    1.00   2014.      14.9  11.9         -30.4          2.34
+##  4 BEN15-2    1.50   2013.      14.5  11.7         -30.3          2.53
+##  5 BEN15-2    2.00   2011.      14.4  11.6         -30.4          2.66
+##  6 BEN15-2    2.50   2010.      14.4  11.9         -30.3          2.48
+##  7 BEN15-2    3.00   2008.      14.4  11.9         -30.3          2.53
+##  8 BEN15-2    3.50   2005.      14.3  12.0         -30.2          2.60
+##  9 BEN15-2    4.00   2002.      14.0  12.0         -30.2          2.60
+## 10 BEN15-2    4.50   1999.      13.7  12.1         -30.2          2.48
 ## # ... with 316 more rows, and 2 more variables: K_percent &lt;dbl&gt;,
 ## #   Ti_percent &lt;dbl&gt;
 ```
 
 --
 
-Or descending depth order (most recent last):
+- Or descending depth order (most recent last):
 
 
 ```r
@@ -841,21 +841,211 @@ halifax_geochem %&gt;%
   arrange(core_id, desc(depth_cm))
 ```
 
-# A tibble: 326 x 9
-   core_id depth_cm age_ad C_percent `C/N` d13C_permille d15N_permille
-   &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
- 1 BEN15-2       29  1742.      14.5  13.4         -29.3          3.54
- 2 BEN15-2       28  1751.      14.5  13.5         -29.3          3.60
- 3 BEN15-2       27  1759.      15.1  13.4         -29.4          3.60
- 4 BEN15-2       26  1768.      15.9  13.5         -29.5          3.57
- 5 BEN15-2       25  1776.      16.7  13.4         -29.6          3.42
- 6 BEN15-2       24  1784.      16.8  13.4         -29.5          3.42
- 7 BEN15-2       23  1793.      16.5  13.5         -29.4          3.39
- 8 BEN15-2       22  1801.      17.2  13.4         -29.4          3.41
- 9 BEN15-2       21  1810.      17.3  13.6         -29.4          3.22
-10 BEN15-2       20  1818.      17.6  13.5         -29.4          3.18
-# ... with 316 more rows, and 2 more variables: K_percent &lt;dbl&gt;,
-#   Ti_percent &lt;dbl&gt;
+```
+## # A tibble: 326 x 9
+##    core_id depth_cm age_ad C_percent `C/N` d13C_permille d15N_permille
+##    &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+##  1 BEN15-2      29.  1742.      14.5  13.4         -29.3          3.54
+##  2 BEN15-2      28.  1751.      14.5  13.5         -29.3          3.60
+##  3 BEN15-2      27.  1759.      15.1  13.4         -29.4          3.60
+##  4 BEN15-2      26.  1768.      15.9  13.5         -29.5          3.57
+##  5 BEN15-2      25.  1776.      16.7  13.4         -29.6          3.42
+##  6 BEN15-2      24.  1784.      16.8  13.4         -29.5          3.42
+##  7 BEN15-2      23.  1793.      16.5  13.5         -29.4          3.39
+##  8 BEN15-2      22.  1801.      17.2  13.4         -29.4          3.41
+##  9 BEN15-2      21.  1810.      17.3  13.6         -29.4          3.22
+## 10 BEN15-2      20.  1818.      17.6  13.5         -29.4          3.18
+## # ... with 316 more rows, and 2 more variables: K_percent &lt;dbl&gt;,
+## #   Ti_percent &lt;dbl&gt;
+```
+
+---
+## Distinct Values
+
+It is often useful to know which values exist in a data frame. For example, I've told you that the core locations are for various lakes in the halifax area, but what are they actually called in the dataset? To do this, we can use the `distinct()` function.
+
+
+```r
+halifax_geochem %&gt;%
+  distinct(core_id)
+```
+
+```
+## # A tibble: 8 x 1
+##   core_id
+##   &lt;chr&gt;  
+## 1 BEN15-2
+## 2 FCL16-1
+## 3 FLE16-1
+## 4 FLK12-1
+## 5 LEM16-1
+## 6 MAJ15-1
+## 7 POC15-2
+## 8 SLK13-1
+```
+
+- The `distinct()` function can take any number of column names as arguments, although in this particular dataset there isn't a good example for this.
+
+---
+
+## Calculating columns using `mutate()`
+
+- To create a brand-new column, we can use the `mutate()` function. This creates a column in a way that we can use existing column names to calculate a new column. For example, we could convert the `age_ad` column to years before 1950:
+
+
+```r
+halifax_geochem %&gt;%
+  mutate(age_bp = 1950 - age_ad) %&gt;%
+  select(core_id, age_ad, age_bp)
+```
+
+```
+## # A tibble: 326 x 3
+##    core_id age_ad age_bp
+##    &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+##  1 BEN15-2  2016.  -65.9
+##  2 BEN15-2  2015.  -65.2
+##  3 BEN15-2  2014.  -64.5
+##  4 BEN15-2  2013.  -62.9
+##  5 BEN15-2  2011.  -61.4
+##  6 BEN15-2  2010.  -59.6
+##  7 BEN15-2  2008.  -57.8
+##  8 BEN15-2  2005.  -54.9
+##  9 BEN15-2  2002.  -52.1
+## 10 BEN15-2  1999.  -49.3
+## # ... with 316 more rows
+```
+
+--
+
+- Or, we could convert the `K_percent` and `Ti_percent` columns to parts per million:
+
+
+```r
+halifax_geochem %&gt;%
+  mutate(
+    K_ppm = K_percent * 10000,
+    Ti_ppm = Ti_percent * 10000
+  ) %&gt;%
+  select(core_id, K_percent, K_ppm, Ti_percent, Ti_ppm)
+```
+
+```
+## # A tibble: 326 x 5
+##    core_id K_percent  K_ppm Ti_percent Ti_ppm
+##    &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;
+##  1 BEN15-2     1.00  10026.      0.169  1693.
+##  2 BEN15-2     1.09  10857.      0.182  1823.
+##  3 BEN15-2     0.978  9782.      0.168  1678.
+##  4 BEN15-2     0.942  9423.      0.166  1664.
+##  5 BEN15-2     1.08  10784.      0.183  1832.
+##  6 BEN15-2     1.09  10863.      0.183  1830.
+##  7 BEN15-2     1.04  10374.      0.176  1762.
+##  8 BEN15-2     0.970  9700.      0.167  1670.
+##  9 BEN15-2     1.12  11175.      0.179  1791.
+## 10 BEN15-2     1.01  10064.      0.170  1700.
+## # ... with 316 more rows
+```
+
+---
+## Summarising A Data Frame
+
+So far we have looked at subsets of `halifax_geochem`, but what if we want per-core averages instead of raw data values? Using the tidyverse, we can `group_by()` the `core_id` column, and `summarise()`:
+
+
+```r
+halifax_geochem %&gt;%
+  group_by(core_id) %&gt;%
+  summarise(mean_CN = mean(`C/N`))
+```
+
+```
+## # A tibble: 8 x 2
+##   core_id mean_CN
+##   &lt;chr&gt;     &lt;dbl&gt;
+## 1 BEN15-2    12.8
+## 2 FCL16-1    14.2
+## 3 FLE16-1    12.4
+## 4 FLK12-1    12.8
+## 5 LEM16-1    12.6
+## 6 MAJ15-1    NA  
+## 7 POC15-2    NA  
+## 8 SLK13-1    NA
+```
+
+---
+## Summarising A Data Frame
+
+Here `group_by()` gets a list of columns, for which each unique combination of values will get one row in the output. `summarise()` gets a list of expressions that are evaluated for every unique combination of values defined by `group_by()` (e.g., `mean_CN` is the `mean()` of the `C/N` column for each core). Often, we want to include a number of summary columns in the output, which we can do by pasing more expressions to `summarise()`:
+
+
+```r
+halifax_geochem %&gt;%
+  group_by(core_id) %&gt;%
+  summarise(
+    mean_CN = mean(`C/N`),
+    min_CN = min(`C/N`),
+    max_CN = max(`C/N`),
+    sd_CN = sd(`C/N`)
+  )
+```
+
+```
+## # A tibble: 8 x 5
+##   core_id mean_CN min_CN max_CN   sd_CN
+##   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1 BEN15-2    12.8   11.6   13.6   0.648
+## 2 FCL16-1    14.2   12.1   16.5   1.05 
+## 3 FLE16-1    12.4   10.5   13.3   0.830
+## 4 FLK12-1    12.8   10.6   14.9   1.02 
+## 5 LEM16-1    12.6   11.8   13.1   0.307
+## 6 MAJ15-1    NA     NA     NA   NaN    
+## 7 POC15-2    NA     NA     NA   NaN    
+## 8 SLK13-1    NA     NA     NA   NaN
+```
+
+---
+## Summarising A Data Frame
+
+You will notice that in for several cores the summary values are `NA`, or missing. This is because R propogates missing values unless you explicitly tell it not to. To fix this, you could replace ``mean(`C/N`)`` with ``mean(`C/N`, na.rm = TRUE)``. Other useful functions to use inside `summarise()` include `mean()`, `median()`, `sd()`, `sum()`, `min()`, and `max()`. These all take a vector of values and produce a single aggregate value suitable for use in `summarise()`. One special function, `n()`, you can use (with no arguments) inside `summarise()` to tell you how many observations were aggregated to produce the values in that row.
+
+
+```r
+halifax_geochem %&gt;%
+  group_by(core_id) %&gt;%
+  summarise(
+    mean_CN = mean(`C/N`, na.rm = TRUE),
+    min_CN = min(`C/N`, na.rm = TRUE),
+    max_CN = max(`C/N`, na.rm = TRUE),
+    sd_CN = sd(`C/N`, na.rm = TRUE),
+    n = n()
+  )
+```
+
+```
+## # A tibble: 8 x 6
+##   core_id mean_CN min_CN max_CN sd_CN     n
+##   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+## 1 BEN15-2    12.8   11.6   13.6 0.648    35
+## 2 FCL16-1    14.2   12.1   16.5 1.05     49
+## 3 FLE16-1    12.4   10.5   13.3 0.830    37
+## 4 FLK12-1    12.8   10.6   14.9 1.02     33
+## 5 LEM16-1    12.6   11.8   13.1 0.307    35
+## 6 MAJ15-1    15.7   14.3   18.4 1.09     51
+## 7 POC15-2    15.2   13.6   17.4 1.26     52
+## 8 SLK13-1    11.4   10.3   11.9 0.443    34
+```
+
+---
+## Summarising A Data Frame
+### Exerscises 
+
+- Assign the data frame we just created to a variable, and inspect it using View() and str(). Which cores have the most terrestrial C/N signature? Which cores have the most aquatic signature?
+
+- Create a similar data frame to the one we just created but using
+C_percent. Which cores had the highest peak organic value.
+
+- Which cores had the oldest estimated basal date?
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

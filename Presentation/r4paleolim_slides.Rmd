@@ -728,30 +728,13 @@ halifax_geochem %>%
   )
 ```
 
-It's always a good idea to include `n()` inside `summarise()`, if nothing else as a check to make sure you've used `group_by()` with the correct columns.
-
 ---
 ## Summarising A Data Frame
+### Exerscises 
 
-### Exercises
+- Assign the data frame we just created to a variable, and inspect it using View() and str(). Which cores have the most terrestrial C/N signature? Which cores have the most aquatic signature?
 
-- Assign the data frame we just created to a variable, and inspect it using `View()` and `str()`. Which cores have the most terrestrial C/N signature? Which cores have the most aquatic signature?
-- Create a similar data frame to the one we just created but using `C_percent`. Which cores had the highest peak organic value.
+- Create a similar data frame to the one we just created but using
+C_percent. Which cores had the highest peak organic value.
+
 - Which cores had the oldest estimated basal date?
-
----
-## Extracting Columns
-
-- When we use `select()` or `distinct()`, we get back a data frame, however occasionally we need one or a few of the vectors that make up the data frame (recall from the last tutorial that data frames are a collection of column vectors). If we needed *just* the temperature values, we can use the `$` operator or the `pull()` function to extract a column vector.
-
-```{r}
-halifax_geochem$C_percent
-halifax_geochem %>% pull(C_percent)
-```
-
----
-## Extracting Columns
-
-- The problem with doing this is that our mean temperature values no longer have any context! They come from multiple cores, but this is not reflected without the other columns. Nevertheless, many R functions outside of the tidyverse require input as vectors (including many you've used so far, including `mean()`, `max()`, `min()`, etc.), and you will often see the `$` used in code written in other places to refer to columns. Functions in the tidyverse allow you to refer to columns by name (without the `$`) when used within specific functions (`summarise()` is a good example), so you should do this whenever you can!
-
----
