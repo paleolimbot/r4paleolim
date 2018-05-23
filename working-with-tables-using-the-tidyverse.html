@@ -269,9 +269,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.9" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#calculating-columns-using-mutate-1"><i class="fa fa-check"></i><b>10.9</b> Calculating columns using <code>mutate()</code></a></li>
 <li class="chapter" data-level="10.10" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#summarising-a-data-frame-1"><i class="fa fa-check"></i><b>10.10</b> Summarising A Data Frame</a></li>
 <li class="chapter" data-level="10.11" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#summarising-a-data-frame-2"><i class="fa fa-check"></i><b>10.11</b> Summarising A Data Frame</a><ul>
-<li class="chapter" data-level="10.11.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#exercises-6"><i class="fa fa-check"></i><b>10.11.1</b> Exercises</a></li>
+<li class="chapter" data-level="10.11.1" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#exerscises"><i class="fa fa-check"></i><b>10.11.1</b> Exerscises</a></li>
 </ul></li>
-<li class="chapter" data-level="10.12" data-path="working-with-tables-using-the-tidyverse.html"><a href="working-with-tables-using-the-tidyverse.html#extracting-columns-1"><i class="fa fa-check"></i><b>10.12</b> Extracting Columns</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -513,21 +512,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="summarising-a-data-frame-2" class="section level2">
 <h2><span class="header-section-number">10.11</span> Summarising A Data Frame</h2>
-<div id="exercises-6" class="section level3">
-<h3><span class="header-section-number">10.11.1</span> Exercises</h3>
+<div id="exerscises" class="section level3">
+<h3><span class="header-section-number">10.11.1</span> Exerscises</h3>
 <ul>
-<li>Assign the data frame we just created to a variable, and inspect it using <code>View()</code> and <code>str()</code>. Which cores have the most terrestrial C/N signature? Which cores have the most aquatic signature?</li>
-<li>Create a similar data frame to the one we just created but using <code>C_percent</code>. Which cores had the highest peak organic value.</li>
-<li>Which cores had the oldest estimated basal date?</li>
+<li><p>Assign the data frame we just created to a variable, and inspect it using View() and str(). Which cores have the most terrestrial C/N signature? Which cores have the most aquatic signature?</p></li>
+<li><p>Create a similar data frame to the one we just created but using
+C_percent. Which cores had the highest peak organic value.</p></li>
+<li><p>Which cores had the oldest estimated basal date?</p></li>
 </ul>
-</div>
-</div>
-<div id="extracting-columns-1" class="section level2">
-<h2><span class="header-section-number">10.12</span> Extracting Columns</h2>
-<ul>
-<li>The problem with doing this is that our mean temperature values no longer have any context! They come from multiple cores, but this is not reflected without the other columns. Nevertheless, many R functions outside of the tidyverse require input as vectors (including many you’ve used so far, including <code>mean()</code>, <code>max()</code>, <code>min()</code>, etc.), and you will often see the <code>$</code> used in code written in other places to refer to columns. Functions in the tidyverse allow you to refer to columns by name (without the <code>$</code>) when used within specific functions (<code>summarise()</code> is a good example), so you should do this whenever you can!</li>
-</ul>
-<hr />
 
 <div id="refs" class="references">
 <div>
@@ -538,6 +530,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div>
 <p>Whitehead, Donald R., Donald F. Charles, Stephen T. Jackson, John P. Smol, and Daniel R. Engstrom. 1989. “The Developmental History of Adirondack (N.Y.) Lakes.” <em>Journal of Paleolimnology</em> 2 (3): 185–206. <a href="https://doi.org/10.1007/BF00202046" class="uri">https://doi.org/10.1007/BF00202046</a>.</p>
+</div>
 </div>
 </div>
 </div>
