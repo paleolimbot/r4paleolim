@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="work-with-tables.html">
+<link rel="prev" href="getting-started.html">
+<link rel="next" href="tutorial-2.html">
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -293,79 +293,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="basic-r" class="section level1">
-<h1><span class="header-section-number">Tutorial 1</span> Basic R</h1>
-<p>When you open RStudio, you are presented with the ominous <code>&gt;</code> of the R console. By the end of this tutorial, hopefully that <code>&gt;</code> should fill you with a feeling of hope and opportunity, for magical things can happen when you type the right thing after the <code>&gt;</code>. This short introduction will get you started with the R console so that when we introduce more powerful functions, you can understand what R is doing at the base level! The tutorial is loosely based on the <a href="http://r4ds.had.co.nz/workflow-basics.html">Workflow: basics</a> tutorial in the free online book, <a href="http://r4ds.had.co.nz/">R for Data Science</a> <span class="citation">(Grolemund and Wickham <a href="#ref-r4ds">2017</a>)</span>.</p>
-<div class="figure">
-<img src="01-Basic-R-Figs/r_console.png" alt="The basic R console." />
-<p class="caption">The basic R console.</p>
+<div id="tutorial-1-basic-r" class="section level1">
+<h1><span class="header-section-number">Tutorial 8</span> Tutorial 1 Basic R</h1>
+<p><img src="https://paleolimbot.github.io/r4paleolim/01-Basic-R-Figs/r_console.png" /></p>
+<hr />
+<div id="prerequisites-6" class="section level2">
+<h2><span class="header-section-number">8.1</span> Prerequisites</h2>
+<p>–</p>
+<p>We will be using the <a href="https://www.tidyverse.org/" target="_blank"><img src="https://www.tidyverse.org/images/hex-tidyverse.png" width="100" align="middle"></a> package:</p>
+<p>–</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb223-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb223-3" data-line-number="3"><span class="kw">library</span>(tidyverse) <span class="co">#&lt;&lt;</span></a></code></pre></div>
+<p>–</p>
+<div id="easy-right" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Easy Right!</h3>
+<hr />
 </div>
-<div id="prerequisites-1" class="section level2">
-<h2><span class="header-section-number">1.1</span> Prerequisites</h2>
-<p>The prerequisite for this tutorial is the <code>tidyverse</code> package. If this package isn’t installed, you’ll have to install it using <code>install.packages()</code>, which you can type after the <code>&gt;</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
-<p>Load the packages when you’re done! If there are errors, you may have not installed the above packages correctly!</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
-## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
-## ✔ tidyr   0.8.0     ✔ stringr 1.3.0
-## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 </div>
-<div id="expressions-and-variables" class="section level2">
-<h2><span class="header-section-number">1.2</span> Expressions and Variables</h2>
-<p>Let’s start with the basics. Try typing in something like this at the prompt:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<div id="expressions" class="section level2">
+<h2><span class="header-section-number">8.2</span> Expressions</h2>
+<p>–</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<p>–</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="dv">5</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
-<pre><code>## [1] 25</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
+<p>–</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<p>As you can see, R works just like a calculator and evaluates all of these <strong>expressions</strong> just like you would expect. If we would like to save the result of one of these expressions we can assign that value to a <strong>variable</strong> like this:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
-<p>Then, to view the value of <code>x</code> we can just type <code>x</code> at the console, and R will show us the value.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"> x</a></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<p>The <code>&lt;-</code> means “assign the value on the right to the variable on the left”. We can also use <code>x</code> in any expression and R will substitute its value in like this:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">x <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<p>An <strong>expression</strong> is something that R can evaluate to produce a value, like <code>2+2</code> or <code>x + 2</code>. Any time you type this in the console without assigning it to a <strong>variable</strong>, R will print out the value. In fact, any time you type anything into the R console, R is evaluating that expression, which may or may not return a value. If there is no value returned, R won’t print anything when you press enter.</p>
-<p>So far we’ve just used numbers, but often we need to enter text into R. Whenever we do this, we surround the text in quotes, like this:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">mytext &lt;-<span class="st"> &quot;I am text&quot;</span></a></code></pre></div>
-<p>Text (called <strong>character</strong> vectors) are one of many data types available in R.</p>
+<hr />
 </div>
-<div id="functions" class="section level2">
-<h2><span class="header-section-number">1.3</span> Functions</h2>
-<p>A function is some kind of operation that takes one or more <strong>arguments</strong> (input values) and produces a <strong>return value</strong> (output value). The <code>sqrt()</code> function is a good example:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">sqrt</span>(<span class="dv">4</span>)</a></code></pre></div>
+<div id="variables" class="section level2">
+<h2><span class="header-section-number">8.3</span> Variables</h2>
+<p>–</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<p>–</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1">x</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<p>Here, <code>4</code> is an <strong>argument</strong>, and the function <strong>returns</strong> the square root of that, which is <code>2</code>. Functions can take more arguments, like the <code>max</code> function:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">max</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">10</span>)</a></code></pre></div>
+<p>–</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1">x <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<hr />
+</div>
+<div id="character-vectors" class="section level2">
+<h2><span class="header-section-number">8.4</span> Character Vectors</h2>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1">mytext &lt;-<span class="st"> &quot;I am text&quot;</span></a>
+<a class="sourceLine" id="cb235-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb235-3" data-line-number="3">mytext</a></code></pre></div>
+<pre><code>## [1] &quot;I am text&quot;</code></pre>
+<hr />
+</div>
+<div id="functions-1" class="section level2">
+<h2><span class="header-section-number">8.5</span> Functions</h2>
+<p>An argument with an input which returns an output value.</p>
+<p>–</p>
+<p>Let’s calculate a square root:</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1"><span class="kw">sqrt</span>(<span class="dv">4</span>)</a></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>–</p>
+<p>Find the largest number in a list:</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="kw">max</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<p>Here we are giving the <code>max</code> function 5 arguments, of which it returns the maximum. One other way we specify arguments is by <strong>keyword arguments</strong>, like in the <code>paste</code> function.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">paste</span>(<span class="st">&quot;string1&quot;</span>, <span class="st">&quot;string2&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</a></code></pre></div>
+<hr />
+</div>
+<div id="keyword-arguments" class="section level2">
+<h2><span class="header-section-number">8.6</span> Keyword Arguments</h2>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1"><span class="kw">paste</span>(<span class="st">&quot;string1&quot;</span>, <span class="st">&quot;string2&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;string1_string2&quot;</code></pre>
-<p>The <code>paste</code> function takes its arguments and combines them using the <code>sep</code> that we specify, in this case <code>&quot;_&quot;</code>. The function <strong>returns</strong> this string. Many functions in R have many many arguments and usually we only want to modify one or two of interest to us. The format is always <code>key=value</code>, where <code>key</code> is the name of the keyword and <code>value</code> is some <strong>expression</strong> we would like to use as the value for that argument.</p>
-<p>R contains thousands of functions that do most of what you could possibly imagine with regards to data and statistics, but remembering which one you want and how to use it can be difficult. Luckily, RStudio makes it easy using tab autocompletion and easy access to help files. To autocomplete, start typing the name of the function and press the <code>[Tab]</code> key (or <code>Ctrl+Space</code>), and RStudio will helpfully provide you with suggestions.</p>
-<p>To access the documentation for a particular function, you can type <code>?</code> in front of the function name and press return, and RStudio will open the help file for you if it exists.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">?paste</a></code></pre></div>
-<p>Will bring up the following:</p>
-<blockquote>
-<h4 id="description"><span class="header-section-number">1.3</span> Description</h4>
-</blockquote>
-<blockquote>
+<hr />
+<p>background-image: url(<a href="https://pics.me.me/it-doesnt-work-why-it-works-why-2349750.png" class="uri">https://pics.me.me/it-doesnt-work-why-it-works-why-2349750.png</a>)</p>
+<hr />
+</div>
+<div id="functions-help" class="section level2">
+<h2><span class="header-section-number">8.7</span> Functions (Help)</h2>
+<p>Use the <code>?</code> to call the help documentation to any function in R!</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1">?paste</a></code></pre></div>
+<hr />
+</div>
+<div id="functions-help-1" class="section level2">
+<h2><span class="header-section-number">8.8</span> Functions (Help)</h2>
+<p><strong>Description</strong></p>
 <p>Concatenate vectors after converting to character.</p>
-</blockquote>
-<blockquote>
-<h4 id="usage"><span class="header-section-number">1.3</span> Usage</h4>
+<p><strong>Usage</strong></p>
 <pre><code>paste (..., sep = &quot; &quot;, collapse = NULL)
 paste0(..., collapse = NULL)</code></pre>
-<h4 id="arguments"><span class="header-section-number">1.3</span> Arguments</h4>
+<strong>Arguments</strong>
 <table>
 <tr valign="top">
 <td>
@@ -400,105 +413,108 @@ an optional character string to separate the results. Not
 </td>
 </tr>
 </table>
-</blockquote>
-<p>Note that each of these <strong>arguments</strong> can be specified by <strong>keyword</strong>, and have default values that we can see in the <strong>usage</strong> section. The <code>...</code> means that we can pass any number of arguments to the function. There’s too many functions in R to keep in your head at one time, so getting good at reading these help files is very useful!</p>
+<hr />
 </div>
-<div id="vectors" class="section level2">
-<h2><span class="header-section-number">1.4</span> Vectors</h2>
-<p>So far we’ve just been dealing with single values like <code>2+2</code> or <code>&quot;mystring&quot;</code>, but the real power of R is that it can operate easily on large lists of data, so it makes sense that it provides us with an easy way to work with this data. These lists of data are called <strong>vectors</strong>, and we create them using the <code>c</code> function (<code>c</code> stands for <strong>concatenate</strong>, or join together).</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">myvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb33-2" data-line-number="2">myvector</a></code></pre></div>
+<div id="vectors-1" class="section level2">
+<h2><span class="header-section-number">8.9</span> Vectors</h2>
+<p>–</p>
+<p>Combine sets of numbers:</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1">myvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb245-2" data-line-number="2">myvector</a></code></pre></div>
 <pre><code>## [1] 10  9  8  7  2</code></pre>
-<p>Here the <code>c</code> function took our <strong>arguments</strong> of 10, 9, 8, 7, and 2, and <strong>returned</strong> a <strong>vector</strong>, which we assigned to the variable named <code>myvector</code>. When we evaluated <code>myvector</code>, it printed out the list of values it contained.</p>
-<p>Vectors don’t just have to contain numbers, they can contain strings as well.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">mytextvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;word1&quot;</span>, <span class="st">&quot;word2&quot;</span>, <span class="st">&quot;word3&quot;</span>)</a>
-<a class="sourceLine" id="cb35-2" data-line-number="2">mytextvector</a></code></pre></div>
-<pre><code>## [1] &quot;word1&quot; &quot;word2&quot; &quot;word3&quot;</code></pre>
-<p>Here the <code>c</code> function took our <strong>arguments</strong> and <strong>returned</strong> a <strong>vector</strong> of strings, which we assigned to the variable <code>mytextvector</code>.</p>
-<p>It is common to have to generate a vector of all the integer values between two numbers, so R provides a short form for this:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a></code></pre></div>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="dv">20</span><span class="op">:</span><span class="dv">12</span></a></code></pre></div>
-<pre><code>## [1] 20 19 18 17 16 15 14 13 12</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">myothervector &lt;-<span class="st"> </span><span class="dv">13</span><span class="op">:</span><span class="dv">16</span></a>
-<a class="sourceLine" id="cb41-2" data-line-number="2">myothervector</a></code></pre></div>
+<table style="width:4%;">
+<colgroup>
+<col width="4%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Or do it with sets of characters:</td>
+</tr>
+<tr class="even">
+<td><code>r mytextvector &lt;- c(&quot;word1&quot;, &quot;word2&quot;, &quot;word3&quot;) mytextvector</code></td>
+</tr>
+<tr class="odd">
+<td><code>## [1] &quot;word1&quot; &quot;word2&quot; &quot;word3&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1">myothervector &lt;-<span class="st"> </span><span class="dv">13</span><span class="op">:</span><span class="dv">16</span></a>
+<a class="sourceLine" id="cb247-2" data-line-number="2">myothervector</a></code></pre></div>
 <pre><code>## [1] 13 14 15 16</code></pre>
-<p>You can also use an <strong>expression</strong> on either side of the <code>:</code>, like this:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">(<span class="dv">5</span><span class="op">^</span><span class="dv">2</span>)<span class="op">:</span>(<span class="dv">3</span><span class="op">*</span><span class="dv">10</span>)</a></code></pre></div>
-<pre><code>## [1] 25 26 27 28 29 30</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">start &lt;-<span class="st"> </span><span class="dv">25</span></a>
-<a class="sourceLine" id="cb45-2" data-line-number="2">end &lt;-<span class="st"> </span>start <span class="op">+</span><span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb45-3" data-line-number="3">start<span class="op">:</span>end</a></code></pre></div>
-<pre><code>## [1] 25 26 27 28 29 30</code></pre>
+<hr />
 </div>
-<div id="indexing" class="section level2">
-<h2><span class="header-section-number">1.5</span> Indexing</h2>
-<p>Now we’ve created vectors, but to get at what’s inside them we need to retrieve values using an <strong>index</strong>. We do this using square brackets like this:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">myvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb47-2" data-line-number="2">myvector[<span class="dv">1</span>]</a></code></pre></div>
+<div id="vectors-2" class="section level2">
+<h2><span class="header-section-number">8.10</span> Vectors</h2>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1">start &lt;-<span class="st"> </span><span class="dv">25</span></a>
+<a class="sourceLine" id="cb249-2" data-line-number="2">end &lt;-<span class="st"> </span>start <span class="op">+</span><span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb249-3" data-line-number="3">start<span class="op">:</span>end</a></code></pre></div>
+<pre><code>## [1] 25 26 27 28 29 30</code></pre>
+<hr />
+</div>
+<div id="indexing-1" class="section level2">
+<h2><span class="header-section-number">8.11</span> Indexing</h2>
+<ul>
+<li>What’s inside our vector??</li>
+</ul>
+<p>–</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1">myvector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb251-2" data-line-number="2">myvector[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">myvector[<span class="dv">5</span>]</a></code></pre></div>
+<p>–</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb253-1" data-line-number="1">myvector[<span class="dv">5</span>]</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">myvector[<span class="dv">3</span>]</a></code></pre></div>
-<pre><code>## [1] 8</code></pre>
-<p>This code creates a vector, assigns it to the variable <code>myvector</code>, then retrieves the 1st, 5th, and 3rd value stored in that vector. If we would like multiple values from the vector, we can pass multiple values as indices, like this:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">myvector[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>)]</a></code></pre></div>
-<pre><code>## [1] 10  2  8</code></pre>
-<p>You’ll notice that the index that we’re using is actually a vector itself! I know, we’re using a vector to index a vector and it’s a little trippy, but it’s incredibly useful. You’ll remember that we can easily create vectors of sequential integers, which we can use to get a sequence of values from a vector by using it as an index.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"> myvector[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
-<pre><code>## [1] 10  9  8</code></pre>
-<p>This would be equivalent to:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"> myvector[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)]</a></code></pre></div>
-<pre><code>## [1] 10  9  8</code></pre>
-<p>There is one other useful way to index a vector using a vector, which is to use a <code>TRUE</code>/<code>FALSE</code> vector. This is probably the most useful of the indexing methods, because it allows you to do things like:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">myvector[myvector <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>]</a></code></pre></div>
-<pre><code>## [1] 10  9  8</code></pre>
-<p>This works because <code>myvector &gt; 7</code> is, itself, a <code>TRUE</code>/<code>FALSE</code> vector with the same length as <code>myvector</code>, indicating whether or not it is greater than 7 at any given position.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">myvector <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span></a></code></pre></div>
-<pre><code>## [1]  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
+<hr />
 </div>
-<div id="missing-values" class="section level2">
-<h2><span class="header-section-number">1.6</span> Missing Values</h2>
-<p>Missing values are represented in R using <code>NA</code>, or “not assigned”. The fact that R handles missing values is one of the best reasons to use R for data analysis, because missing values are common in real data. <code>NA</code> values are propogated by R functions, meaning that if you take the <code>mean()</code> of a vector containing a missing value, it will give you <code>NA</code> as the average!</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</a></code></pre></div>
+<div id="indexing-2" class="section level2">
+<h2><span class="header-section-number">8.12</span> Indexing</h2>
+<ul>
+<li>Indexing with a <strong>vector</strong>.</li>
+</ul>
+<p>–</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1"> myvector[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<pre><code>## [1] 10  9  8</code></pre>
+<p>–</p>
+<p>This is equivalent to:</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" data-line-number="1"> myvector[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)]</a></code></pre></div>
+<pre><code>## [1] 10  9  8</code></pre>
+</div>
+<div id="missing-values-1" class="section level2">
+<h2><span class="header-section-number">8.13</span> Missing Values</h2>
+<p>Missing values are represented in R using <code>NA</code>, or “not assigned”.</p>
+<p>–</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<p>This is rarely what you want, but is a good practice to explicitly handle missing values in your code, and R forces you to do this. To avoid getting an NA back, you can use <code>na.rm = TRUE</code>, an argument that is available in many R functions.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>–</p>
+<p>Use the <strong>argument</strong> <code>na.rm = TRUE</code> to remoe <code>NA</code> values.</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
+<hr />
 </div>
-<div id="data-frames" class="section level2">
-<h2><span class="header-section-number">1.7</span> Data Frames</h2>
+<div id="data-frames-1" class="section level2">
+<h2><span class="header-section-number">8.14</span> Data Frames</h2>
 <p>The vast majority of data in R is kept in a <strong>tibble</strong> (often called a <strong>data frame</strong>), which is a collection of <strong>vectors</strong> of the same length. You can think of a <strong>tibble</strong> as a table, with each column in the table being of the same type (numeric, character, TRUE/FALSE, etc.).</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">my_tibble &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
-<a class="sourceLine" id="cb67-2" data-line-number="2">  <span class="dt">number =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), </a>
-<a class="sourceLine" id="cb67-3" data-line-number="3">  <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>),</a>
-<a class="sourceLine" id="cb67-4" data-line-number="4">  <span class="dt">is_one =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb67-5" data-line-number="5">)</a>
-<a class="sourceLine" id="cb67-6" data-line-number="6">my_tibble</a></code></pre></div>
+<p>–</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1">my_tibble &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb263-2" data-line-number="2">  <span class="dt">number =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), </a>
+<a class="sourceLine" id="cb263-3" data-line-number="3">  <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>),</a>
+<a class="sourceLine" id="cb263-4" data-line-number="4">  <span class="dt">is_one =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb263-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb263-6" data-line-number="6">my_tibble</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   number name  is_one
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt; 
 ## 1      1 one   TRUE  
 ## 2      2 two   FALSE 
 ## 3      3 three FALSE</code></pre>
-<p>The syntax for creating a <strong>tibble</strong> is <code>tibble(column_name = value)</code>. The above tibble has three columns (<code>number</code>, a numeric column, <code>name</code>, a character column, and <code>is_one</code>, a logical TRUE/FALSE column). You can get these values as vectors again using the <code>$</code> operator, which allows you to extract a vector from a data frame.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">my_tibble<span class="op">$</span>number</a></code></pre></div>
-<pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">my_tibble<span class="op">$</span>name</a></code></pre></div>
-<pre><code>## [1] &quot;one&quot;   &quot;two&quot;   &quot;three&quot;</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">my_tibble<span class="op">$</span>is_one</a></code></pre></div>
-<pre><code>## [1]  TRUE FALSE FALSE</code></pre>
-<p>You can think of tibbles as a collection of vectors (<strong>variables</strong>) having the same number of elements. The number of elements has to be equal for all columns, meaning the <em>i</em><sup>th</sup> value of each vector forms an <strong>observation</strong>. Data in this form is very useful and is the subject of most of the following tutorials.</p>
 </div>
-<div id="loading-packages" class="section level2">
-<h2><span class="header-section-number">1.8</span> Loading Packages</h2>
-<p>Basic R functionality is designed to provide basic functions to help with data analysis, but may add-ons are available and code you find online (including here, shortly) will often tell you to load a “package” using <code>library()</code>. This will be a call to the <code>library()</code> function in the form <code>library(packagename)</code>, where <code>packagename</code> is the name of the package which contains the functions you are interested in using (all of the subsequent tutorials will use <code>library(tidyverse)</code>, because the <code>tidyverse</code> package contains many useful functions that you will use on a regular basis. When you call <code>library(packagename)</code>, it will make these functions available to you. Occasionally you will see something like <code>packagename::function_name()</code>, which is a method to use a function without making <em>all</em> of the functions in a package. This is equivalent to typing <code>library(packagename)</code> then <code>function_name()</code> on the next line. You can install packages using <code>install.packages(&quot;packagename&quot;)</code> (note the quotes around <code>packagename</code>!).</p>
-<p>For example, let’s install the <code>tidyverse</code> package now, since you’ll be using it in the rest of this series.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="kw">install.pacakges</span>(<span class="st">&quot;tidyverse&quot;</span>)</a></code></pre></div>
-<p>Then, load it using <code>library()</code>:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<p>Finally, we are ready to call a function from the package. The <code>tidyverse</code> package actually installs and loads a family of useful packages for us, a list of which we can access using <code>tidyverse_packages()</code>. Try it!</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">tidyverse_packages</span>()</a></code></pre></div>
+<div id="loading-packages-1" class="section level2">
+<h2><span class="header-section-number">8.15</span> Loading Packages</h2>
+<p>Base R functionality is designed to provide basic functions to help with data analysis, but may add-ons are available and code you find online (including here, shortly) will often tell you to load a “package” using <code>library()</code>.</p>
+<p>–</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb265-1" data-line-number="1"><span class="kw">library</span>(packagename)</a></code></pre></div>
+<p>–</p>
+<p>The <code>tidyverse</code> package actually installs and loads a family of useful packages for us, a list of which we can access using <code>tidyverse_packages()</code>. Try it!</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1"><span class="kw">tidyverse_packages</span>()</a></code></pre></div>
 <pre><code>##  [1] &quot;broom&quot;       &quot;cli&quot;         &quot;crayon&quot;      &quot;dplyr&quot;       &quot;dbplyr&quot;     
 ##  [6] &quot;forcats&quot;     &quot;ggplot2&quot;     &quot;haven&quot;       &quot;hms&quot;         &quot;httr&quot;       
 ## [11] &quot;jsonlite&quot;    &quot;lubridate&quot;   &quot;magrittr&quot;    &quot;modelr&quot;      &quot;purrr&quot;      
@@ -506,46 +522,20 @@ an optional character string to separate the results. Not
 ## [21] &quot;rvest&quot;       &quot;stringr&quot;     &quot;tibble&quot;      &quot;tidyr&quot;       &quot;xml2&quot;       
 ## [26] &quot;tidyverse&quot;</code></pre>
 </div>
-<div id="using-the-script-editor" class="section level2">
-<h2><span class="header-section-number">1.9</span> Using the Script Editor</h2>
-<p>In reality, very little of the code you type will be directly in the prompt. Instead, you will use RStudio’s script editor to run commands so that you can go back and edit them or run them from the beginning. To create a new R script, choose <em>File</em>, <em>New File</em>, and <em>R script</em> (you can also choose the little green “+” button at the top left of the console window). A blank R script should appear in a new tab.</p>
+<div id="script-editor" class="section level2">
+<h2><span class="header-section-number">8.16</span> Script Editor</h2>
+<p>In reality, very little of the code you type will be directly in the prompt. Instead, you will use RStudio’s script editor to run commands so that you can go back and edit them or run them from the beginning.</p>
 <div class="figure">
-<img src="01-Basic-R-Figs/r_editor.png" alt="A new R script in the RStudio script editor." />
-<p class="caption">A new R script in the RStudio script editor.</p>
+<img src="https://raw.githubusercontent.com/paleolimbot/r4paleolim/master/01-Basic-R-Figs/r_editor.png" alt="Script Editor" />
+<p class="caption">Script Editor</p>
 </div>
-<p>When you type a command in the editor and press enter, nothing happens! This is because the editor is meant to build script that contain multiple lines, unlike the console, which is meant to execute a single line at a time. To run a command you have typed in the script editor, press Ctrl+Enter (Command+Enter on a Mac). You can even select multiple lines, press Ctrl+Enter, and they will all run at once! You can also save the script and choose <em>Source</em> to run the whole thing. It is good practice to keep all of your code in a script somewhere. Typing it on a console repeatedly is hard work, and leads to errors!</p>
+<hr />
 </div>
-<div id="the-environment" class="section level2">
-<h2><span class="header-section-number">1.10</span> The Environment</h2>
-<p>When you’ve assigned a bunch of variables, it can be tricky to keep track of which ones are where and contain what! Hopefully you have given them short but descriptive names, but if you happen to forget you can check the “Environment” tab in RStudio (in the upper right part of the window). If you’d like to start fresh you can clear the environment (use the little broom icon or go to Session/Clear Workspace), and if you <em>really</em> want to start fresh, you can restart R using Session/Restart R. This will clear your workspace and unload all the packages you loaded using <code>library()</code>. This is a good way to make sure all of your analysis has been encapsulated by the script, since you can Restart R and <em>Source</em> your script to replicate your work.</p>
-<div class="figure">
-<img src="01-Basic-R-Figs/r_environment.png" alt="The RStudio Environment Tab" />
-<p class="caption">The RStudio Environment Tab</p>
-</div>
-<p>By default, R will save your session when you quit and reload the variables you had previously assigned when you reopen it. This is dangerous, because even though you created an object, you may not be able to create it again! I highly reccomend using the script editor to encapsulate all of your code, and disable the automatic loading/saving of your workspace. You can do this in RStuio’s Preferences (or “Global Options” on Windows/Linux) by setting “Save workspace on exit” to “Never”, and unchecking “Restore .RData into workspace at startup”.</p>
-<div class="figure">
-<img src="01-Basic-R-Figs/r_options.png" alt="The RStudio Global Options/Preferences window." />
-<p class="caption">The RStudio Global Options/Preferences window.</p>
-</div>
-</div>
-<div id="excercises" class="section level2">
-<h2><span class="header-section-number">1.11</span> Excercises</h2>
-<p>To practice the basics of R, complete the very first <a href="http://swirlstats.com/">swirl</a> module, R Programming / Basic Building Blocks. To do this, you’ll need to install and load <strong>swirl</strong> by typing this at the R prompt:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)</a>
-<a class="sourceLine" id="cb79-2" data-line-number="2"><span class="kw">library</span>(swirl)</a>
-<a class="sourceLine" id="cb79-3" data-line-number="3"><span class="kw">swirl</span>()</a></code></pre></div>
-<p>You should get a friendly greeting that will prompt you to choose a course (you want number 1, “R Programming: The basics of programming in R”) and a module (you want number 1, “Basic Building Blocks”). I suggest stopping after the first module, as <a href="http://r4ds.had.co.nz/">R for Data Science</a> provides a more effective introduction to the language.</p>
-</div>
-<div id="summary" class="section level2">
-<h2><span class="header-section-number">1.12</span> Summary</h2>
-<p>In this lesson we covered <strong>expressions</strong>, <strong>variables</strong>, <strong>functions</strong>, <strong>vectors</strong>, and <strong>indexing</strong>, all of which will help you get the most out of the tutorials in this series. For more information, check out the <a href="http://r4ds.had.co.nz/workflow-basics.html">Workflow: basics</a> and <a href="http://r4ds.had.co.nz/workflow-scripts.html">Workflow: scripts</a> tutorial in the free online book, <a href="http://r4ds.had.co.nz/">R for Data Science</a>.</p>
-
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-r4ds">
-<p>Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. New York: O’Reily. <a href="http://r4ds.had.co.nz/" class="uri">http://r4ds.had.co.nz/</a>.</p>
+<div id="environment" class="section level2">
+<h2><span class="header-section-number">8.17</span> Environment</h2>
+<p>Use the <strong>Environment</strong> tab in RStudio to see which variables you have already assigned.</p>
+<p><img src="https://paleolimbot.github.io/r4paleolim/01-Basic-R-Figs/r_environment.png" /></p>
+<hr />
 </div>
 </div>
             </section>
@@ -553,8 +543,8 @@ an optional character string to separate the results. Not
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="work-with-tables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tutorial-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
@@ -584,7 +574,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/paleolimbot/r4paleolim/edit/master/01-Basic-R.Rmd",
+"link": "https://github.com/paleolimbot/r4paleolim/edit/master/Presentation/r4paleolim_slides.Rmd",
 "text": "Edit"
 },
 "download": null,
